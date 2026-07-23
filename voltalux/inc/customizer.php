@@ -107,7 +107,7 @@ function voltalux_customize_register( $wp_customize ) {
 
 	voltalux_add_text_setting( $wp_customize, 'voltalux_hero_eyebrow', __( 'Zonnepanelen · Thuisbatterij · Airco · Dakrenovatie', 'voltalux' ), __( 'Klein label boven de titel', 'voltalux' ), 'voltalux_hero' );
 	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark].', 'voltalux' ), __( 'Hero-titel. Zet [mark]tekst[/mark] rond een woord voor de groene markering.', 'voltalux' ), 'voltalux_hero' );
-	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_text', __( "Van zonnepanelen en thuisbatterijen tot airco's en dakrenovaties — wij verduurzamen je woning van A tot Z.", 'voltalux' ), __( 'Hero-tekst', 'voltalux' ), 'voltalux_hero' );
+	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_text', __( "Verduurzamen zonder gedoe — van eerlijk advies tot installatie en nazorg.", 'voltalux' ), __( 'Hero-tekst', 'voltalux' ), 'voltalux_hero' );
 
 	voltalux_add_text_setting( $wp_customize, 'voltalux_hero_btn1_label', __( 'Offerte aanvragen', 'voltalux' ), __( 'Knop 1 — tekst', 'voltalux' ), 'voltalux_hero' );
 	voltalux_add_url_setting( $wp_customize, 'voltalux_hero_btn1_url', '#contact', __( 'Knop 1 — link', 'voltalux' ), '', 'voltalux_hero' );

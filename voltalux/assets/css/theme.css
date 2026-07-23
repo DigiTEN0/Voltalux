@@ -19,8 +19,8 @@
 /* Eyebrow — mono technical label with hairline */
 .vlx-eyebrow {
 	display: inline-flex; align-items: center; gap: .7em;
-	font-family: var(--font-mono); font-weight: 400; font-size: var(--fs-label);
-	letter-spacing: .16em; text-transform: uppercase; color: var(--green-strong);
+	font-family: var(--font-body); font-weight: 600; font-size: var(--fs-label);
+	letter-spacing: .13em; text-transform: uppercase; color: var(--green-strong);
 }
 .vlx-eyebrow::before { content: ""; width: 26px; height: 1.5px; background: currentColor; opacity: .55; }
 .vlx-eyebrow--inv { color: var(--green); }
@@ -35,10 +35,10 @@
 .vlx-bg-ink .vlx-lead { color: var(--muted-inv); }
 
 /* Section header block */
-.vlx-s-head { max-width: 34ch; }
+.vlx-s-head { max-width: 40rem; }
 .vlx-s-head .vlx-eyebrow { margin-bottom: 1.25rem; }
 .vlx-s-head p { margin-top: 1.1rem; }
-.vlx-s-head--center { max-width: 46ch; margin-inline: auto; text-align: center; }
+.vlx-s-head--center { max-width: 36rem; margin-inline: auto; text-align: center; }
 .vlx-s-head--center .vlx-eyebrow { justify-content: center; }
 .vlx-s-head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem 3rem; flex-wrap: wrap; }
 .vlx-s-head-row .vlx-s-head { margin-bottom: 0; }
@@ -98,10 +98,10 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.25rem; height: var(--header-h); }
 
 .vlx-brand { display: inline-flex; align-items: center; }
-.vlx-brand img, .vlx-brand .custom-logo { height: 44px; width: auto; }
+.vlx-brand img, .vlx-brand .custom-logo { height: 54px; width: auto; }
 
 .vlx-nav { justify-self: center; }
-.vlx-nav > ul { display: flex; align-items: center; gap: .1rem; }
+.vlx-nav > ul { display: flex; align-items: center; gap: .1rem; list-style: none; margin: 0; padding: 0; }
 .vlx-nav > ul > li { position: relative; }
 .vlx-nav a { display: inline-flex; align-items: center; gap: .35em; padding: .55rem .9rem; border-radius: var(--r-pill); font-family: var(--font-display); font-weight: 500; font-size: .93rem; color: rgba(255,255,255,.82); transition: background-color var(--t) var(--ease), color var(--t) var(--ease); }
 .vlx-nav a:hover, .vlx-nav .current-menu-item > a, .vlx-nav .current-menu-ancestor > a { background: rgba(255,255,255,.1); color: #fff; }
@@ -116,8 +116,9 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-nav .sub-menu a:hover { background: var(--green-soft); color: var(--green-strong); }
 
 /* Mega menu (products) */
-.vlx-mega { position: absolute; top: calc(100% + 12px); left: 50%; transform: translate(-50%, 8px); width: min(760px, 90vw); background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-lg); padding: 1.1rem; opacity: 0; visibility: hidden; transition: opacity var(--t) var(--ease), transform var(--t) var(--ease), visibility var(--t); z-index: 10; }
+.vlx-mega { position: fixed; top: var(--header-h); left: 50%; transform: translate(-50%, 10px); width: min(880px, 94vw); background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-lg); padding: 1.1rem; opacity: 0; visibility: hidden; transition: opacity var(--t) var(--ease), transform var(--t) var(--ease), visibility var(--t); z-index: 10; }
 .has-mega:hover > .vlx-mega { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.vlx-mega::before { content:""; position:absolute; top:-14px; left:0; right:0; height:16px; }
 .vlx-mega::before { content:""; position:absolute; top:-12px; left:0; right:0; height:12px; } /* hover bridge */
 .vlx-mega-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
 .vlx-mega-item { display: flex; align-items: center; gap: .9rem; padding: .7rem; border-radius: 14px; transition: background-color var(--t) var(--ease); }
@@ -147,7 +148,7 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 body.menu-open .vlx-m-nav { transform: translateY(0); opacity: 1; visibility: visible; }
 body.menu-open { overflow: hidden; }
 .vlx-m-nav__top { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); padding-inline: var(--gutter); border-bottom: 1px solid var(--line-2); flex: none; }
-.vlx-m-nav__top .vlx-brand img { height: 32px; }
+.vlx-m-nav__top .vlx-brand img { height: 46px; }
 .vlx-m-close { width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--line); display: grid; place-items: center; }
 .vlx-m-close svg { width: 18px; height: 18px; }
 .vlx-m-nav__scroll { flex: 1; overflow-y: auto; padding: 1.25rem var(--gutter) 2rem; -webkit-overflow-scrolling: touch; }
@@ -195,7 +196,7 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 .vlx-hero__inner { position: relative; z-index: 2; padding-top: calc(var(--header-h) + 2rem); padding-bottom: 2.5rem; width: 100%; }
 .vlx-hero .vlx-eyebrow { color: var(--green); margin-bottom: 1.5rem; }
 .vlx-hero h1 { color: #fff; font-size: var(--fs-display); font-weight: 500; letter-spacing: -.035em; line-height: .98; max-width: 15ch; margin-bottom: 1.5rem; }
-.vlx-hero__text { max-width: 46ch; font-size: var(--fs-lead); color: rgba(255,255,255,.82); }
+.vlx-hero__text { max-width: 46rem; font-size: var(--fs-lead); color: rgba(255,255,255,.82); }
 .vlx-hero__cta { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.1rem; }
 
 /* Spec bar under hero */
@@ -285,7 +286,7 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
    ------------------------------------------------------------------------- */
 .vlx-quote { position: relative; border-radius: var(--r-card); overflow: hidden; background: var(--ink); color: #fff; padding: clamp(2rem,1.2rem + 3vw,3.6rem); }
 .vlx-quote::before { content:""; position:absolute; inset:0; background: radial-gradient(90% 120% at 100% 0%, rgba(21,221,110,.24), transparent 55%); }
-.vlx-quote__inner { position: relative; max-width: 54ch; }
+.vlx-quote__inner { position: relative; max-width: 60rem; }
 .vlx-quote__rating { display: inline-flex; align-items: center; gap: .5rem; font-size: .84rem; color: rgba(255,255,255,.72); margin-bottom: 1.4rem; }
 .vlx-quote__rating .vlx-stars { color: var(--green); letter-spacing: .08em; }
 .vlx-quote blockquote { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.35rem, 1rem + 1.5vw, 2.1rem); line-height: 1.28; letter-spacing: -.02em; }
@@ -426,7 +427,10 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 	.vlx-footer-top { grid-template-columns: 1fr; gap: 2rem; }
 	.vlx-footer-bottom { flex-direction: column; align-items: flex-start; }
 	.vlx-hero { min-height: 88vh; }
-	.vlx-hero__specs { gap: 1rem 1.6rem; }
+	.vlx-hero__specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1rem; padding-top: 1.3rem; }
+	.vlx-spec { flex-direction: column; align-items: flex-start; gap: .25rem; }
+	.vlx-spec__n { font-size: 1.1rem; }
+	.vlx-spec__l { max-width: none; }
 	.vlx-reviews, .vlx-cards { gap: 1rem; }
 	.vlx-m-products { grid-template-columns: 1fr 1fr; }
 }
@@ -581,3 +585,24 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 .vlx-quote__rating .vlx-stars svg { width: 18px; height: 18px; }
 .vlx-review .vlx-stars svg { width: 17px; height: 17px; }
 .vlx-spec__n .vlx-stars svg { width: 18px; height: 18px; }
+
+/* Mega-menu: services + products two-column */
+.vlx-mega__cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.4rem; }
+.vlx-mega__label { display: block; font-family: var(--font-body); font-weight: 700; font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: .8rem; }
+.vlx-mega-item__t, .vlx-mega-item__d { display: block; }
+.vlx-mega-item__t { margin-bottom: .08rem; }
+.vlx-mega__aside { background: var(--paper); border-radius: 16px; padding: 1.1rem 1.1rem 1.2rem; }
+.vlx-mega__plist { display: grid; gap: .25rem; }
+.vlx-mega__product { display: flex; align-items: baseline; justify-content: space-between; gap: .6rem; padding: .55rem .7rem; border-radius: 10px; transition: background-color var(--t) var(--ease); }
+.vlx-mega__product:hover { background: var(--surface); }
+.vlx-mega__pname { font-family: var(--font-display); font-weight: 700; font-size: .95rem; color: var(--ink); }
+.vlx-mega__pspec { font-size: .76rem; color: var(--muted); }
+@media (max-width: 900px){ .vlx-mega__cols { grid-template-columns: 1fr; } }
+
+/* small polish */
+.vlx-review__src svg { width: 15px; height: 15px; }
+.vlx-review-score { flex-wrap: wrap; }
+@media (max-width: 640px){
+	.vlx-header-inner { padding-inline: 1.05rem; }
+	.vlx-brand img, .vlx-brand .custom-logo { height: 46px; }
+}

@@ -39,13 +39,29 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 					<li class="has-mega">
 						<a href="#diensten"><?php esc_html_e( 'Diensten', 'voltalux' ); ?></a>
 						<div class="vlx-mega">
-							<div class="vlx-mega-grid">
-								<?php foreach ( $services as $s ) : ?>
-									<a class="vlx-mega-item" href="<?php echo esc_url( $s['url'] ); ?>">
-										<span class="vlx-mega-item__img"><?php echo voltalux_icon( $s['icon'] ); // phpcs:ignore ?></span>
-										<span><span class="vlx-mega-item__t"><?php echo esc_html( $s['name'] ); ?></span><span class="vlx-mega-item__d"><?php echo esc_html( $s['desc'] ); ?></span></span>
-									</a>
-								<?php endforeach; ?>
+							<div class="vlx-mega__cols">
+								<div>
+									<span class="vlx-mega__label"><?php esc_html_e( 'Onze diensten', 'voltalux' ); ?></span>
+									<div class="vlx-mega-grid">
+										<?php foreach ( $services as $s ) : ?>
+											<a class="vlx-mega-item" href="<?php echo esc_url( $s['url'] ); ?>">
+												<span class="vlx-mega-item__img"><?php echo voltalux_icon( $s['icon'] ); // phpcs:ignore ?></span>
+												<span><span class="vlx-mega-item__t"><?php echo esc_html( $s['name'] ); ?></span><span class="vlx-mega-item__d"><?php echo esc_html( $s['desc'] ); ?></span></span>
+											</a>
+										<?php endforeach; ?>
+									</div>
+								</div>
+								<div class="vlx-mega__aside">
+									<span class="vlx-mega__label"><?php esc_html_e( 'Populaire thuisbatterijen', 'voltalux' ); ?></span>
+									<div class="vlx-mega__plist">
+										<?php foreach ( voltalux_battery_products() as $bp ) : ?>
+											<a class="vlx-mega__product" href="<?php echo esc_url( $bp['url'] ); ?>">
+												<span class="vlx-mega__pname"><?php echo esc_html( $bp['name'] ); ?></span>
+												<span class="vlx-mega__pspec"><?php echo esc_html( $bp['spec'] ); ?></span>
+											</a>
+										<?php endforeach; ?>
+									</div>
+								</div>
 							</div>
 							<div class="vlx-mega-foot">
 								<span><?php esc_html_e( 'Advies op maat en op locatie', 'voltalux' ); ?></span>

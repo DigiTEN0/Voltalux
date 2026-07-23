@@ -116,6 +116,23 @@ function voltalux_services() {
 }
 
 /**
+ * Popular home-battery products (shown inside the mega-menu).
+ *
+ * @return array[] each: name, spec, url
+ */
+function voltalux_battery_products() {
+	return apply_filters(
+		'voltalux_battery_products',
+		array(
+			array( 'name' => 'AEG', 'spec' => __( 'Duits A-merk', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'HyxiPower', 'spec' => __( 'All-in-one', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'AlphaESS', 'spec' => __( 'Modulair', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'Fox ESS', 'spec' => __( 'Compact & slim', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+		)
+	);
+}
+
+/**
  * Recent projects (projecten section).
  *
  * @return array[] each: cat, title, location, url

@@ -9,7 +9,7 @@ $video   = voltalux_option( 'hero_video', VOLTALUX_DEFAULT_HERO_VIDEO );
 $poster  = voltalux_option( 'hero_poster', '' );
 $eyebrow = voltalux_option( 'hero_eyebrow', __( "Zonnepanelen · Thuisbatterij · Airco · Dakrenovatie", 'voltalux' ) );
 $title   = voltalux_option( 'hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark].', 'voltalux' ) );
-$text    = voltalux_option( 'hero_text', __( "Van zonnepanelen en thuisbatterijen tot airco's en dakrenovaties — wij verduurzamen je woning van A tot Z. Met eigen erkende installateurs, A-merken en één vast aanspreekpunt.", 'voltalux' ) );
+$text    = voltalux_option( 'hero_text', __( "Verduurzamen zonder gedoe — van eerlijk advies tot installatie en nazorg.", 'voltalux' ) );
 
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );
 $b1_label = voltalux_option( 'hero_btn1_label', __( 'Offerte aanvragen', 'voltalux' ) );

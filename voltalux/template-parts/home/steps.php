@@ -6,7 +6,7 @@
  */
 
 $eyebrow = apply_filters( 'voltalux_home_steps_eyebrow', __( 'Onze werkwijze', 'voltalux' ) );
-$title   = apply_filters( 'voltalux_home_steps_title', __( 'Van kennismaking tot service — een duurzaam proces', 'voltalux' ) );
+$title   = apply_filters( 'voltalux_home_steps_title', __( 'Van eerste gesprek tot jarenlange nazorg', 'voltalux' ) );
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );
 
 $steps = apply_filters(
