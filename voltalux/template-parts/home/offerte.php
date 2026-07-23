@@ -5,7 +5,7 @@
  * @package Voltalux
  */
 
-$eyebrow = apply_filters( 'voltalux_home_offerte_eyebrow', __( 'Neem de eerste stap naar duurzaamheid', 'voltalux' ) );
+$eyebrow = apply_filters( 'voltalux_home_offerte_eyebrow', __( 'Neem de eerste stap', 'voltalux' ) );
 $title   = apply_filters( 'voltalux_home_offerte_title', __( 'Vraag vrijblijvend een offerte aan', 'voltalux' ) );
 $text    = apply_filters( 'voltalux_home_offerte_text', __( 'Benieuwd welke duurzame installatie bij jouw woning past? Doe de gratis check en ontvang een vrijblijvend advies en offerte op maat.', 'voltalux' ) );
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );

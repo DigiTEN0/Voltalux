@@ -28,11 +28,17 @@ if ( empty( $products ) ) {
 		<div class="vlx-batts">
 			<?php foreach ( $products as $p ) : ?>
 				<article class="vlx-batt vlx-reveal">
-					<div class="vlx-batt__icon"><?php echo voltalux_icon( 'battery' ); // phpcs:ignore ?></div>
-					<?php if ( ! empty( $p['spec'] ) ) : ?><span class="vlx-batt__badge"><?php echo esc_html( $p['spec'] ); ?></span><?php endif; ?>
-					<h3 class="vlx-batt__name"><?php echo esc_html( $p['name'] ); ?></h3>
-					<?php if ( ! empty( $p['desc'] ) ) : ?><p class="vlx-batt__desc"><?php echo esc_html( $p['desc'] ); ?></p><?php endif; ?>
-					<span class="vlx-arrow-link vlx-batt__more"><?php esc_html_e( 'Meer informatie', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></span>
+					<?php if ( ! empty( $p['img'] ) ) : ?>
+						<div class="vlx-batt__media">
+							<?php if ( ! empty( $p['spec'] ) ) : ?><span class="vlx-batt__badge"><?php echo esc_html( $p['spec'] ); ?></span><?php endif; ?>
+							<img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( sprintf( '%s thuisbatterij', $p['name'] ) ); ?>" loading="lazy">
+						</div>
+					<?php endif; ?>
+					<div class="vlx-batt__body">
+						<h3 class="vlx-batt__name"><?php echo esc_html( $p['name'] ); ?></h3>
+						<?php if ( ! empty( $p['desc'] ) ) : ?><p class="vlx-batt__desc"><?php echo esc_html( $p['desc'] ); ?></p><?php endif; ?>
+						<span class="vlx-arrow-link vlx-batt__more"><?php esc_html_e( 'Bekijk batterij', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></span>
+					</div>
 					<a class="vlx-batt__cover" href="<?php echo esc_url( $p['url'] ); ?>" aria-label="<?php echo esc_attr( $p['name'] ); ?>"></a>
 				</article>
 			<?php endforeach; ?>

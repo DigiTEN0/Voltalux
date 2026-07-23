@@ -124,10 +124,10 @@ function voltalux_battery_products() {
 	return apply_filters(
 		'voltalux_battery_products',
 		array(
-			array( 'name' => 'AEG', 'spec' => __( 'Duits A-merk', 'voltalux' ), 'desc' => __( 'Betrouwbare opslag van een gerenommeerd merk.', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => 'HyxiPower', 'spec' => __( 'All-in-one', 'voltalux' ), 'desc' => __( 'Batterij en omvormer in één compact systeem.', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => 'AlphaESS', 'spec' => __( 'Modulair', 'voltalux' ), 'desc' => __( 'Breid eenvoudig uit met extra capaciteit.', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => 'Fox ESS', 'spec' => __( 'Compact & slim', 'voltalux' ), 'desc' => __( 'Krachtige opslag in een klein formaat.', 'voltalux' ), 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'AEG', 'spec' => __( 'Duits A-merk', 'voltalux' ), 'desc' => __( 'Betrouwbare opslag van een gerenommeerd merk.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'HyxiPower', 'spec' => __( 'All-in-one', 'voltalux' ), 'desc' => __( 'Batterij en omvormer in één compact systeem.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'AlphaESS', 'spec' => __( 'Modulair', 'voltalux' ), 'desc' => __( 'Breid eenvoudig uit met extra capaciteit.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'Fox ESS', 'spec' => __( 'Compact & slim', 'voltalux' ), 'desc' => __( 'Krachtige opslag in een klein formaat.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
 		)
 	);
 }

@@ -7,7 +7,7 @@
 
 $video   = voltalux_option( 'hero_video', VOLTALUX_DEFAULT_HERO_VIDEO );
 $poster  = voltalux_option( 'hero_poster', '' );
-$eyebrow = voltalux_option( 'hero_eyebrow', __( "Zonnepanelen · Thuisbatterij · Airco · Dakrenovatie", 'voltalux' ) );
+$eyebrow = voltalux_option( 'hero_eyebrow', __( 'Zonnepanelen · Thuisbatterij · Airco', 'voltalux' ) );
 $title   = voltalux_option( 'hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark].', 'voltalux' ) );
 $text    = voltalux_option( 'hero_text', '' );
 

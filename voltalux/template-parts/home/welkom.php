@@ -35,9 +35,11 @@ $points = apply_filters(
 			</div>
 
 			<aside class="vlx-highlight vlx-reveal">
-				<div class="vlx-highlight__n">650<span style="color:var(--green)">+</span></div>
-				<div class="vlx-highlight__l"><?php esc_html_e( 'Woningen door heel Nederland verduurzaamd', 'voltalux' ); ?></div>
-				<ul>
+				<div class="vlx-highlight__row">
+					<div class="vlx-highlight__n">650<span>+</span></div>
+					<div class="vlx-highlight__l"><?php esc_html_e( 'Woningen verduurzaamd door heel Nederland', 'voltalux' ); ?></div>
+				</div>
+				<ul class="vlx-highlight__list">
 					<?php foreach ( $points as $p ) : ?>
 						<li><?php echo voltalux_icon( 'check' ); // phpcs:ignore ?><span><?php echo esc_html( $p ); ?></span></li>
 					<?php endforeach; ?>
