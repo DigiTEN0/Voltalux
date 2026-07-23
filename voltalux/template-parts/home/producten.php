@@ -23,7 +23,6 @@ if ( empty( $products ) ) {
 		<div class="vlx-s-head vlx-s-head--center vlx-reveal">
 			<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow, true ); } ?>
 			<h2><?php echo esc_html( $title ); ?></h2>
-			<?php if ( $intro ) : ?><p class="vlx-lead"><?php echo esc_html( $intro ); ?></p><?php endif; ?>
 		</div>
 
 		<div class="vlx-batts">

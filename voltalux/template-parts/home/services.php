@@ -19,7 +19,6 @@ if ( empty( $services ) ) {
 		<div class="vlx-s-head vlx-reveal">
 			<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow ); } ?>
 			<h2><?php echo esc_html( $title ); ?></h2>
-			<?php if ( $intro ) : ?><p class="vlx-lead"><?php echo esc_html( $intro ); ?></p><?php endif; ?>
 		</div>
 
 		<div class="vlx-services">
