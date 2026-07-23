@@ -30,11 +30,11 @@ if ( empty( $products ) ) {
 				<article class="vlx-batt vlx-reveal">
 					<?php if ( ! empty( $p['img'] ) ) : ?>
 						<div class="vlx-batt__media">
-							<?php if ( ! empty( $p['spec'] ) ) : ?><span class="vlx-batt__badge"><?php echo esc_html( $p['spec'] ); ?></span><?php endif; ?>
 							<img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( sprintf( '%s thuisbatterij', $p['name'] ) ); ?>" loading="lazy">
 						</div>
 					<?php endif; ?>
 					<div class="vlx-batt__body">
+						<?php if ( ! empty( $p['spec'] ) ) : ?><span class="vlx-batt__spec"><?php echo esc_html( $p['spec'] ); ?></span><?php endif; ?>
 						<h3 class="vlx-batt__name"><?php echo esc_html( $p['name'] ); ?></h3>
 						<?php if ( ! empty( $p['desc'] ) ) : ?><p class="vlx-batt__desc"><?php echo esc_html( $p['desc'] ); ?></p><?php endif; ?>
 						<span class="vlx-arrow-link vlx-batt__more"><?php esc_html_e( 'Bekijk batterij', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></span>

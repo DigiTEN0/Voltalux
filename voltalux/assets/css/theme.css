@@ -205,7 +205,7 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 .vlx-hero__specs { display: flex; flex-wrap: wrap; gap: 1.4rem 2.4rem; margin-top: 2.8rem; padding-top: 1.6rem; border-top: 1px solid rgba(255,255,255,.16); }
 .vlx-spec { display: flex; align-items: center; gap: .7rem; }
 .vlx-spec__n { font-family: var(--font-display); font-weight: 800; font-size: 1.35rem; letter-spacing: -.02em; }
-.vlx-spec__l { font-size: .82rem; color: rgba(255,255,255,.62); max-width: 16ch; line-height: 1.3; }
+.vlx-spec__l { font-size: .82rem; color: rgba(255,255,255,.62); line-height: 1.3; white-space: nowrap; }
 .vlx-spec .vlx-stars { color: var(--green); letter-spacing: .06em; }
 
 /* -------------------------------------------------------------------------
@@ -433,7 +433,7 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 	.vlx-hero__specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1rem; padding-top: 1.3rem; }
 	.vlx-spec { flex-direction: column; align-items: flex-start; gap: .25rem; }
 	.vlx-spec__n { font-size: 1.1rem; }
-	.vlx-spec__l { max-width: none; }
+	.vlx-spec__l { white-space: normal; }
 	.vlx-reviews, .vlx-cards { gap: 1rem; }
 	.vlx-m-products { grid-template-columns: 1fr 1fr; }
 }
@@ -507,16 +507,14 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 .vlx-highlight__list li svg { width: 13px; height: 13px; color: var(--green); flex: none; }
 
 /* --- Projecten --- */
-.vlx-projects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3rem; }
-.vlx-project { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 250px; border-radius: var(--r-card); overflow: hidden; padding: 1.6rem; color: #fff; isolation: isolate; transition: transform var(--t) var(--ease); }
+.vlx-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.4rem; }
+.vlx-project { position: relative; display: flex; flex-direction: column; justify-content: flex-end; aspect-ratio: 4 / 3.4; border-radius: var(--r-card); overflow: hidden; padding: 1.5rem; color: #fff; isolation: isolate; transition: transform var(--t) var(--ease); }
 .vlx-project:hover { transform: translateY(-5px); }
-.vlx-project::before { content:""; position:absolute; inset:0; background: linear-gradient(155deg, #12261b 0%, #0A0B0D 65%); z-index: -2; }
-.vlx-project::after { content:""; position:absolute; inset:auto -10% -30% -10%; height:60%; background: radial-gradient(60% 100% at 60% 100%, rgba(21,221,110,.35), transparent 70%); z-index: -1; opacity: .8; transition: opacity var(--t); }
-.vlx-project:hover::after { opacity: 1; }
-.vlx-project__ic { position: absolute; top: 1.4rem; right: 1.4rem; width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,.09); color: var(--green); display: grid; place-items: center; }
-.vlx-project__ic svg { width: 22px; height: 22px; }
+.vlx-project__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; transition: transform .6s var(--ease); }
+.vlx-project:hover .vlx-project__img { transform: scale(1.05); }
+.vlx-project::after { content:""; position:absolute; inset:0; background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.30) 42%, rgba(0,0,0,0) 72%); z-index: -1; }
 .vlx-project__cat { font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--green); }
-.vlx-project h3 { color: #fff; font-size: 1.16rem; margin: .5rem 0 .6rem; letter-spacing: -.02em; }
+.vlx-project h3 { color: #fff; font-size: 1.16rem; margin: .4rem 0 .5rem; letter-spacing: -.02em; }
 .vlx-project__loc { display: inline-flex; align-items: center; gap: .4rem; font-size: .86rem; color: var(--muted-inv); }
 .vlx-project__loc svg { width: 15px; height: 15px; }
 .vlx-project__link { position: absolute; inset: 0; }
@@ -625,11 +623,11 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 .vlx-batts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 3rem; }
 .vlx-batt { position: relative; display: flex; flex-direction: column; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: var(--r-card); overflow: hidden; transition: transform var(--t) var(--ease), background-color var(--t) var(--ease), border-color var(--t) var(--ease); }
 .vlx-batt:hover { transform: translateY(-6px); background: rgba(255,255,255,.06); border-color: var(--green-line); }
-.vlx-batt__media { position: relative; aspect-ratio: 1 / 1; display: grid; place-items: center; padding: 1.4rem; background: radial-gradient(120% 90% at 50% 12%, rgba(255,255,255,.09), rgba(255,255,255,0) 62%); border-bottom: 1px solid rgba(255,255,255,.07); }
-.vlx-batt__media img { max-height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 22px 26px rgba(0,0,0,.5)); transition: transform .5s var(--ease); }
-.vlx-batt:hover .vlx-batt__media img { transform: translateY(-5px) scale(1.02); }
-.vlx-batt__badge { position: absolute; top: .9rem; left: .9rem; font-family: var(--font-mono); font-size: .6rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--green); background: rgba(21,221,110,.12); border: 1px solid var(--green-line); padding: .28rem .55rem; border-radius: var(--r-pill); }
-.vlx-batt__body { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.vlx-batt__media { position: relative; aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 1.1rem; background: #fff; }
+.vlx-batt__media img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; transition: transform .5s var(--ease); }
+.vlx-batt:hover .vlx-batt__media img { transform: scale(1.03); }
+.vlx-batt__body { padding: 1.2rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
+.vlx-batt__spec { font-family: var(--font-mono); font-size: .64rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; color: var(--green); margin-bottom: .35rem; }
 .vlx-batt__name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; letter-spacing: -.02em; color: #fff; }
 .vlx-batt__desc { color: var(--muted-inv); font-size: .88rem; line-height: 1.45; margin-top: .3rem; flex: 1; }
 .vlx-batt__more { margin-top: 1.1rem; color: var(--green); font-size: .88rem; }
@@ -681,3 +679,7 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 	.vlx-project { min-height: 220px; }
 	.vlx-batts__foot { margin-top: 1.8rem; }
 }
+
+/* Welkom-sectie afbeelding (vervangt de oude stat-kaart) */
+.vlx-welkom__media { position: relative; }
+.vlx-welkom__img { width: 100%; height: auto; max-height: 560px; object-fit: cover; border-radius: 16px; display: block; box-shadow: var(--shadow-lg); }

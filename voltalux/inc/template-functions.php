@@ -138,13 +138,16 @@ function voltalux_battery_products() {
  * @return array[] each: cat, title, location, url
  */
 function voltalux_projects() {
+	$base = 'http://voltalux.digiten.nl/wp-content/uploads/2026/07/';
 	return apply_filters(
 		'voltalux_projects',
 		array(
-			array( 'cat' => "Airco's",       'title' => __( '2× 5.0 kWh airco-systemen', 'voltalux' ),      'location' => 'Den Haag',  'url' => 'https://www.voltalux.nl/project/2x-5-0-kwh-airco-systemen-den-haag/', 'icon' => 'snow' ),
-			array( 'cat' => __( 'Dakrenovaties', 'voltalux' ), 'title' => __( 'Dakrenovatie incl. 2 lichtkoepels', 'voltalux' ), 'location' => 'Venlo', 'url' => 'https://www.voltalux.nl/project/dakrenovatie-incl-2-lichtkoepels-venlo/', 'icon' => 'roof' ),
-			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '8 Black Frame zonnepanelen', 'voltalux' ),      'location' => 'Waalwijk',  'url' => 'https://www.voltalux.nl/project/8-black-frame-zonnepanelen-waalwijk/', 'icon' => 'sun' ),
-			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '2× 6 Full Black zonnepanelen', 'voltalux' ),    'location' => 'Odijk',     'url' => 'https://www.voltalux.nl/project/2x-6-full-black-zonnepanelen-odijk/', 'icon' => 'sun' ),
+			array( 'cat' => __( 'Dakrenovaties', 'voltalux' ), 'title' => __( 'Dakrenovatie incl. 2 lichtkoepels', 'voltalux' ), 'location' => 'Venlo',     'url' => 'https://www.voltalux.nl/project/dakrenovatie-incl-2-lichtkoepels-venlo/', 'icon' => 'roof', 'img' => $base . 'IMG_7086.jpeg' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '8 Black Frame zonnepanelen', 'voltalux' ),        'location' => 'Waalwijk',  'url' => 'https://www.voltalux.nl/project/8-black-frame-zonnepanelen-waalwijk/',     'icon' => 'sun',  'img' => $base . 'IMG_7057.webp' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( 'Uitbreiding 4 Full Black zonnepanelen', 'voltalux' ), 'location' => 'Amersfoort', 'url' => 'https://www.voltalux.nl/onze-projecten/',                                'icon' => 'sun',  'img' => $base . 'IMG_7058.jpg' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '2× 6 Full Black zonnepanelen', 'voltalux' ),      'location' => 'Odijk',     'url' => 'https://www.voltalux.nl/project/2x-6-full-black-zonnepanelen-odijk/',       'icon' => 'sun',  'img' => $base . 'IMG_70591-1.jpg' ),
+			array( 'cat' => "Airco's",                          'title' => __( '2× 5.0 kWh airco-systemen', 'voltalux' ),        'location' => 'Den Haag',  'url' => 'https://www.voltalux.nl/project/2x-5-0-kwh-airco-systemen-den-haag/',      'icon' => 'snow', 'img' => $base . 'IMG_6366-1.webp' ),
+			array( 'cat' => "Airco's",                          'title' => __( '3.5 kWh airco-systeem', 'voltalux' ),            'location' => 'Dordrecht', 'url' => 'https://www.voltalux.nl/onze-projecten/',                                'icon' => 'snow', 'img' => $base . 'IMG_7070.webp' ),
 		)
 	);
 }

@@ -26,7 +26,7 @@ if ( empty( $projects ) ) {
 		<div class="vlx-projects">
 			<?php foreach ( $projects as $p ) : ?>
 				<article class="vlx-project vlx-reveal">
-					<span class="vlx-project__ic"><?php echo voltalux_icon( $p['icon'] ); // phpcs:ignore ?></span>
+					<?php if ( ! empty( $p['img'] ) ) : ?><img class="vlx-project__img" src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( $p['title'] . ' — ' . $p['location'] ); ?>" loading="lazy"><?php endif; ?>
 					<span class="vlx-project__cat"><?php echo esc_html( $p['cat'] ); ?></span>
 					<h3><?php echo esc_html( $p['title'] ); ?></h3>
 					<span class="vlx-project__loc"><?php echo voltalux_icon( 'pin' ); // phpcs:ignore ?><?php echo esc_html( $p['location'] ); ?></span>

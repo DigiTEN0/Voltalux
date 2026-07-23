@@ -19,6 +19,8 @@ $points = apply_filters(
 		__( 'Geen betalingen vooraf', 'voltalux' ),
 	)
 );
+
+$image = apply_filters( 'voltalux_home_welkom_image', VOLTALUX_WELKOM_IMG );
 ?>
 <section class="vlx-section vlx-bg-surface" style="border-top:1px solid var(--line-2)" id="over-ons">
 	<div class="vlx-container vlx-container--wide">
@@ -34,17 +36,11 @@ $points = apply_filters(
 				</div>
 			</div>
 
-			<aside class="vlx-highlight vlx-reveal">
-				<div class="vlx-highlight__row">
-					<div class="vlx-highlight__n">650<span>+</span></div>
-					<div class="vlx-highlight__l"><?php esc_html_e( 'Woningen verduurzaamd door heel Nederland', 'voltalux' ); ?></div>
+			<?php if ( $image ) : ?>
+				<div class="vlx-welkom__media vlx-reveal">
+					<img class="vlx-welkom__img" src="<?php echo esc_url( $image ); ?>" alt="<?php esc_attr_e( 'Voltalux aan het werk', 'voltalux' ); ?>" loading="lazy">
 				</div>
-				<ul class="vlx-highlight__list">
-					<?php foreach ( $points as $p ) : ?>
-						<li><?php echo voltalux_icon( 'check' ); // phpcs:ignore ?><span><?php echo esc_html( $p ); ?></span></li>
-					<?php endforeach; ?>
-				</ul>
-			</aside>
+			<?php endif; ?>
 		</div>
 	</div>
 </section>

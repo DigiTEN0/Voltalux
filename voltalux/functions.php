@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.5.0' );
+	define( 'VOLTALUX_VERSION', '3.6.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -30,6 +30,10 @@ if ( ! defined( 'VOLTALUX_DEFAULT_HERO_VIDEO' ) ) {
 /* Temporary filler product photo — swap per product in the `voltalux_battery_products` filter or via media once real photos are shot. */
 if ( ! defined( 'VOLTALUX_PRODUCT_IMG' ) ) {
 	define( 'VOLTALUX_PRODUCT_IMG', 'https://www.domogo.nl/content/uploads/2026/05/AEG-thuisbatterij-e1779797821426-360x640.png' );
+}
+/* Welkom-sectie afbeelding (naast de intro-tekst). Vervangbaar via de `voltalux_home_welkom_image` filter. */
+if ( ! defined( 'VOLTALUX_WELKOM_IMG' ) ) {
+	define( 'VOLTALUX_WELKOM_IMG', 'http://voltalux.digiten.nl/wp-content/uploads/2026/07/IMG_6353.jpg' );
 }
 
 /* Real Voltalux contact defaults (client can change all of these in the Customizer). */
