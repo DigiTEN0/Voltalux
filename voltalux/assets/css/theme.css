@@ -623,8 +623,8 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 .vlx-batts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 3rem; }
 .vlx-batt { position: relative; display: flex; flex-direction: column; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09); border-radius: var(--r-card); overflow: hidden; transition: transform var(--t) var(--ease), background-color var(--t) var(--ease), border-color var(--t) var(--ease); }
 .vlx-batt:hover { transform: translateY(-6px); background: rgba(255,255,255,.06); border-color: var(--green-line); }
-.vlx-batt__media { position: relative; aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 1.1rem; background: #fff; }
-.vlx-batt__media img { max-height: 100%; max-width: 100%; width: auto; object-fit: contain; transition: transform .5s var(--ease); }
+.vlx-batt__media { position: relative; aspect-ratio: 4 / 5; background: #fff; overflow: hidden; }
+.vlx-batt__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; padding: 1.1rem; transition: transform .5s var(--ease); }
 .vlx-batt:hover .vlx-batt__media img { transform: scale(1.03); }
 .vlx-batt__body { padding: 1.2rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
 .vlx-batt__spec { font-family: var(--font-mono); font-size: .64rem; font-weight: 500; letter-spacing: .09em; text-transform: uppercase; color: var(--green); margin-bottom: .35rem; }
@@ -664,11 +664,10 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 @media (max-width: 640px) {
 	.vlx-services, .vlx-reviews, .vlx-projects {
 		display: flex; grid-template-columns: none;
-		overflow-x: auto; overflow-y: visible;
+		overflow-x: auto; overflow-y: hidden;
 		scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
 		touch-action: pan-x;
 		scrollbar-width: none; gap: .9rem;
-		padding-bottom: .4rem;
 	}
 	.vlx-services::-webkit-scrollbar,
 	.vlx-reviews::-webkit-scrollbar,
