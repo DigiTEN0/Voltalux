@@ -15,6 +15,7 @@ if ( ! voltalux_use_coded_homepage() ) :
 else :
 	get_template_part( 'template-parts/home/hero' );
 	get_template_part( 'template-parts/home/services' );
+	get_template_part( 'template-parts/home/producten' );
 	get_template_part( 'template-parts/home/waarom' );
 	get_template_part( 'template-parts/home/welkom' );
 	get_template_part( 'template-parts/home/steps' );

@@ -11,6 +11,7 @@
 .vlx-section { padding-block: var(--section); }
 .vlx-section--sm { padding-block: var(--section-sm); }
 .vlx-bg-ink { background: var(--ink); color: #fff; }
+.vlx-bg-ink h1, .vlx-bg-ink h2, .vlx-bg-ink h3, .vlx-bg-ink h4, .vlx-bg-ink h5, .vlx-bg-ink h6 { color: #fff; }
 .vlx-bg-paper { background: var(--paper); }
 .vlx-bg-paper-2 { background: var(--paper-2); }
 .vlx-bg-surface { background: var(--surface); }
@@ -98,7 +99,7 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.25rem; height: var(--header-h); }
 
 .vlx-brand { display: inline-flex; align-items: center; }
-.vlx-brand img, .vlx-brand .custom-logo { height: 54px; width: auto; }
+.vlx-brand img, .vlx-brand .custom-logo { height: 60px; width: auto; }
 
 .vlx-nav { justify-self: center; }
 .vlx-nav > ul { display: flex; align-items: center; gap: .1rem; list-style: none; margin: 0; padding: 0; }
@@ -188,7 +189,7 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 /* -------------------------------------------------------------------------
    4. Hero
    ------------------------------------------------------------------------- */
-.vlx-hero { position: relative; min-height: min(92vh, 880px); margin-top: calc(var(--header-h) * -1); display: flex; flex-direction: column; justify-content: flex-end; color: #fff; overflow: hidden; background: var(--ink); }
+.vlx-hero { position: relative; min-height: min(78vh, 720px); margin-top: calc(var(--header-h) * -1); display: flex; flex-direction: column; justify-content: flex-end; color: #fff; overflow: hidden; background: var(--ink); }
 .vlx-hero__media, .vlx-hero__media video, .vlx-hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .vlx-hero__media::after { content:""; position:absolute; inset:0; background:
 	linear-gradient(180deg, rgba(10,11,13,.55) 0%, rgba(10,11,13,.12) 30%, rgba(10,11,13,.55) 72%, rgba(10,11,13,.94) 100%),
@@ -422,11 +423,12 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 	.vlx-split--rev .vlx-split__media { order: 0; }
 }
 @media (max-width: 640px) {
-	:root { --header-h: 66px; }
+	:root { --header-h: 70px; }
 	.vlx-products, .vlx-reviews, .vlx-cards, .vlx-steps, .vlx-stats { grid-template-columns: 1fr; }
-	.vlx-footer-top { grid-template-columns: 1fr; gap: 2rem; }
+	.vlx-footer-top { grid-template-columns: 1fr 1fr; gap: 1.8rem 1.4rem; }
+	.vlx-footer-brand, .vlx-footer-cta { grid-column: 1 / -1; }
 	.vlx-footer-bottom { flex-direction: column; align-items: flex-start; }
-	.vlx-hero { min-height: 88vh; }
+	.vlx-hero { min-height: 74vh; }
 	.vlx-hero__specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem 1rem; padding-top: 1.3rem; }
 	.vlx-spec { flex-direction: column; align-items: flex-start; gap: .25rem; }
 	.vlx-spec__n { font-size: 1.1rem; }
@@ -569,7 +571,7 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 	.vlx-services, .vlx-projects { grid-template-columns: 1fr; }
 	.vlx-offerte { padding: 1.6rem; }
 	.vlx-offerte__card { padding: 1.4rem; }
-	.vlx-form__grid { grid-template-columns: 1fr 1fr; }
+	.vlx-form__grid { grid-template-columns: 1fr; }
 	.vlx-drawer__head, .vlx-drawer__body { padding-inline: 1.4rem; }
 }
 
@@ -603,6 +605,34 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 .vlx-review__src svg { width: 15px; height: 15px; }
 .vlx-review-score { flex-wrap: wrap; }
 @media (max-width: 640px){
-	.vlx-header-inner { padding-inline: 1.05rem; }
-	.vlx-brand img, .vlx-brand .custom-logo { height: 46px; }
+	.vlx-header-inner { padding-left: 1.1rem; padding-right: .5rem; }
+	.vlx-brand img, .vlx-brand .custom-logo { height: 50px; }
 }
+
+/* Fix default <ul> indent on un-classed component lists */
+.vlx-highlight ul, .vlx-footer-col ul, .vlx-footer-bottom nav ul, .vlx-sidebar ul { list-style: none; margin: 0; padding: 0; }
+/* Footer CTA button must keep its own text colour (not the muted footer link colour) */
+.vlx-site-footer .vlx-btn--primary, .vlx-site-footer .vlx-btn--primary:hover { color: var(--green-ink); }
+.vlx-site-footer .vlx-btn--primary:hover { background: var(--green-600); }
+
+/* -------------------------------------------------------------------------
+   Thuisbatterijen (producten) — dark product band
+   ------------------------------------------------------------------------- */
+.vlx-batts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; margin-top: 3.2rem; }
+.vlx-batt { position: relative; display: flex; flex-direction: column; background: rgba(255,255,255,.045); border: 1px solid rgba(255,255,255,.1); border-radius: var(--r-card); padding: 1.7rem 1.6rem 1.6rem; transition: transform var(--t) var(--ease), background-color var(--t) var(--ease), border-color var(--t) var(--ease); }
+.vlx-batt:hover { transform: translateY(-6px); background: rgba(255,255,255,.07); border-color: var(--green-line); }
+.vlx-batt__icon { width: 54px; height: 54px; border-radius: 15px; background: rgba(21,221,110,.12); color: var(--green); display: grid; place-items: center; margin-bottom: 1.3rem; transition: background-color var(--t) var(--ease), color var(--t) var(--ease); }
+.vlx-batt:hover .vlx-batt__icon { background: var(--green); color: var(--green-ink); }
+.vlx-batt__icon svg { width: 27px; height: 27px; }
+.vlx-batt__badge { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .09em; text-transform: uppercase; color: var(--green); }
+.vlx-batt__name { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; letter-spacing: -.02em; color: #fff; margin-top: .5rem; }
+.vlx-batt__desc { color: var(--muted-inv); font-size: .92rem; margin-top: .35rem; flex: 1; }
+.vlx-batt__more { margin-top: 1.4rem; color: var(--green); }
+.vlx-batt__more:hover { color: var(--green); }
+.vlx-batt__more:hover svg { transform: translate(3px,-3px); }
+.vlx-batt__cover { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+.vlx-batts__foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.4rem; margin-top: 2.8rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.12); }
+.vlx-batts__foot p { color: var(--muted-inv); max-width: 34rem; }
+.vlx-batts__actions { display: flex; flex-wrap: wrap; gap: .8rem; }
+@media (max-width: 1080px) { .vlx-batts { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .vlx-batts { grid-template-columns: 1fr; } }

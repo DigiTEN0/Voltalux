@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.2.0' );
+	define( 'VOLTALUX_VERSION', '3.3.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
