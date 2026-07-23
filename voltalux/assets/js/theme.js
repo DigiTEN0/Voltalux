@@ -60,6 +60,11 @@
 	function closeDrawer() { body.classList.remove('drawer-open'); }
 
 	doc.querySelectorAll('[data-vlx-open="offerte"]').forEach(function (el) {
+		var moved = false;
+		el.addEventListener('touchstart', function () { moved = false; }, { passive: true });
+		el.addEventListener('touchmove', function () { moved = true; }, { passive: true });
+		// touchend + preventDefault suppresses the ghost click so it opens on the FIRST tap (iOS Safari).
+		el.addEventListener('touchend', function (e) { if (!moved) { e.preventDefault(); openDrawer(); } }, { passive: false });
 		el.addEventListener('click', function (e) { e.preventDefault(); openDrawer(); });
 	});
 	doc.querySelectorAll('[data-vlx-close]').forEach(function (el) {
@@ -88,10 +93,27 @@
 	if (video) {
 		if (reduce) { video.removeAttribute('autoplay'); video.pause(); }
 		else {
-			var pp = video.play(); if (pp && pp.catch) { pp.catch(function () {}); }
+			// iOS Safari needs muted + playsinline set as properties before play() will autoplay.
+			video.muted = true;
+			video.setAttribute('muted', '');
+			video.playsInline = true;
+			var tryPlay = function () { var p = video.play(); if (p && p.catch) { p.catch(function () {}); } };
+			tryPlay();
+			video.addEventListener('loadedmetadata', tryPlay);
+			video.addEventListener('canplay', tryPlay);
+			// If autoplay is still blocked, kick it off on the first user interaction.
+			var kick = function () {
+				tryPlay();
+				window.removeEventListener('touchstart', kick);
+				window.removeEventListener('click', kick);
+				window.removeEventListener('scroll', kick);
+			};
+			window.addEventListener('touchstart', kick, { passive: true });
+			window.addEventListener('click', kick, { passive: true });
+			window.addEventListener('scroll', kick, { passive: true });
 			if ('IntersectionObserver' in window) {
 				new IntersectionObserver(function (entries) {
-					entries.forEach(function (en) { en.isIntersecting ? video.play().catch(function () {}) : video.pause(); });
+					entries.forEach(function (en) { en.isIntersecting ? tryPlay() : video.pause(); });
 				}, { threshold: 0.05 }).observe(video);
 			}
 		}

@@ -7,6 +7,9 @@
 
 $video   = voltalux_option( 'hero_video', VOLTALUX_DEFAULT_HERO_VIDEO );
 $poster  = voltalux_option( 'hero_poster', '' );
+// Match the page scheme so an http:// asset is not blocked as mixed content on an https site (iOS Safari).
+if ( $video )  { $video  = set_url_scheme( $video ); }
+if ( $poster ) { $poster = set_url_scheme( $poster ); }
 $eyebrow = voltalux_option( 'hero_eyebrow', __( 'Zonnepanelen · Thuisbatterij · Airco', 'voltalux' ) );
 $title   = voltalux_option( 'hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark].', 'voltalux' ) );
 $text    = voltalux_option( 'hero_text', '' );
@@ -18,7 +21,7 @@ $b1_url   = voltalux_option( 'hero_btn1_url', '#contact' );
 <section class="vlx-hero" id="hero">
 	<div class="vlx-hero__media">
 		<?php if ( $video ) : ?>
-			<video autoplay muted loop playsinline preload="metadata" <?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>>
+			<video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture <?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>>
 				<source src="<?php echo esc_url( $video ); ?>" type="video/mp4">
 			</video>
 		<?php elseif ( $poster ) : ?>

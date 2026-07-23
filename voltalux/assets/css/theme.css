@@ -149,9 +149,9 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-m-nav { position: fixed; inset: 0; z-index: 1000; background: var(--paper); display: flex; flex-direction: column; transform: translateY(-100%); opacity: 0; visibility: hidden; transition: transform .5s var(--ease-out), opacity .4s var(--ease), visibility .5s; overscroll-behavior: contain; }
 body.menu-open .vlx-m-nav { transform: translateY(0); opacity: 1; visibility: visible; }
 body.menu-open { overflow: hidden; }
-.vlx-m-nav__top { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); padding-inline: var(--gutter); border-bottom: 1px solid var(--line-2); flex: none; }
-.vlx-m-nav__top .vlx-brand img { height: 46px; }
-.vlx-m-close { width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--line); display: grid; place-items: center; }
+.vlx-m-nav__top { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); padding-inline: var(--gutter); background: var(--ink); border-bottom: 1px solid var(--line-inv); flex: none; }
+.vlx-m-nav__top .vlx-brand img, .vlx-m-nav__top .vlx-brand .custom-logo { height: 46px; }
+.vlx-m-close { width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--line-inv); color: #fff; display: grid; place-items: center; }
 .vlx-m-close svg { width: 18px; height: 18px; }
 .vlx-m-nav__scroll { flex: 1; overflow-y: auto; padding: 1.25rem var(--gutter) 2rem; -webkit-overflow-scrolling: touch; }
 
@@ -638,7 +638,7 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 .vlx-batts__foot p { color: var(--muted-inv); max-width: 34rem; }
 .vlx-batts__actions { display: flex; flex-wrap: wrap; gap: .8rem; }
 @media (max-width: 1080px) { .vlx-batts { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px) { .vlx-batts { grid-template-columns: 1fr; } }
+@media (max-width: 640px) { .vlx-batts { grid-template-columns: 1fr 1fr; gap: .8rem; } .vlx-batt__body { padding: 1rem 1rem 1.2rem; } .vlx-batt__name { font-size: 1.1rem; } .vlx-batt__desc { font-size: .82rem; } }
 
 /* -------------------------------------------------------------------------
    Mega-menu variants: Diensten (services) + Producten (product showcase)
@@ -662,24 +662,46 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
    Mobile carousels — swipeable card rows instead of flat stacks
    ------------------------------------------------------------------------- */
 @media (max-width: 640px) {
-	.vlx-services, .vlx-batts, .vlx-reviews, .vlx-projects {
+	.vlx-services, .vlx-reviews, .vlx-projects {
 		display: flex; grid-template-columns: none;
-		overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+		overflow-x: auto; overflow-y: visible;
+		scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
+		touch-action: pan-x;
 		scrollbar-width: none; gap: .9rem;
-		margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter);
 		padding-bottom: .4rem;
 	}
 	.vlx-services::-webkit-scrollbar,
-	.vlx-batts::-webkit-scrollbar,
 	.vlx-reviews::-webkit-scrollbar,
 	.vlx-projects::-webkit-scrollbar { display: none; }
-	.vlx-service, .vlx-batt, .vlx-review, .vlx-project {
-		scroll-snap-align: start; flex: 0 0 80%; min-width: 0;
+	.vlx-service, .vlx-review, .vlx-project {
+		scroll-snap-align: start; flex: 0 0 78%; min-width: 0;
 	}
-	.vlx-project { min-height: 220px; }
-	.vlx-batts__foot { margin-top: 1.8rem; }
 }
 
 /* Welkom-sectie afbeelding (vervangt de oude stat-kaart) */
 .vlx-welkom__media { position: relative; }
 .vlx-welkom__img { width: 100%; height: auto; max-height: 560px; object-fit: cover; border-radius: 16px; display: block; box-shadow: var(--shadow-lg); }
+
+/* -------------------------------------------------------------------------
+   Native <select> styled to match the text inputs (esp. iOS Safari)
+   ------------------------------------------------------------------------- */
+select {
+	-webkit-appearance: none; -moz-appearance: none; appearance: none;
+	padding-right: 2.6rem;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2333373B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: right 1rem center;
+	background-size: 13px;
+	cursor: pointer;
+}
+.vlx-field select { padding-right: 2.4rem; background-position: right .9rem center; }
+select::-ms-expand { display: none; }
+
+/* -------------------------------------------------------------------------
+   Touch devices: no sticky :hover (keeps taps single-tap on iOS)
+   ------------------------------------------------------------------------- */
+@media (hover: none) {
+	.vlx-btn:hover { transform: none; }
+	.vlx-service:hover, .vlx-batt:hover, .vlx-project:hover, .vlx-prodcard:hover, .vlx-review:hover, .vlx-mega-item:hover { transform: none; }
+	.vlx-floating__call:hover { background: var(--paper); color: var(--ink); }
+}
