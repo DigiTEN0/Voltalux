@@ -77,11 +77,17 @@
 	if (reveals.length && 'IntersectionObserver' in window && !reduce) {
 		var io = new IntersectionObserver(function (entries) {
 			entries.forEach(function (entry) {
-				if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
+				if (!entry.isIntersecting) { return; }
+				var t = entry.target;
+				// Promote to its own layer only for the duration of the animation, then release it.
+				t.style.willChange = 'transform, opacity';
+				t.classList.add('is-in');
+				t.addEventListener('transitionend', function () { t.style.willChange = 'auto'; t.style.transitionDelay = '0ms'; }, { once: true });
+				io.unobserve(t);
 			});
-		}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+		}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
 		reveals.forEach(function (el, i) {
-			el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
+			el.style.transitionDelay = (Math.min(i % 3, 2) * 55) + 'ms';
 			io.observe(el);
 		});
 	} else {

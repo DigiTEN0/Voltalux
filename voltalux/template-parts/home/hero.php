@@ -24,6 +24,7 @@ $b1_url   = voltalux_option( 'hero_btn1_url', '#contact' );
 			<video autoplay muted loop playsinline webkit-playsinline preload="auto" disablepictureinpicture <?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>>
 				<source src="<?php echo esc_url( $video ); ?>" type="video/mp4">
 			</video>
+				<script>(function(){var v=document.currentScript.previousElementSibling;if(v&&v.tagName==='VIDEO'){try{v.defaultMuted=true;v.muted=true;v.setAttribute('muted','');v.playsInline=true;var p=v.play();if(p&&p.catch){p.catch(function(){});}}catch(e){}}})();</script>
 		<?php elseif ( $poster ) : ?>
 			<img src="<?php echo esc_url( $poster ); ?>" alt="" fetchpriority="high">
 		<?php endif; ?>
