@@ -136,7 +136,7 @@ function voltalux_customize_register( $wp_customize ) {
 			'panel' => 'voltalux_panel',
 		)
 	);
-	voltalux_add_textarea_setting( $wp_customize, 'voltalux_footer_tagline', __( 'Jouw partner in [mark]verduurzaming[/mark]', 'voltalux' ), __( 'Grote slogan in de footer. Gebruik [mark]…[/mark] voor de groene markering.', 'voltalux' ), 'voltalux_footer' );
+	voltalux_add_textarea_setting( $wp_customize, 'voltalux_footer_tagline', __( 'Samen naar een [mark]duurzamer[/mark] huis', 'voltalux' ), __( 'Grote slogan in de footer. Gebruik [mark]…[/mark] voor de groene markering.', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_textarea_setting( $wp_customize, 'voltalux_footer_address', VOLTALUX_ADDRESS, __( 'Adres / contactblok', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_text_setting( $wp_customize, 'voltalux_footer_email', VOLTALUX_EMAIL, __( 'E-mailadres', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_text_setting( $wp_customize, 'voltalux_kvk', VOLTALUX_KVK, __( 'KvK-nummer', 'voltalux' ), 'voltalux_footer' );

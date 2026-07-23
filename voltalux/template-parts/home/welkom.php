@@ -6,7 +6,7 @@
  */
 
 $eyebrow = apply_filters( 'voltalux_home_welkom_eyebrow', __( 'Welkom bij Voltalux', 'voltalux' ) );
-$title   = apply_filters( 'voltalux_home_welkom_title', __( 'Jouw partner in verduurzaming — particulier én zakelijk', 'voltalux' ) );
+$title   = apply_filters( 'voltalux_home_welkom_title', __( 'Van eerste advies tot jarenlange nazorg — onder één dak', 'voltalux' ) );
 $text1   = apply_filters( 'voltalux_home_welkom_text1', __( 'Wij zijn de specialist in verduurzaming en bieden een alles-in-één oplossing voor het verduurzamen van jouw woning of bedrijfspand. Van zonnepanelen en thuisbatterijen tot airco\'s, warmtepompen en dakrenovaties.', 'voltalux' ) );
 $text2   = apply_filters( 'voltalux_home_welkom_text2', __( 'Bij elke installatie hoort ons gratis serviceteam. Vragen, wijzigingen of een storing na installatie? Wij lossen het snel en efficiënt op, zodat je zorgeloos kunt genieten.', 'voltalux' ) );
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );

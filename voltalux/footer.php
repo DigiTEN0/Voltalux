@@ -14,7 +14,7 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 
 <?php if ( ! voltalux_has_elementor_location( 'footer' ) ) : ?>
 	<?php
-	$tagline   = voltalux_option( 'footer_tagline', __( 'Jouw partner in [mark]verduurzaming[/mark]', 'voltalux' ) );
+	$tagline   = voltalux_option( 'footer_tagline', __( 'Samen naar een [mark]duurzamer[/mark] huis', 'voltalux' ) );
 	$address   = voltalux_option( 'footer_address', VOLTALUX_ADDRESS );
 	$email     = voltalux_option( 'footer_email', VOLTALUX_EMAIL );
 	$kvk       = voltalux_option( 'kvk', VOLTALUX_KVK );
