@@ -98,22 +98,36 @@ add_shortcode(
 );
 
 /**
- * Products used across the site (mega-menu, mobile menu, products section).
- * Filter `voltalux_products` to change them without touching templates.
+ * The four Voltalux services (mega-menu, mobile menu, diensten section).
+ * Filter `voltalux_services` to change them without touching templates.
  *
- * @return array[] each: name, desc, tag, image, url
+ * @return array[] each: name, desc, icon, url
  */
-function voltalux_products() {
-	$img_battery = VOLTALUX_URI . 'assets/images/battery.svg';
-	$img_solar   = VOLTALUX_URI . 'assets/images/solar-battery.svg';
-
+function voltalux_services() {
 	return apply_filters(
-		'voltalux_products',
+		'voltalux_services',
 		array(
-			array( 'name' => 'AEG',          'desc' => __( 'Duits kwaliteitsmerk', 'voltalux' ), 'tag' => __( 'Thuisbatterij', 'voltalux' ), 'image' => $img_battery, 'url' => '#aeg' ),
-			array( 'name' => 'HyxiPower',    'desc' => __( 'All-in-one systeem', 'voltalux' ),   'tag' => __( 'Thuisbatterij', 'voltalux' ), 'image' => $img_battery, 'url' => '#hyxipower' ),
-			array( 'name' => 'AlphaESS',     'desc' => __( 'Modulair & slim', 'voltalux' ),      'tag' => __( 'Thuisbatterij', 'voltalux' ), 'image' => $img_battery, 'url' => '#alphaess' ),
-			array( 'name' => __( '+ Zonnepanelen', 'voltalux' ), 'desc' => __( 'Compleet pakket', 'voltalux' ), 'tag' => __( 'Pakket', 'voltalux' ), 'image' => $img_solar, 'url' => '#zonnepanelen' ),
+			array( 'name' => __( 'Zonnepanelen', 'voltalux' ),  'desc' => __( 'Wek je eigen stroom op met A-merk panelen.', 'voltalux' ),      'icon' => 'sun',     'url' => 'https://www.voltalux.nl/zonnepanelen/' ),
+			array( 'name' => __( 'Thuisbatterij', 'voltalux' ), 'desc' => __( "Sla je stroom op en gebruik 'm wanneer je wilt.", 'voltalux' ),  'icon' => 'battery', 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => "Airco's",                          'desc' => __( 'Koelen én verwarmen — stil en energiezuinig.', 'voltalux' ),     'icon' => 'snow',    'url' => 'https://www.voltalux.nl/aircos/' ),
+			array( 'name' => __( 'Dakrenovaties', 'voltalux' ),  'desc' => __( 'Een nieuw, goed geïsoleerd dak dat jaren meegaat.', 'voltalux' ),'icon' => 'roof',    'url' => 'https://www.voltalux.nl/dakdekker/' ),
+		)
+	);
+}
+
+/**
+ * Recent projects (projecten section).
+ *
+ * @return array[] each: cat, title, location, url
+ */
+function voltalux_projects() {
+	return apply_filters(
+		'voltalux_projects',
+		array(
+			array( 'cat' => "Airco's",       'title' => __( '2× 5.0 kWh airco-systemen', 'voltalux' ),      'location' => 'Den Haag',  'url' => 'https://www.voltalux.nl/project/2x-5-0-kwh-airco-systemen-den-haag/', 'icon' => 'snow' ),
+			array( 'cat' => __( 'Dakrenovaties', 'voltalux' ), 'title' => __( 'Dakrenovatie incl. 2 lichtkoepels', 'voltalux' ), 'location' => 'Venlo', 'url' => 'https://www.voltalux.nl/project/dakrenovatie-incl-2-lichtkoepels-venlo/', 'icon' => 'roof' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '8 Black Frame zonnepanelen', 'voltalux' ),      'location' => 'Waalwijk',  'url' => 'https://www.voltalux.nl/project/8-black-frame-zonnepanelen-waalwijk/', 'icon' => 'sun' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '2× 6 Full Black zonnepanelen', 'voltalux' ),    'location' => 'Odijk',     'url' => 'https://www.voltalux.nl/project/2x-6-full-black-zonnepanelen-odijk/', 'icon' => 'sun' ),
 		)
 	);
 }
@@ -127,10 +141,10 @@ function voltalux_fallback_nav() {
 	return apply_filters(
 		'voltalux_fallback_nav',
 		array(
-			array( 'label' => __( 'Zonnepanelen', 'voltalux' ), 'url' => '#zonnepanelen' ),
-			array( 'label' => __( 'Werkwijze', 'voltalux' ),    'url' => '#werkwijze' ),
-			array( 'label' => __( 'Kennisbank', 'voltalux' ),   'url' => '#kennisbank' ),
-			array( 'label' => __( 'Over ons', 'voltalux' ),     'url' => '#over-ons' ),
+			array( 'label' => __( 'Projecten', 'voltalux' ), 'url' => '#projecten' ),
+			array( 'label' => __( 'Werkwijze', 'voltalux' ), 'url' => '#werkwijze' ),
+			array( 'label' => __( 'Reviews', 'voltalux' ),   'url' => '#reviews' ),
+			array( 'label' => __( 'Contact', 'voltalux' ),   'url' => '#contact' ),
 		)
 	);
 }

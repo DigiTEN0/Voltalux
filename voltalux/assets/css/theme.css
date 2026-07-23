@@ -90,20 +90,21 @@
 /* -------------------------------------------------------------------------
    2. Header + navigation
    ------------------------------------------------------------------------- */
-.vlx-site-header { position: sticky; top: 0; z-index: 900; transition: background-color var(--t) var(--ease), border-color var(--t) var(--ease), backdrop-filter var(--t); }
-.vlx-site-header::after { content:""; position:absolute; inset:0 0 auto 0; height:1px; background: var(--line-2); opacity: 0; transition: opacity var(--t); }
-.vlx-site-header.is-stuck { background: rgba(245,245,241,.82); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); }
+.vlx-site-header { position: sticky; top: 0; z-index: 900; background: var(--ink); transition: background-color var(--t) var(--ease), backdrop-filter var(--t); }
+.vlx-site-header::after { content:""; position:absolute; inset:auto 0 0 0; height:1px; background: rgba(255,255,255,.08); opacity: 0; transition: opacity var(--t); }
+.vlx-site-header.is-stuck { background: rgba(10,11,13,.9); backdrop-filter: saturate(160%) blur(16px); -webkit-backdrop-filter: saturate(160%) blur(16px); }
 .vlx-site-header.is-stuck::after { opacity: 1; }
-.vlx-header-inner { display: flex; align-items: center; gap: 1.5rem; height: var(--header-h); }
+body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
+.vlx-header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.25rem; height: var(--header-h); }
 
-.vlx-brand { display: inline-flex; align-items: center; flex: none; }
-.vlx-brand img, .vlx-brand .custom-logo { height: 34px; width: auto; }
+.vlx-brand { display: inline-flex; align-items: center; }
+.vlx-brand img, .vlx-brand .custom-logo { height: 44px; width: auto; }
 
-.vlx-nav { margin-inline: auto; }
-.vlx-nav > ul { display: flex; align-items: center; gap: .15rem; }
+.vlx-nav { justify-self: center; }
+.vlx-nav > ul { display: flex; align-items: center; gap: .1rem; }
 .vlx-nav > ul > li { position: relative; }
-.vlx-nav a { display: inline-flex; align-items: center; gap: .35em; padding: .55rem .85rem; border-radius: var(--r-pill); font-family: var(--font-display); font-weight: 500; font-size: .94rem; color: var(--ink); transition: background-color var(--t) var(--ease), color var(--t) var(--ease); }
-.vlx-nav a:hover, .vlx-nav .current-menu-item > a, .vlx-nav .current-menu-ancestor > a { background: rgba(10,11,13,.05); }
+.vlx-nav a { display: inline-flex; align-items: center; gap: .35em; padding: .55rem .9rem; border-radius: var(--r-pill); font-family: var(--font-display); font-weight: 500; font-size: .93rem; color: rgba(255,255,255,.82); transition: background-color var(--t) var(--ease), color var(--t) var(--ease); }
+.vlx-nav a:hover, .vlx-nav .current-menu-item > a, .vlx-nav .current-menu-ancestor > a { background: rgba(255,255,255,.1); color: #fff; }
 .vlx-nav .menu-item-has-children > a::after,
 .vlx-nav .has-mega > a::after { content:""; width: 6px; height: 6px; border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor; transform: rotate(45deg) translateY(-1px); opacity: .5; transition: transform var(--t); margin-left: .1em; }
 .vlx-nav .menu-item-has-children:hover > a::after, .vlx-nav .has-mega:hover > a::after { transform: rotate(225deg); }
@@ -121,27 +122,22 @@
 .vlx-mega-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; }
 .vlx-mega-item { display: flex; align-items: center; gap: .9rem; padding: .7rem; border-radius: 14px; transition: background-color var(--t) var(--ease); }
 .vlx-mega-item:hover { background: var(--paper); }
-.vlx-mega-item__img { flex: none; width: 54px; height: 54px; border-radius: 12px; background: var(--paper); display: grid; place-items: center; overflow: hidden; }
-.vlx-mega-item__img img { width: 32px; height: auto; }
+.vlx-mega-item__img { flex: none; width: 50px; height: 50px; border-radius: 13px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; overflow: hidden; }
+.vlx-mega-item__img img { width: 30px; height: auto; }
+.vlx-mega-item__img svg { width: 24px; height: 24px; }
 .vlx-mega-item__t { font-family: var(--font-display); font-weight: 600; font-size: .95rem; color: var(--ink); }
 .vlx-mega-item__d { font-size: .8rem; color: var(--muted); }
 .vlx-mega-foot { display: flex; align-items: center; justify-content: space-between; margin-top: .8rem; padding-top: .9rem; border-top: 1px solid var(--line-2); }
 .vlx-mega-foot span { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 
-.vlx-header-actions { display: flex; align-items: center; gap: .7rem; flex: none; }
-.vlx-header-phone { display: inline-flex; align-items: center; gap: .45em; font-family: var(--font-display); font-weight: 500; font-size: .9rem; }
+.vlx-header-actions { justify-self: end; display: flex; align-items: center; gap: .7rem; }
+.vlx-header-phone { display: inline-flex; align-items: center; gap: .45em; font-family: var(--font-display); font-weight: 500; font-size: .9rem; color: #fff; }
+.vlx-header-phone svg { width: 16px; height: 16px; color: var(--green); }
 
-/* Transparent over hero */
-body.has-hero .vlx-site-header:not(.is-stuck) .vlx-nav a,
-body.has-hero .vlx-site-header:not(.is-stuck) .vlx-header-phone { color: #fff; }
-body.has-hero .vlx-site-header:not(.is-stuck) .vlx-nav a:hover { background: rgba(255,255,255,.14); }
-body.has-hero .vlx-site-header:not(.is-stuck) .vlx-brand img { filter: brightness(0) invert(1); }
-body.has-hero .vlx-site-header:not(.is-stuck) .vlx-burger span { background: #fff; }
-
-/* Burger */
-.vlx-burger { display: none; width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--line); position: relative; flex: none; transition: border-color var(--t); }
-body.has-hero .vlx-site-header:not(.is-stuck) .vlx-burger { border-color: rgba(255,255,255,.25); }
-.vlx-burger span { position: absolute; left: 13px; right: 13px; height: 1.8px; background: var(--ink); border-radius: 2px; transition: transform .35s var(--ease), opacity .2s; }
+/* Burger — always top-right */
+.vlx-burger { display: none; width: 46px; height: 46px; border-radius: 13px; border: 1px solid rgba(255,255,255,.2); position: relative; transition: border-color var(--t), background-color var(--t); }
+.vlx-burger:hover { background: rgba(255,255,255,.08); }
+.vlx-burger span { position: absolute; left: 13px; right: 13px; height: 1.8px; background: #fff; border-radius: 2px; transition: transform .35s var(--ease), opacity .2s; }
 .vlx-burger span:nth-child(1){ top: 17px; } .vlx-burger span:nth-child(2){ top: 22.5px; } .vlx-burger span:nth-child(3){ top: 28px; }
 
 /* -------------------------------------------------------------------------
@@ -166,8 +162,9 @@ body.menu-open { overflow: hidden; }
 .vlx-m-acc__inner { overflow: hidden; }
 .vlx-m-products { display: grid; grid-template-columns: 1fr 1fr; gap: .6rem; padding: .3rem 0 1.2rem; }
 .vlx-m-product { display: flex; flex-direction: column; gap: .35rem; padding: .9rem; background: var(--surface); border: 1px solid var(--line); border-radius: 16px; }
-.vlx-m-product__img { height: 84px; display: grid; place-items: center; overflow: hidden; margin-bottom: .3rem; }
-.vlx-m-product__img img { max-height: 84px; width: auto; height: auto; }
+.vlx-m-product__img { width: 52px; height: 52px; border-radius: 14px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; overflow: hidden; margin-bottom: .55rem; }
+.vlx-m-product__img img { max-height: 40px; width: auto; height: auto; }
+.vlx-m-product__img svg { width: 26px; height: 26px; }
 .vlx-m-product__t { font-family: var(--font-display); font-weight: 600; font-size: .98rem; }
 .vlx-m-product__d { font-size: .78rem; color: var(--muted); margin-top: -.2rem; }
 
@@ -240,10 +237,10 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 /* -------------------------------------------------------------------------
    7. Werkwijze (numbered steps)
    ------------------------------------------------------------------------- */
-.vlx-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4rem; margin-top: 2.8rem; }
+.vlx-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 1.8rem; margin-top: 3rem; }
 .vlx-step { position: relative; padding-top: 1.6rem; border-top: 1.5px solid var(--ink); }
 .vlx-bg-ink .vlx-step { border-color: rgba(255,255,255,.22); }
-.vlx-step__n { font-family: var(--font-mono); font-size: .78rem; color: var(--green-strong); letter-spacing: .05em; }
+.vlx-step__n { font-family: var(--font-mono); font-size: 1rem; color: var(--green-strong); letter-spacing: .05em; }
 .vlx-bg-ink .vlx-step__n { color: var(--green); }
 .vlx-step h3 { margin: .9rem 0 .5rem; }
 .vlx-step p { color: var(--muted); font-size: .95rem; }
@@ -296,7 +293,7 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 .vlx-quote__by b { font-weight: 600; }
 .vlx-quote__by span { color: rgba(255,255,255,.6); }
 .vlx-reviews { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 1.1rem; }
-.vlx-review { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.6rem; display: flex; flex-direction: column; gap: 1rem; }
+.vlx-review { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.9rem; display: flex; flex-direction: column; gap: 1.1rem; }
 .vlx-review .vlx-stars { color: var(--green); letter-spacing: .12em; }
 .vlx-review p { color: var(--ink-2); }
 .vlx-review__foot { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line-2); display: flex; align-items: center; justify-content: space-between; }
@@ -353,12 +350,13 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 .vlx-footer-bottom nav ul { display: flex; gap: 1.3rem; flex-wrap: wrap; }
 
 /* Floating contact */
-.vlx-floating { position: fixed; right: clamp(1rem,3vw,1.75rem); bottom: clamp(1rem,3vw,1.75rem); z-index: 800; display: flex; align-items: center; gap: .6rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-pill); padding: .45rem .45rem .45rem 1.1rem; box-shadow: var(--shadow-lg); transition: transform .4s var(--ease), opacity .4s; }
-.vlx-floating__t { font-size: .8rem; line-height: 1.2; }
-.vlx-floating__t b { display: block; font-family: var(--font-display); }
-.vlx-floating .vlx-btn { padding: .65em 1.1em; }
+.vlx-floating { position: fixed; right: clamp(1rem,3vw,1.75rem); bottom: clamp(1rem,3vw,1.75rem); z-index: 800; display: flex; align-items: center; gap: .5rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-pill); padding: .5rem; box-shadow: var(--shadow-lg); transition: transform .45s var(--ease-out), opacity .4s; }
+.vlx-floating__call { flex: none; width: 48px; height: 48px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; transition: background-color var(--t) var(--ease), color var(--t) var(--ease); }
+.vlx-floating__call:hover { background: var(--ink); color: #fff; }
+.vlx-floating__call svg { width: 20px; height: 20px; }
+.vlx-floating .vlx-btn { padding: .82em 1.35em; }
 .vlx-floating.is-hide { transform: translateY(180%); opacity: 0; pointer-events: none; }
-@media (max-width: 620px){ .vlx-floating__t { display: none; } }
+@media (max-width: 480px){ .vlx-floating .vlx-btn .vlx-btn__lbl { display: none; } .vlx-floating .vlx-btn { padding: .82em 1em; } }
 
 /* -------------------------------------------------------------------------
    14. Blog / page / forms
@@ -450,3 +448,136 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 .vlx-comment-form { display: grid; gap: 1rem; margin-top: 1.5rem; }
 .vlx-comment-form .comment-form-comment { grid-column: 1 / -1; }
 .vlx-comment-reply-title { margin-bottom: .4rem; }
+
+/* =========================================================================
+   17. v3 — real content components (services, values, welkom, projects, form, drawer)
+   ========================================================================= */
+
+/* Stars (SVG) */
+.vlx-stars { display: inline-flex; align-items: center; gap: 1px; color: var(--green); vertical-align: middle; }
+.vlx-stars svg { width: 16px; height: 16px; }
+
+/* Header phone icon + phone-pill */
+.vlx-header-phone__pill { display: inline-flex; align-items: center; gap: .5em; padding: .5rem .9rem; border-radius: var(--r-pill); background: rgba(255,255,255,.08); }
+
+/* Section heading spacing */
+.vlx-s-head-row { margin-bottom: .5rem; }
+
+/* --- Services --- */
+.vlx-services { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3.2rem; }
+.vlx-service { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.9rem 1.8rem 1.7rem; transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t); }
+.vlx-service:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.vlx-service__icon { width: 58px; height: 58px; border-radius: 16px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; margin-bottom: 1.4rem; transition: background-color var(--t) var(--ease), color var(--t) var(--ease); }
+.vlx-service:hover .vlx-service__icon { background: var(--ink); color: var(--green); }
+.vlx-service__icon svg { width: 28px; height: 28px; }
+.vlx-service h3 { font-size: 1.3rem; margin-bottom: .55rem; }
+.vlx-service p { color: var(--muted); font-size: .95rem; flex: 1; }
+.vlx-service .vlx-arrow-link { margin-top: 1.4rem; font-size: .9rem; color: var(--green-strong); }
+.vlx-service__link { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+
+/* --- Value props (waarom) --- */
+.vlx-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
+.vlx-value { display: flex; flex-direction: column; gap: 1rem; padding: 2rem 1.9rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); }
+.vlx-value__icon { width: 50px; height: 50px; border-radius: 14px; background: var(--ink); color: var(--green); display: grid; place-items: center; }
+.vlx-value__icon svg { width: 25px; height: 25px; }
+.vlx-value h3 { font-size: 1.18rem; }
+.vlx-value p { color: var(--muted); font-size: .95rem; }
+
+/* --- Welkom / intro --- */
+.vlx-welkom { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem,1rem+4vw,4.5rem); align-items: center; }
+.vlx-welkom__body .vlx-lead { margin-top: 1.2rem; }
+.vlx-welkom__body p + p { margin-top: 1rem; }
+.vlx-welkom__actions { margin-top: 2rem; display: flex; gap: .7rem; flex-wrap: wrap; }
+.vlx-highlight { position: relative; overflow: hidden; background: var(--ink); color: #fff; border-radius: var(--r-card); padding: clamp(2.2rem,1.5rem+2vw,3.2rem); box-shadow: var(--shadow-lg); }
+.vlx-highlight::before { content:""; position:absolute; right:-20%; bottom:-40%; width: 380px; height: 380px; border-radius:50%; background: radial-gradient(circle, rgba(21,221,110,.4), transparent 62%); }
+.vlx-highlight > * { position: relative; }
+.vlx-highlight__n { font-family: var(--font-display); font-weight: 500; font-size: clamp(3rem,2rem+3vw,4.4rem); letter-spacing: -.03em; line-height: 1; }
+.vlx-highlight__l { color: var(--muted-inv); margin-top: .6rem; font-size: 1.05rem; }
+.vlx-highlight ul { margin-top: 1.8rem; display: grid; gap: .8rem; }
+.vlx-highlight li { display: flex; align-items: center; gap: .7rem; font-weight: 500; }
+.vlx-highlight li svg { width: 19px; height: 19px; color: var(--green); flex: none; }
+
+/* --- Projecten --- */
+.vlx-projects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; margin-top: 3rem; }
+.vlx-project { position: relative; display: flex; flex-direction: column; justify-content: flex-end; min-height: 250px; border-radius: var(--r-card); overflow: hidden; padding: 1.6rem; color: #fff; isolation: isolate; transition: transform var(--t) var(--ease); }
+.vlx-project:hover { transform: translateY(-5px); }
+.vlx-project::before { content:""; position:absolute; inset:0; background: linear-gradient(155deg, #12261b 0%, #0A0B0D 65%); z-index: -2; }
+.vlx-project::after { content:""; position:absolute; inset:auto -10% -30% -10%; height:60%; background: radial-gradient(60% 100% at 60% 100%, rgba(21,221,110,.35), transparent 70%); z-index: -1; opacity: .8; transition: opacity var(--t); }
+.vlx-project:hover::after { opacity: 1; }
+.vlx-project__ic { position: absolute; top: 1.4rem; right: 1.4rem; width: 44px; height: 44px; border-radius: 12px; background: rgba(255,255,255,.09); color: var(--green); display: grid; place-items: center; }
+.vlx-project__ic svg { width: 22px; height: 22px; }
+.vlx-project__cat { font-family: var(--font-mono); font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; color: var(--green); }
+.vlx-project h3 { color: #fff; font-size: 1.16rem; margin: .5rem 0 .6rem; letter-spacing: -.02em; }
+.vlx-project__loc { display: inline-flex; align-items: center; gap: .4rem; font-size: .86rem; color: var(--muted-inv); }
+.vlx-project__loc svg { width: 15px; height: 15px; }
+.vlx-project__link { position: absolute; inset: 0; }
+
+/* --- Offerte form section --- */
+.vlx-offerte { position: relative; overflow: hidden; background: var(--ink); color: #fff; border-radius: var(--r-card); padding: clamp(2.2rem,1.4rem+3vw,3.6rem); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,1rem+3vw,4rem); align-items: center; }
+.vlx-offerte::before { content:""; position:absolute; left:-10%; top:-30%; width: 460px; height: 460px; border-radius:50%; background: radial-gradient(circle, rgba(21,221,110,.4), transparent 62%); }
+.vlx-offerte > * { position: relative; }
+.vlx-offerte h2 { color: #fff; }
+.vlx-offerte__lead { color: var(--muted-inv); margin-top: 1rem; font-size: var(--fs-lead); }
+.vlx-offerte__trust { margin-top: 1.8rem; display: grid; gap: .8rem; }
+.vlx-offerte__trust li { display: flex; align-items: center; gap: .7rem; font-weight: 500; }
+.vlx-offerte__trust svg { width: 20px; height: 20px; color: var(--green); flex: none; }
+.vlx-offerte__phone { margin-top: 2rem; display: inline-flex; align-items: center; gap: .6rem; font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; }
+.vlx-offerte__phone svg { width: 20px; height: 20px; color: var(--green); }
+.vlx-offerte__card { background: var(--surface); color: var(--ink); border-radius: var(--r-md); padding: clamp(1.5rem,1rem+1.5vw,2rem); box-shadow: var(--shadow-lg); }
+.vlx-offerte__card h3 { font-size: 1.25rem; margin-bottom: 1.2rem; }
+
+/* --- Form --- */
+.vlx-form__grid { display: grid; grid-template-columns: 1fr 1fr; gap: .9rem 1rem; }
+.vlx-field { display: flex; flex-direction: column; gap: .4rem; }
+.vlx-field > span { font-size: .82rem; font-weight: 600; color: var(--ink-2); }
+.vlx-field--full { grid-column: 1 / -1; }
+.vlx-field input, .vlx-field select, .vlx-field textarea { padding: .82rem .95rem; border-radius: var(--r-sm); font-size: .96rem; }
+.vlx-form > .vlx-btn { margin-top: 1.2rem; }
+.vlx-form__note { text-align: center; font-size: .82rem; color: var(--muted); margin-top: .9rem; }
+
+/* --- Offerte drawer --- */
+.vlx-drawer { position: fixed; inset: 0; z-index: 1100; visibility: hidden; }
+.vlx-drawer__overlay { position: absolute; inset: 0; background: rgba(10,11,13,.55); opacity: 0; transition: opacity .4s var(--ease); }
+.vlx-drawer__panel { position: absolute; top: 0; right: 0; height: 100%; width: min(470px, 100%); background: var(--surface); box-shadow: var(--shadow-lg); transform: translateX(100%); transition: transform .5s var(--ease-out); display: flex; flex-direction: column; overflow-y: auto; overscroll-behavior: contain; }
+body.drawer-open { overflow: hidden; }
+body.drawer-open .vlx-drawer { visibility: visible; }
+body.drawer-open .vlx-drawer__overlay { opacity: 1; }
+body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
+.vlx-drawer__head { position: relative; padding: 1.8rem 1.9rem 1.2rem; }
+.vlx-drawer__head .vlx-eyebrow { margin-bottom: .8rem; }
+.vlx-drawer__head h2 { font-size: 1.7rem; }
+.vlx-drawer__close { position: absolute; top: 1.4rem; right: 1.4rem; width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--line); display: grid; place-items: center; }
+.vlx-drawer__close svg { width: 18px; height: 18px; }
+.vlx-drawer__body { padding: 0 1.9rem 2rem; }
+.vlx-drawer__trust { display: grid; gap: .65rem; margin: .4rem 0 1.5rem; }
+.vlx-drawer__trust li { display: flex; align-items: center; gap: .6rem; font-size: .92rem; font-weight: 500; }
+.vlx-drawer__trust svg { width: 18px; height: 18px; color: var(--green-strong); flex: none; }
+
+/* --- v3 responsive --- */
+@media (max-width: 1080px) {
+	.vlx-services { grid-template-columns: repeat(2, 1fr); }
+	.vlx-values { grid-template-columns: 1fr; }
+	.vlx-projects { grid-template-columns: repeat(2, 1fr); }
+	.vlx-welkom { grid-template-columns: 1fr; }
+	.vlx-offerte { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+	.vlx-services, .vlx-projects { grid-template-columns: 1fr; }
+	.vlx-offerte { padding: 1.6rem; }
+	.vlx-offerte__card { padding: 1.4rem; }
+	.vlx-form__grid { grid-template-columns: 1fr 1fr; }
+	.vlx-drawer__head, .vlx-drawer__body { padding-inline: 1.4rem; }
+}
+
+/* Footer direct-contact column */
+.vlx-footer-cta .vlx-footer-phone { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; color: #fff; }
+.vlx-footer-cta .vlx-footer-phone svg { width: 20px; height: 20px; color: var(--green); }
+.vlx-footer-cta .vlx-footer-phone:hover { color: var(--green); }
+
+/* Review score badge */
+.vlx-review-score { display: inline-flex; align-items: center; gap: .7rem; font-size: .95rem; color: var(--ink-2); }
+.vlx-review-score strong { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.vlx-review-score > span { display: inline-flex; align-items: center; gap: .4rem; }
+.vlx-quote__rating .vlx-stars svg { width: 18px; height: 18px; }
+.vlx-review .vlx-stars svg { width: 17px; height: 17px; }
+.vlx-spec__n .vlx-stars svg { width: 18px; height: 18px; }

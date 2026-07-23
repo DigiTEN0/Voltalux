@@ -93,9 +93,15 @@ De footer heeft daarnaast 4 **widget-kolommen** via **Weergave → Widgets** (Fo
   — allemaal **self-hosted** (GDPR/AVG-veilig, geen Google-CDN). Ook gezet in Elementor's font-kiezer
   en globale stijlen.
 - **Signatuur-elementen:** mono-eyebrows met hairline, pill-knoppen met ↗-pijl, groene keyword-accenten
-  (gebruik `[mark]woord[/mark]`), mega-menu met producten, full-screen mobiel menu, werkwijze-stappen
-  (01–04), energie-dashboardmock, stats-balk, zwevende CTA-balk. Alle CSS-klassen zijn `vlx-`-geprefixt
-  om botsingen met Elementor/plugins te voorkomen.
+  (gebruik `[mark]woord[/mark]`), mega-menu met diensten, full-screen mobiel menu, genummerde werkwijze,
+  professionele SVG-iconen en -sterren. Alle CSS-klassen zijn `vlx-`-geprefixt om botsingen te voorkomen.
+- **Conversie:** een **slide-in offerteformulier** dat opent vanuit elke "Offerte aanvragen"-knop, een
+  **belknop** die automatisch belt, en een zwevende bel + CTA-balk. Het formulier (velden: naam, e-mail,
+  telefoon, dienst, postcode, huisnummer, omschrijving) is te vervangen door een Contact Form 7- /
+  Elementor- / WPForms-shortcode via **Aanpassen → Voltalux thema → Offerteformulier**.
+- **Echte content:** de vier diensten (Zonnepanelen · Thuisbatterij · Airco's · Dakrenovaties), telefoon
+  085-0600106, adres in Waalwijk, KvK, reviews, projecten en socials staan al ingevuld — allemaal
+  aanpasbaar via de Customizer of de `voltalux_*`-filters.
 - **Elementor-integratie:** globale kleuren & fonts worden geseed, full-width/canvas werkt,
   header/footer-locaties zijn geregistreerd voor Elementor Pro.
 - **Compleet & valide:** header, footer, homepage, pagina, blog, archief, zoekresultaten, 404,
@@ -113,7 +119,7 @@ voltalux/
 ├─ page.php single.php archive.php search.php 404.php index.php
 ├─ comments.php searchform.php sidebar.php
 ├─ page-templates/full-width.php
-├─ template-parts/home/   (hero, statement, products, steps, feature, stats, testimonial, articles, cta)
+├─ template-parts/home/   (hero, services, waarom, welkom, steps, reviews, projecten, offerte)
 ├─ inc/                   (customizer, elementor, template-tags, template-functions)
 ├─ assets/css/            (theme.css, editor.css)
 ├─ assets/js/             (theme.js, customize-preview.js)

@@ -17,21 +17,60 @@ function voltalux_arrow_svg() {
 }
 
 /**
- * Inline icon set.
+ * Inline line-icon set (24x24, stroke = currentColor).
  *
- * @param string $name check|plus|close|phone|chevron
- * @return string
+ * @param string $name Icon key.
+ * @return string SVG markup.
  */
 function voltalux_icon( $name ) {
+	$fill = array(
+		'phone'   => '<path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24c1.1.37 2.3.57 3.5.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.57 3.5a1 1 0 01-.24 1L6.6 10.8z"/>',
+	);
+	if ( isset( $fill[ $name ] ) ) {
+		return '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">' . $fill[ $name ] . '</svg>';
+	}
+
 	$icons = array(
-		'check'   => '<path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>',
-		'plus'    => '<path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
-		'close'   => '<path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>',
-		'phone'   => '<path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24c1.1.37 2.3.57 3.5.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.57 3.5a1 1 0 01-.24 1L6.6 10.8z" fill="currentColor"/>',
-		'chevron' => '<path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+		'check'   => '<path d="M20 6L9 17l-5-5"/>',
+		'plus'    => '<path d="M12 5v14M5 12h14"/>',
+		'close'   => '<path d="M6 6l12 12M18 6L6 18"/>',
+		'chevron' => '<path d="M6 9l6 6 6-6"/>',
+		'arrow-right' => '<path d="M5 12h14M13 6l6 6-6 6"/>',
+		// Services.
+		'sun'     => '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
+		'battery' => '<rect x="2.5" y="8" width="15" height="9" rx="2.2"/><path d="M17.5 11h2a1 1 0 011 1v1a1 1 0 01-1 1h-2"/><path d="M9.2 9.6L7.4 12.6h2.4L8 15.6"/>',
+		'snow'    => '<path d="M12 3v18M5 7.5l14 9M19 7.5l-14 9"/><path d="M9.4 4.4L12 6l2.6-1.6M9.4 19.6L12 18l2.6 1.6M4 10.2l.4 3-2.4 1.8M20 10.2l-.4 3 2.4 1.8M4 13.8l-2-.6M20 13.8l2-.6"/>',
+		'roof'    => '<path d="M3 11l9-7 9 7"/><path d="M5 9.6V19a1 1 0 001 1h12a1 1 0 001-1V9.6"/><path d="M9.5 20v-5.5h5V20"/>',
+		// Trust / value.
+		'shield'  => '<path d="M12 3l7 3v5c0 4.5-3 8.5-7 10-4-1.5-7-5.5-7-10V6l7-3z"/><path d="M9 11.8l2 2 4-4"/>',
+		'medal'   => '<circle cx="12" cy="9" r="5"/><path d="M9 13.4L7 21l5-3 5 3-2-7.6"/>',
+		'layers'  => '<path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/>',
+		'clock'   => '<circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/>',
+		'headset' => '<path d="M4 13v-1a8 8 0 0116 0v1"/><path d="M6 14a2 2 0 00-2 2v1a2 2 0 002 2M18 14a2 2 0 012 2v1a2 2 0 01-2 2"/><path d="M18 19a4 4 0 01-4 3h-1.5"/>',
+		'home'    => '<path d="M3 11l9-7 9 7"/><path d="M5 9.6V19a1 1 0 001 1h12a1 1 0 001-1V9.6"/><path d="M9.5 14.5l1.7 1.7 3.3-3.3"/>',
+		'euro'    => '<path d="M16 6.5A6 6 0 108 17M4 10.5h8M4 13.5h7"/>',
+		'pin'     => '<path d="M12 21s7-6.3 7-12a7 7 0 10-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="9" r="2.4"/>',
+		'user'    => '<circle cx="12" cy="8" r="4"/><path d="M4 20.5V20a6 6 0 016-6h4a6 6 0 016 6v.5"/>',
+		'mail'    => '<rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="M3.5 7l8.5 6 8.5-6"/>',
+		'spark'   => '<path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><path d="M6.4 6.4l3.2 3.2M14.4 14.4l3.2 3.2M17.6 6.4l-3.2 3.2M9.6 14.4l-3.2 3.2"/>',
 	);
 	$body = isset( $icons[ $name ] ) ? $icons[ $name ] : '';
-	return '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">' . $body . '</svg>';
+	return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $body . '</svg>';
+}
+
+/**
+ * Professional 5-star rating (filled SVG stars).
+ *
+ * @param float  $rating 0-5.
+ * @param string $label  Accessible label.
+ * @return string
+ */
+function voltalux_stars( $rating = 5, $label = '' ) {
+	$star = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5l2.9 6 6.6.6-5 4.3 1.5 6.5L12 17.9 5.5 21.4 7 14.9l-5-4.3 6.6-.6z"/></svg>';
+	$out  = '<span class="vlx-stars" role="img" aria-label="' . esc_attr( $label ? $label : sprintf( '%s van 5 sterren', $rating ) ) . '">';
+	$out .= str_repeat( $star, 5 );
+	$out .= '</span>';
+	return $out;
 }
 
 /**
@@ -92,6 +131,66 @@ function voltalux_button( $args = array(), $echo = true ) {
  */
 function voltalux_eyebrow( $text, $inv = false, $echo = true ) {
 	$html = '<span class="vlx-eyebrow' . ( $inv ? ' vlx-eyebrow--inv' : '' ) . '">' . esc_html( $text ) . '</span>';
+	if ( $echo ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+	return $html;
+}
+
+/**
+ * The offerte / quote form.
+ *
+ * If a form shortcode is set in the Customizer (e.g. a Contact Form 7 or
+ * Elementor form), that is rendered. Otherwise a styled default form is shown
+ * (mark-up only — wire it to your form plugin via the Customizer).
+ *
+ * @param bool $echo Echo or return.
+ * @return string
+ */
+function voltalux_form( $echo = true ) {
+	$shortcode = voltalux_option( 'form_shortcode', '' );
+	if ( $shortcode ) {
+		$html = do_shortcode( $shortcode );
+		if ( $echo ) {
+			echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+		return $html;
+	}
+
+	$diensten = apply_filters(
+		'voltalux_form_services',
+		array( 'Zonnepanelen', 'Thuisbatterij', "Airco's", 'Warmtepomp', 'Dakrenovatie' )
+	);
+
+	ob_start();
+	?>
+	<form class="vlx-form" action="<?php echo esc_url( voltalux_option( 'form_action', '#' ) ); ?>" method="post" novalidate>
+		<div class="vlx-form__grid">
+			<label class="vlx-field"><span><?php esc_html_e( 'Naam', 'voltalux' ); ?></span>
+				<input type="text" name="naam" autocomplete="name" placeholder="<?php esc_attr_e( 'Voor- en achternaam', 'voltalux' ); ?>" required></label>
+			<label class="vlx-field"><span><?php esc_html_e( 'E-mailadres', 'voltalux' ); ?></span>
+				<input type="email" name="email" autocomplete="email" placeholder="naam@voorbeeld.nl" required></label>
+			<label class="vlx-field"><span><?php esc_html_e( 'Telefoonnummer', 'voltalux' ); ?></span>
+				<input type="tel" name="telefoon" autocomplete="tel" placeholder="06 12 34 56 78" required></label>
+			<label class="vlx-field"><span><?php esc_html_e( 'Dienst', 'voltalux' ); ?></span>
+				<select name="dienst" required>
+					<option value="" selected disabled><?php esc_html_e( 'Kies een dienst', 'voltalux' ); ?></option>
+					<?php foreach ( $diensten as $d ) : ?>
+						<option value="<?php echo esc_attr( $d ); ?>"><?php echo esc_html( $d ); ?></option>
+					<?php endforeach; ?>
+				</select></label>
+			<label class="vlx-field vlx-field--sm"><span><?php esc_html_e( 'Postcode', 'voltalux' ); ?></span>
+				<input type="text" name="postcode" placeholder="1234 AB"></label>
+			<label class="vlx-field vlx-field--sm"><span><?php esc_html_e( 'Huisnummer', 'voltalux' ); ?></span>
+				<input type="text" name="huisnummer" placeholder="12"></label>
+			<label class="vlx-field vlx-field--full"><span><?php esc_html_e( 'Omschrijving', 'voltalux' ); ?></span>
+				<textarea name="omschrijving" rows="3" placeholder="<?php esc_attr_e( 'Vertel kort wat je zoekt…', 'voltalux' ); ?>"></textarea></label>
+		</div>
+		<button type="submit" class="vlx-btn vlx-btn--primary vlx-btn--block vlx-btn--lg"><?php esc_html_e( 'Offerte aanvragen', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></button>
+		<p class="vlx-form__note"><?php esc_html_e( 'Binnen 1 minuut geregeld · je zit nergens aan vast.', 'voltalux' ); ?></p>
+	</form>
+	<?php
+	$html = ob_get_clean();
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}

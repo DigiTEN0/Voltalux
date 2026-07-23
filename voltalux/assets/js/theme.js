@@ -49,6 +49,24 @@
 		});
 	}
 
+	/* ---- Offerte drawer ---- */
+	function openDrawer() {
+		body.classList.remove('menu-open');
+		if (burger) { burger.setAttribute('aria-expanded', 'false'); }
+		body.classList.add('drawer-open');
+		var first = doc.querySelector('.vlx-drawer__panel input, .vlx-drawer__panel select');
+		if (first) { setTimeout(function () { first.focus(); }, 450); }
+	}
+	function closeDrawer() { body.classList.remove('drawer-open'); }
+
+	doc.querySelectorAll('[data-vlx-open="offerte"]').forEach(function (el) {
+		el.addEventListener('click', function (e) { e.preventDefault(); openDrawer(); });
+	});
+	doc.querySelectorAll('[data-vlx-close]').forEach(function (el) {
+		el.addEventListener('click', closeDrawer);
+	});
+	doc.addEventListener('keyup', function (e) { if (e.key === 'Escape') { closeDrawer(); } });
+
 	/* ---- Reveal on scroll ---- */
 	var reveals = doc.querySelectorAll('.vlx-reveal');
 	if (reveals.length && 'IntersectionObserver' in window && !reduce) {
@@ -90,6 +108,7 @@
 
 	/* ---- Smooth-scroll same-page anchors ---- */
 	doc.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function (a) {
+		if (a.hasAttribute('data-vlx-open')) { return; }
 		a.addEventListener('click', function (e) {
 			var target = doc.querySelector(a.getAttribute('href'));
 			if (target) {

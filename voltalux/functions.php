@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '2.0.0' );
+	define( 'VOLTALUX_VERSION', '3.0.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -27,6 +27,14 @@ if ( ! defined( 'VOLTALUX_DEFAULT_LOGO' ) ) {
 if ( ! defined( 'VOLTALUX_DEFAULT_HERO_VIDEO' ) ) {
 	define( 'VOLTALUX_DEFAULT_HERO_VIDEO', 'http://voltalux.digiten.nl/wp-content/uploads/2026/07/5-UUR-VOLTALUX-Sterling-Fpv-1080p.mp4' );
 }
+
+/* Real Voltalux contact defaults (client can change all of these in the Customizer). */
+if ( ! defined( 'VOLTALUX_PHONE' ) )   { define( 'VOLTALUX_PHONE', '085-0600106' ); }
+if ( ! defined( 'VOLTALUX_EMAIL' ) )   { define( 'VOLTALUX_EMAIL', 'info@voltalux.nl' ); }
+if ( ! defined( 'VOLTALUX_ADDRESS' ) ) { define( 'VOLTALUX_ADDRESS', "Professor Eykmanweg 29\n5144 ND Waalwijk" ); }
+if ( ! defined( 'VOLTALUX_KVK' ) )     { define( 'VOLTALUX_KVK', 'KvK 87951681' ); }
+if ( ! defined( 'VOLTALUX_FB' ) )      { define( 'VOLTALUX_FB', 'https://www.facebook.com/p/Voltalux-NL-100087523061118/' ); }
+if ( ! defined( 'VOLTALUX_IG' ) )      { define( 'VOLTALUX_IG', 'https://www.instagram.com/voltalux.nl/' ); }
 
 /* -------------------------------------------------------------------------
  *  Theme setup

@@ -1,20 +1,23 @@
 <?php
 /**
- * Homepage werkwijze — numbered steps.
+ * Homepage werkwijze — 6-step process.
  *
  * @package Voltalux
  */
 
-$eyebrow = apply_filters( 'voltalux_home_steps_eyebrow', __( 'Werkwijze', 'voltalux' ) );
-$title   = apply_filters( 'voltalux_home_steps_title', __( 'Van advies tot jarenlang zorgeloos besparen', 'voltalux' ) );
+$eyebrow = apply_filters( 'voltalux_home_steps_eyebrow', __( 'Onze werkwijze', 'voltalux' ) );
+$title   = apply_filters( 'voltalux_home_steps_title', __( 'Van kennismaking tot service — een duurzaam proces', 'voltalux' ) );
+$phone   = voltalux_option( 'phone', VOLTALUX_PHONE );
 
 $steps = apply_filters(
 	'voltalux_home_steps',
 	array(
-		array( 'title' => __( 'Adviesgesprek', 'voltalux' ), 'text' => __( 'We brengen jouw verbruik, dak en wensen in kaart — eerlijk en vrijblijvend.', 'voltalux' ) ),
-		array( 'title' => __( 'Voorstel op maat', 'voltalux' ), 'text' => __( 'Een helder plan met het juiste systeem, de opbrengst en de terugverdientijd.', 'voltalux' ) ),
-		array( 'title' => __( 'Installatie', 'voltalux' ), 'text' => __( 'Gecertificeerde monteurs plaatsen je systeem netjes en volgens de normen.', 'voltalux' ) ),
-		array( 'title' => __( 'Nazorg & monitoring', 'voltalux' ), 'text' => __( 'We monitoren je systeem en staan klaar met onderhoud en garantie.', 'voltalux' ) ),
+		array( 'title' => __( 'Kennismaking', 'voltalux' ),          'text' => __( 'We luisteren naar jouw behoeften, doelen en verwachtingen — telefonisch of bij je thuis.', 'voltalux' ) ),
+		array( 'title' => __( 'Ontwerp en plan', 'voltalux' ),       'text' => __( 'Onze experts werken de beste duurzame oplossing uit voor jouw specifieke situatie.', 'voltalux' ) ),
+		array( 'title' => __( 'Voorbereiding', 'voltalux' ),         'text' => __( 'We stellen een gedetailleerd actieplan op, verzamelen de materialen en plannen de uitvoering in.', 'voltalux' ) ),
+		array( 'title' => __( 'Uitvoering', 'voltalux' ),            'text' => __( 'Onze ervaren, erkende installateurs zorgen voor een professionele installatie volgens de hoogste normen.', 'voltalux' ) ),
+		array( 'title' => __( 'Controle en oplevering', 'voltalux' ),'text' => __( 'Kwaliteitscontroles en tests. Pas als alles naar behoren werkt, leveren we op — en pas dan factureren we.', 'voltalux' ) ),
+		array( 'title' => __( 'Service en nazorg', 'voltalux' ),     'text' => __( 'Ook na oplevering staan we paraat voor vragen, aanpassingen of storingen — op afstand en op locatie.', 'voltalux' ) ),
 	)
 );
 
@@ -24,10 +27,14 @@ if ( empty( $steps ) ) {
 ?>
 <section class="vlx-section" id="werkwijze">
 	<div class="vlx-container vlx-container--wide">
-		<div class="vlx-s-head vlx-reveal">
-			<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow ); } ?>
-			<h2><?php echo esc_html( $title ); ?></h2>
+		<div class="vlx-s-head-row vlx-reveal">
+			<div class="vlx-s-head">
+				<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow ); } ?>
+				<h2><?php echo esc_html( $title ); ?></h2>
+			</div>
+			<?php voltalux_button( array( 'label' => __( 'Mogelijkheden bespreken', 'voltalux' ), 'url' => '#contact', 'style' => 'dark', 'attrs' => array( 'data-vlx-open' => 'offerte' ) ) ); ?>
 		</div>
+
 		<div class="vlx-steps">
 			<?php
 			$i = 0;
@@ -35,7 +42,7 @@ if ( empty( $steps ) ) {
 				$i++;
 				?>
 				<div class="vlx-step vlx-reveal">
-					<div class="vlx-step__n"><?php echo esc_html( sprintf( '%02d', $i ) ); ?> — <?php esc_html_e( 'Stap', 'voltalux' ); ?></div>
+					<div class="vlx-step__n"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></div>
 					<h3><?php echo esc_html( $step['title'] ); ?></h3>
 					<p><?php echo esc_html( $step['text'] ); ?></p>
 				</div>
