@@ -1,0 +1,1513 @@
+{
+ "version": "0.4",
+ "title": "Voltalux — Homepage",
+ "type": "page",
+ "content": [
+  {
+   "id": "db40c2c7",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "layout": "full_width",
+    "min_height": {
+     "unit": "vh",
+     "size": 90,
+     "sizes": []
+    },
+    "content_position": "bottom",
+    "padding": {
+     "unit": "px",
+     "top": "120",
+     "right": "0",
+     "bottom": "80",
+     "left": "0",
+     "isLinked": false
+    },
+    "background_background": "video",
+    "background_video_link": "http://voltalux.digiten.nl/wp-content/uploads/2026/07/5-UUR-VOLTALUX-Sterling-Fpv-1080p.mp4",
+    "background_play_on_mobile": "yes",
+    "background_overlay_background": "classic",
+    "background_overlay_color": "rgba(11,12,14,0.55)",
+    "background_overlay_opacity": {
+     "unit": "px",
+     "size": 1,
+     "sizes": []
+    },
+    "structure": "10"
+   },
+   "elements": [
+    {
+     "id": "0b1663fa",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null,
+      "padding": {
+       "unit": "px",
+       "top": "0",
+       "right": "0",
+       "bottom": "0",
+       "left": "0",
+       "isLinked": false
+      }
+     },
+     "elements": [
+      {
+       "id": "f334eadb",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "VOL VERMOGEN, THUIS",
+        "header_size": "div",
+        "align": "left",
+        "title_color": "#16E06A",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "10",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "39fab1d6",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "Jouw energie, jouw vrijheid.",
+        "header_size": "h1",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -1.2,
+         "sizes": []
+        },
+        "title_color": "#ffffff",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 68,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "6",
+         "right": "0",
+         "bottom": "18",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "24264c00",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p>Slim opslaan met een thuisbatterij van Voltalux. Bespaar op je energierekening, word onafhankelijker en maak je woning klaar voor de toekomst.</p>",
+        "text_color": "rgba(255,255,255,0.82)",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.65,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "0c51d071",
+       "elType": "widget",
+       "widgetType": "button",
+       "settings": {
+        "text": "Plan gratis advies",
+        "link": {
+         "url": "#contact",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "align": "left",
+        "size": "md",
+        "background_color": "#16E06A",
+        "button_text_color": "#06351C",
+        "hover_color": "#06351C",
+        "button_background_hover_color": "#16E06A",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "16",
+         "right": "28",
+         "bottom": "16",
+         "left": "28",
+         "isLinked": false
+        },
+        "selected_icon": {
+         "value": "fas fa-arrow-up",
+         "library": "fa-solid"
+        },
+        "icon_align": "right",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+         "horizontal": 0,
+         "vertical": 10,
+         "blur": 30,
+         "spread": -12,
+         "color": "rgba(11,12,14,0.25)"
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "3457fbe5",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "80",
+     "right": "0",
+     "bottom": "80",
+     "left": "0",
+     "isLinked": false
+    },
+    "content_width": "boxed"
+   },
+   "elements": [
+    {
+     "id": "eb1b598c",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "c18383be",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "Voltalux maakt jouw huis klaar voor de toekomst. Geen loze beloftes, maar eerlijk advies, vakkundige installatie en een thuisbatterij die écht bespaart.",
+        "header_size": "h2",
+        "align": "center",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -1.2,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "24",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "f48f5069",
+       "elType": "widget",
+       "widgetType": "button",
+       "settings": {
+        "text": "Bekijk onze werkwijze",
+        "link": {
+         "url": "#werkwijze",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "align": "center",
+        "size": "md",
+        "background_color": "#0B0C0E",
+        "button_text_color": "#ffffff",
+        "hover_color": "#ffffff",
+        "button_background_hover_color": "#0B0C0E",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "16",
+         "right": "28",
+         "bottom": "16",
+         "left": "28",
+         "isLinked": false
+        },
+        "selected_icon": {
+         "value": "fas fa-arrow-up",
+         "library": "fa-solid"
+        },
+        "icon_align": "right",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+         "horizontal": 0,
+         "vertical": 10,
+         "blur": 30,
+         "spread": -12,
+         "color": "rgba(11,12,14,0.25)"
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "89312601",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "40",
+     "right": "0",
+     "bottom": "60",
+     "left": "0",
+     "isLinked": false
+    },
+    "structure": "40",
+    "content_width": "boxed"
+   },
+   "elements": [
+    {
+     "id": "58987d40",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "1cf59dbc",
+       "elType": "widget",
+       "widgetType": "icon-box",
+       "settings": {
+        "selected_icon": {
+         "value": "far fa-comments",
+         "library": "fa-solid"
+        },
+        "title_text": "Advies op maat",
+        "description_text": "Eerlijk en onafhankelijk advies dat écht bij jouw situatie past.",
+        "position": "top",
+        "title_size": "h3",
+        "primary_color": "#0AA94C",
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "icon_size": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "content_vertical_alignment": "top",
+        "text_align": "left",
+        "icon_space": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "5102e666",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "603ab65f",
+       "elType": "widget",
+       "widgetType": "icon-box",
+       "settings": {
+        "selected_icon": {
+         "value": "fas fa-certificate",
+         "library": "fa-solid"
+        },
+        "title_text": "Gecertificeerde installatie",
+        "description_text": "Vakkundig geïnstalleerd volgens alle veiligheidsnormen.",
+        "position": "top",
+        "title_size": "h3",
+        "primary_color": "#0AA94C",
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "icon_size": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "content_vertical_alignment": "top",
+        "text_align": "left",
+        "icon_space": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "d51fe2ec",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "a24101bd",
+       "elType": "widget",
+       "widgetType": "icon-box",
+       "settings": {
+        "selected_icon": {
+         "value": "fas fa-hands-helping",
+         "library": "fa-solid"
+        },
+        "title_text": "Volledige ontzorging",
+        "description_text": "Van eerste gesprek tot oplevering regelen wij alles voor je.",
+        "position": "top",
+        "title_size": "h3",
+        "primary_color": "#0AA94C",
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "icon_size": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "content_vertical_alignment": "top",
+        "text_align": "left",
+        "icon_space": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "ee43cf0a",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "cfee4643",
+       "elType": "widget",
+       "widgetType": "icon-box",
+       "settings": {
+        "selected_icon": {
+         "value": "fas fa-shield-alt",
+         "library": "fa-solid"
+        },
+        "title_text": "Maximale zekerheid",
+        "description_text": "Volledige garantie, monitoring en onderhoud van je systeem.",
+        "position": "top",
+        "title_size": "h3",
+        "primary_color": "#0AA94C",
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "icon_size": {
+         "unit": "px",
+         "size": 30,
+         "sizes": []
+        },
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 19,
+         "sizes": []
+        },
+        "description_typography_typography": "custom",
+        "description_typography_font_family": "Inter",
+        "content_vertical_alignment": "top",
+        "text_align": "left",
+        "icon_space": {
+         "unit": "px",
+         "size": 16,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "7bb11038",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "80",
+     "right": "0",
+     "bottom": "10",
+     "left": "0",
+     "isLinked": false
+    },
+    "content_width": "boxed",
+    "background_background": "classic",
+    "background_color": "#F4F5F3"
+   },
+   "elements": [
+    {
+     "id": "4d027363",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "7f9d0f54",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "ONZE PRODUCTEN",
+        "header_size": "div",
+        "align": "left",
+        "title_color": "#16E06A",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "10",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "66d23ef7",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "Onze batterijen",
+        "header_size": "h2",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -1.2,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 44,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "204bc552",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "20",
+     "right": "0",
+     "bottom": "80",
+     "left": "0",
+     "isLinked": false
+    },
+    "structure": "40",
+    "content_width": "boxed",
+    "background_background": "classic",
+    "background_color": "#F4F5F3"
+   },
+   "elements": [
+    {
+     "id": "04c25d7e",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#ffffff",
+      "border_radius": {
+       "unit": "px",
+       "top": "30",
+       "right": "30",
+       "bottom": "30",
+       "left": "30",
+       "isLinked": true
+      },
+      "padding": {
+       "unit": "px",
+       "top": "32",
+       "right": "24",
+       "bottom": "28",
+       "left": "24",
+       "isLinked": false
+      },
+      "box_shadow_box_shadow_type": "yes",
+      "box_shadow_box_shadow": {
+       "horizontal": 0,
+       "vertical": 18,
+       "blur": 50,
+       "spread": -24,
+       "color": "rgba(11,12,14,0.18)"
+      }
+     },
+     "elements": [
+      {
+       "id": "a584b504",
+       "elType": "widget",
+       "widgetType": "image-box",
+       "settings": {
+        "image": {
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "id": ""
+        },
+        "title_text": "AEG",
+        "description_text": "Duits kwaliteitsmerk",
+        "title_size": "h3",
+        "link": {
+         "url": "#aeg",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "image_space": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "text_align": "center",
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "image_width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "0309d591",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#ffffff",
+      "border_radius": {
+       "unit": "px",
+       "top": "30",
+       "right": "30",
+       "bottom": "30",
+       "left": "30",
+       "isLinked": true
+      },
+      "padding": {
+       "unit": "px",
+       "top": "32",
+       "right": "24",
+       "bottom": "28",
+       "left": "24",
+       "isLinked": false
+      },
+      "box_shadow_box_shadow_type": "yes",
+      "box_shadow_box_shadow": {
+       "horizontal": 0,
+       "vertical": 18,
+       "blur": 50,
+       "spread": -24,
+       "color": "rgba(11,12,14,0.18)"
+      }
+     },
+     "elements": [
+      {
+       "id": "afa550e9",
+       "elType": "widget",
+       "widgetType": "image-box",
+       "settings": {
+        "image": {
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "id": ""
+        },
+        "title_text": "HyxiPower",
+        "description_text": "All-in-one systeem",
+        "title_size": "h3",
+        "link": {
+         "url": "#hyxipower",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "image_space": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "text_align": "center",
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "image_width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "825667bb",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#ffffff",
+      "border_radius": {
+       "unit": "px",
+       "top": "30",
+       "right": "30",
+       "bottom": "30",
+       "left": "30",
+       "isLinked": true
+      },
+      "padding": {
+       "unit": "px",
+       "top": "32",
+       "right": "24",
+       "bottom": "28",
+       "left": "24",
+       "isLinked": false
+      },
+      "box_shadow_box_shadow_type": "yes",
+      "box_shadow_box_shadow": {
+       "horizontal": 0,
+       "vertical": 18,
+       "blur": 50,
+       "spread": -24,
+       "color": "rgba(11,12,14,0.18)"
+      }
+     },
+     "elements": [
+      {
+       "id": "b40e6dfe",
+       "elType": "widget",
+       "widgetType": "image-box",
+       "settings": {
+        "image": {
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "id": ""
+        },
+        "title_text": "AlphaESS",
+        "description_text": "Slim & uitbreidbaar",
+        "title_size": "h3",
+        "link": {
+         "url": "#alphaess",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "image_space": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "text_align": "center",
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "image_width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "ab0d0f45",
+     "elType": "column",
+     "settings": {
+      "_column_size": 25,
+      "_inline_size": null,
+      "background_background": "classic",
+      "background_color": "#ffffff",
+      "border_radius": {
+       "unit": "px",
+       "top": "30",
+       "right": "30",
+       "bottom": "30",
+       "left": "30",
+       "isLinked": true
+      },
+      "padding": {
+       "unit": "px",
+       "top": "32",
+       "right": "24",
+       "bottom": "28",
+       "left": "24",
+       "isLinked": false
+      },
+      "box_shadow_box_shadow_type": "yes",
+      "box_shadow_box_shadow": {
+       "horizontal": 0,
+       "vertical": 18,
+       "blur": 50,
+       "spread": -24,
+       "color": "rgba(11,12,14,0.18)"
+      }
+     },
+     "elements": [
+      {
+       "id": "aa421b7e",
+       "elType": "widget",
+       "widgetType": "image-box",
+       "settings": {
+        "image": {
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE4MCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJab25uZXBhbmVsZW4gbWV0IHRodWlzYmF0dGVyaWoiPgogIDxnPgogICAgPHJlY3QgeD0iNiIgeT0iNjAiIHdpZHRoPSI4NiIgaGVpZ2h0PSI2MCIgcng9IjYiIHRyYW5zZm9ybT0ic2tld1koLTgpIiBmaWxsPSIjMEIwQzBFIi8+CiAgICA8ZyBzdHJva2U9IiMxNkUwNkEiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMC45Ij4KICAgICAgPGxpbmUgeDE9IjYiIHkxPSI4MCIgeDI9IjkyIiB5Mj0iNjgiIHRyYW5zZm9ybT0ic2tld1koLTgpIi8+CiAgICAgIDxsaW5lIHgxPSI2IiB5MT0iMTAwIiB4Mj0iOTIiIHkyPSI4OCIgdHJhbnNmb3JtPSJza2V3WSgtOCkiLz4KICAgICAgPGxpbmUgeDE9IjM0IiB5MT0iNjEiIHgyPSIzNCIgeTI9IjExOSIgdHJhbnNmb3JtPSJza2V3WSgtOCkiLz4KICAgICAgPGxpbmUgeDE9IjYyIiB5MT0iNjEiIHgyPSI2MiIgeTI9IjExOSIgdHJhbnNmb3JtPSJza2V3WSgtOCkiLz4KICAgIDwvZz4KICA8L2c+CiAgPHJlY3QgeD0iMTA0IiB5PSI0MCIgd2lkdGg9IjY2IiBoZWlnaHQ9IjE0NiIgcng9IjEyIiBmaWxsPSIjRjRGNUYzIiBzdHJva2U9IiMwQjBDMEUiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxyZWN0IHg9IjEwNCIgeT0iNDAiIHdpZHRoPSI2NiIgaGVpZ2h0PSI0MiIgcng9IjEyIiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMTE2IiB5PSI1NyIgd2lkdGg9IjQyIiBoZWlnaHQ9IjciIHJ4PSIzLjUiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSIxNTMiIGN5PSIxMDgiIHI9IjQiIGZpbGw9IiMxNkUwNkEiLz4KPC9zdmc+Cg==",
+         "id": ""
+        },
+        "title_text": "+ Zonnepanelen",
+        "description_text": "Compleet pakket",
+        "title_size": "h3",
+        "link": {
+         "url": "#zonnepanelen",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "image_space": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "description_color": "#6A7178",
+        "text_align": "center",
+        "title_typography_typography": "custom",
+        "title_typography_font_family": "Sora",
+        "title_typography_font_weight": "700",
+        "title_typography_font_size": {
+         "unit": "px",
+         "size": 20,
+         "sizes": []
+        },
+        "image_width": {
+         "unit": "%",
+         "size": 55,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "0bbf4349",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "80",
+     "right": "0",
+     "bottom": "80",
+     "left": "0",
+     "isLinked": false
+    },
+    "structure": "20",
+    "content_width": "boxed"
+   },
+   "elements": [
+    {
+     "id": "e2fb6878",
+     "elType": "column",
+     "settings": {
+      "_column_size": 50,
+      "_inline_size": null,
+      "background_background": "gradient",
+      "background_color": "#0B0C0E",
+      "background_color_b": "#0f3d24",
+      "background_gradient_angle": {
+       "unit": "deg",
+       "size": 150,
+       "sizes": []
+      },
+      "border_radius": {
+       "unit": "px",
+       "top": "30",
+       "right": "30",
+       "bottom": "30",
+       "left": "30",
+       "isLinked": true
+      },
+      "padding": {
+       "unit": "px",
+       "top": "40",
+       "right": "40",
+       "bottom": "40",
+       "left": "40",
+       "isLinked": false
+      }
+     },
+     "elements": [
+      {
+       "id": "acafad39",
+       "elType": "widget",
+       "widgetType": "image",
+       "settings": {
+        "image": {
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "id": ""
+        },
+        "image_size": "full",
+        "align": "center",
+        "width": {
+         "unit": "px",
+         "size": 150,
+         "sizes": []
+        }
+       },
+       "elements": []
+      }
+     ]
+    },
+    {
+     "id": "4fff597c",
+     "elType": "column",
+     "settings": {
+      "_column_size": 50,
+      "_inline_size": null,
+      "padding": {
+       "unit": "px",
+       "top": "20",
+       "right": "20",
+       "bottom": "20",
+       "left": "40",
+       "isLinked": false
+      }
+     },
+     "elements": [
+      {
+       "id": "4b2ee146",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "DE THUISBATTERIJ DIE BESPAART",
+        "header_size": "div",
+        "align": "left",
+        "title_color": "#16E06A",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "10",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "4f649c95",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "Sla je eigen stroom op en gebruik 'm wanneer jij wilt",
+        "header_size": "h2",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -1.2,
+         "sizes": []
+        },
+        "title_color": "#0B0C0E",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 36,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "b715c49d",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p>Met een thuisbatterij haal je alles uit je zonnepanelen. Sla overdag je stroom op en gebruik die 's avonds — of speel slim in op de energieprijzen.</p>",
+        "text_color": "#6A7178",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.65,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "068686fb",
+       "elType": "widget",
+       "widgetType": "icon-list",
+       "settings": {
+        "icon_list": [
+         {
+          "text": "Direct besparen op je energierekening",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          },
+          "_id": "7c916b7a"
+         },
+         {
+          "text": "Klaar voor het einde van de salderingsregeling",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          },
+          "_id": "5911f7e0"
+         },
+         {
+          "text": "Bescherming tegen stroomuitval",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          },
+          "_id": "b7e19463"
+         },
+         {
+          "text": "Slim opladen op de goedkoopste momenten",
+          "selected_icon": {
+           "value": "fas fa-check",
+           "library": "fa-solid"
+          },
+          "_id": "5f3fd0af"
+         }
+        ],
+        "space_between": {
+         "unit": "px",
+         "size": 12,
+         "sizes": []
+        },
+        "icon_color": "#0AA94C",
+        "text_color": "#0B0C0E",
+        "icon_typography_font_size": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "text_typography_typography": "custom",
+        "text_typography_font_family": "Inter",
+        "text_typography_font_weight": "500"
+       },
+       "elements": []
+      },
+      {
+       "id": "5c9aaec1",
+       "elType": "widget",
+       "widgetType": "button",
+       "settings": {
+        "text": "Meer over de thuisbatterij",
+        "link": {
+         "url": "#contact",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "align": "left",
+        "size": "md",
+        "background_color": "#0B0C0E",
+        "button_text_color": "#ffffff",
+        "hover_color": "#ffffff",
+        "button_background_hover_color": "#0B0C0E",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "16",
+         "right": "28",
+         "bottom": "16",
+         "left": "28",
+         "isLinked": false
+        },
+        "selected_icon": {
+         "value": "fas fa-arrow-up",
+         "library": "fa-solid"
+        },
+        "icon_align": "right",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+         "horizontal": 0,
+         "vertical": 10,
+         "blur": 30,
+         "spread": -12,
+         "color": "rgba(11,12,14,0.25)"
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "edf0318a",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "70",
+     "right": "60",
+     "bottom": "70",
+     "left": "60",
+     "isLinked": false
+    },
+    "content_width": "boxed",
+    "background_background": "gradient",
+    "background_color": "#123d27",
+    "background_color_b": "#0B0C0E",
+    "background_gradient_angle": {
+     "unit": "deg",
+     "size": 135,
+     "sizes": []
+    },
+    "border_radius": {
+     "unit": "px",
+     "top": "30",
+     "right": "30",
+     "bottom": "30",
+     "left": "30",
+     "isLinked": true
+    },
+    "margin": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "80",
+     "left": "0",
+     "isLinked": false
+    }
+   },
+   "elements": [
+    {
+     "id": "1346416d",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "3ed95c5b",
+       "elType": "widget",
+       "widgetType": "testimonial",
+       "settings": {
+        "testimonial_content": "Vanaf het eerste gesprek tot en met de installatie is alles prima verlopen. Rustig en vakkundig uitgelegd, netjes geïnstalleerd. Echt een aanrader.",
+        "testimonial_name": "Maarten K.",
+        "testimonial_job": "Klant van Voltalux",
+        "testimonial_alignment": "left",
+        "content_content_color": "#ffffff",
+        "name_text_color": "#ffffff",
+        "job_text_color": "rgba(255,255,255,0.6)",
+        "content_typography_typography": "custom",
+        "content_typography_font_family": "Sora",
+        "content_typography_font_size": {
+         "unit": "px",
+         "size": 26,
+         "sizes": []
+        },
+        "content_typography_font_weight": "600"
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  },
+  {
+   "id": "19c677de",
+   "elType": "section",
+   "settings": {
+    "gap": "extended",
+    "padding": {
+     "unit": "px",
+     "top": "70",
+     "right": "60",
+     "bottom": "70",
+     "left": "60",
+     "isLinked": false
+    },
+    "content_width": "boxed",
+    "background_background": "classic",
+    "background_color": "#0B0C0E",
+    "border_radius": {
+     "unit": "px",
+     "top": "30",
+     "right": "30",
+     "bottom": "30",
+     "left": "30",
+     "isLinked": true
+    },
+    "margin": {
+     "unit": "px",
+     "top": "0",
+     "right": "0",
+     "bottom": "80",
+     "left": "0",
+     "isLinked": false
+    }
+   },
+   "elements": [
+    {
+     "id": "7e0332bc",
+     "elType": "column",
+     "settings": {
+      "_column_size": 100,
+      "_inline_size": null
+     },
+     "elements": [
+      {
+       "id": "b16814fc",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "GEEN MOOIE PRAATJES, WEL EEN EERLIJK VERHAAL",
+        "header_size": "div",
+        "align": "left",
+        "title_color": "#16E06A",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 13,
+         "sizes": []
+        },
+        "typography_text_transform": "uppercase",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": 1.5,
+         "sizes": []
+        },
+        "_margin": {
+         "unit": "px",
+         "top": "0",
+         "right": "0",
+         "bottom": "10",
+         "left": "0",
+         "isLinked": false
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "6d8ad806",
+       "elType": "widget",
+       "widgetType": "heading",
+       "settings": {
+        "title": "Klaar om te besparen met een thuisbatterij?",
+        "header_size": "h2",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "700",
+        "typography_letter_spacing": {
+         "unit": "px",
+         "size": -1.2,
+         "sizes": []
+        },
+        "title_color": "#ffffff",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 40,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "cdcba74e",
+       "elType": "widget",
+       "widgetType": "text-editor",
+       "settings": {
+        "editor": "<p>Plan een vrijblijvend adviesgesprek. We kijken samen naar jouw situatie en maken een voorstel op maat — helder, eerlijk en zonder verplichtingen.</p>",
+        "text_color": "rgba(255,255,255,0.72)",
+        "align": "left",
+        "typography_typography": "custom",
+        "typography_font_family": "Inter",
+        "typography_font_size": {
+         "unit": "px",
+         "size": 18,
+         "sizes": []
+        },
+        "typography_line_height": {
+         "unit": "em",
+         "size": 1.65,
+         "sizes": []
+        }
+       },
+       "elements": []
+      },
+      {
+       "id": "c2d6402c",
+       "elType": "widget",
+       "widgetType": "button",
+       "settings": {
+        "text": "Plan gratis advies",
+        "link": {
+         "url": "#contact",
+         "is_external": "",
+         "nofollow": "",
+         "custom_attributes": ""
+        },
+        "align": "left",
+        "size": "md",
+        "background_color": "#16E06A",
+        "button_text_color": "#06351C",
+        "hover_color": "#06351C",
+        "button_background_hover_color": "#16E06A",
+        "border_radius": {
+         "unit": "px",
+         "top": "999",
+         "right": "999",
+         "bottom": "999",
+         "left": "999",
+         "isLinked": true
+        },
+        "text_padding": {
+         "unit": "px",
+         "top": "16",
+         "right": "28",
+         "bottom": "16",
+         "left": "28",
+         "isLinked": false
+        },
+        "selected_icon": {
+         "value": "fas fa-arrow-up",
+         "library": "fa-solid"
+        },
+        "icon_align": "right",
+        "typography_typography": "custom",
+        "typography_font_family": "Sora",
+        "typography_font_weight": "600",
+        "button_box_shadow_box_shadow_type": "yes",
+        "button_box_shadow_box_shadow": {
+         "horizontal": 0,
+         "vertical": 10,
+         "blur": 30,
+         "spread": -12,
+         "color": "rgba(11,12,14,0.25)"
+        }
+       },
+       "elements": []
+      }
+     ]
+    }
+   ],
+   "isInner": false
+  }
+ ],
+ "page_settings": {
+  "hide_title": "yes",
+  "template": "elementor_header_footer"
+ },
+ "metadata": []
+}

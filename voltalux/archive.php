@@ -1,0 +1,51 @@
+<?php
+/**
+ * Archive (category, tag, author, date).
+ *
+ * @package Voltalux
+ */
+
+get_header();
+?>
+
+<div class="vlx-page-hero">
+	<div class="vlx-container vlx-container--wide">
+		<?php voltalux_eyebrow( __( 'Kennisbank', 'voltalux' ) ); ?>
+		<?php
+		the_archive_title( '<h1>', '</h1>' );
+		the_archive_description( '<p>', '</p>' );
+		?>
+	</div>
+</div>
+
+<div class="vlx-section vlx-container vlx-container--wide">
+	<div class="vlx-layout">
+		<div class="vlx-layout__main">
+			<?php if ( have_posts() ) : ?>
+				<div class="vlx-cards">
+					<?php
+					while ( have_posts() ) :
+						the_post();
+						get_template_part( 'template-parts/content', get_post_type() );
+					endwhile;
+					?>
+				</div>
+				<?php
+				the_posts_pagination(
+					array(
+						'mid_size'  => 1,
+						'prev_text' => __( '&larr;', 'voltalux' ),
+						'next_text' => __( '&rarr;', 'voltalux' ),
+					)
+				);
+				?>
+			<?php else : ?>
+				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+			<?php endif; ?>
+		</div>
+		<?php get_sidebar(); ?>
+	</div>
+</div>
+
+<?php
+get_footer();
