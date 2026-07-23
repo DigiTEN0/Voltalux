@@ -15,7 +15,7 @@
 
 	wp.customize('voltalux_accent', function (value) {
 		value.bind(function (to) {
-			document.documentElement.style.setProperty('--vlx-green', to);
+			document.documentElement.style.setProperty('--green', to);
 		});
 	});
 })();

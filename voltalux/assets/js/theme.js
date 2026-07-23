@@ -6,141 +6,95 @@
 
 	var doc = document;
 	var body = doc.body;
-	var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-	/* ---------------------------------------------------------------
-	 * Sticky header: toggle .is-stuck once the hero is scrolled past.
-	 * ------------------------------------------------------------- */
-	var header = doc.querySelector('.vlx-header');
+	/* ---- Sticky header ---- */
+	var header = doc.querySelector('.vlx-site-header');
 	if (header) {
-		var stuckAt = 40;
 		var onScroll = function () {
-			if (window.scrollY > stuckAt) {
-				header.classList.add('is-stuck');
-			} else {
-				header.classList.remove('is-stuck');
-			}
+			header.classList.toggle('is-stuck', window.scrollY > 30);
 		};
 		onScroll();
 		window.addEventListener('scroll', onScroll, { passive: true });
 	}
 
-	/* ---------------------------------------------------------------
-	 * Mobile menu drawer.
-	 * ------------------------------------------------------------- */
+	/* ---- Mobile menu ---- */
 	var burger = doc.querySelector('.vlx-burger');
-	var drawer = doc.querySelector('.vlx-drawer');
-	var overlay = doc.querySelector('.vlx-drawer__overlay');
-	var closeBtn = doc.querySelector('.vlx-drawer__close');
+	var mnav = doc.querySelector('.vlx-m-nav');
+	var mclose = doc.querySelector('.vlx-m-close');
 
-	function openMenu() {
-		body.classList.add('menu-open');
-		if (burger) { burger.setAttribute('aria-expanded', 'true'); }
-		body.style.overflow = 'hidden';
-	}
-	function closeMenu() {
-		body.classList.remove('menu-open');
-		if (burger) { burger.setAttribute('aria-expanded', 'false'); }
-		body.style.overflow = '';
-	}
-	function toggleMenu() {
-		if (body.classList.contains('menu-open')) { closeMenu(); } else { openMenu(); }
-	}
+	function openMenu() { body.classList.add('menu-open'); if (burger) { burger.setAttribute('aria-expanded', 'true'); } }
+	function closeMenu() { body.classList.remove('menu-open'); if (burger) { burger.setAttribute('aria-expanded', 'false'); } }
+	function toggleMenu() { body.classList.contains('menu-open') ? closeMenu() : openMenu(); }
 
 	if (burger) { burger.addEventListener('click', toggleMenu); }
-	if (overlay) { overlay.addEventListener('click', closeMenu); }
-	if (closeBtn) { closeBtn.addEventListener('click', closeMenu); }
-	doc.addEventListener('keyup', function (e) {
-		if (e.key === 'Escape') { closeMenu(); }
-	});
-	// Close after clicking a link inside the drawer.
-	if (drawer) {
-		drawer.addEventListener('click', function (e) {
-			var link = e.target.closest('a');
-			if (link && !link.parentElement.classList.contains('menu-item-has-children')) {
-				closeMenu();
-			}
+	if (mclose) { mclose.addEventListener('click', closeMenu); }
+	doc.addEventListener('keyup', function (e) { if (e.key === 'Escape') { closeMenu(); } });
+
+	/* ---- Mobile accordions ---- */
+	doc.querySelectorAll('.vlx-m-acc__btn').forEach(function (btn) {
+		btn.addEventListener('click', function () {
+			var acc = btn.closest('.vlx-m-acc');
+			if (!acc) { return; }
+			var open = acc.classList.toggle('is-open');
+			btn.setAttribute('aria-expanded', open ? 'true' : 'false');
 		});
-		// Accordion for sub-menus in the drawer.
-		drawer.querySelectorAll('.menu-item-has-children > a').forEach(function (a) {
-			a.addEventListener('click', function (e) {
-				var sub = a.parentElement.querySelector('.sub-menu');
-				if (sub && a.getAttribute('href') === '#') {
-					e.preventDefault();
-					a.parentElement.classList.toggle('is-open');
-				}
-			});
+	});
+
+	/* ---- Close menu when a real link is tapped ---- */
+	if (mnav) {
+		mnav.addEventListener('click', function (e) {
+			var a = e.target.closest('a');
+			if (a) { closeMenu(); }
 		});
 	}
 
-	/* ---------------------------------------------------------------
-	 * Reveal-on-scroll.
-	 * ------------------------------------------------------------- */
-	var revealEls = doc.querySelectorAll('.vlx-reveal');
-	if (revealEls.length && 'IntersectionObserver' in window && !reduceMotion) {
+	/* ---- Reveal on scroll ---- */
+	var reveals = doc.querySelectorAll('.vlx-reveal');
+	if (reveals.length && 'IntersectionObserver' in window && !reduce) {
 		var io = new IntersectionObserver(function (entries) {
 			entries.forEach(function (entry) {
-				if (entry.isIntersecting) {
-					entry.target.classList.add('is-in');
-					io.unobserve(entry.target);
-				}
+				if (entry.isIntersecting) { entry.target.classList.add('is-in'); io.unobserve(entry.target); }
 			});
 		}, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-		revealEls.forEach(function (el, i) {
-			el.style.transitionDelay = (Math.min(i % 4, 3) * 80) + 'ms';
+		reveals.forEach(function (el, i) {
+			el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
 			io.observe(el);
 		});
 	} else {
-		revealEls.forEach(function (el) { el.classList.add('is-in'); });
+		reveals.forEach(function (el) { el.classList.add('is-in'); });
 	}
 
-	/* ---------------------------------------------------------------
-	 * Hero video: respect reduced-motion + pause off-screen.
-	 * ------------------------------------------------------------- */
-	var heroVideo = doc.querySelector('.vlx-hero__media video');
-	if (heroVideo) {
-		if (reduceMotion) {
-			heroVideo.removeAttribute('autoplay');
-			heroVideo.pause();
-		} else {
-			var playPromise = heroVideo.play();
-			if (playPromise && playPromise.catch) { playPromise.catch(function () {}); }
+	/* ---- Hero video ---- */
+	var video = doc.querySelector('.vlx-hero__media video');
+	if (video) {
+		if (reduce) { video.removeAttribute('autoplay'); video.pause(); }
+		else {
+			var pp = video.play(); if (pp && pp.catch) { pp.catch(function () {}); }
 			if ('IntersectionObserver' in window) {
-				var vio = new IntersectionObserver(function (entries) {
-					entries.forEach(function (entry) {
-						if (entry.isIntersecting) { heroVideo.play().catch(function () {}); }
-						else { heroVideo.pause(); }
-					});
-				}, { threshold: 0.05 });
-				vio.observe(heroVideo);
+				new IntersectionObserver(function (entries) {
+					entries.forEach(function (en) { en.isIntersecting ? video.play().catch(function () {}) : video.pause(); });
+				}, { threshold: 0.05 }).observe(video);
 			}
 		}
 	}
 
-	/* ---------------------------------------------------------------
-	 * Floating CTA: hide when the footer is in view.
-	 * ------------------------------------------------------------- */
+	/* ---- Floating CTA hides over the footer ---- */
 	var floating = doc.querySelector('.vlx-floating');
-	var footer = doc.querySelector('.vlx-footer');
+	var footer = doc.querySelector('.vlx-site-footer');
 	if (floating && footer && 'IntersectionObserver' in window) {
-		var fio = new IntersectionObserver(function (entries) {
-			entries.forEach(function (entry) {
-				floating.classList.toggle('is-hidden', entry.isIntersecting);
-			});
-		}, { threshold: 0.05 });
-		fio.observe(footer);
+		new IntersectionObserver(function (entries) {
+			entries.forEach(function (en) { floating.classList.toggle('is-hide', en.isIntersecting); });
+		}, { threshold: 0.05 }).observe(footer);
 	}
 
-	/* ---------------------------------------------------------------
-	 * Smooth-scroll for on-page anchors.
-	 * ------------------------------------------------------------- */
+	/* ---- Smooth-scroll same-page anchors ---- */
 	doc.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function (a) {
 		a.addEventListener('click', function (e) {
-			var id = a.getAttribute('href');
-			var target = doc.querySelector(id);
+			var target = doc.querySelector(a.getAttribute('href'));
 			if (target) {
 				e.preventDefault();
-				target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+				target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
 			}
 		});
 	});

@@ -1,9 +1,6 @@
 <?php
 /**
- * Single page.
- *
- * Elementor-built pages render their own layout (no theme page-hero); classic
- * pages get the styled Voltalux page header + prose.
+ * Single page. Elementor pages render their own layout.
  *
  * @package Voltalux
  */
@@ -12,7 +9,6 @@ get_header();
 
 while ( have_posts() ) :
 	the_post();
-
 	$is_elementor = voltalux_is_elementor_page( get_the_ID() );
 	?>
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'vlx-page' ); ?>>
@@ -26,23 +22,19 @@ while ( have_posts() ) :
 			</header>
 
 			<div class="vlx-section vlx-container">
-				<div class="vlx-prose">
+				<div class="vlx-layout vlx-layout--single">
+					<div class="vlx-prose">
+						<?php
+						the_content();
+						wp_link_pages( array( 'before' => '<div class="vlx-page-links">' . esc_html__( 'Pagina:', 'voltalux' ), 'after' => '</div>' ) );
+						?>
+					</div>
 					<?php
-					the_content();
-					wp_link_pages(
-						array(
-							'before' => '<div class="vlx-page-links">' . esc_html__( 'Pagina:', 'voltalux' ),
-							'after'  => '</div>',
-						)
-					);
+					if ( comments_open() || get_comments_number() ) {
+						comments_template();
+					}
 					?>
 				</div>
-
-				<?php
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
-				?>
 			</div>
 		<?php else : ?>
 			<?php the_content(); ?>

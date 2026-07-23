@@ -96,3 +96,41 @@ add_shortcode(
 		return '<span class="vlx-mark">' . do_shortcode( $content ) . '</span>';
 	}
 );
+
+/**
+ * Products used across the site (mega-menu, mobile menu, products section).
+ * Filter `voltalux_products` to change them without touching templates.
+ *
+ * @return array[] each: name, desc, tag, image, url
+ */
+function voltalux_products() {
+	$img_battery = VOLTALUX_URI . 'assets/images/battery.svg';
+	$img_solar   = VOLTALUX_URI . 'assets/images/solar-battery.svg';
+
+	return apply_filters(
+		'voltalux_products',
+		array(
+			array( 'name' => 'AEG',          'desc' => __( 'Duits kwaliteitsmerk', 'voltalux' ), 'tag' => __( 'Thuisbatterij', 'voltalux' ), 'image' => $img_battery, 'url' => '#aeg' ),
+			array( 'name' => 'HyxiPower',    'desc' => __( 'All-in-one systeem', 'voltalux' ),   'tag' => __( 'Thuisbatterij', 'voltalux' ), 'image' => $img_battery, 'url' => '#hyxipower' ),
+			array( 'name' => 'AlphaESS',     'desc' => __( 'Modulair & slim', 'voltalux' ),      'tag' => __( 'Thuisbatterij', 'voltalux' ), 'image' => $img_battery, 'url' => '#alphaess' ),
+			array( 'name' => __( '+ Zonnepanelen', 'voltalux' ), 'desc' => __( 'Compleet pakket', 'voltalux' ), 'tag' => __( 'Pakket', 'voltalux' ), 'image' => $img_solar, 'url' => '#zonnepanelen' ),
+		)
+	);
+}
+
+/**
+ * Default primary-nav links used when no WordPress menu is assigned.
+ *
+ * @return array[] each: label, url
+ */
+function voltalux_fallback_nav() {
+	return apply_filters(
+		'voltalux_fallback_nav',
+		array(
+			array( 'label' => __( 'Zonnepanelen', 'voltalux' ), 'url' => '#zonnepanelen' ),
+			array( 'label' => __( 'Werkwijze', 'voltalux' ),    'url' => '#werkwijze' ),
+			array( 'label' => __( 'Kennisbank', 'voltalux' ),   'url' => '#kennisbank' ),
+			array( 'label' => __( 'Over ons', 'voltalux' ),     'url' => '#over-ons' ),
+		)
+	);
+}

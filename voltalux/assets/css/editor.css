@@ -2,19 +2,19 @@
 @import url('../fonts/fonts.css');
 
 :root {
-	--vlx-green: #16E06A;
-	--vlx-green-ink: #06351C;
-	--vlx-ink: #0B0C0E;
-	--vlx-muted: #6A7178;
-	--vlx-font-head: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-	--vlx-font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--green: #15DD6E;
+	--green-strong: #0B8A45;
+	--ink: #0A0B0D;
+	--muted: #6B7075;
+	--font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	--font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 .editor-styles-wrapper {
-	font-family: var(--vlx-font-body);
+	font-family: var(--font-body);
 	font-size: 1.0625rem;
-	line-height: 1.65;
-	color: var(--vlx-ink);
+	line-height: 1.6;
+	color: var(--ink);
 }
 .editor-styles-wrapper h1,
 .editor-styles-wrapper h2,
@@ -22,18 +22,18 @@
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
-	font-family: var(--vlx-font-head);
-	font-weight: 700;
-	letter-spacing: -0.03em;
-	line-height: 1.1;
+	font-family: var(--font-display);
+	font-weight: 500;
+	letter-spacing: -0.025em;
+	line-height: 1.08;
 }
-.editor-styles-wrapper .has-vlx-green-color { color: var(--vlx-green); }
-.editor-styles-wrapper .has-vlx-green-background-color { background-color: var(--vlx-green); }
-.editor-styles-wrapper .has-vlx-black-background-color { background-color: var(--vlx-ink); color: #fff; }
-.editor-styles-wrapper a { color: #0AA94C; }
+.editor-styles-wrapper .has-vlx-green-color { color: var(--green); }
+.editor-styles-wrapper .has-vlx-green-background-color { background-color: var(--green); }
+.editor-styles-wrapper .has-vlx-black-background-color { background-color: var(--ink); color: #fff; }
+.editor-styles-wrapper a { color: var(--green-strong); }
 .editor-styles-wrapper blockquote {
-	border-left: 4px solid var(--vlx-green);
+	border-left: 3px solid var(--green);
 	padding-left: 1.2rem;
-	font-family: var(--vlx-font-head);
-	font-weight: 600;
+	font-family: var(--font-display);
+	font-weight: 500;
 }

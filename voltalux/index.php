@@ -1,6 +1,6 @@
 <?php
 /**
- * Main template — blog index & archives fallback.
+ * Main template — blog index & fallback.
  *
  * @package Voltalux
  */
@@ -10,11 +10,11 @@ get_header();
 
 <div class="vlx-page-hero">
 	<div class="vlx-container vlx-container--wide">
-		<?php voltalux_eyebrow( __( 'Voltalux kennisbank', 'voltalux' ) ); ?>
+		<?php voltalux_eyebrow( __( 'Kennisbank', 'voltalux' ) ); ?>
 		<h1>
 			<?php
-			if ( is_home() && ! is_front_page() ) {
-				echo esc_html( get_the_title( get_option( 'page_for_posts' ) ) ? get_the_title( get_option( 'page_for_posts' ) ) : __( 'Blog', 'voltalux' ) );
+			if ( is_home() && ! is_front_page() && get_option( 'page_for_posts' ) ) {
+				echo esc_html( get_the_title( get_option( 'page_for_posts' ) ) );
 			} else {
 				esc_html_e( 'Nieuws & inzichten', 'voltalux' );
 			}
@@ -26,7 +26,7 @@ get_header();
 
 <div class="vlx-section vlx-container vlx-container--wide">
 	<div class="vlx-layout">
-		<div class="vlx-layout__main">
+		<div>
 			<?php if ( have_posts() ) : ?>
 				<div class="vlx-cards">
 					<?php
@@ -36,14 +36,12 @@ get_header();
 					endwhile;
 					?>
 				</div>
-
 				<?php
 				the_posts_pagination(
 					array(
 						'mid_size'  => 1,
-						'prev_text' => __( '&larr;', 'voltalux' ),
-						'next_text' => __( '&rarr;', 'voltalux' ),
-						'class'     => 'vlx-pagination',
+						'prev_text' => __( '&larr; Vorige', 'voltalux' ),
+						'next_text' => __( 'Volgende &rarr;', 'voltalux' ),
 					)
 				);
 				?>
@@ -51,7 +49,6 @@ get_header();
 				<?php get_template_part( 'template-parts/content', 'none' ); ?>
 			<?php endif; ?>
 		</div>
-
 		<?php get_sidebar(); ?>
 	</div>
 </div>

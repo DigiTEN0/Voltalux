@@ -79,28 +79,28 @@ function voltalux_seed_elementor_kit() {
 
 	$settings = $kit->get_settings();
 
-	$accent = get_theme_mod( 'voltalux_accent', '#16E06A' );
+	$accent = get_theme_mod( 'voltalux_accent', '#15DD6E' );
 
 	$settings['system_colors'] = array(
 		array( '_id' => 'primary',   'title' => 'Voltalux groen', 'color' => $accent ),
-		array( '_id' => 'secondary', 'title' => 'Zwart',          'color' => '#0B0C0E' ),
-		array( '_id' => 'text',      'title' => 'Tekst',          'color' => '#3F4547' ),
-		array( '_id' => 'accent',    'title' => 'Wolk grijs',     'color' => '#F4F5F3' ),
+		array( '_id' => 'secondary', 'title' => 'Zwart',          'color' => '#0A0B0D' ),
+		array( '_id' => 'text',      'title' => 'Tekst',          'color' => '#33373B' ),
+		array( '_id' => 'accent',    'title' => 'Papier',         'color' => '#F5F5F1' ),
 	);
 
 	$settings['system_typography'] = array(
 		array(
 			'_id'                 => 'primary',
-			'title'               => 'Koppen — Sora',
+			'title'               => 'Koppen — Space Grotesk',
 			'typography_typography'  => 'custom',
-			'typography_font_family' => 'Sora',
-			'typography_font_weight' => '700',
+			'typography_font_family' => 'Space Grotesk',
+			'typography_font_weight' => '500',
 		),
 		array(
 			'_id'                 => 'secondary',
-			'title'               => 'Subkoppen — Sora',
+			'title'               => 'Subkoppen — Space Grotesk',
 			'typography_typography'  => 'custom',
-			'typography_font_family' => 'Sora',
+			'typography_font_family' => 'Space Grotesk',
 			'typography_font_weight' => '600',
 		),
 		array(
@@ -125,12 +125,13 @@ function voltalux_seed_elementor_kit() {
 add_action( 'wp_loaded', 'voltalux_seed_elementor_kit', 20 );
 
 /**
- * Register Sora + Inter as usable fonts inside the Elementor font picker
- * (pointing at the self-hosted files, so no Google CDN call).
+ * Register Space Grotesk + Inter + Space Mono as usable fonts inside the
+ * Elementor font picker (pointing at the self-hosted files, so no Google CDN call).
  */
 function voltalux_elementor_fonts( $additional_fonts ) {
-	$additional_fonts['Sora']  = 'system';
-	$additional_fonts['Inter'] = 'system';
+	$additional_fonts['Space Grotesk'] = 'system';
+	$additional_fonts['Inter']         = 'system';
+	$additional_fonts['Space Mono']    = 'system';
 	return $additional_fonts;
 }
 add_filter( 'elementor/fonts/additional_fonts', 'voltalux_elementor_fonts' );

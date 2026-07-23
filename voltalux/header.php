@@ -1,11 +1,17 @@
 <?php
 /**
- * Header template.
+ * Header.
  *
  * @package Voltalux
  */
 
-$has_hero = ( is_front_page() && voltalux_use_coded_homepage() );
+$has_hero  = ( is_front_page() && voltalux_use_coded_homepage() );
+$has_menu  = has_nav_menu( 'primary' );
+$products  = voltalux_products();
+$cta_label = voltalux_option( 'header_cta_label', __( 'Plan gratis advies', 'voltalux' ) );
+$cta_url   = voltalux_option( 'header_cta_url', '#contact' );
+$phone     = voltalux_option( 'phone', '' );
+$phone_href = $phone ? 'tel:' . preg_replace( '/[^0-9+]/', '', $phone ) : '';
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -21,92 +27,121 @@ $has_hero = ( is_front_page() && voltalux_use_coded_homepage() );
 
 <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Ga naar de inhoud', 'voltalux' ); ?></a>
 
-<?php
-// If Elementor Pro provides a header template, let it render and skip ours.
-if ( ! voltalux_has_elementor_location( 'header' ) ) :
-	$cta_label = voltalux_option( 'header_cta_label', __( 'Plan gratis advies', 'voltalux' ) );
-	$cta_url   = voltalux_option( 'header_cta_url', '#contact' );
-	$phone     = voltalux_option( 'phone', '' );
-	?>
-	<header class="vlx-header" id="site-header">
-		<div class="vlx-container vlx-container--wide vlx-header__inner">
+<?php if ( ! voltalux_has_elementor_location( 'header' ) ) : ?>
+	<header class="vlx-site-header" id="site-header">
+		<div class="vlx-container vlx-container--wide vlx-header-inner">
 
 			<?php voltalux_branding( 'header' ); ?>
 
 			<nav class="vlx-nav" aria-label="<?php esc_attr_e( 'Hoofdmenu', 'voltalux' ); ?>">
-				<?php
-				if ( has_nav_menu( 'primary' ) ) {
-					wp_nav_menu(
-						array(
-							'theme_location' => 'primary',
-							'container'      => false,
-							'depth'          => 2,
-						)
-					);
-				} else {
-					echo '<ul><li><a href="' . esc_url( admin_url( 'nav-menus.php' ) ) . '">' . esc_html__( 'Stel je menu in', 'voltalux' ) . '</a></li></ul>';
-				}
-				?>
+				<ul>
+					<li class="has-mega">
+						<a href="#producten"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?></a>
+						<div class="vlx-mega">
+							<div class="vlx-mega-grid">
+								<?php foreach ( $products as $p ) : ?>
+									<a class="vlx-mega-item" href="<?php echo esc_url( $p['url'] ); ?>">
+										<span class="vlx-mega-item__img"><img src="<?php echo esc_url( $p['image'] ); ?>" alt="" loading="lazy"></span>
+										<span><span class="vlx-mega-item__t"><?php echo esc_html( $p['name'] ); ?></span><span class="vlx-mega-item__d"><?php echo esc_html( $p['desc'] ); ?></span></span>
+									</a>
+								<?php endforeach; ?>
+							</div>
+							<div class="vlx-mega-foot">
+								<span><?php esc_html_e( 'Advies op maat', 'voltalux' ); ?></span>
+								<a class="vlx-arrow-link" href="#producten" style="color:var(--green-strong)"><?php esc_html_e( 'Vergelijk alles', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
+							</div>
+						</div>
+					</li>
+					<?php
+					if ( $has_menu ) {
+						wp_nav_menu(
+							array(
+								'theme_location' => 'primary',
+								'container'      => false,
+								'items_wrap'     => '%3$s',
+								'depth'          => 2,
+							)
+						);
+					} else {
+						foreach ( voltalux_fallback_nav() as $item ) {
+							printf( '<li><a href="%1$s">%2$s</a></li>', esc_url( $item['url'] ), esc_html( $item['label'] ) );
+						}
+					}
+					?>
+				</ul>
 			</nav>
 
-			<div class="vlx-header__actions">
+			<div class="vlx-header-actions">
 				<?php if ( $phone ) : ?>
-					<a class="vlx-header__phone" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $phone ) ); ?>">
-						<svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 006.6 6.6l2.2-2.2a1 1 0 011-.24c1.1.37 2.3.57 3.5.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.57 3.5a1 1 0 01-.24 1L6.6 10.8z" fill="currentColor"/></svg>
-						<span><?php echo esc_html( $phone ); ?></span>
-					</a>
+					<a class="vlx-header-phone" href="<?php echo esc_attr( $phone_href ); ?>"><?php echo esc_html( $phone ); ?></a>
 				<?php endif; ?>
-
 				<?php
 				if ( $cta_label ) {
-					voltalux_button(
-						array(
-							'label' => $cta_label,
-							'url'   => $cta_url,
-							'style' => 'green',
-							'class' => 'vlx-header__cta',
-						)
-					);
+					voltalux_button( array( 'label' => $cta_label, 'url' => $cta_url, 'style' => 'primary' ) );
 				}
 				?>
-
-				<button class="vlx-burger" aria-label="<?php esc_attr_e( 'Menu openen', 'voltalux' ); ?>" aria-expanded="false" aria-controls="vlx-drawer">
+				<button class="vlx-burger" aria-label="<?php esc_attr_e( 'Menu openen', 'voltalux' ); ?>" aria-expanded="false" aria-controls="vlx-m-nav">
 					<span></span><span></span><span></span>
 				</button>
 			</div>
 		</div>
 	</header>
 
-	<?php // Mobile drawer ?>
-	<div class="vlx-drawer__overlay" aria-hidden="true"></div>
-	<aside class="vlx-drawer" id="vlx-drawer" aria-label="<?php esc_attr_e( 'Mobiel menu', 'voltalux' ); ?>">
-		<button class="vlx-drawer__close" aria-label="<?php esc_attr_e( 'Menu sluiten', 'voltalux' ); ?>">&times;</button>
-		<?php
-		if ( has_nav_menu( 'primary' ) ) {
-			wp_nav_menu(
-				array(
-					'theme_location' => 'primary',
-					'container'      => false,
-					'depth'          => 2,
-				)
-			);
-		}
-		?>
-		<?php if ( $cta_label ) : ?>
-			<div class="vlx-drawer__cta">
+	<?php /* Mobile menu */ ?>
+	<div class="vlx-m-nav" id="vlx-m-nav" aria-label="<?php esc_attr_e( 'Mobiel menu', 'voltalux' ); ?>">
+		<div class="vlx-m-nav__top">
+			<?php voltalux_branding( 'header' ); ?>
+			<button class="vlx-m-close" aria-label="<?php esc_attr_e( 'Menu sluiten', 'voltalux' ); ?>"><?php echo voltalux_icon( 'close' ); // phpcs:ignore ?></button>
+		</div>
+		<div class="vlx-m-nav__scroll">
+			<ul class="vlx-m-list">
+				<li class="vlx-m-acc">
+					<button class="vlx-m-acc__btn" aria-expanded="false"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?> <span class="vlx-ic"><?php echo voltalux_icon( 'plus' ); // phpcs:ignore ?></span></button>
+					<div class="vlx-m-acc__panel"><div class="vlx-m-acc__inner"><div class="vlx-m-products">
+						<?php foreach ( $products as $p ) : ?>
+							<a class="vlx-m-product" href="<?php echo esc_url( $p['url'] ); ?>">
+								<span class="vlx-m-product__img"><img src="<?php echo esc_url( $p['image'] ); ?>" alt="" loading="lazy"></span>
+								<span class="vlx-m-product__t"><?php echo esc_html( $p['name'] ); ?></span>
+								<span class="vlx-m-product__d"><?php echo esc_html( $p['desc'] ); ?></span>
+							</a>
+						<?php endforeach; ?>
+					</div></div></div>
+				</li>
 				<?php
-				voltalux_button(
-					array(
-						'label' => $cta_label,
-						'url'   => $cta_url,
-						'style' => 'green',
-					)
-				);
+				if ( $has_menu ) {
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'container'      => false,
+							'items_wrap'     => '%3$s',
+							'depth'          => 1,
+						)
+					);
+				} else {
+					foreach ( voltalux_fallback_nav() as $item ) {
+						printf( '<li><a href="%1$s">%2$s</a></li>', esc_url( $item['url'] ), esc_html( $item['label'] ) );
+					}
+				}
 				?>
+			</ul>
+		</div>
+		<div class="vlx-m-nav__foot">
+			<?php
+			if ( $cta_label ) {
+				voltalux_button( array( 'label' => $cta_label, 'url' => $cta_url, 'style' => 'primary', 'class' => 'vlx-btn--block' ) );
+			}
+			?>
+			<div class="vlx-m-nav__meta">
+				<?php if ( $phone ) : ?>
+					<a href="<?php echo esc_attr( $phone_href ); ?>"><?php echo esc_html( $phone ); ?></a>
+				<?php else : ?>
+					<span></span>
+				<?php endif; ?>
+				<?php voltalux_social_icons( 'vlx-m-social' ); ?>
 			</div>
-		<?php endif; ?>
-	</aside>
+		</div>
+	</div>
 <?php endif; // header location. ?>
 
-<div id="page" class="vlx-site">
+<div id="page">
 	<main id="main" class="vlx-site-content">

@@ -42,7 +42,7 @@ function voltalux_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'voltalux_accent',
 		array(
-			'default'           => '#16E06A',
+			'default'           => '#15DD6E',
 			'sanitize_callback' => 'sanitize_hex_color',
 			'transport'         => 'postMessage',
 		)
@@ -105,9 +105,9 @@ function voltalux_customize_register( $wp_customize ) {
 		'voltalux_hero'
 	);
 
-	voltalux_add_text_setting( $wp_customize, 'voltalux_hero_eyebrow', __( 'Vol vermogen, thuis', 'voltalux' ), __( 'Klein label boven de titel', 'voltalux' ), 'voltalux_hero' );
-	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_title', __( 'Jouw energie, jouw vrijheid.', 'voltalux' ), __( 'Hero-titel. Zet [mark]tekst[/mark] rond een woord voor de groene markering.', 'voltalux' ), 'voltalux_hero' );
-	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_text', __( 'Slim opslaan met een thuisbatterij van Voltalux. Bespaar op je energierekening, word onafhankelijker en maak je woning klaar voor de toekomst — met advies en installatie op maat.', 'voltalux' ), __( 'Hero-tekst', 'voltalux' ), 'voltalux_hero' );
+	voltalux_add_text_setting( $wp_customize, 'voltalux_hero_eyebrow', __( 'Thuisbatterijen · Zonnepanelen', 'voltalux' ), __( 'Klein label boven de titel', 'voltalux' ), 'voltalux_hero' );
+	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_title', __( 'Maak meer van je [mark]eigen stroom[/mark].', 'voltalux' ), __( 'Hero-titel. Zet [mark]tekst[/mark] rond een woord voor de groene markering.', 'voltalux' ), 'voltalux_hero' );
+	voltalux_add_textarea_setting( $wp_customize, 'voltalux_hero_text', __( 'Sla je zonne-energie op met een thuisbatterij van Voltalux. Bespaar elke dag, word onafhankelijker en maak je woning klaar voor de toekomst.', 'voltalux' ), __( 'Hero-tekst', 'voltalux' ), 'voltalux_hero' );
 
 	voltalux_add_text_setting( $wp_customize, 'voltalux_hero_btn1_label', __( 'Plan gratis advies', 'voltalux' ), __( 'Knop 1 — tekst', 'voltalux' ), 'voltalux_hero' );
 	voltalux_add_url_setting( $wp_customize, 'voltalux_hero_btn1_url', '#contact', __( 'Knop 1 — link', 'voltalux' ), '', 'voltalux_hero' );

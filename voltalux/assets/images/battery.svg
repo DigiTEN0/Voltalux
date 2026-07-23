@@ -1,9 +1,19 @@
-<svg width="120" height="200" viewBox="0 0 120 200" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thuisbatterij">
-  <rect x="20" y="14" width="80" height="172" rx="14" fill="#F4F5F3" stroke="#0B0C0E" stroke-width="3"/>
-  <rect x="20" y="14" width="80" height="52" rx="14" fill="#0B0C0E"/>
-  <rect x="34" y="34" width="52" height="8" rx="4" fill="#16E06A"/>
-  <circle cx="82" cy="94" r="5" fill="#16E06A"/>
-  <path d="M56 92l-10 18h12l-4 14 16-22H62l4-10z" fill="#0B0C0E"/>
-  <rect x="34" y="150" width="52" height="4" rx="2" fill="#0B0C0E" opacity="0.25"/>
-  <rect x="34" y="162" width="40" height="4" rx="2" fill="#0B0C0E" opacity="0.15"/>
+<svg width="150" height="210" viewBox="0 0 150 210" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Thuisbatterij">
+  <defs>
+    <linearGradient id="vb" x1="0" y1="0" x2="150" y2="210" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FCFCFB"/><stop offset="1" stop-color="#E9EAE6"/>
+    </linearGradient>
+    <linearGradient id="vc" x1="0" y1="0" x2="0" y2="46" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1A1D20"/><stop offset="1" stop-color="#0A0B0D"/>
+    </linearGradient>
+  </defs>
+  <rect x="27" y="8" width="96" height="194" rx="22" fill="url(#vb)" stroke="#0A0B0D" stroke-width="2.5"/>
+  <path d="M27 30C27 17.85 36.85 8 49 8H101C113.15 8 123 17.85 123 30V44H27V30Z" fill="url(#vc)"/>
+  <rect x="43" y="24" width="64" height="6" rx="3" fill="#15DD6E"/>
+  <rect x="43" y="62" width="64" height="1.5" rx="1" fill="#0A0B0D" opacity="0.10"/>
+  <rect x="43" y="150" width="64" height="1.5" rx="1" fill="#0A0B0D" opacity="0.10"/>
+  <circle cx="107" cy="176" r="4" fill="#15DD6E"/>
+  <circle cx="107" cy="176" r="8" stroke="#15DD6E" stroke-width="1.5" opacity="0.4"/>
+  <rect x="43" y="104" width="40" height="1.5" rx="1" fill="#0A0B0D" opacity="0.10"/>
+  <rect x="43" y="114" width="26" height="1.5" rx="1" fill="#0A0B0D" opacity="0.10"/>
 </svg>

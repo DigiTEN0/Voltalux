@@ -1,9 +1,11 @@
 # Voltalux — WordPress thema (Elementor-compatibel)
 
 Een custom, high-end WordPress-thema voor **Voltalux** — duurzame energie, thuisbatterijen en
-zonnepanelen. Zwart/felgroen designsysteem, video-hero, ronde cards en pill-knoppen, geïnspireerd op
-Domogo, Zonneplan en Saman Groep. Volledig te uploaden via **Weergave → Thema's → Nieuw toevoegen →
-Thema uploaden** en bedoeld om samen met **Elementor** te gebruiken.
+zonnepanelen. Een **eigen "precision energy"-designtaal** (niet gekopieerd van bestaande sites):
+verfijnde typografie met Space Grotesk + Space Mono, video-hero met spec-balk, een **mega-menu met
+productvoorbeelden**, een **full-screen mobiel menu** waarin je de producten ziet, genummerde
+werkwijze-stappen, een live-energie dashboardmock en een stats-balk. Volledig te uploaden via
+**Weergave → Thema's → Nieuw toevoegen → Thema uploaden** en gebouwd om met **Elementor** te werken.
 
 > Alle teksten, afbeeldingen en het logo voeg je zelf toe via de WordPress media-uploader en Elementor.
 > Het thema levert de complete look-and-feel, de header/footer, een kant-en-klare homepage én een
@@ -85,12 +87,15 @@ De footer heeft daarnaast 4 **widget-kolommen** via **Weergave → Widgets** (Fo
 
 ## 5. Wat zit erin — merk & techniek
 
-- **Kleuren:** zwart `#0B0C0E`, Voltalux-groen `#16E06A`, wolk-grijs `#F4F5F3` (CSS-variabelen; de
+- **Kleuren:** zwart `#0A0B0D`, Voltalux-groen `#15DD6E`, warm papier `#F5F5F1` (CSS-variabelen; de
   groene accentkleur is met één klik te wijzigen in de Customizer).
-- **Typografie:** **Sora** (koppen) + **Inter** (tekst) — **self-hosted** (GDPR/AVG-veilig, geen
-  Google-CDN-verzoeken). Deze fonts worden ook in Elementor's font-kiezer en globale stijlen gezet.
-- **Signatuur-elementen:** pill-knoppen met ↗-pijl, de groene *highlight-marker* op keywords
-  (gebruik `[mark]woord[/mark]` in tekst), ronde cards, USP-rijen, video-hero, zwevende CTA-balk.
+- **Typografie:** **Space Grotesk** (koppen) + **Inter** (tekst) + **Space Mono** (technische labels)
+  — allemaal **self-hosted** (GDPR/AVG-veilig, geen Google-CDN). Ook gezet in Elementor's font-kiezer
+  en globale stijlen.
+- **Signatuur-elementen:** mono-eyebrows met hairline, pill-knoppen met ↗-pijl, groene keyword-accenten
+  (gebruik `[mark]woord[/mark]`), mega-menu met producten, full-screen mobiel menu, werkwijze-stappen
+  (01–04), energie-dashboardmock, stats-balk, zwevende CTA-balk. Alle CSS-klassen zijn `vlx-`-geprefixt
+  om botsingen met Elementor/plugins te voorkomen.
 - **Elementor-integratie:** globale kleuren & fonts worden geseed, full-width/canvas werkt,
   header/footer-locaties zijn geregistreerd voor Elementor Pro.
 - **Compleet & valide:** header, footer, homepage, pagina, blog, archief, zoekresultaten, 404,
@@ -108,11 +113,11 @@ voltalux/
 ├─ page.php single.php archive.php search.php 404.php index.php
 ├─ comments.php searchform.php sidebar.php
 ├─ page-templates/full-width.php
-├─ template-parts/home/   (hero, statement, usps, products, feature, testimonial, articles, cta)
+├─ template-parts/home/   (hero, statement, products, steps, feature, stats, testimonial, articles, cta)
 ├─ inc/                   (customizer, elementor, template-tags, template-functions)
 ├─ assets/css/            (theme.css, editor.css)
 ├─ assets/js/             (theme.js, customize-preview.js)
-├─ assets/fonts/          (self-hosted Sora + Inter, fonts.css)
+├─ assets/fonts/          (self-hosted Space Grotesk + Inter + Space Mono, fonts.css)
 ├─ assets/images/         (placeholder-illustraties)
 ├─ elementor/voltalux-homepage-template.json   (importeerbaar)
 └─ screenshot.png
@@ -136,4 +141,4 @@ zip -r voltalux.zip voltalux -x '*.DS_Store'
 ---
 
 ## Licentie
-GPL-2.0-or-later. Sora & Inter: SIL Open Font License 1.1.
+GPL-2.0-or-later. Space Grotesk, Inter & Space Mono: SIL Open Font License 1.1.

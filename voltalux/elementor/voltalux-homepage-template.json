@@ -4,7 +4,7 @@
  "type": "page",
  "content": [
   {
-   "id": "db40c2c7",
+   "id": "e863c636",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -37,7 +37,7 @@
    },
    "elements": [
     {
-     "id": "0b1663fa",
+     "id": "c8cbee24",
      "elType": "column",
      "settings": {
       "_column_size": 100,
@@ -53,16 +53,16 @@
      },
      "elements": [
       {
-       "id": "f334eadb",
+       "id": "2467b455",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
         "title": "VOL VERMOGEN, THUIS",
         "header_size": "div",
         "align": "left",
-        "title_color": "#16E06A",
+        "title_color": "#15DD6E",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "typography_font_size": {
          "unit": "px",
@@ -87,7 +87,7 @@
        "elements": []
       },
       {
-       "id": "39fab1d6",
+       "id": "0796f1d5",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
@@ -95,7 +95,7 @@
         "header_size": "h1",
         "align": "left",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "700",
         "typography_letter_spacing": {
          "unit": "px",
@@ -120,7 +120,7 @@
        "elements": []
       },
       {
-       "id": "24264c00",
+       "id": "1be66e36",
        "elType": "widget",
        "widgetType": "text-editor",
        "settings": {
@@ -143,7 +143,7 @@
        "elements": []
       },
       {
-       "id": "0c51d071",
+       "id": "ba994228",
        "elType": "widget",
        "widgetType": "button",
        "settings": {
@@ -156,10 +156,10 @@
         },
         "align": "left",
         "size": "md",
-        "background_color": "#16E06A",
-        "button_text_color": "#06351C",
-        "hover_color": "#06351C",
-        "button_background_hover_color": "#16E06A",
+        "background_color": "#15DD6E",
+        "button_text_color": "#04331B",
+        "hover_color": "#04331B",
+        "button_background_hover_color": "#15DD6E",
         "border_radius": {
          "unit": "px",
          "top": "999",
@@ -182,7 +182,7 @@
         },
         "icon_align": "right",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "button_box_shadow_box_shadow_type": "yes",
         "button_box_shadow_box_shadow": {
@@ -201,7 +201,7 @@
    "isInner": false
   },
   {
-   "id": "3457fbe5",
+   "id": "b8cc65cb",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -217,7 +217,7 @@
    },
    "elements": [
     {
-     "id": "eb1b598c",
+     "id": "36fb30c1",
      "elType": "column",
      "settings": {
       "_column_size": 100,
@@ -225,7 +225,7 @@
      },
      "elements": [
       {
-       "id": "c18383be",
+       "id": "1c3a8ee6",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
@@ -233,14 +233,14 @@
         "header_size": "h2",
         "align": "center",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "700",
         "typography_letter_spacing": {
          "unit": "px",
          "size": -1.2,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
+        "title_color": "#0A0B0D",
         "typography_font_size": {
          "unit": "px",
          "size": 40,
@@ -258,7 +258,7 @@
        "elements": []
       },
       {
-       "id": "f48f5069",
+       "id": "ca40c69b",
        "elType": "widget",
        "widgetType": "button",
        "settings": {
@@ -271,10 +271,10 @@
         },
         "align": "center",
         "size": "md",
-        "background_color": "#0B0C0E",
+        "background_color": "#0A0B0D",
         "button_text_color": "#ffffff",
         "hover_color": "#ffffff",
-        "button_background_hover_color": "#0B0C0E",
+        "button_background_hover_color": "#0A0B0D",
         "border_radius": {
          "unit": "px",
          "top": "999",
@@ -297,7 +297,7 @@
         },
         "icon_align": "right",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "button_box_shadow_box_shadow_type": "yes",
         "button_box_shadow_box_shadow": {
@@ -316,7 +316,7 @@
    "isInner": false
   },
   {
-   "id": "89312601",
+   "id": "691498f7",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -333,7 +333,7 @@
    },
    "elements": [
     {
-     "id": "58987d40",
+     "id": "4bc87560",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -341,7 +341,7 @@
      },
      "elements": [
       {
-       "id": "1cf59dbc",
+       "id": "b6c827ca",
        "elType": "widget",
        "widgetType": "icon-box",
        "settings": {
@@ -354,15 +354,15 @@
         "position": "top",
         "title_size": "h3",
         "primary_color": "#0AA94C",
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "icon_size": {
          "unit": "px",
          "size": 30,
          "sizes": []
         },
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -384,7 +384,7 @@
      ]
     },
     {
-     "id": "5102e666",
+     "id": "713f837c",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -392,7 +392,7 @@
      },
      "elements": [
       {
-       "id": "603ab65f",
+       "id": "7bc390f9",
        "elType": "widget",
        "widgetType": "icon-box",
        "settings": {
@@ -405,15 +405,15 @@
         "position": "top",
         "title_size": "h3",
         "primary_color": "#0AA94C",
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "icon_size": {
          "unit": "px",
          "size": 30,
          "sizes": []
         },
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -435,7 +435,7 @@
      ]
     },
     {
-     "id": "d51fe2ec",
+     "id": "2052d02b",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -443,7 +443,7 @@
      },
      "elements": [
       {
-       "id": "a24101bd",
+       "id": "4216dab4",
        "elType": "widget",
        "widgetType": "icon-box",
        "settings": {
@@ -456,15 +456,15 @@
         "position": "top",
         "title_size": "h3",
         "primary_color": "#0AA94C",
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "icon_size": {
          "unit": "px",
          "size": 30,
          "sizes": []
         },
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -486,7 +486,7 @@
      ]
     },
     {
-     "id": "ee43cf0a",
+     "id": "2ab7b25c",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -494,7 +494,7 @@
      },
      "elements": [
       {
-       "id": "cfee4643",
+       "id": "4eff3f22",
        "elType": "widget",
        "widgetType": "icon-box",
        "settings": {
@@ -507,15 +507,15 @@
         "position": "top",
         "title_size": "h3",
         "primary_color": "#0AA94C",
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "icon_size": {
          "unit": "px",
          "size": 30,
          "sizes": []
         },
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -540,7 +540,7 @@
    "isInner": false
   },
   {
-   "id": "7bb11038",
+   "id": "5645c442",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -558,7 +558,7 @@
    },
    "elements": [
     {
-     "id": "4d027363",
+     "id": "506b6229",
      "elType": "column",
      "settings": {
       "_column_size": 100,
@@ -566,16 +566,16 @@
      },
      "elements": [
       {
-       "id": "7f9d0f54",
+       "id": "7e29eebe",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
         "title": "ONZE PRODUCTEN",
         "header_size": "div",
         "align": "left",
-        "title_color": "#16E06A",
+        "title_color": "#15DD6E",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "typography_font_size": {
          "unit": "px",
@@ -600,7 +600,7 @@
        "elements": []
       },
       {
-       "id": "66d23ef7",
+       "id": "da3df15e",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
@@ -608,14 +608,14 @@
         "header_size": "h2",
         "align": "left",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "700",
         "typography_letter_spacing": {
          "unit": "px",
          "size": -1.2,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
+        "title_color": "#0A0B0D",
         "typography_font_size": {
          "unit": "px",
          "size": 44,
@@ -630,7 +630,7 @@
    "isInner": false
   },
   {
-   "id": "204bc552",
+   "id": "26648ba3",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -649,7 +649,7 @@
    },
    "elements": [
     {
-     "id": "04c25d7e",
+     "id": "bb8664d8",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -683,12 +683,12 @@
      },
      "elements": [
       {
-       "id": "a584b504",
+       "id": "2a9c3b4a",
        "elType": "widget",
        "widgetType": "image-box",
        "settings": {
         "image": {
-         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjIxMCIgdmlld0JveD0iMCAwIDE1MCAyMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idmIiIHgxPSIwIiB5MT0iMCIgeDI9IjE1MCIgeTI9IjIxMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkNGQ0ZCIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTlFQUU2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2YyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjQ2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMxQTFEMjAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwQTBCMEQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjI3IiB5PSI4IiB3aWR0aD0iOTYiIGhlaWdodD0iMTk0IiByeD0iMjIiIGZpbGw9InVybCgjdmIpIiBzdHJva2U9IiMwQTBCMEQiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHBhdGggZD0iTTI3IDMwQzI3IDE3Ljg1IDM2Ljg1IDggNDkgOEgxMDFDMTEzLjE1IDggMTIzIDE3Ljg1IDEyMyAzMFY0NEgyN1YzMFoiIGZpbGw9InVybCgjdmMpIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjI0IiB3aWR0aD0iNjQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMxNURENkUiLz4KICA8cmVjdCB4PSI0MyIgeT0iNjIiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjE1MCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjQiIGZpbGw9IiMxNURENkUiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjgiIHN0cm9rZT0iIzE1REQ2RSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuNCIvPgogIDxyZWN0IHg9IjQzIiB5PSIxMDQiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjExNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KPC9zdmc+Cg==",
          "id": ""
         },
         "title_text": "AEG",
@@ -705,11 +705,11 @@
          "size": 18,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "text_align": "center",
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -727,7 +727,7 @@
      ]
     },
     {
-     "id": "0309d591",
+     "id": "4ecf34ea",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -761,12 +761,12 @@
      },
      "elements": [
       {
-       "id": "afa550e9",
+       "id": "19536922",
        "elType": "widget",
        "widgetType": "image-box",
        "settings": {
         "image": {
-         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjIxMCIgdmlld0JveD0iMCAwIDE1MCAyMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idmIiIHgxPSIwIiB5MT0iMCIgeDI9IjE1MCIgeTI9IjIxMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkNGQ0ZCIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTlFQUU2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2YyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjQ2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMxQTFEMjAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwQTBCMEQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjI3IiB5PSI4IiB3aWR0aD0iOTYiIGhlaWdodD0iMTk0IiByeD0iMjIiIGZpbGw9InVybCgjdmIpIiBzdHJva2U9IiMwQTBCMEQiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHBhdGggZD0iTTI3IDMwQzI3IDE3Ljg1IDM2Ljg1IDggNDkgOEgxMDFDMTEzLjE1IDggMTIzIDE3Ljg1IDEyMyAzMFY0NEgyN1YzMFoiIGZpbGw9InVybCgjdmMpIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjI0IiB3aWR0aD0iNjQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMxNURENkUiLz4KICA8cmVjdCB4PSI0MyIgeT0iNjIiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjE1MCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjQiIGZpbGw9IiMxNURENkUiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjgiIHN0cm9rZT0iIzE1REQ2RSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuNCIvPgogIDxyZWN0IHg9IjQzIiB5PSIxMDQiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjExNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KPC9zdmc+Cg==",
          "id": ""
         },
         "title_text": "HyxiPower",
@@ -783,11 +783,11 @@
          "size": 18,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "text_align": "center",
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -805,7 +805,7 @@
      ]
     },
     {
-     "id": "825667bb",
+     "id": "a17a85f1",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -839,12 +839,12 @@
      },
      "elements": [
       {
-       "id": "b40e6dfe",
+       "id": "82ec3b0d",
        "elType": "widget",
        "widgetType": "image-box",
        "settings": {
         "image": {
-         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjIxMCIgdmlld0JveD0iMCAwIDE1MCAyMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idmIiIHgxPSIwIiB5MT0iMCIgeDI9IjE1MCIgeTI9IjIxMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkNGQ0ZCIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTlFQUU2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2YyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjQ2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMxQTFEMjAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwQTBCMEQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjI3IiB5PSI4IiB3aWR0aD0iOTYiIGhlaWdodD0iMTk0IiByeD0iMjIiIGZpbGw9InVybCgjdmIpIiBzdHJva2U9IiMwQTBCMEQiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHBhdGggZD0iTTI3IDMwQzI3IDE3Ljg1IDM2Ljg1IDggNDkgOEgxMDFDMTEzLjE1IDggMTIzIDE3Ljg1IDEyMyAzMFY0NEgyN1YzMFoiIGZpbGw9InVybCgjdmMpIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjI0IiB3aWR0aD0iNjQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMxNURENkUiLz4KICA8cmVjdCB4PSI0MyIgeT0iNjIiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjE1MCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjQiIGZpbGw9IiMxNURENkUiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjgiIHN0cm9rZT0iIzE1REQ2RSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuNCIvPgogIDxyZWN0IHg9IjQzIiB5PSIxMDQiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjExNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KPC9zdmc+Cg==",
          "id": ""
         },
         "title_text": "AlphaESS",
@@ -861,11 +861,11 @@
          "size": 18,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "text_align": "center",
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -883,7 +883,7 @@
      ]
     },
     {
-     "id": "ab0d0f45",
+     "id": "73cd7bfd",
      "elType": "column",
      "settings": {
       "_column_size": 25,
@@ -917,12 +917,12 @@
      },
      "elements": [
       {
-       "id": "aa421b7e",
+       "id": "f5f0e653",
        "elType": "widget",
        "widgetType": "image-box",
        "settings": {
         "image": {
-         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE4MCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJab25uZXBhbmVsZW4gbWV0IHRodWlzYmF0dGVyaWoiPgogIDxnPgogICAgPHJlY3QgeD0iNiIgeT0iNjAiIHdpZHRoPSI4NiIgaGVpZ2h0PSI2MCIgcng9IjYiIHRyYW5zZm9ybT0ic2tld1koLTgpIiBmaWxsPSIjMEIwQzBFIi8+CiAgICA8ZyBzdHJva2U9IiMxNkUwNkEiIHN0cm9rZS13aWR0aD0iMiIgb3BhY2l0eT0iMC45Ij4KICAgICAgPGxpbmUgeDE9IjYiIHkxPSI4MCIgeDI9IjkyIiB5Mj0iNjgiIHRyYW5zZm9ybT0ic2tld1koLTgpIi8+CiAgICAgIDxsaW5lIHgxPSI2IiB5MT0iMTAwIiB4Mj0iOTIiIHkyPSI4OCIgdHJhbnNmb3JtPSJza2V3WSgtOCkiLz4KICAgICAgPGxpbmUgeDE9IjM0IiB5MT0iNjEiIHgyPSIzNCIgeTI9IjExOSIgdHJhbnNmb3JtPSJza2V3WSgtOCkiLz4KICAgICAgPGxpbmUgeDE9IjYyIiB5MT0iNjEiIHgyPSI2MiIgeTI9IjExOSIgdHJhbnNmb3JtPSJza2V3WSgtOCkiLz4KICAgIDwvZz4KICA8L2c+CiAgPHJlY3QgeD0iMTA0IiB5PSI0MCIgd2lkdGg9IjY2IiBoZWlnaHQ9IjE0NiIgcng9IjEyIiBmaWxsPSIjRjRGNUYzIiBzdHJva2U9IiMwQjBDMEUiIHN0cm9rZS13aWR0aD0iMyIvPgogIDxyZWN0IHg9IjEwNCIgeT0iNDAiIHdpZHRoPSI2NiIgaGVpZ2h0PSI0MiIgcng9IjEyIiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMTE2IiB5PSI1NyIgd2lkdGg9IjQyIiBoZWlnaHQ9IjciIHJ4PSIzLjUiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSIxNTMiIGN5PSIxMDgiIHI9IjQiIGZpbGw9IiMxNkUwNkEiLz4KPC9zdmc+Cg==",
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTk2IiBoZWlnaHQ9IjIxMCIgdmlld0JveD0iMCAwIDE5NiAyMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJab25uZXBhbmVsZW4gbWV0IHRodWlzYmF0dGVyaWoiPgogIDxkZWZzPgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJzYiIgeDE9IjAiIHkxPSIwIiB4Mj0iMTIwIiB5Mj0iMjEwIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiNGQ0ZDRkIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNFOUVBRTYiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDIgNDQpIHJvdGF0ZSgtOSA2MCA3MCkiPgogICAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9Ijk2IiBoZWlnaHQ9IjY2IiByeD0iNiIgZmlsbD0iIzBFMTAxMyIgc3Ryb2tlPSIjMEEwQjBEIiBzdHJva2Utd2lkdGg9IjIiLz4KICAgIDxnIHN0cm9rZT0iIzE1REQ2RSIgc3Ryb2tlLXdpZHRoPSIxLjYiIG9wYWNpdHk9IjAuODUiPgogICAgICA8bGluZSB4MT0iMCIgeTE9IjIyIiB4Mj0iOTYiIHkyPSIyMiIvPjxsaW5lIHgxPSIwIiB5MT0iNDQiIHgyPSI5NiIgeTI9IjQ0Ii8+CiAgICAgIDxsaW5lIHgxPSIzMiIgeTE9IjAiIHgyPSIzMiIgeTI9IjY2Ii8+PGxpbmUgeDE9IjY0IiB5MT0iMCIgeDI9IjY0IiB5Mj0iNjYiLz4KICAgIDwvZz4KICA8L2c+CiAgPHJlY3QgeD0iMTEyIiB5PSIzMCIgd2lkdGg9Ijc4IiBoZWlnaHQ9IjE3MiIgcng9IjIwIiBmaWxsPSJ1cmwoI3NiKSIgc3Ryb2tlPSIjMEEwQjBEIiBzdHJva2Utd2lkdGg9IjIuNSIvPgogIDxwYXRoIGQ9Ik0xMTIgNTBDMTEyIDM4Ljk1IDEyMC45NSAzMCAxMzIgMzBIMTcwQzE4MS4wNSAzMCAxOTAgMzguOTUgMTkwIDUwVjYySDExMlY1MFoiIGZpbGw9IiMwQTBCMEQiLz4KICA8cmVjdCB4PSIxMjYiIHk9IjQyIiB3aWR0aD0iNTAiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMxNURENkUiLz4KICA8Y2lyY2xlIGN4PSIxNzYiIGN5PSIxNzYiIHI9IjMuNSIgZmlsbD0iIzE1REQ2RSIvPgo8L3N2Zz4K",
          "id": ""
         },
         "title_text": "+ Zonnepanelen",
@@ -939,11 +939,11 @@
          "size": 18,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
-        "description_color": "#6A7178",
+        "title_color": "#0A0B0D",
+        "description_color": "#6B7075",
         "text_align": "center",
         "title_typography_typography": "custom",
-        "title_typography_font_family": "Sora",
+        "title_typography_font_family": "Space Grotesk",
         "title_typography_font_weight": "700",
         "title_typography_font_size": {
          "unit": "px",
@@ -964,7 +964,7 @@
    "isInner": false
   },
   {
-   "id": "0bbf4349",
+   "id": "ca78f7ef",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -981,7 +981,7 @@
    },
    "elements": [
     {
-     "id": "e2fb6878",
+     "id": "6df035f1",
      "elType": "column",
      "settings": {
       "_column_size": 50,
@@ -1013,12 +1013,12 @@
      },
      "elements": [
       {
-       "id": "acafad39",
+       "id": "2808d39f",
        "elType": "widget",
        "widgetType": "image",
        "settings": {
         "image": {
-         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDEyMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSIxNzIiIHJ4PSIxNCIgZmlsbD0iI0Y0RjVGMyIgc3Ryb2tlPSIjMEIwQzBFIiBzdHJva2Utd2lkdGg9IjMiLz4KICA8cmVjdCB4PSIyMCIgeT0iMTQiIHdpZHRoPSI4MCIgaGVpZ2h0PSI1MiIgcng9IjE0IiBmaWxsPSIjMEIwQzBFIi8+CiAgPHJlY3QgeD0iMzQiIHk9IjM0IiB3aWR0aD0iNTIiIGhlaWdodD0iOCIgcng9IjQiIGZpbGw9IiMxNkUwNkEiLz4KICA8Y2lyY2xlIGN4PSI4MiIgY3k9Ijk0IiByPSI1IiBmaWxsPSIjMTZFMDZBIi8+CiAgPHBhdGggZD0iTTU2IDkybC0xMCAxOGgxMmwtNCAxNCAxNi0yMkg2Mmw0LTEweiIgZmlsbD0iIzBCMEMwRSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNTAiIHdpZHRoPSI1MiIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4yNSIvPgogIDxyZWN0IHg9IjM0IiB5PSIxNjIiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0IiByeD0iMiIgZmlsbD0iIzBCMEMwRSIgb3BhY2l0eT0iMC4xNSIvPgo8L3N2Zz4K",
+         "url": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjIxMCIgdmlld0JveD0iMCAwIDE1MCAyMTAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJUaHVpc2JhdHRlcmlqIj4KICA8ZGVmcz4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0idmIiIHgxPSIwIiB5MT0iMCIgeDI9IjE1MCIgeTI9IjIxMCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgogICAgICA8c3RvcCBzdG9wLWNvbG9yPSIjRkNGQ0ZCIi8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjRTlFQUU2Ii8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGxpbmVhckdyYWRpZW50IGlkPSJ2YyIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjQ2IiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+CiAgICAgIDxzdG9wIHN0b3AtY29sb3I9IiMxQTFEMjAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwQTBCMEQiLz4KICAgIDwvbGluZWFyR3JhZGllbnQ+CiAgPC9kZWZzPgogIDxyZWN0IHg9IjI3IiB5PSI4IiB3aWR0aD0iOTYiIGhlaWdodD0iMTk0IiByeD0iMjIiIGZpbGw9InVybCgjdmIpIiBzdHJva2U9IiMwQTBCMEQiIHN0cm9rZS13aWR0aD0iMi41Ii8+CiAgPHBhdGggZD0iTTI3IDMwQzI3IDE3Ljg1IDM2Ljg1IDggNDkgOEgxMDFDMTEzLjE1IDggMTIzIDE3Ljg1IDEyMyAzMFY0NEgyN1YzMFoiIGZpbGw9InVybCgjdmMpIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjI0IiB3aWR0aD0iNjQiIGhlaWdodD0iNiIgcng9IjMiIGZpbGw9IiMxNURENkUiLz4KICA8cmVjdCB4PSI0MyIgeT0iNjIiIHdpZHRoPSI2NCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjE1MCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjQiIGZpbGw9IiMxNURENkUiLz4KICA8Y2lyY2xlIGN4PSIxMDciIGN5PSIxNzYiIHI9IjgiIHN0cm9rZT0iIzE1REQ2RSIgc3Ryb2tlLXdpZHRoPSIxLjUiIG9wYWNpdHk9IjAuNCIvPgogIDxyZWN0IHg9IjQzIiB5PSIxMDQiIHdpZHRoPSI0MCIgaGVpZ2h0PSIxLjUiIHJ4PSIxIiBmaWxsPSIjMEEwQjBEIiBvcGFjaXR5PSIwLjEwIi8+CiAgPHJlY3QgeD0iNDMiIHk9IjExNCIgd2lkdGg9IjI2IiBoZWlnaHQ9IjEuNSIgcng9IjEiIGZpbGw9IiMwQTBCMEQiIG9wYWNpdHk9IjAuMTAiLz4KPC9zdmc+Cg==",
          "id": ""
         },
         "image_size": "full",
@@ -1034,7 +1034,7 @@
      ]
     },
     {
-     "id": "4fff597c",
+     "id": "df22cd52",
      "elType": "column",
      "settings": {
       "_column_size": 50,
@@ -1050,16 +1050,16 @@
      },
      "elements": [
       {
-       "id": "4b2ee146",
+       "id": "c812d8ab",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
         "title": "DE THUISBATTERIJ DIE BESPAART",
         "header_size": "div",
         "align": "left",
-        "title_color": "#16E06A",
+        "title_color": "#15DD6E",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "typography_font_size": {
          "unit": "px",
@@ -1084,7 +1084,7 @@
        "elements": []
       },
       {
-       "id": "4f649c95",
+       "id": "6ebc4661",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
@@ -1092,14 +1092,14 @@
         "header_size": "h2",
         "align": "left",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "700",
         "typography_letter_spacing": {
          "unit": "px",
          "size": -1.2,
          "sizes": []
         },
-        "title_color": "#0B0C0E",
+        "title_color": "#0A0B0D",
         "typography_font_size": {
          "unit": "px",
          "size": 36,
@@ -1109,12 +1109,12 @@
        "elements": []
       },
       {
-       "id": "b715c49d",
+       "id": "6adf70bb",
        "elType": "widget",
        "widgetType": "text-editor",
        "settings": {
         "editor": "<p>Met een thuisbatterij haal je alles uit je zonnepanelen. Sla overdag je stroom op en gebruik die 's avonds — of speel slim in op de energieprijzen.</p>",
-        "text_color": "#6A7178",
+        "text_color": "#6B7075",
         "align": "left",
         "typography_typography": "custom",
         "typography_font_family": "Inter",
@@ -1132,7 +1132,7 @@
        "elements": []
       },
       {
-       "id": "068686fb",
+       "id": "bb71ff54",
        "elType": "widget",
        "widgetType": "icon-list",
        "settings": {
@@ -1143,7 +1143,7 @@
            "value": "fas fa-check",
            "library": "fa-solid"
           },
-          "_id": "7c916b7a"
+          "_id": "bc00e6e1"
          },
          {
           "text": "Klaar voor het einde van de salderingsregeling",
@@ -1151,7 +1151,7 @@
            "value": "fas fa-check",
            "library": "fa-solid"
           },
-          "_id": "5911f7e0"
+          "_id": "73fa8052"
          },
          {
           "text": "Bescherming tegen stroomuitval",
@@ -1159,7 +1159,7 @@
            "value": "fas fa-check",
            "library": "fa-solid"
           },
-          "_id": "b7e19463"
+          "_id": "62f093f2"
          },
          {
           "text": "Slim opladen op de goedkoopste momenten",
@@ -1167,7 +1167,7 @@
            "value": "fas fa-check",
            "library": "fa-solid"
           },
-          "_id": "5f3fd0af"
+          "_id": "7a68574f"
          }
         ],
         "space_between": {
@@ -1176,7 +1176,7 @@
          "sizes": []
         },
         "icon_color": "#0AA94C",
-        "text_color": "#0B0C0E",
+        "text_color": "#0A0B0D",
         "icon_typography_font_size": {
          "unit": "px",
          "size": 18,
@@ -1189,7 +1189,7 @@
        "elements": []
       },
       {
-       "id": "5c9aaec1",
+       "id": "2e99b1e7",
        "elType": "widget",
        "widgetType": "button",
        "settings": {
@@ -1202,10 +1202,10 @@
         },
         "align": "left",
         "size": "md",
-        "background_color": "#0B0C0E",
+        "background_color": "#0A0B0D",
         "button_text_color": "#ffffff",
         "hover_color": "#ffffff",
-        "button_background_hover_color": "#0B0C0E",
+        "button_background_hover_color": "#0A0B0D",
         "border_radius": {
          "unit": "px",
          "top": "999",
@@ -1228,7 +1228,7 @@
         },
         "icon_align": "right",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "button_box_shadow_box_shadow_type": "yes",
         "button_box_shadow_box_shadow": {
@@ -1247,7 +1247,7 @@
    "isInner": false
   },
   {
-   "id": "edf0318a",
+   "id": "349639d3",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -1262,7 +1262,7 @@
     "content_width": "boxed",
     "background_background": "gradient",
     "background_color": "#123d27",
-    "background_color_b": "#0B0C0E",
+    "background_color_b": "#0A0B0D",
     "background_gradient_angle": {
      "unit": "deg",
      "size": 135,
@@ -1287,7 +1287,7 @@
    },
    "elements": [
     {
-     "id": "1346416d",
+     "id": "054e5802",
      "elType": "column",
      "settings": {
       "_column_size": 100,
@@ -1295,7 +1295,7 @@
      },
      "elements": [
       {
-       "id": "3ed95c5b",
+       "id": "aab4604b",
        "elType": "widget",
        "widgetType": "testimonial",
        "settings": {
@@ -1307,7 +1307,7 @@
         "name_text_color": "#ffffff",
         "job_text_color": "rgba(255,255,255,0.6)",
         "content_typography_typography": "custom",
-        "content_typography_font_family": "Sora",
+        "content_typography_font_family": "Space Grotesk",
         "content_typography_font_size": {
          "unit": "px",
          "size": 26,
@@ -1323,7 +1323,7 @@
    "isInner": false
   },
   {
-   "id": "19c677de",
+   "id": "dedc671f",
    "elType": "section",
    "settings": {
     "gap": "extended",
@@ -1337,7 +1337,7 @@
     },
     "content_width": "boxed",
     "background_background": "classic",
-    "background_color": "#0B0C0E",
+    "background_color": "#0A0B0D",
     "border_radius": {
      "unit": "px",
      "top": "30",
@@ -1357,7 +1357,7 @@
    },
    "elements": [
     {
-     "id": "7e0332bc",
+     "id": "422a31be",
      "elType": "column",
      "settings": {
       "_column_size": 100,
@@ -1365,16 +1365,16 @@
      },
      "elements": [
       {
-       "id": "b16814fc",
+       "id": "2c74189b",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
         "title": "GEEN MOOIE PRAATJES, WEL EEN EERLIJK VERHAAL",
         "header_size": "div",
         "align": "left",
-        "title_color": "#16E06A",
+        "title_color": "#15DD6E",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "typography_font_size": {
          "unit": "px",
@@ -1399,7 +1399,7 @@
        "elements": []
       },
       {
-       "id": "6d8ad806",
+       "id": "e76d1e50",
        "elType": "widget",
        "widgetType": "heading",
        "settings": {
@@ -1407,7 +1407,7 @@
         "header_size": "h2",
         "align": "left",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "700",
         "typography_letter_spacing": {
          "unit": "px",
@@ -1424,7 +1424,7 @@
        "elements": []
       },
       {
-       "id": "cdcba74e",
+       "id": "aaf1c7b1",
        "elType": "widget",
        "widgetType": "text-editor",
        "settings": {
@@ -1447,7 +1447,7 @@
        "elements": []
       },
       {
-       "id": "c2d6402c",
+       "id": "7df0ae69",
        "elType": "widget",
        "widgetType": "button",
        "settings": {
@@ -1460,10 +1460,10 @@
         },
         "align": "left",
         "size": "md",
-        "background_color": "#16E06A",
-        "button_text_color": "#06351C",
-        "hover_color": "#06351C",
-        "button_background_hover_color": "#16E06A",
+        "background_color": "#15DD6E",
+        "button_text_color": "#04331B",
+        "hover_color": "#04331B",
+        "button_background_hover_color": "#15DD6E",
         "border_radius": {
          "unit": "px",
          "top": "999",
@@ -1486,7 +1486,7 @@
         },
         "icon_align": "right",
         "typography_typography": "custom",
-        "typography_font_family": "Sora",
+        "typography_font_family": "Space Grotesk",
         "typography_font_weight": "600",
         "button_box_shadow_box_shadow_type": "yes",
         "button_box_shadow_box_shadow": {

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '1.0.0' );
+	define( 'VOLTALUX_VERSION', '2.0.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -68,11 +68,11 @@ if ( ! function_exists( 'voltalux_setup' ) ) {
 		add_theme_support(
 			'editor-color-palette',
 			array(
-				array( 'name' => __( 'Voltalux groen', 'voltalux' ), 'slug' => 'vlx-green', 'color' => '#16E06A' ),
-				array( 'name' => __( 'Zwart', 'voltalux' ),         'slug' => 'vlx-black', 'color' => '#0B0C0E' ),
+				array( 'name' => __( 'Voltalux groen', 'voltalux' ), 'slug' => 'vlx-green', 'color' => '#15DD6E' ),
+				array( 'name' => __( 'Zwart', 'voltalux' ),         'slug' => 'vlx-black', 'color' => '#0A0B0D' ),
 				array( 'name' => __( 'Wit', 'voltalux' ),           'slug' => 'vlx-white', 'color' => '#FFFFFF' ),
-				array( 'name' => __( 'Wolk grijs', 'voltalux' ),    'slug' => 'vlx-cloud', 'color' => '#F4F5F3' ),
-				array( 'name' => __( 'Groen tint', 'voltalux' ),    'slug' => 'vlx-green-soft', 'color' => '#E5FBEF' ),
+				array( 'name' => __( 'Papier', 'voltalux' ),        'slug' => 'vlx-paper', 'color' => '#F5F5F1' ),
+				array( 'name' => __( 'Groen tint', 'voltalux' ),    'slug' => 'vlx-green-soft', 'color' => '#E9FBF1' ),
 			)
 		);
 
@@ -110,10 +110,11 @@ function voltalux_assets() {
 	wp_enqueue_style( 'voltalux-theme', VOLTALUX_URI . 'assets/css/theme.css', array( 'voltalux-style' ), VOLTALUX_VERSION );
 
 	// Inline the brand accent so a Customizer colour change is instant.
-	$accent = sanitize_hex_color( get_theme_mod( 'voltalux_accent', '#16E06A' ) );
+	$accent = sanitize_hex_color( get_theme_mod( 'voltalux_accent', '#15DD6E' ) );
 	if ( $accent ) {
-		$hover = voltalux_adjust_brightness( $accent, -14 );
-		wp_add_inline_style( 'voltalux-theme', ":root{--vlx-green:{$accent};--vlx-green-600:{$hover};}" );
+		$hover   = voltalux_adjust_brightness( $accent, -12 );
+		$strong  = voltalux_adjust_brightness( $accent, -38 );
+		wp_add_inline_style( 'voltalux-theme', ":root{--green:{$accent};--green-600:{$hover};--green-strong:{$strong};}" );
 	}
 
 	// Scripts.

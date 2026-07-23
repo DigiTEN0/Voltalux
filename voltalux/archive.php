@@ -1,6 +1,6 @@
 <?php
 /**
- * Archive (category, tag, author, date).
+ * Archive.
  *
  * @package Voltalux
  */
@@ -20,7 +20,7 @@ get_header();
 
 <div class="vlx-section vlx-container vlx-container--wide">
 	<div class="vlx-layout">
-		<div class="vlx-layout__main">
+		<div>
 			<?php if ( have_posts() ) : ?>
 				<div class="vlx-cards">
 					<?php
@@ -34,8 +34,8 @@ get_header();
 				the_posts_pagination(
 					array(
 						'mid_size'  => 1,
-						'prev_text' => __( '&larr;', 'voltalux' ),
-						'next_text' => __( '&rarr;', 'voltalux' ),
+						'prev_text' => __( '&larr; Vorige', 'voltalux' ),
+						'next_text' => __( 'Volgende &rarr;', 'voltalux' ),
 					)
 				);
 				?>

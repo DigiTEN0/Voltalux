@@ -35,8 +35,8 @@ get_header();
 		the_posts_pagination(
 			array(
 				'mid_size'  => 1,
-				'prev_text' => __( '&larr;', 'voltalux' ),
-				'next_text' => __( '&rarr;', 'voltalux' ),
+				'prev_text' => __( '&larr; Vorige', 'voltalux' ),
+				'next_text' => __( 'Volgende &rarr;', 'voltalux' ),
 			)
 		);
 		?>
