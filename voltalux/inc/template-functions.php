@@ -44,6 +44,15 @@ function voltalux_use_coded_homepage() {
 	if ( voltalux_is_elementor_page() ) {
 		return false;
 	}
+	// If the static front page has its own (Gutenberg/classic) content, show that
+	// instead of the coded design — so editing the Home page just works.
+	$front_id = (int) get_option( 'page_on_front' );
+	if ( $front_id && is_front_page() ) {
+		$content = get_post_field( 'post_content', $front_id );
+		if ( is_string( $content ) && '' !== trim( wp_strip_all_tags( $content ) ) ) {
+			return false;
+		}
+	}
 	return (bool) apply_filters( 'voltalux_use_coded_homepage', true );
 }
 

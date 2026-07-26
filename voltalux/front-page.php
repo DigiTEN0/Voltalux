@@ -21,6 +21,7 @@ else :
 	get_template_part( 'template-parts/home/steps' );
 	get_template_part( 'template-parts/home/reviews' );
 	get_template_part( 'template-parts/home/projecten' );
+	get_template_part( 'template-parts/home/blog' );
 	get_template_part( 'template-parts/home/offerte' );
 endif;
 
