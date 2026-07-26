@@ -41,19 +41,62 @@ function voltalux_is_elementor_page( $post_id = null ) {
  * @return bool
  */
 function voltalux_use_coded_homepage() {
-	if ( voltalux_is_elementor_page() ) {
+	$front_id = (int) get_option( 'page_on_front' );
+	if ( ! $front_id ) {
+		$front_id = (int) get_queried_object_id();
+	}
+	// Only step aside when the page actually has its own content — a real Elementor
+	// widget or Gutenberg/classic content. An *empty* Elementor page (e.g. just
+	// opened in the editor) must NOT blank out the coded homepage.
+	if ( $front_id && voltalux_page_has_builder_content( $front_id ) ) {
 		return false;
 	}
-	// If the static front page has its own (Gutenberg/classic) content, show that
-	// instead of the coded design — so editing the Home page just works.
-	$front_id = (int) get_option( 'page_on_front' );
-	if ( $front_id && is_front_page() ) {
-		$content = get_post_field( 'post_content', $front_id );
-		if ( is_string( $content ) && '' !== trim( wp_strip_all_tags( $content ) ) ) {
-			return false;
+	return (bool) apply_filters( 'voltalux_use_coded_homepage', true );
+}
+
+/**
+ * Does a page have real, user-authored content (Elementor widgets or Gutenberg/classic)?
+ *
+ * @param int $post_id Page ID.
+ * @return bool
+ */
+function voltalux_page_has_builder_content( $post_id ) {
+	// Elementor — only counts when at least one real widget is saved (ignores empty
+	// sections/containers created just by opening the editor).
+	$data = get_post_meta( $post_id, '_elementor_data', true );
+	if ( is_string( $data ) && '' !== $data ) {
+		$decoded = json_decode( $data, true );
+		if ( voltalux_elementor_data_has_widgets( $decoded ) ) {
+			return true;
 		}
 	}
-	return (bool) apply_filters( 'voltalux_use_coded_homepage', true );
+	// Gutenberg / classic content.
+	$content = get_post_field( 'post_content', $post_id );
+	if ( is_string( $content ) && '' !== trim( wp_strip_all_tags( $content ) ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Recursively check Elementor element data for at least one widget.
+ *
+ * @param mixed $elements Decoded _elementor_data.
+ * @return bool
+ */
+function voltalux_elementor_data_has_widgets( $elements ) {
+	if ( ! is_array( $elements ) ) {
+		return false;
+	}
+	foreach ( $elements as $el ) {
+		if ( isset( $el['elType'] ) && 'widget' === $el['elType'] ) {
+			return true;
+		}
+		if ( ! empty( $el['elements'] ) && voltalux_elementor_data_has_widgets( $el['elements'] ) ) {
+			return true;
+		}
+	}
+	return false;
 }
 
 /**
