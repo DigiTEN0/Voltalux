@@ -99,8 +99,8 @@
 body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1.25rem; height: var(--header-h); }
 
-.vlx-brand { display: inline-flex; align-items: center; }
-.vlx-brand img, .vlx-brand .custom-logo { height: 60px; width: auto; }
+.vlx-brand { display: inline-flex; align-items: center; flex: none; }
+.vlx-brand img, .vlx-brand .custom-logo { height: 68px; width: auto; max-width: none; flex: none; }
 
 .vlx-nav { justify-self: center; }
 .vlx-nav > ul { display: flex; align-items: center; gap: .1rem; list-style: none; margin: 0; padding: 0; }
@@ -134,8 +134,14 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-mega-foot span { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
 
 .vlx-header-actions { justify-self: end; display: flex; align-items: center; gap: .7rem; }
-.vlx-header-phone { display: inline-flex; align-items: center; gap: .45em; font-family: var(--font-display); font-weight: 500; font-size: .9rem; color: #fff; }
-.vlx-header-phone svg { width: 16px; height: 16px; color: var(--green); }
+.vlx-header-phone { display: inline-flex; align-items: center; gap: .45em; font-family: var(--font-display); font-weight: 500; font-size: .9rem; color: #fff; white-space: nowrap; flex: none; }
+.vlx-header-phone svg { width: 16px; height: 16px; color: var(--green); flex: none; }
+/* When the nav gets tight, collapse the phone to just its icon instead of wrapping the number. */
+@media (max-width: 1250px) {
+	.vlx-header-phone span { display: none; }
+	.vlx-header-phone { width: 42px; height: 42px; justify-content: center; border-radius: 50%; background: rgba(255,255,255,.08); gap: 0; }
+	.vlx-header-phone svg { width: 18px; height: 18px; }
+}
 
 /* Burger — always top-right */
 .vlx-burger { display: none; width: 46px; height: 46px; border-radius: 13px; border: 1px solid rgba(255,255,255,.2); position: relative; transition: border-color var(--t), background-color var(--t); }
@@ -150,7 +156,7 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 body.menu-open .vlx-m-nav { transform: translateY(0); opacity: 1; visibility: visible; }
 body.menu-open { overflow: hidden; }
 .vlx-m-nav__top { display: flex; align-items: center; justify-content: space-between; height: var(--header-h); padding-inline: var(--gutter); background: var(--ink); border-bottom: 1px solid var(--line-inv); flex: none; }
-.vlx-m-nav__top .vlx-brand img, .vlx-m-nav__top .vlx-brand .custom-logo { height: 46px; }
+.vlx-m-nav__top .vlx-brand img, .vlx-m-nav__top .vlx-brand .custom-logo { height: 52px; }
 .vlx-m-close { width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--line-inv); color: #fff; display: grid; place-items: center; }
 .vlx-m-close svg { width: 18px; height: 18px; }
 .vlx-m-nav__scroll { flex: 1; overflow-y: auto; padding: 1.25rem var(--gutter) 2rem; -webkit-overflow-scrolling: touch; }
@@ -608,7 +614,7 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 .vlx-review-score { flex-wrap: wrap; }
 @media (max-width: 640px){
 	.vlx-header-inner { padding-left: 1.1rem; padding-right: .5rem; }
-	.vlx-brand img, .vlx-brand .custom-logo { height: 50px; }
+	.vlx-brand img, .vlx-brand .custom-logo { height: 56px; }
 }
 
 /* Fix default <ul> indent on un-classed component lists */
