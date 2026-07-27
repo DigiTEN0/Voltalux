@@ -10,7 +10,7 @@ get_header();
 
 <div class="vlx-page-hero">
 	<div class="vlx-container vlx-container--wide">
-		<?php voltalux_eyebrow( __( 'Kennisbank', 'voltalux' ) ); ?>
+		<?php voltalux_eyebrow( __( 'Tips & uitleg', 'voltalux' ) ); ?>
 		<?php
 		the_archive_title( '<h1>', '</h1>' );
 		the_archive_description( '<p>', '</p>' );
@@ -22,7 +22,7 @@ get_header();
 	<div class="vlx-layout">
 		<div>
 			<?php if ( have_posts() ) : ?>
-				<div class="vlx-cards">
+				<div class="vlx-cards vlx-cards--2">
 					<?php
 					while ( have_posts() ) :
 						the_post();

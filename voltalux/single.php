@@ -91,7 +91,7 @@ while ( have_posts() ) :
 			<div class="vlx-container vlx-container--wide">
 				<div class="vlx-s-head" style="margin-bottom:2.4rem;">
 					<?php voltalux_eyebrow( __( 'Lees ook', 'voltalux' ) ); ?>
-					<h2><?php esc_html_e( 'Meer uit de kennisbank', 'voltalux' ); ?></h2>
+					<h2><?php esc_html_e( 'Meer artikelen', 'voltalux' ); ?></h2>
 				</div>
 				<div class="vlx-cards">
 					<?php

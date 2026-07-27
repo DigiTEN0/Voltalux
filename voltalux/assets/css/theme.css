@@ -798,3 +798,8 @@ select::-ms-expand { display: none; }
 /* Inline article CTA — glow top-left */
 .vlx-article-cta::before { content:""; position:absolute; left:-8%; top:-70%; width: 360px; height: 360px; border-radius:50%; background: radial-gradient(circle, rgba(21,221,110,.24), transparent 62%); pointer-events:none; z-index:0; }
 .vlx-article-cta > * { position: relative; z-index: 1; }
+
+/* Blog overview: wider 2-up cards + tighter header-to-content gap */
+.vlx-cards--2 { grid-template-columns: repeat(2, 1fr); }
+.vlx-page-hero + .vlx-section { padding-top: 0; }
+@media (max-width: 640px) { .vlx-cards--2 { grid-template-columns: 1fr; } }

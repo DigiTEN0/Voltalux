@@ -23,7 +23,7 @@ if ( ! $q->have_posts() ) {
 }
 
 $eyebrow  = apply_filters( 'voltalux_home_blog_eyebrow', __( 'Blog', 'voltalux' ) );
-$title    = apply_filters( 'voltalux_home_blog_title', __( 'Kennis & inspiratie', 'voltalux' ) );
+$title    = apply_filters( 'voltalux_home_blog_title', __( 'Onze laatste artikelen', 'voltalux' ) );
 $blog_url = get_permalink( (int) get_option( 'page_for_posts' ) );
 ?>
 <section class="vlx-section vlx-bg-surface" style="border-top:1px solid var(--line-2)" id="blog">

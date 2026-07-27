@@ -10,17 +10,17 @@ get_header();
 
 <div class="vlx-page-hero">
 	<div class="vlx-container vlx-container--wide">
-		<?php voltalux_eyebrow( __( 'Kennisbank', 'voltalux' ) ); ?>
+		<?php voltalux_eyebrow( __( 'Tips & uitleg', 'voltalux' ) ); ?>
 		<h1>
 			<?php
 			if ( is_home() && ! is_front_page() && get_option( 'page_for_posts' ) ) {
 				echo esc_html( get_the_title( get_option( 'page_for_posts' ) ) );
 			} else {
-				esc_html_e( 'Nieuws & inzichten', 'voltalux' );
+				esc_html_e( 'Blog', 'voltalux' );
 			}
 			?>
 		</h1>
-		<p><?php esc_html_e( 'Alles over thuisbatterijen, zonnepanelen, besparen en verduurzamen — praktisch uitgelegd.', 'voltalux' ); ?></p>
+		<p><?php esc_html_e( 'Praktische tips en uitleg over zonnepanelen, thuisbatterijen en besparen op je energierekening.', 'voltalux' ); ?></p>
 	</div>
 </div>
 
@@ -28,7 +28,7 @@ get_header();
 	<div class="vlx-layout">
 		<div>
 			<?php if ( have_posts() ) : ?>
-				<div class="vlx-cards">
+				<div class="vlx-cards vlx-cards--2">
 					<?php
 					while ( have_posts() ) :
 						the_post();
