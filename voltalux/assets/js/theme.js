@@ -74,22 +74,23 @@
 	});
 	doc.addEventListener('keyup', function (e) { if (e.key === 'Escape') { closeDrawer(); } });
 
-	/* ---- Reveal on scroll ---- */
+	/* ---- Reveal on scroll ----
+	 * Fire EARLY (a chunk of viewport before the element enters) so on a fast
+	 * scroll the section is already faded in by the time it reaches the fold —
+	 * no "bare section, then it pops" flash. No will-change churn: transform +
+	 * opacity transitions are GPU-composited automatically, and skipping it
+	 * avoids promoting dozens of permanent layers (a real scroll-jank source). */
 	var reveals = doc.querySelectorAll('.vlx-reveal');
 	if (reveals.length && 'IntersectionObserver' in window && !reduce) {
 		var io = new IntersectionObserver(function (entries) {
 			entries.forEach(function (entry) {
 				if (!entry.isIntersecting) { return; }
-				var t = entry.target;
-				// Promote to its own layer only for the duration of the animation, then release it.
-				t.style.willChange = 'transform, opacity';
-				t.classList.add('is-in');
-				t.addEventListener('transitionend', function () { t.style.willChange = 'auto'; t.style.transitionDelay = '0ms'; }, { once: true });
-				io.unobserve(t);
+				entry.target.classList.add('is-in');
+				io.unobserve(entry.target);
 			});
-		}, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+		}, { rootMargin: '0px 0px 22% 0px', threshold: 0 });
 		reveals.forEach(function (el, i) {
-			el.style.transitionDelay = (Math.min(i % 3, 2) * 55) + 'ms';
+			el.style.transitionDelay = (Math.min(i % 3, 2) * 40) + 'ms';
 			io.observe(el);
 		});
 	} else {
