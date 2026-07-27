@@ -13,7 +13,7 @@ if ( empty( $projects ) ) {
 	return;
 }
 ?>
-<section class="vlx-section" id="projecten">
+<section class="vlx-section vlx-bg-surface" style="border-top:1px solid var(--line-2)" id="projecten">
 	<div class="vlx-container vlx-container--wide">
 		<div class="vlx-s-head-row vlx-reveal">
 			<div class="vlx-s-head">
