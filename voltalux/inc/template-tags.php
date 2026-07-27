@@ -314,3 +314,33 @@ function voltalux_entry_footer() {
 	}
 	edit_post_link( __( 'Bewerk', 'voltalux' ), '<span class="vlx-edit-link">', '</span>' );
 }
+
+/**
+ * Google reviews badge — a white pill (Google logo + rating + stars + count)
+ * that links to the Google profile / Maps. The whole badge is one clickable link.
+ */
+function voltalux_google_badge( $echo = true ) {
+	$url    = voltalux_option( 'google_url', defined( 'VOLTALUX_GOOGLE_URL' ) ? VOLTALUX_GOOGLE_URL : '' );
+	$rating = voltalux_option( 'google_rating', defined( 'VOLTALUX_GOOGLE_RATING' ) ? VOLTALUX_GOOGLE_RATING : '' );
+	$count  = voltalux_option( 'google_count', defined( 'VOLTALUX_GOOGLE_COUNT' ) ? VOLTALUX_GOOGLE_COUNT : '' );
+
+	if ( ! $url || ! $rating ) {
+		return '';
+	}
+
+	$g = '<svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h11.8c-.5 2.7-2 5-4.3 6.6v5.5h7C42.6 36.9 45.1 31.2 45.1 24.5z"/><path fill="#34A853" d="M24 46c5.8 0 10.7-1.9 14.3-5.2l-7-5.5c-1.9 1.3-4.4 2.1-7.3 2.1-5.6 0-10.3-3.8-12-8.9H4.8v5.7C8.4 41.4 15.6 46 24 46z"/><path fill="#FBBC05" d="M12 28.5c-.4-1.3-.7-2.7-.7-4.1s.3-2.8.7-4.1v-5.7H4.8C3.4 17.4 2.6 20.6 2.6 24s.8 6.6 2.2 9.4L12 28.5z"/><path fill="#EA4335" d="M24 11c3.2 0 6 1.1 8.2 3.2l6.1-6.1C34.7 4.5 29.8 2.6 24 2.6 15.6 2.6 8.4 7.2 4.8 14.6l7.2 5.7C13.7 14.8 18.4 11 24 11z"/></svg>';
+
+	$rating_num = (float) str_replace( ',', '.', $rating );
+
+	$html  = '<a class="vlx-gbadge" href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer" aria-label="' . esc_attr( sprintf( __( 'Beoordeeld met %1$s door %2$s reviewers op Google — open onze Google-pagina', 'voltalux' ), $rating, $count ) ) . '">';
+	$html .= '<span class="vlx-gbadge__g">' . $g . '</span>';
+	$html .= '<span class="vlx-gbadge__body">';
+	$html .= '<span class="vlx-gbadge__row"><strong>' . esc_html( $rating ) . '</strong>' . voltalux_stars( $rating_num ) . '</span>';
+	$html .= '<span class="vlx-gbadge__sub">' . esc_html( sprintf( __( '%s reviews op Google', 'voltalux' ), $count ) ) . '</span>';
+	$html .= '</span></a>';
+
+	if ( $echo ) {
+		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+	return $html;
+}

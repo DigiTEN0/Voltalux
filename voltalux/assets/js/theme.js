@@ -11,8 +11,10 @@
 	/* ---- Sticky header ---- */
 	var header = doc.querySelector('.vlx-site-header');
 	if (header) {
+		var stuck = false;
 		var onScroll = function () {
-			header.classList.toggle('is-stuck', window.scrollY > 30);
+			var s = window.scrollY > 30;
+			if (s !== stuck) { stuck = s; header.classList.toggle('is-stuck', s); }
 		};
 		onScroll();
 		window.addEventListener('scroll', onScroll, { passive: true });

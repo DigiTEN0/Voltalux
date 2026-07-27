@@ -142,6 +142,11 @@ function voltalux_customize_register( $wp_customize ) {
 	voltalux_add_text_setting( $wp_customize, 'voltalux_kvk', VOLTALUX_KVK, __( 'KvK-nummer', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_text_setting( $wp_customize, 'voltalux_footer_copyright', '', __( 'Copyright-regel (leeg = automatisch)', 'voltalux' ), 'voltalux_footer' );
 
+	// Google reviews badge.
+	voltalux_add_url_setting( $wp_customize, 'voltalux_google_url', VOLTALUX_GOOGLE_URL, __( 'Google reviews — link', 'voltalux' ), __( 'Waar de reviewbadge in de footer naartoe linkt (Google-pagina of Maps). Leeg = badge verbergen.', 'voltalux' ), 'voltalux_footer' );
+	voltalux_add_text_setting( $wp_customize, 'voltalux_google_rating', VOLTALUX_GOOGLE_RATING, __( 'Google reviews — cijfer (bijv. 4,7)', 'voltalux' ), 'voltalux_footer' );
+	voltalux_add_text_setting( $wp_customize, 'voltalux_google_count', VOLTALUX_GOOGLE_COUNT, __( 'Google reviews — aantal (bijv. 130+)', 'voltalux' ), 'voltalux_footer' );
+
 	// Social links (Instagram + Facebook prefilled with the real Voltalux profiles).
 	$social_defaults = array( 'instagram' => VOLTALUX_IG, 'facebook' => VOLTALUX_FB, 'linkedin' => '', 'youtube' => '' );
 	foreach ( array(

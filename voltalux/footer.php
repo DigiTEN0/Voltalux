@@ -37,6 +37,13 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 	?>
 	<footer class="vlx-site-footer" role="contentinfo">
 		<div class="vlx-container vlx-container--wide">
+			<?php $vlx_gbadge = voltalux_google_badge( false ); ?>
+			<?php if ( $vlx_gbadge ) : ?>
+				<div class="vlx-footer-badgebar">
+					<span class="vlx-footer-badgebar__t"><?php esc_html_e( 'Beoordeeld door onze klanten', 'voltalux' ); ?></span>
+					<?php echo $vlx_gbadge; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</div>
+			<?php endif; ?>
 			<div class="vlx-footer-top">
 				<div class="vlx-footer-brand">
 					<?php if ( $tagline ) : ?>
