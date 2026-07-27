@@ -718,7 +718,8 @@ select::-ms-expand { display: none; }
 .vlx-side-block { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 1.4rem; }
 .vlx-side-block__title { font-family: var(--font-mono); font-weight: 600; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 1rem; }
 .vlx-blog-layout .vlx-article { min-width: 0; }
-.vlx-article-hero h1 { max-width: 26ch; }
+.vlx-article-hero h1 { max-width: 26ch; line-height: 1.08; margin-bottom: 1.1rem; padding-bottom: .1em; }
+.vlx-article-hero .vlx-article__meta { margin-top: 0; }
 
 /* Reading typography */
 .vlx-prose { font-size: 1.075rem; line-height: 1.75; color: var(--ink-2); }
