@@ -718,7 +718,7 @@ select::-ms-expand { display: none; }
 .vlx-side-block { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 1.4rem; }
 .vlx-side-block__title { font-family: var(--font-mono); font-weight: 600; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 1rem; }
 .vlx-blog-layout .vlx-article { min-width: 0; }
-.vlx-article-hero h1 { max-width: 26ch; line-height: 1.08; margin-bottom: 1.1rem; padding-bottom: .1em; }
+.vlx-article-hero h1 { font-size: clamp(1.65rem, 1.15rem + 1.9vw, 2.5rem); font-weight: 700; max-width: 24ch; line-height: 1.12; letter-spacing: -.025em; margin-bottom: 1rem; padding-bottom: .08em; }
 .vlx-article-hero .vlx-article__meta { margin-top: 0; }
 
 /* Reading typography */
@@ -775,3 +775,24 @@ select::-ms-expand { display: none; }
 .vlx-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
 .vlx-tags a { display: inline-block; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .05em; text-transform: uppercase; color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--line-2); padding: .4rem .8rem; border-radius: var(--r-pill); transition: color var(--t), border-color var(--t); }
 .vlx-tags a:hover { color: var(--green-strong); border-color: var(--green-line); }
+
+/* -------------------------------------------------------------------------
+   Brand green glow on dark blocks (varied placement) + dark-CTA ghost buttons
+   ------------------------------------------------------------------------- */
+/* Ghost buttons must be light on the dark CTA blocks (were black-on-black) */
+.vlx-article-cta .vlx-btn--ghost, .vlx-side-cta .vlx-btn--ghost { color: #fff; border-color: var(--line-inv); }
+.vlx-article-cta .vlx-btn--ghost:hover, .vlx-side-cta .vlx-btn--ghost:hover { background: #fff; color: var(--ink); border-color: #fff; }
+
+/* Footer — glow bottom-left */
+.vlx-site-footer { position: relative; overflow: hidden; }
+.vlx-site-footer::before { content:""; position:absolute; left:-10%; bottom:-45%; width: 640px; height: 640px; border-radius:50%; background: radial-gradient(circle, rgba(21,221,110,.20), transparent 62%); pointer-events:none; z-index:0; }
+.vlx-site-footer > * { position: relative; z-index: 1; }
+
+/* Producten (home) — glow top-right */
+#producten { position: relative; overflow: hidden; }
+#producten::before { content:""; position:absolute; right:-8%; top:-28%; width: 540px; height: 540px; border-radius:50%; background: radial-gradient(circle, rgba(21,221,110,.22), transparent 60%); pointer-events:none; z-index:0; }
+#producten > * { position: relative; z-index: 1; }
+
+/* Inline article CTA — glow top-left */
+.vlx-article-cta::before { content:""; position:absolute; left:-8%; top:-70%; width: 360px; height: 360px; border-radius:50%; background: radial-gradient(circle, rgba(21,221,110,.24), transparent 62%); pointer-events:none; z-index:0; }
+.vlx-article-cta > * { position: relative; z-index: 1; }
