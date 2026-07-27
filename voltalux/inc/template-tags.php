@@ -335,9 +335,11 @@ function voltalux_google_badge( $echo = true ) {
 	$html  = '<a class="vlx-gbadge" href="' . esc_url( $url ) . '" target="_blank" rel="noopener noreferrer" aria-label="' . esc_attr( sprintf( __( 'Beoordeeld met %1$s door %2$s reviewers op Google — open onze Google-pagina', 'voltalux' ), $rating, $count ) ) . '">';
 	$html .= '<span class="vlx-gbadge__g">' . $g . '</span>';
 	$html .= '<span class="vlx-gbadge__body">';
-	$html .= '<span class="vlx-gbadge__row"><strong>' . esc_html( $rating ) . '</strong>' . voltalux_stars( $rating_num ) . '</span>';
-	$html .= '<span class="vlx-gbadge__sub">' . esc_html( sprintf( __( '%s reviews op Google', 'voltalux' ), $count ) ) . '</span>';
-	$html .= '</span></a>';
+	$html .= '<span class="vlx-gbadge__title">' . esc_html( sprintf( __( 'Bekijk onze %s reviews', 'voltalux' ), $count ) ) . '</span>';
+	$html .= '<span class="vlx-gbadge__stars">' . voltalux_stars( $rating_num ) . '</span>';
+	$html .= '</span>';
+	$html .= '<span class="vlx-gbadge__rating">' . esc_html( $rating ) . '</span>';
+	$html .= '</a>';
 
 	if ( $echo ) {
 		echo $html; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

@@ -49,6 +49,9 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 					<?php if ( $tagline ) : ?>
 						<p class="vlx-footer-tag"><?php echo wp_kses_post( do_shortcode( voltalux_mark_shortcode_content( $tagline ) ) ); ?></p>
 					<?php endif; ?>
+					<?php if ( $vlx_gbadge ) : ?>
+						<div class="vlx-footer-brand__reviews"><?php echo $vlx_gbadge; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+					<?php endif; ?>
 					<div class="vlx-footer-contact">
 						<?php if ( $address ) : ?><address style="font-style:normal;"><?php echo nl2br( esc_html( $address ) ); ?></address><?php endif; ?>
 						<?php if ( $email ) : ?><a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a><br><?php endif; ?>
