@@ -15,7 +15,7 @@ while ( have_posts() ) :
 	<article id="post-<?php the_ID(); ?>" <?php post_class( 'vlx-single' ); ?>>
 
 		<header class="vlx-page-hero vlx-article-hero">
-			<div class="vlx-container vlx-container--wide">
+			<div class="vlx-container">
 				<nav class="vlx-crumbs" aria-label="<?php esc_attr_e( 'Kruimelpad', 'voltalux' ); ?>">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'voltalux' ); ?></a>
 					<span aria-hidden="true">/</span>
@@ -35,7 +35,7 @@ while ( have_posts() ) :
 			</div>
 		</header>
 
-		<div class="vlx-section vlx-container vlx-container--wide">
+		<div class="vlx-section vlx-container">
 			<div class="vlx-blog-layout">
 				<div class="vlx-article">
 					<?php if ( has_post_thumbnail() ) : ?>

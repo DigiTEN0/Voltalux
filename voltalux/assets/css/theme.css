@@ -714,7 +714,9 @@ select::-ms-expand { display: none; }
 /* -------------------------------------------------------------------------
    Blog — premium single article + sticky sidebar
    ------------------------------------------------------------------------- */
-.vlx-blog-layout { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: clamp(2rem,1.4rem + 3vw,4rem); align-items: start; max-width: 1140px; margin-inline: auto; }
+.vlx-blog-layout { display: grid; grid-template-columns: minmax(0,1fr) 340px; gap: clamp(2rem,1.4rem + 3vw,3.75rem); align-items: start; }
+.vlx-side-block { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 1.4rem; }
+.vlx-side-block__title { font-family: var(--font-mono); font-weight: 600; font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 1rem; }
 .vlx-blog-layout .vlx-article { min-width: 0; }
 .vlx-article-hero h1 { max-width: 26ch; }
 
