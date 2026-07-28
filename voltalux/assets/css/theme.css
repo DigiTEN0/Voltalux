@@ -868,18 +868,29 @@ select::-ms-expand { display: none; }
 .vlx-hsc-card__resolved:empty { margin-top: 0; }
 .vlx-hsc-card__resolved.is-searching { color: rgba(255,255,255,.58); font-weight: 600; }
 .vlx-hsc-card__resolved.is-error { color: #ffb9ad; font-weight: 600; }
-.vlx-hsc-card__mobilecta { display: none; margin-top: 1rem; }
 .vlx-hsc-card__trust { display: flex; flex-wrap: wrap; gap: .6rem 1.3rem; margin-top: 1.15rem; }
 .vlx-hsc-card__trust li { display: flex; align-items: center; gap: .45rem; font-size: .82rem; font-weight: 600; color: rgba(255,255,255,.72); }
 .vlx-hsc-card__trust svg { width: 16px; height: 16px; color: var(--green); }
 /* Card field labels invert on the dark card */
 .vlx-hsc-card .vlx-hsc-field > span { font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.6); }
 
-@media (max-width: 560px) {
-	.vlx-hsc-card__form { display: none; }
-	.vlx-hsc-card__mobilecta { display: inline-flex; }
-	.vlx-hsc-card__trust { margin-top: 1rem; }
-	.vlx-hsc-card__sub { margin-bottom: 1rem; }
+/* ---- Mobile: sleek top banner replaces the hero card ---- */
+.vlx-hero__topbar-wrap { display: none; }
+.vlx-hsc-topbar { display: flex; align-items: center; gap: .85rem; padding: .7rem .75rem; border-radius: 15px; background: #101317; border: 1px solid rgba(255,255,255,.12); box-shadow: 0 14px 34px -16px rgba(0,0,0,.7); }
+.vlx-hsc-topbar__ic { flex: none; width: 42px; height: 42px; border-radius: 11px; background: var(--green); color: var(--green-ink); display: grid; place-items: center; }
+.vlx-hsc-topbar__ic svg { width: 22px; height: 22px; }
+.vlx-hsc-topbar__txt { flex: 1; display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.vlx-hsc-topbar__txt strong { color: #fff; font-family: var(--font-display); font-weight: 800; font-size: 1rem; letter-spacing: -.02em; }
+.vlx-hsc-topbar__txt span { color: rgba(255,255,255,.62); font-size: .82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.vlx-hsc-topbar__go { flex: none; width: 38px; height: 38px; border-radius: 50%; background: rgba(255,255,255,.1); color: #fff; display: grid; place-items: center; transition: background var(--t) var(--ease), color var(--t) var(--ease); }
+.vlx-hsc-topbar__go svg { width: 18px; height: 18px; }
+.vlx-hsc-topbar:hover .vlx-hsc-topbar__go, .vlx-hsc-topbar:active .vlx-hsc-topbar__go { background: var(--green); color: var(--green-ink); }
+
+@media (max-width: 940px) {
+	.vlx-hsc-card { display: none; }
+	/* In-flow but pinned to the top of the hero (margin-bottom:auto) so it never overlaps the headline. */
+	.vlx-hero__topbar-wrap { display: block; position: relative; z-index: 3; margin-bottom: auto; padding-top: calc(var(--header-h) + .7rem); }
+	.vlx-hero--hastopbar .vlx-hero__inner { padding-top: 1.5rem; }
 }
 
 /* ---- Shared field styling (card + modal) ---- */

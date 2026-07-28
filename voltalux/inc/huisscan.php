@@ -109,10 +109,6 @@ function voltalux_huisscan_hero_card( $echo = true ) {
 			<p class="vlx-hsc-card__resolved" data-vlx-hsc-address aria-live="polite"></p>
 		</form>
 
-		<button type="button" class="vlx-btn vlx-btn--primary vlx-btn--lg vlx-btn--block vlx-hsc-card__mobilecta" data-vlx-hsc-open>
-			<span class="vlx-btn__lbl"><?php esc_html_e( 'Doe de gratis huisscan', 'voltalux' ); ?></span> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?>
-		</button>
-
 		<ul class="vlx-hsc-card__trust">
 			<li><?php echo voltalux_icon( 'clock' ); // phpcs:ignore ?><?php esc_html_e( '± 2 minuten', 'voltalux' ); ?></li>
 			<li><?php echo voltalux_icon( 'check' ); // phpcs:ignore ?><?php esc_html_e( '100% vrijblijvend', 'voltalux' ); ?></li>
