@@ -683,9 +683,12 @@ body.drawer-open .vlx-drawer__panel { transform: translateX(0); }
 	.vlx-services, .vlx-reviews, .vlx-projects {
 		display: flex; grid-template-columns: none;
 		overflow-x: auto; overflow-y: hidden;
-		scroll-snap-type: x proximity; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch;
-		touch-action: pan-x;
+		scroll-snap-type: x proximity; overscroll-behavior-x: contain;
 		scrollbar-width: none; gap: .9rem;
+		/* No touch-action:pan-x here: on a native overflow scroller it would sit in
+		   the touch's ancestor chain and forbid vertical panning, trapping the page
+		   scroll. Default (auto) + overflow-y:hidden = horizontal scrolls the row,
+		   vertical bubbles to the page. */
 	}
 	.vlx-services::-webkit-scrollbar,
 	.vlx-reviews::-webkit-scrollbar,
