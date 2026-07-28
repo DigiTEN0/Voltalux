@@ -17,9 +17,8 @@ $text    = voltalux_option( 'hero_text', '' );
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );
 $b1_label = voltalux_option( 'hero_btn1_label', __( 'Offerte aanvragen', 'voltalux' ) );
 $b1_url   = voltalux_option( 'hero_btn1_url', '#contact' );
-$vlx_hsc_on = function_exists( 'voltalux_huisscan_enabled' ) && voltalux_huisscan_enabled();
 ?>
-<section class="vlx-hero<?php echo $vlx_hsc_on ? ' vlx-hero--hastopbar' : ''; ?>" id="hero">
+<section class="vlx-hero" id="hero">
 	<div class="vlx-hero__media">
 		<?php if ( $video ) : ?>
 			<video autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture <?php echo $poster ? 'poster="' . esc_url( $poster ) . '"' : ''; ?>>
@@ -30,21 +29,6 @@ $vlx_hsc_on = function_exists( 'voltalux_huisscan_enabled' ) && voltalux_huissca
 			<img src="<?php echo esc_url( $poster ); ?>" alt="" fetchpriority="high">
 		<?php endif; ?>
 	</div>
-
-	<?php if ( $vlx_hsc_on ) : ?>
-		<div class="vlx-hero__topbar-wrap">
-			<div class="vlx-container vlx-container--wide">
-				<a class="vlx-hsc-topbar" href="#contact" data-vlx-hsc-open>
-					<span class="vlx-hsc-topbar__ic"><?php echo voltalux_icon( 'lightning' ); // phpcs:ignore ?></span>
-					<span class="vlx-hsc-topbar__txt">
-						<strong><?php esc_html_e( 'Gratis huisscan', 'voltalux' ); ?></strong>
-						<span><?php esc_html_e( 'Ontdek wat jouw huis kan besparen', 'voltalux' ); ?></span>
-					</span>
-					<span class="vlx-hsc-topbar__go"><?php echo voltalux_icon( 'arrow-right' ); // phpcs:ignore ?></span>
-				</a>
-			</div>
-		</div>
-	<?php endif; ?>
 
 	<div class="vlx-hero__inner">
 		<div class="vlx-container vlx-container--wide">

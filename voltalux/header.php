@@ -28,6 +28,16 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 
 <a class="skip-link screen-reader-text" href="#main"><?php esc_html_e( 'Ga naar de inhoud', 'voltalux' ); ?></a>
 
+<?php if ( function_exists( 'voltalux_huisscan_enabled' ) && voltalux_huisscan_enabled() ) : ?>
+	<a class="vlx-topbar" href="#contact" data-vlx-hsc-open>
+		<span class="vlx-topbar__inner">
+			<svg class="vlx-topbar__spark" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M12 1.5l1.7 6.3a4 4 0 002.5 2.5l6.3 1.7-6.3 1.7a4 4 0 00-2.5 2.5L12 22.5l-1.7-6.3a4 4 0 00-2.5-2.5L1.5 12l6.3-1.7a4 4 0 002.5-2.5z"/></svg>
+			<span class="vlx-topbar__txt"><strong><?php esc_html_e( 'Gratis huisscan', 'voltalux' ); ?></strong><span class="vlx-topbar__sub"> — <?php esc_html_e( 'ontdek wat je bespaart', 'voltalux' ); ?></span></span>
+			<span class="vlx-topbar__go"><?php echo voltalux_icon( 'arrow-right' ); // phpcs:ignore ?></span>
+		</span>
+	</a>
+<?php endif; ?>
+
 <?php if ( ! voltalux_has_elementor_location( 'header' ) ) : ?>
 	<header class="vlx-site-header" id="site-header">
 		<div class="vlx-container vlx-container--wide vlx-header-inner">

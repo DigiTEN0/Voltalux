@@ -97,34 +97,59 @@
 		reveals.forEach(function (el) { el.classList.add('is-in'); });
 	}
 
-	/* ---- Hero video ---- */
+	/* ---- Hero video — robust muted autoplay (esp. iOS Safari) ---- */
 	var video = doc.querySelector('.vlx-hero__media video');
 	if (video) {
-		if (reduce) { video.removeAttribute('autoplay'); video.pause(); }
-		else {
-			// iOS Safari needs muted + playsinline set as properties before play() will autoplay.
-			video.muted = true;
-			video.setAttribute('muted', '');
-			video.playsInline = true;
-			var tryPlay = function () { var p = video.play(); if (p && p.catch) { p.catch(function () {}); } };
-			tryPlay();
-			video.addEventListener('loadedmetadata', tryPlay);
-			video.addEventListener('canplay', tryPlay);
-			// If autoplay is still blocked, kick it off on the first user interaction.
-			var kick = function () {
-				tryPlay();
-				window.removeEventListener('touchstart', kick);
-				window.removeEventListener('click', kick);
-				window.removeEventListener('scroll', kick);
+		// Muted + inline MUST be set before play() for iOS to allow autoplay.
+		video.muted = true;
+		video.defaultMuted = true;
+		video.setAttribute('muted', '');
+		video.playsInline = true;
+		video.setAttribute('playsinline', '');
+		video.setAttribute('webkit-playsinline', '');
+
+		if (reduce) {
+			video.removeAttribute('autoplay');
+			video.pause();
+		} else {
+			var playing = false;
+			var offscreen = false;
+			var tryPlay = function () {
+				if (playing || offscreen) { return; }
+				var p = video.play();
+				if (p && p.then) { p.then(function () { playing = true; }).catch(function () {}); }
 			};
-			window.addEventListener('touchstart', kick, { passive: true });
-			window.addEventListener('click', kick, { passive: true });
-			window.addEventListener('scroll', kick, { passive: true });
+			video.addEventListener('playing', function () { playing = true; });
+			video.addEventListener('pause', function () { if (!offscreen) { playing = false; } });
+			// Attempt as soon as any readiness milestone is hit.
+			['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'].forEach(function (ev) {
+				video.addEventListener(ev, tryPlay);
+			});
+			tryPlay();
+			// Poll briefly to catch late buffering where the browser deferred autoplay.
+			var tries = 0;
+			var poll = setInterval(function () {
+				tries++;
+				if (playing || tries > 15) { clearInterval(poll); return; }
+				tryPlay();
+			}, 350);
+			// Last-resort: start on the first user gesture (covers iOS Low Power Mode).
+			var kick = function () { tryPlay(); };
+			['touchstart', 'pointerdown', 'click', 'scroll', 'keydown'].forEach(function (ev) {
+				window.addEventListener(ev, kick, { passive: true });
+			});
+			// Save power off-screen; resume when the hero is visible again.
 			if ('IntersectionObserver' in window) {
 				new IntersectionObserver(function (entries) {
-					entries.forEach(function (en) { en.isIntersecting ? tryPlay() : video.pause(); });
-				}, { threshold: 0.05 }).observe(video);
+					entries.forEach(function (en) {
+						offscreen = !en.isIntersecting;
+						if (en.isIntersecting) { playing = false; tryPlay(); } else { video.pause(); }
+					});
+				}, { threshold: 0.02 }).observe(video);
 			}
+			document.addEventListener('visibilitychange', function () {
+				if (!document.hidden && !offscreen) { playing = false; tryPlay(); }
+			});
 		}
 	}
 

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.15.0' );
+	define( 'VOLTALUX_VERSION', '3.16.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -243,6 +243,9 @@ function voltalux_body_classes( $classes ) {
 	}
 	if ( voltalux_is_elementor_page() ) {
 		$classes[] = 'vlx-elementor-page';
+	}
+	if ( function_exists( 'voltalux_huisscan_enabled' ) && voltalux_huisscan_enabled() ) {
+		$classes[] = 'has-topbar';
 	}
 	return $classes;
 }
