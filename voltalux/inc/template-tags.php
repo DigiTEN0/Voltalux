@@ -53,6 +53,10 @@ function voltalux_icon( $name ) {
 		'user'    => '<circle cx="12" cy="8" r="4"/><path d="M4 20.5V20a6 6 0 016-6h4a6 6 0 016 6v.5"/>',
 		'mail'    => '<rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="M3.5 7l8.5 6 8.5-6"/>',
 		'spark'   => '<path d="M12 3v6M12 15v6M3 12h6M15 12h6"/><path d="M6.4 6.4l3.2 3.2M14.4 14.4l3.2 3.2M17.6 6.4l-3.2 3.2M9.6 14.4l-3.2 3.2"/>',
+		'heat'    => '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="1.6"/><path d="M12 10.4c0-3.2.8-4.9 2.4-4.9 1.2 0 1.6 1.6 0 3.3M13.6 12c3.2 0 4.9.8 4.9 2.4 0 1.2-1.6 1.6-3.3 0M12 13.6c0 3.2-.8 4.9-2.4 4.9-1.2 0-1.6-1.6 0-3.3M10.4 12c-3.2 0-4.9-.8-4.9-2.4 0-1.2 1.6-1.6 3.3 0"/>',
+		'ev'      => '<rect x="6" y="3" width="9" height="18" rx="2"/><path d="M9.5 3V1.6M12 3V1.6"/><path d="M15 8.5h2a2 2 0 012 2v3a1.7 1.7 0 01-3.4 0V12"/><path d="M11 8l-1.6 3.2h3L10.8 14"/>',
+		'lightning' => '<path d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z"/>',
+		'leaf'    => '<path d="M20 4S9 4 6 9c-2.4 4-.5 8 2 9 3.5 1.4 8-1 10-5 2-4 2-9 2-9z"/><path d="M11 13c2-3 5-4 5-4"/>',
 	);
 	$body = isset( $icons[ $name ] ) ? $icons[ $name ] : '';
 	return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' . $body . '</svg>';

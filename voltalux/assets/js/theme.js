@@ -128,6 +128,225 @@
 		}
 	}
 
+	/* ---- Gratis huisscan wizard ---- */
+	(function () {
+		var root = doc.querySelector('[data-vlx-hsc]');
+		if (!root) { return; }
+
+		var HSC = window.voltaluxHsc || {};
+		var i18n = HSC.i18n || {};
+		var panel = root.querySelector('.vlx-hsc__panel');
+		var progress = root.querySelector('[data-vlx-hsc-progress]');
+		var stepLabel = root.querySelector('[data-vlx-hsc-steplabel]');
+		var barFill = root.querySelector('[data-vlx-hsc-barfill]');
+		var foot = root.querySelector('[data-vlx-hsc-foot]');
+		var prevBtn = root.querySelector('[data-vlx-hsc-prev]');
+		var nextBtn = root.querySelector('[data-vlx-hsc-next]');
+		var nextLbl = root.querySelector('[data-vlx-hsc-nextlbl]');
+		var errEl = root.querySelector('[data-vlx-hsc-error]');
+		var doneMsg = root.querySelector('[data-vlx-hsc-donemsg]');
+		var scroller = root.querySelector('.vlx-hsc__steps');
+		var modalForm = root.querySelector('[data-vlx-hsc-form]');
+
+		var SEQ = ['address', 'products', 'situation', 'contact', 'success'];
+		var PC_RE = /^\d{4}[A-Z]{2}$/;
+		var state = { postcode: '', huisnummer: '', toevoeging: '', adres: '', products: [] };
+		var current = 'address';
+		var startAt = 'address';
+		var lastFocus = null;
+		var lookupTimer = null;
+
+		function stepEl(name) { return root.querySelector('.vlx-hsc-step[data-step="' + name + '"]'); }
+		function showErr(m) { if (errEl) { errEl.textContent = m || ''; } }
+		function clearErr() { showErr(''); }
+		function pcClean() { return (state.postcode || '').replace(/\s+/g, '').toUpperCase(); }
+
+		/* ---- Live address lookup (PDOK Locatieserver) ---- */
+		function setResolved(text, cls) {
+			doc.querySelectorAll('[data-vlx-hsc-address]').forEach(function (el) {
+				el.textContent = text || '';
+				el.classList.remove('is-searching', 'is-error');
+				if (cls) { el.classList.add(cls); }
+			});
+		}
+		function doLookup() {
+			var pc = pcClean();
+			var nr = (state.huisnummer || '').trim();
+			if (!PC_RE.test(pc) || !nr) { state.adres = ''; setResolved('', null); return; }
+			if (!HSC.geocode || !window.fetch) { return; }
+			setResolved(i18n.searching || 'Adres zoeken…', 'is-searching');
+			var q = pc + ' ' + nr + (state.toevoeging ? '-' + state.toevoeging.trim() : '');
+			var url = HSC.geocode + '?fl=weergavenaam,straatnaam,huis_nlt,woonplaatsnaam&rows=1&fq=type:adres&q=' + encodeURIComponent(q);
+			fetch(url, { headers: { Accept: 'application/json' } })
+				.then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+				.then(function (j) {
+					var docs = j && j.response && j.response.docs;
+					if (docs && docs.length) {
+						var d = docs[0];
+						state.adres = ((d.straatnaam || '') + ' ' + (d.huis_nlt || nr) + ', ' + (d.woonplaatsnaam || '')).trim();
+						setResolved(state.adres, null);
+					} else {
+						state.adres = '';
+						setResolved(i18n.notFound || '', 'is-error');
+					}
+				})
+				.catch(function () { state.adres = ''; setResolved(i18n.notFound || '', 'is-error'); });
+		}
+		doc.querySelectorAll('[data-vlx-hsc-field]').forEach(function (inp) {
+			inp.addEventListener('input', function () {
+				var f = inp.getAttribute('data-vlx-hsc-field');
+				state[f] = inp.value;
+				doc.querySelectorAll('[data-vlx-hsc-field="' + f + '"]').forEach(function (o) { if (o !== inp) { o.value = inp.value; } });
+				clearTimeout(lookupTimer);
+				lookupTimer = setTimeout(doLookup, 400);
+			});
+		});
+
+		/* ---- Product multi-select ---- */
+		root.querySelectorAll('[data-vlx-hsc-product]').forEach(function (btn) {
+			btn.addEventListener('click', function () {
+				var v = btn.getAttribute('data-vlx-hsc-product');
+				var on = btn.getAttribute('aria-pressed') === 'true';
+				btn.setAttribute('aria-pressed', on ? 'false' : 'true');
+				if (on) { state.products = state.products.filter(function (x) { return x !== v; }); }
+				else if (state.products.indexOf(v) < 0) { state.products.push(v); }
+				clearErr();
+			});
+		});
+
+		/* ---- Conditional reveal (verbruik) ---- */
+		root.querySelectorAll('[data-vlx-hsc-reveal]').forEach(function (rev) {
+			var spec = rev.getAttribute('data-vlx-hsc-reveal').split(':');
+			function upd() {
+				var c = root.querySelector('input[name="' + spec[0] + '"]:checked');
+				rev.classList.toggle('is-shown', !!c && c.value === spec[1]);
+			}
+			root.querySelectorAll('input[name="' + spec[0] + '"]').forEach(function (r) { r.addEventListener('change', upd); });
+			upd();
+		});
+
+		/* ---- Step navigation ---- */
+		function go(step) {
+			current = step;
+			root.querySelectorAll('.vlx-hsc-step').forEach(function (s) { s.classList.toggle('is-active', s.getAttribute('data-step') === step); });
+			var prog = stepEl(step).getAttribute('data-progress');
+			if (prog) { progress.hidden = false; if (stepLabel) { stepLabel.textContent = 'Stap ' + prog + ' van 3'; } barFill.style.width = (prog / 3 * 100) + '%'; }
+			else { progress.hidden = true; }
+			var isSuccess = step === 'success';
+			foot.hidden = isSuccess;
+			var idx = SEQ.indexOf(step), startIdx = SEQ.indexOf(startAt);
+			prevBtn.style.display = (idx > startIdx && !isSuccess) ? '' : 'none';
+			if (nextLbl) { nextLbl.textContent = (step === 'contact') ? 'Verstuur mijn aanvraag' : 'Volgende'; }
+			clearErr();
+			if (scroller) { scroller.scrollTop = 0; }
+		}
+
+		function next() {
+			if (current === 'address') {
+				if (!PC_RE.test(pcClean()) || !(state.huisnummer || '').trim()) { showErr('Vul een geldige postcode en huisnummer in.'); return; }
+				go('products'); return;
+			}
+			if (current === 'products') {
+				if (!state.products.length) { showErr('Kies minimaal één product.'); return; }
+				go('situation'); return;
+			}
+			if (current === 'situation') { go('contact'); return; }
+			if (current === 'contact') { submit(); return; }
+		}
+		function prev() {
+			var idx = SEQ.indexOf(current), startIdx = SEQ.indexOf(startAt);
+			if (idx > startIdx) { go(SEQ[idx - 1]); }
+		}
+
+		/* ---- Gather + submit ---- */
+		function gather() {
+			function val(name) { var e = root.querySelector('[name="' + name + '"]'); return e ? e.value : ''; }
+			function radio(name) { var e = root.querySelector('input[name="' + name + '"]:checked'); return e ? e.value : ''; }
+			var dak = [];
+			root.querySelectorAll('input[name="daktype"]:checked').forEach(function (c) { dak.push(c.value); });
+			return {
+				products: state.products.slice(),
+				postcode: state.postcode, huisnummer: state.huisnummer, toevoeging: state.toevoeging, adres: state.adres,
+				verbruik_bekend: radio('verbruik_bekend'), verbruik: val('verbruik'),
+				daktype: dak, bewoners: val('bewoners'),
+				aanhef: val('aanhef'), voornaam: val('voornaam'), achternaam: val('achternaam'),
+				email: val('email'), telefoon: val('telefoon')
+			};
+		}
+		function submit() {
+			var ok = true, firstBad = null;
+			stepEl('contact').querySelectorAll('[data-vlx-hsc-required]').forEach(function (inp) {
+				var isCb = inp.type === 'checkbox';
+				var v = isCb ? inp.checked : (inp.value || '').trim();
+				var bad = isCb ? !inp.checked : !v;
+				if (!bad && inp.type === 'email') { bad = !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v); }
+				var field = inp.closest('.vlx-hsc-field') || inp.closest('.vlx-hsc-consent');
+				if (field) { field.classList.toggle('has-error', bad); }
+				if (bad && !firstBad) { firstBad = inp; }
+				if (bad) { ok = false; }
+			});
+			if (!ok) { showErr('Controleer je gegevens en probeer het opnieuw.'); if (firstBad) { firstBad.focus(); } return; }
+
+			var oldLbl = nextLbl ? nextLbl.textContent : '';
+			nextBtn.disabled = true;
+			if (nextLbl) { nextLbl.textContent = i18n.sending || 'Versturen…'; }
+			var restore = function () { nextBtn.disabled = false; if (nextLbl) { nextLbl.textContent = oldLbl; } };
+			var okDone = function (msg) { restore(); if (msg && doneMsg) { doneMsg.textContent = msg; } go('success'); };
+			var errDone = function () { restore(); showErr(i18n.error || 'Er ging iets mis. Probeer het zo nog eens.'); };
+
+			if (!HSC.ajax || !window.fetch) { okDone(); return; }
+			var b = new URLSearchParams();
+			b.set('action', 'voltalux_huisscan');
+			b.set('nonce', HSC.nonce || '');
+			b.set('data', JSON.stringify(gather()));
+			fetch(HSC.ajax, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: b.toString() })
+				.then(function (r) { return r.json(); })
+				.then(function (j) { if (j && j.success) { okDone(j.data && j.data.message); } else { errDone(); } })
+				.catch(errDone);
+		}
+
+		/* ---- Open / close ---- */
+		function openAt(step) {
+			startAt = step;
+			lastFocus = doc.activeElement;
+			root.hidden = false;
+			void root.offsetWidth;
+			root.classList.add('is-open');
+			body.classList.add('hsc-open');
+			go(step);
+			var closeBtn = root.querySelector('.vlx-hsc__close');
+			if (closeBtn) { try { closeBtn.focus({ preventScroll: true }); } catch (e) { closeBtn.focus(); } }
+		}
+		function close() {
+			root.classList.remove('is-open');
+			body.classList.remove('hsc-open');
+			clearErr();
+			var hide = function () { root.hidden = true; };
+			var onEnd = function (e) { if (e.target === panel) { hide(); panel.removeEventListener('transitionend', onEnd); } };
+			panel.addEventListener('transitionend', onEnd);
+			setTimeout(hide, 420);
+			if (lastFocus && lastFocus.focus) { try { lastFocus.focus(); } catch (e) {} }
+		}
+
+		/* ---- Triggers ---- */
+		var heroForm = doc.querySelector('[data-vlx-hsc-heroform]');
+		if (heroForm) {
+			heroForm.addEventListener('submit', function (e) {
+				e.preventDefault();
+				if (PC_RE.test(pcClean()) && (state.huisnummer || '').trim()) { openAt('products'); }
+				else { openAt('address'); }
+			});
+		}
+		doc.querySelectorAll('[data-vlx-hsc-open]').forEach(function (b) {
+			b.addEventListener('click', function (e) { e.preventDefault(); openAt('address'); });
+		});
+		if (modalForm) { modalForm.addEventListener('submit', function (e) { e.preventDefault(); next(); }); }
+		nextBtn.addEventListener('click', next);
+		prevBtn.addEventListener('click', prev);
+		root.querySelectorAll('[data-vlx-hsc-close]').forEach(function (b) { b.addEventListener('click', close); });
+		doc.addEventListener('keyup', function (e) { if (e.key === 'Escape' && !root.hidden) { close(); } });
+	})();
+
 	/* ---- Floating CTA hides over the footer ---- */
 	var floating = doc.querySelector('.vlx-floating');
 	var footer = doc.querySelector('.vlx-site-footer');

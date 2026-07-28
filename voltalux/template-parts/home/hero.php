@@ -32,23 +32,30 @@ $b1_url   = voltalux_option( 'hero_btn1_url', '#contact' );
 
 	<div class="vlx-hero__inner">
 		<div class="vlx-container vlx-container--wide">
-			<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow, true ); } ?>
-			<?php if ( $title ) : ?>
-				<h1><?php echo wp_kses_post( do_shortcode( voltalux_mark_shortcode_content( $title ) ) ); ?></h1>
-			<?php endif; ?>
-			<?php if ( $text ) : ?>
-				<p class="vlx-hero__text"><?php echo wp_kses_post( $text ); ?></p>
-			<?php endif; ?>
+			<?php $vlx_hsc_card = function_exists( 'voltalux_huisscan_hero_card' ) ? voltalux_huisscan_hero_card( false ) : ''; ?>
+			<div class="vlx-hero__grid<?php echo $vlx_hsc_card ? ' vlx-hero__grid--split' : ''; ?>">
+				<div class="vlx-hero__lead">
+					<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow, true ); } ?>
+					<?php if ( $title ) : ?>
+						<h1><?php echo wp_kses_post( do_shortcode( voltalux_mark_shortcode_content( $title ) ) ); ?></h1>
+					<?php endif; ?>
+					<?php if ( $text ) : ?>
+						<p class="vlx-hero__text"><?php echo wp_kses_post( $text ); ?></p>
+					<?php endif; ?>
 
-			<div class="vlx-hero__cta">
-				<?php
-				if ( $b1_label ) {
-					voltalux_button( array( 'label' => $b1_label, 'url' => $b1_url, 'style' => 'primary', 'size' => 'lg', 'attrs' => array( 'data-vlx-open' => 'offerte' ) ) );
-				}
-				if ( $phone ) {
-					voltalux_button( array( 'label' => __( 'Bel', 'voltalux' ) . ' ' . $phone, 'url' => 'tel:' . preg_replace( '/[^0-9+]/', '', $phone ), 'style' => 'ghost', 'size' => 'lg', 'arrow' => false ) );
-				}
-				?>
+					<div class="vlx-hero__cta">
+						<?php
+						if ( $b1_label ) {
+							voltalux_button( array( 'label' => $b1_label, 'url' => $b1_url, 'style' => 'primary', 'size' => 'lg', 'attrs' => array( 'data-vlx-open' => 'offerte' ) ) );
+						}
+						if ( $phone ) {
+							voltalux_button( array( 'label' => __( 'Bel', 'voltalux' ) . ' ' . $phone, 'url' => 'tel:' . preg_replace( '/[^0-9+]/', '', $phone ), 'style' => 'ghost', 'size' => 'lg', 'arrow' => false ) );
+						}
+						?>
+					</div>
+				</div>
+
+				<?php echo $vlx_hsc_card; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</div>
 
 			<div class="vlx-hero__specs">

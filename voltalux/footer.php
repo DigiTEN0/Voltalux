@@ -124,6 +124,9 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 		</div>
 	<?php endif; ?>
 
+	<?php /* Gratis huisscan — multi-step lead wizard */ ?>
+	<?php if ( function_exists( 'voltalux_huisscan_modal' ) ) { voltalux_huisscan_modal(); } ?>
+
 	<?php /* Offerte drawer */ ?>
 	<div class="vlx-drawer" id="vlx-offerte" role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Offerte aanvragen', 'voltalux' ); ?>">
 		<div class="vlx-drawer__overlay" data-vlx-close></div>
