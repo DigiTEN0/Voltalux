@@ -42,7 +42,7 @@ function voltalux_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'voltalux_accent',
 		array(
-			'default'           => '#15DD6E',
+			'default'           => '#059a41',
 			'sanitize_callback' => 'sanitize_hex_color',
 			'transport'         => 'postMessage',
 		)

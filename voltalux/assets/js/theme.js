@@ -331,6 +331,13 @@
 		}
 
 		/* ---- Open / close ---- */
+		var modalVideo = root.querySelector('.vlx-hsc-step__media video');
+		function playModalVideo() {
+			if (!modalVideo) { return; }
+			modalVideo.muted = true; modalVideo.setAttribute('muted', ''); modalVideo.playsInline = true;
+			var p = modalVideo.play();
+			if (p && p.catch) { p.catch(function () {}); }
+		}
 		function openAt(step) {
 			startAt = step;
 			lastFocus = doc.activeElement;
@@ -339,13 +346,15 @@
 			root.classList.add('is-open');
 			body.classList.add('hsc-open');
 			go(step);
-			var closeBtn = root.querySelector('.vlx-hsc__close');
-			if (closeBtn) { try { closeBtn.focus({ preventScroll: true }); } catch (e) { closeBtn.focus(); } }
+			playModalVideo();
+			// Move focus into the dialog for a11y/Esc — target the panel (no visible focus ring).
+			if (panel) { try { panel.focus({ preventScroll: true }); } catch (e) {} }
 		}
 		function close() {
 			root.classList.remove('is-open');
 			body.classList.remove('hsc-open');
 			clearErr();
+			if (modalVideo) { try { modalVideo.pause(); } catch (e) {} }
 			var hide = function () { root.hidden = true; };
 			var onEnd = function (e) { if (e.target === panel) { hide(); panel.removeEventListener('transitionend', onEnd); } };
 			panel.addEventListener('transitionend', onEnd);
@@ -383,7 +392,7 @@
 
 	/* ---- Smooth-scroll same-page anchors ---- */
 	doc.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(function (a) {
-		if (a.hasAttribute('data-vlx-open')) { return; }
+		if (a.hasAttribute('data-vlx-open') || a.hasAttribute('data-vlx-hsc-open')) { return; }
 		a.addEventListener('click', function (e) {
 			var target = doc.querySelector(a.getAttribute('href'));
 			if (target) {

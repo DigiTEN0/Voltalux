@@ -134,10 +134,15 @@ function voltalux_huisscan_modal() {
 	if ( $intro_img ) {
 		$intro_img = set_url_scheme( $intro_img );
 	}
+	// Use the same hero video (auto-play, muted, looped) as the intro media.
+	$intro_video = voltalux_option( 'hero_video', defined( 'VOLTALUX_DEFAULT_HERO_VIDEO' ) ? VOLTALUX_DEFAULT_HERO_VIDEO : '' );
+	if ( $intro_video ) {
+		$intro_video = set_url_scheme( $intro_video );
+	}
 	?>
 	<div class="vlx-hsc" id="vlx-huisscan" data-vlx-hsc role="dialog" aria-modal="true" aria-label="<?php esc_attr_e( 'Gratis huisscan', 'voltalux' ); ?>" hidden>
 		<div class="vlx-hsc__overlay" data-vlx-hsc-close></div>
-		<div class="vlx-hsc__panel" role="document">
+		<div class="vlx-hsc__panel" role="document" tabindex="-1">
 			<button class="vlx-hsc__close" type="button" data-vlx-hsc-close aria-label="<?php esc_attr_e( 'Sluiten', 'voltalux' ); ?>"><?php echo voltalux_icon( 'close' ); // phpcs:ignore ?></button>
 
 			<div class="vlx-hsc__progress" data-vlx-hsc-progress hidden>
@@ -150,7 +155,13 @@ function voltalux_huisscan_modal() {
 
 					<?php /* STEP: address (entry point on mobile / direct open) */ ?>
 					<section class="vlx-hsc-step" data-step="address">
-						<div class="vlx-hsc-step__media" aria-hidden="true"<?php echo $intro_img ? ' style="background-image:url(\'' . esc_url( $intro_img ) . '\')"' : ''; ?>></div>
+						<div class="vlx-hsc-step__media" aria-hidden="true"<?php echo ( ! $intro_video && $intro_img ) ? ' style="background-image:url(\'' . esc_url( $intro_img ) . '\')"' : ''; ?>>
+							<?php if ( $intro_video ) : ?>
+								<video autoplay muted loop playsinline webkit-playsinline preload="metadata" disablepictureinpicture<?php echo $intro_img ? ' poster="' . esc_url( $intro_img ) . '"' : ''; ?>>
+									<source src="<?php echo esc_url( $intro_video ); ?>" type="video/mp4">
+								</video>
+							<?php endif; ?>
+						</div>
 						<div class="vlx-hsc-step__body">
 							<span class="vlx-eyebrow vlx-eyebrow--dark"><?php esc_html_e( 'Check jouw situatie', 'voltalux' ); ?></span>
 							<h2 class="vlx-hsc-step__title"><?php esc_html_e( 'Doe de gratis huisscan', 'voltalux' ); ?></h2>
