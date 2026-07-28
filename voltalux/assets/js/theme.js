@@ -121,18 +121,18 @@
 			};
 			video.addEventListener('playing', function () { playing = true; });
 			video.addEventListener('pause', function () { if (!offscreen) { playing = false; } });
-			// Attempt as soon as any readiness milestone is hit.
-			['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough'].forEach(function (ev) {
+			// Attempt as soon as any readiness milestone is hit (incl. progressive buffering).
+			['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'progress', 'suspend'].forEach(function (ev) {
 				video.addEventListener(ev, tryPlay);
 			});
 			tryPlay();
-			// Poll briefly to catch late buffering where the browser deferred autoplay.
+			// Poll to catch late buffering where the browser deferred autoplay (~12s window).
 			var tries = 0;
 			var poll = setInterval(function () {
 				tries++;
-				if (playing || tries > 15) { clearInterval(poll); return; }
+				if (playing || tries > 30) { clearInterval(poll); return; }
 				tryPlay();
-			}, 350);
+			}, 400);
 			// Last-resort: start on the first user gesture (covers iOS Low Power Mode).
 			var kick = function () { tryPlay(); };
 			['touchstart', 'pointerdown', 'click', 'scroll', 'keydown'].forEach(function (ev) {

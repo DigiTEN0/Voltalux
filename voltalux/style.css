@@ -4,7 +4,7 @@ Theme URI: https://voltalux.nl
 Author: DigiTEN
 Author URI: https://digiten.nl
 Description: Voltalux — een krachtig, verfijnd WordPress-thema voor duurzame energie, thuisbatterijen en zonnepanelen. Eigen 'precision energy' designtaal, video-hero, mega-menu met producten en een strak mobiel menu. Volledig compatibel met Elementor: alle kleuren, typografie en knopstijlen werken automatisch door.
-Version: 3.17.0
+Version: 3.17.1
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -83,7 +83,7 @@ Tags: business, portfolio, custom-colors, custom-logo, custom-menu, featured-ima
 /* ---- Reset ---- */
 *, *::before, *::after { box-sizing: border-box; }
 * { margin: 0; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; overflow-x: clip; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 @media (prefers-reduced-motion: reduce) {
 	html { scroll-behavior: auto; }
 	*, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
