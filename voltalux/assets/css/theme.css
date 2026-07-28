@@ -8,7 +8,8 @@
 .vlx-container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
 .vlx-container--wide { max-width: var(--container-wide); }
 .vlx-container--narrow { max-width: var(--container-narrow); }
-.vlx-section { padding-block: 2.5rem; }
+.vlx-section { padding-block: 9.5rem; }
+@media (max-width: 768px) { .vlx-section { padding-block: 5rem; } }
 .vlx-section--sm { padding-block: var(--section-sm); }
 .vlx-bg-ink { background: var(--ink); color: #fff; }
 .vlx-bg-ink h1, .vlx-bg-ink h2, .vlx-bg-ink h3, .vlx-bg-ink h4, .vlx-bg-ink h5, .vlx-bg-ink h6 { color: #fff; }
@@ -839,7 +840,7 @@ select::-ms-expand { display: none; }
 
 /* ---- Hero split layout (content + card) ---- */
 .vlx-hero__grid { min-width: 0; }
-.vlx-hero__grid--split { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(340px, .96fr); gap: clamp(1.6rem, 1rem + 3vw, 3.4rem); align-items: center; }
+.vlx-hero__grid--split { display: grid; grid-template-columns: minmax(0, 1.04fr) minmax(340px, .96fr); gap: clamp(1.6rem, 1rem + 3vw, 3.4rem); align-items: center; padding-bottom: 35px; }
 .vlx-hero__lead { min-width: 0; }
 .vlx-hero:has(.vlx-hero__grid--split) { min-height: min(84vh, 720px); }
 .vlx-hero__grid--split .vlx-hero__lead h1 { max-width: 13ch; }
