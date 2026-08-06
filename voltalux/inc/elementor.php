@@ -79,7 +79,7 @@ function voltalux_seed_elementor_kit() {
 
 	$settings = $kit->get_settings();
 
-	$accent = get_theme_mod( 'voltalux_accent', '#15DD6E' );
+	$accent = get_theme_mod( 'voltalux_accent', '#059a41' );
 
 	$settings['system_colors'] = array(
 		array( '_id' => 'primary',   'title' => 'Voltalux groen', 'color' => $accent ),
@@ -91,30 +91,30 @@ function voltalux_seed_elementor_kit() {
 	$settings['system_typography'] = array(
 		array(
 			'_id'                 => 'primary',
-			'title'               => 'Koppen — Space Grotesk',
+			'title'               => 'Koppen — Manrope',
 			'typography_typography'  => 'custom',
-			'typography_font_family' => 'Space Grotesk',
-			'typography_font_weight' => '500',
+			'typography_font_family' => 'Manrope',
+			'typography_font_weight' => '800',
 		),
 		array(
 			'_id'                 => 'secondary',
-			'title'               => 'Subkoppen — Space Grotesk',
+			'title'               => 'Subkoppen — Manrope',
 			'typography_typography'  => 'custom',
-			'typography_font_family' => 'Space Grotesk',
-			'typography_font_weight' => '600',
+			'typography_font_family' => 'Manrope',
+			'typography_font_weight' => '700',
 		),
 		array(
 			'_id'                 => 'text',
-			'title'               => 'Tekst — Inter',
+			'title'               => 'Tekst — Manrope',
 			'typography_typography'  => 'custom',
-			'typography_font_family' => 'Inter',
+			'typography_font_family' => 'Manrope',
 			'typography_font_weight' => '400',
 		),
 		array(
 			'_id'                 => 'accent',
-			'title'               => 'Accent — Inter',
+			'title'               => 'Accent — Manrope',
 			'typography_typography'  => 'custom',
-			'typography_font_family' => 'Inter',
+			'typography_font_family' => 'Manrope',
 			'typography_font_weight' => '600',
 		),
 	);
@@ -125,13 +125,11 @@ function voltalux_seed_elementor_kit() {
 add_action( 'wp_loaded', 'voltalux_seed_elementor_kit', 20 );
 
 /**
- * Register Space Grotesk + Inter + Space Mono as usable fonts inside the
- * Elementor font picker (pointing at the self-hosted files, so no Google CDN call).
+ * Register Manrope (the theme's self-hosted brand font) in the Elementor font
+ * picker, so Elementor-built content matches the site with no Google CDN call.
  */
 function voltalux_elementor_fonts( $additional_fonts ) {
-	$additional_fonts['Space Grotesk'] = 'system';
-	$additional_fonts['Inter']         = 'system';
-	$additional_fonts['Space Mono']    = 'system';
+	$additional_fonts['Manrope'] = 'system';
 	return $additional_fonts;
 }
 add_filter( 'elementor/fonts/additional_fonts', 'voltalux_elementor_fonts' );
