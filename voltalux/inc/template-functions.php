@@ -209,7 +209,7 @@ function voltalux_battery_products() {
 			array( 'name' => 'Fox ESS', 'spec' => __( 'Beste prijs per kWh', 'voltalux' ), 'desc' => __( 'Modulaire opslag met de scherpste prijs per bruikbare kilowattuur.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'fox-ess' ) ),
 			array( 'name' => 'AlphaESS', 'spec' => __( 'Groeit met je mee', 'voltalux' ), 'desc' => __( 'Bouw op met modules van 3,8 kWh, tot ruim 60 kWh.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'alphaess' ) ),
 			array( 'name' => 'Sigenergy', 'spec' => __( 'Slimste alles-in-één', 'voltalux' ), 'desc' => __( 'Batterij, omvormer, EV-lader en noodstroom in één toren.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'sigenergy' ) ),
-			array( 'name' => __( 'Meer merken', 'voltalux' ), 'spec' => __( 'Vergelijk alle opties', 'voltalux' ), 'desc' => __( 'Bekijk de volledige vergelijking van de thuisbatterijen die wij voeren.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'thuisbatterijen' ) ),
+			array( 'name' => __( 'Meer merken', 'voltalux' ), 'spec' => __( 'Vergelijk alle opties', 'voltalux' ), 'desc' => __( 'Bekijk de volledige vergelijking van de thuisbatterijen die wij voeren.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'thuisbatterij' ) ),
 		)
 	);
 }

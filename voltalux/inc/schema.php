@@ -189,16 +189,20 @@ function voltalux_seo_overrides() {
 	return apply_filters(
 		'voltalux_seo_overrides',
 		array(
-			'thuisbatterijen' => array( __( 'Thuisbatterij kopen', 'voltalux' ), __( 'Merken, prijzen en eerlijk advies — Fox ESS, AlphaESS en Sigenergy naast elkaar.', 'voltalux' ) ),
+			// Keys = live voltalux.nl slugs. Titles/meta kept in line with the old Yoast values.
+			'zonnepanelen'    => array( __( 'Zonnepanelen laten installeren', 'voltalux' ), __( 'Zonnepanelen van A-merken, all-in geïnstalleerd door eigen erkende monteurs. Binnen 3 weken geplaatst — vraag vrijblijvend een offerte aan.', 'voltalux' ) ),
+			'thuisbatterij'   => array( __( 'Thuisbatterij kopen', 'voltalux' ), __( 'Merken, prijzen en eerlijk advies — Fox ESS, AlphaESS en Sigenergy naast elkaar.', 'voltalux' ) ),
 			'fox-ess'         => array( __( 'Fox ESS thuisbatterij', 'voltalux' ), __( 'Modellen, capaciteit en prijs van de Fox ESS thuisbatterij — all-in geïnstalleerd.', 'voltalux' ) ),
 			'alphaess'        => array( __( 'AlphaESS thuisbatterij', 'voltalux' ), __( 'SMILE-G3 modellen en prijs — de thuisbatterij die met je verbruik meegroeit.', 'voltalux' ) ),
 			'sigenergy'       => array( __( 'Sigenergy SigenStor', 'voltalux' ), __( '5-in-1 thuisbatterij met EV-lader, omvormer en noodstroom — modellen en prijs.', 'voltalux' ) ),
-			'airconditioning' => array( __( 'Airco laten installeren', 'voltalux' ), __( 'Daikin en LG, all-in prijs. Koelen én verwarmen, F-gassen-gecertificeerd gemonteerd.', 'voltalux' ) ),
+			'aircos'          => array( __( 'Airco laten installeren', 'voltalux' ), __( 'Daikin en LG, all-in prijs. Koelen én verwarmen, F-gassen-gecertificeerd gemonteerd.', 'voltalux' ) ),
 			'daikin'          => array( __( 'Daikin airco', 'voltalux' ), __( 'Perfera, Stylish, Emura en Sensira — hoogste rendement, all-in geïnstalleerd.', 'voltalux' ) ),
 			'lg'              => array( __( 'LG airco', 'voltalux' ), __( 'Standard Plus, Artcool en Prestige — sterke luchtreiniging en prijs-kwaliteit.', 'voltalux' ) ),
+			'warmtepompen'    => array( __( 'Warmtepomp laten installeren', 'voltalux' ), __( 'Hybride en volledige warmtepompen, all-in geïnstalleerd door erkende monteurs. Lagere energiekosten en meer comfort — vraag vrijblijvend advies.', 'voltalux' ) ),
+			'dakdekker'       => array( __( 'Dakrenovatie door dakdekkersbedrijf Voltalux', 'voltalux' ), __( 'Professionele dakrenovatie door ervaren en erkende dakdekkers tegen scherpe tarieven. Bespreek de mogelijkheden tijdens een gratis adviesgesprek.', 'voltalux' ) ),
 			'zakelijk'        => array( __( 'Zakelijke batterijopslag en containerbatterijen', 'voltalux' ), __( 'Groeien ondanks netcongestie. Peak shaving en batterijopslag van 30 kWh tot meerdere MWh, met doorgerekende businesscase.', 'voltalux' ) ),
 			'werkwijze'       => array( __( 'Zo werken wij', 'voltalux' ), __( 'Van vrijblijvend adviesgesprek tot oplevering — en de nazorg daarna.', 'voltalux' ) ),
-			'projecten'       => array( __( 'Uitgevoerde projecten', 'voltalux' ), __( 'Onze recent uitgevoerde installaties door heel Nederland: thuisbatterijen, zonnepanelen en airco.', 'voltalux' ) ),
+			'onze-projecten'  => array( __( 'Uitgevoerde projecten', 'voltalux' ), __( 'Onze recent uitgevoerde installaties door heel Nederland: thuisbatterijen, zonnepanelen en airco.', 'voltalux' ) ),
 		)
 	);
 }

@@ -32,7 +32,7 @@ if ( ! $brand ) :
 endif;
 
 $is_bat    = 'batterij' === $brand['kind'];
-$overview  = $is_bat ? voltalux_page_link( 'thuisbatterijen' ) : voltalux_page_link( 'airconditioning' );
+$overview  = $is_bat ? voltalux_page_link( 'thuisbatterij' ) : voltalux_page_link( 'aircos' );
 $over_lbl  = $is_bat ? __( 'Thuisbatterijen', 'voltalux' ) : __( 'Airconditioning', 'voltalux' );
 $kind_lbl  = $is_bat ? __( 'Thuisbatterij', 'voltalux' ) : __( 'Airco', 'voltalux' );
 $phone     = voltalux_option( 'phone', VOLTALUX_PHONE );
@@ -226,7 +226,7 @@ voltalux_page_hero(
 				<?php voltalux_eyebrow( __( 'Uit de praktijk', 'voltalux' ) ); ?>
 				<h2><?php esc_html_e( 'Recent uitgevoerd', 'voltalux' ); ?></h2>
 			</div>
-			<?php voltalux_button( array( 'label' => __( 'Alle projecten', 'voltalux' ), 'url' => voltalux_page_link( 'projecten' ), 'style' => 'ghost' ) ); ?>
+			<?php voltalux_button( array( 'label' => __( 'Alle projecten', 'voltalux' ), 'url' => voltalux_page_link( 'onze-projecten' ), 'style' => 'ghost' ) ); ?>
 		</div>
 		<div class="vlx-reveal"><?php voltalux_project_strip( $match ); ?></div>
 	</div>

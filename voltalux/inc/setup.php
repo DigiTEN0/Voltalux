@@ -49,19 +49,23 @@ function voltalux_setup_pages() {
 	return array(
 		'home'            => array( __( 'Home', 'voltalux' ), '', '' ),
 		// Service pillars (real client structure, data-driven via page-templates/dienst.php).
+		// Slugs match the LIVE voltalux.nl URLs exactly — never rename these, it breaks SEO.
 		'zonnepanelen'    => array( __( 'Zonnepanelen', 'voltalux' ), 'page-templates/dienst.php', '' ),
-		'thuisbatterijen' => array( __( 'Thuisbatterijen', 'voltalux' ), 'page-templates/overzicht-batterijen.php', '' ),
+		'thuisbatterij'   => array( __( 'Thuisbatterij', 'voltalux' ), 'page-templates/overzicht-batterijen.php', '' ),
 		'fox-ess'         => array( 'Fox ESS', 'page-templates/product-detail.php', '' ),
 		'alphaess'        => array( 'AlphaESS', 'page-templates/product-detail.php', '' ),
 		'sigenergy'       => array( 'Sigenergy SigenStor', 'page-templates/product-detail.php', '' ),
-		'airconditioning' => array( __( 'Airconditioning', 'voltalux' ), 'page-templates/overzicht-airco.php', '' ),
+		'aircos'          => array( "Airco's", 'page-templates/overzicht-airco.php', '' ),
 		'daikin'          => array( 'Daikin', 'page-templates/product-detail.php', '' ),
 		'lg'              => array( 'LG', 'page-templates/product-detail.php', '' ),
+		'warmtepompen'    => array( __( 'Warmtepompen', 'voltalux' ), 'page-templates/dienst.php', '' ),
+		'dakdekker'       => array( __( 'Dakrenovatie', 'voltalux' ), 'page-templates/dienst.php', '' ),
 		'zakelijk'        => array( __( 'Zakelijk', 'voltalux' ), 'page-templates/zakelijk.php', '' ),
 		'werkwijze'       => array( __( 'Werkwijze', 'voltalux' ), 'page-templates/werkwijze.php', '' ),
-		'projecten'       => array( __( 'Projecten', 'voltalux' ), 'page-templates/projecten.php', '' ),
+		'onze-projecten'  => array( __( 'Projecten', 'voltalux' ), 'page-templates/projecten.php', '' ),
 		'over-ons'        => array( __( 'Over ons', 'voltalux' ), '', '' ),
 		'contact'         => array( __( 'Contact', 'voltalux' ), '', '' ),
+		'veelgestelde-vragen' => array( __( 'Veelgestelde vragen', 'voltalux' ), '', '' ),
 		'blog'            => array( __( 'Blog', 'voltalux' ), '', '' ),
 	);
 }

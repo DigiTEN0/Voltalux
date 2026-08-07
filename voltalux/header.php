@@ -49,7 +49,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 			<nav class="vlx-nav" aria-label="<?php esc_attr_e( 'Hoofdmenu', 'voltalux' ); ?>">
 				<ul>
 					<li class="has-mega">
-						<a href="<?php echo esc_url( voltalux_page_link( 'thuisbatterijen' ) ); ?>"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?></a>
+						<a href="<?php echo esc_url( voltalux_page_link( 'thuisbatterij' ) ); ?>"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?></a>
 						<div class="vlx-mega vlx-mega--svc">
 							<span class="vlx-mega__label"><?php esc_html_e( 'Onze thuisbatterijen', 'voltalux' ); ?></span>
 							<div class="vlx-mega-grid">
@@ -62,12 +62,12 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 							</div>
 							<div class="vlx-mega-foot">
 								<span><?php esc_html_e( 'A-merk · LiFePO4 · 10 jaar garantie', 'voltalux' ); ?></span>
-								<a class="vlx-arrow-link" href="<?php echo esc_url( voltalux_page_link( 'thuisbatterijen' ) ); ?>" style="color:var(--green-strong)"><?php esc_html_e( 'Vergelijk alle batterijen', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
+								<a class="vlx-arrow-link" href="<?php echo esc_url( voltalux_page_link( 'thuisbatterij' ) ); ?>" style="color:var(--green-strong)"><?php esc_html_e( 'Vergelijk alle batterijen', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
 							</div>
 						</div>
 					</li>
 					<li class="has-mega">
-						<a href="<?php echo esc_url( voltalux_page_link( 'airconditioning' ) ); ?>"><?php esc_html_e( 'Airco', 'voltalux' ); ?></a>
+						<a href="<?php echo esc_url( voltalux_page_link( 'aircos' ) ); ?>"><?php esc_html_e( 'Airco', 'voltalux' ); ?></a>
 						<div class="vlx-mega vlx-mega--svc">
 							<span class="vlx-mega__label"><?php esc_html_e( 'Airconditioning', 'voltalux' ); ?></span>
 							<div class="vlx-mega-grid">
@@ -80,13 +80,13 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 							</div>
 							<div class="vlx-mega-foot">
 								<span><?php esc_html_e( 'Koelen én verwarmen · F-gassen-gecertificeerd', 'voltalux' ); ?></span>
-								<a class="vlx-arrow-link" href="<?php echo esc_url( voltalux_page_link( 'airconditioning' ) ); ?>" style="color:var(--green-strong)"><?php esc_html_e( 'Daikin en LG vergelijken', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
+								<a class="vlx-arrow-link" href="<?php echo esc_url( voltalux_page_link( 'aircos' ) ); ?>" style="color:var(--green-strong)"><?php esc_html_e( 'Daikin en LG vergelijken', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
 							</div>
 						</div>
 					</li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'werkwijze' ) ); ?>"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a></li>
-					<li><a href="<?php echo esc_url( voltalux_page_link( 'projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'onze-projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>
 					<?php
 					if ( $has_menu ) {
 						wp_nav_menu(
@@ -140,7 +140,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 									<span class="vlx-m-product__d"><?php echo esc_html( $b['badge'] ); ?></span>
 								</a>
 							<?php endforeach; ?>
-							<a class="vlx-m-product vlx-m-product--all" href="<?php echo esc_url( voltalux_page_link( 'thuisbatterijen' ) ); ?>">
+							<a class="vlx-m-product vlx-m-product--all" href="<?php echo esc_url( voltalux_page_link( 'thuisbatterij' ) ); ?>">
 								<span class="vlx-m-product__t"><?php esc_html_e( 'Alle batterijen vergelijken', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></span>
 							</a>
 					</div></div></div>
@@ -155,14 +155,14 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 										<span class="vlx-m-product__d"><?php echo esc_html( $a['badge'] ); ?></span>
 									</a>
 								<?php endforeach; ?>
-								<a class="vlx-m-product vlx-m-product--all" href="<?php echo esc_url( voltalux_page_link( 'airconditioning' ) ); ?>">
+								<a class="vlx-m-product vlx-m-product--all" href="<?php echo esc_url( voltalux_page_link( 'aircos' ) ); ?>">
 									<span class="vlx-m-product__t"><?php esc_html_e( 'Daikin en LG vergelijken', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></span>
 								</a>
 						</div></div></div>
 					</li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'werkwijze' ) ); ?>"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a></li>
-					<li><a href="<?php echo esc_url( voltalux_page_link( 'projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'onze-projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>
 				<?php
 				if ( $has_menu ) {
 					wp_nav_menu(
