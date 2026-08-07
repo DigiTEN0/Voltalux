@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Bump this when the page list changes so setup re-runs and re-flushes URLs. */
 if ( ! defined( 'VOLTALUX_PAGES_VERSION' ) ) {
-	define( 'VOLTALUX_PAGES_VERSION', 7 );
+	define( 'VOLTALUX_PAGES_VERSION', 8 );
 }
 
 /**
@@ -60,6 +60,14 @@ function voltalux_setup_pages() {
 		'lg'              => array( 'LG', 'page-templates/product-detail.php', '' ),
 		'warmtepompen'    => array( __( 'Warmtepompen', 'voltalux' ), 'page-templates/dienst.php', '' ),
 		'dakdekker'       => array( __( 'Dakrenovatie', 'voltalux' ), 'page-templates/dienst.php', '' ),
+		// Dakdekker-subpagina's — kind-pagina's ONDER /dakdekker/ (nested), zoals op de live site.
+		// Key = volledig pad (parent/leaf) zodat een bestaande (geïmporteerde) pagina teruggevonden wordt.
+		'dakdekker/bitumen-dak-vervangen' => array( __( 'Bitumen dak vervangen', 'voltalux' ), 'page-templates/dienst.php', 'dakdekker' ),
+		'dakdekker/dak-reparatie'         => array( __( 'Dakreparatie', 'voltalux' ), 'page-templates/dienst.php', 'dakdekker' ),
+		'dakdekker/dakisolatie'           => array( __( 'Dakisolatie', 'voltalux' ), 'page-templates/dienst.php', 'dakdekker' ),
+		'dakdekker/dakkapel-plaatsen'     => array( __( 'Dakkapel plaatsen', 'voltalux' ), 'page-templates/dienst.php', 'dakdekker' ),
+		'dakdekker/dakpannen-vervangen'   => array( __( 'Dakpannen vervangen', 'voltalux' ), 'page-templates/dienst.php', 'dakdekker' ),
+		'dakdekker/kunststof-kozijnen'    => array( __( 'Kunststof kozijnen', 'voltalux' ), 'page-templates/dienst.php', 'dakdekker' ),
 		'zakelijk'        => array( __( 'Zakelijk', 'voltalux' ), 'page-templates/zakelijk.php', '' ),
 		'werkwijze'       => array( __( 'Werkwijze', 'voltalux' ), 'page-templates/werkwijze.php', '' ),
 		'onze-projecten'  => array( __( 'Projecten', 'voltalux' ), 'page-templates/projecten.php', '' ),
@@ -92,6 +100,14 @@ function voltalux_first_run_setup() {
 	foreach ( voltalux_setup_pages() as $slug => $def ) {
 		list( $title, $template, $parent ) = $def;
 
+		// Nested pages use a "parent/leaf" key: look up by the full path, but the
+		// stored post_name is only the leaf segment (WordPress builds the URL from parent).
+		$post_name = $slug;
+		if ( false !== strpos( $slug, '/' ) ) {
+			$segments  = explode( '/', $slug );
+			$post_name = end( $segments );
+		}
+
 		$existing = get_page_by_path( $slug );
 		if ( $existing ) {
 			$id = (int) $existing->ID;
@@ -106,7 +122,7 @@ function voltalux_first_run_setup() {
 		$new_id = wp_insert_post(
 			array(
 				'post_title'   => $title,
-				'post_name'    => $slug,
+				'post_name'    => $post_name,
 				'post_status'  => 'publish',
 				'post_type'    => 'page',
 				'post_content' => '',

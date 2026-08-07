@@ -57,12 +57,17 @@ if ( has_post_thumbnail() ) {
 }
 $hero_media = '<figure class="vlx-hero-figure">' . ob_get_clean() . '</figure>';
 
+/* Breadcrumbs: Home → any parent pages → this page (so /dakdekker/dakisolatie/ reads correctly). */
+$vlx_crumbs   = array( array( 'label' => __( 'Home', 'voltalux' ), 'url' => home_url( '/' ) ) );
+$vlx_ancestors = array_reverse( get_post_ancestors( get_queried_object_id() ) );
+foreach ( $vlx_ancestors as $anc_id ) {
+	$vlx_crumbs[] = array( 'label' => get_the_title( $anc_id ), 'url' => get_permalink( $anc_id ) );
+}
+$vlx_crumbs[] = array( 'label' => $svc['kind'] );
+
 voltalux_page_hero(
 	array(
-		'crumbs' => array(
-			array( 'label' => __( 'Home', 'voltalux' ), 'url' => home_url( '/' ) ),
-			array( 'label' => $svc['kind'] ),
-		),
+		'crumbs' => $vlx_crumbs,
 		'eyebrow' => $svc['eyebrow'],
 		'title'   => $svc['h1'],
 		'lead'    => $svc['lead'],
@@ -94,6 +99,7 @@ voltalux_page_hero(
 		<nav class="vlx-jumpnav vlx-reveal" aria-label="<?php esc_attr_e( 'Direct naar', 'voltalux' ); ?>">
 			<span class="vlx-jumpnav__lbl"><?php esc_html_e( 'Direct naar', 'voltalux' ); ?></span>
 			<?php if ( ! empty( $svc['how'] ) ) : ?><a href="#hoe-werkt-het"><?php esc_html_e( 'Hoe werkt het?', 'voltalux' ); ?></a><?php endif; ?>
+				<?php if ( ! empty( $svc['links']['items'] ) ) : ?><a href="#werkzaamheden"><?php echo esc_html( ! empty( $svc['links']['title'] ) ? $svc['links']['title'] : __( 'Werkzaamheden', 'voltalux' ) ); ?></a><?php endif; ?>
 			<?php if ( ! empty( $svc['voordelen'] ) ) : ?><a href="#voordelen"><?php esc_html_e( 'Voordelen', 'voltalux' ); ?></a><?php endif; ?>
 			<?php if ( ! empty( $svc['brands'] ) ) : ?><a href="#merken"><?php esc_html_e( 'Onze merken', 'voltalux' ); ?></a><?php endif; ?>
 			<?php if ( ! empty( $svc['saldering'] ) ) : ?><a href="#saldering"><?php esc_html_e( 'Salderingsregeling', 'voltalux' ); ?></a><?php endif; ?>
@@ -119,6 +125,28 @@ voltalux_page_hero(
 					<h3><?php echo esc_html( $st['title'] ); ?></h3>
 					<p><?php echo esc_html( $st['text'] ); ?></p>
 				</div>
+			<?php endforeach; ?>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
+<?php /* Subservices / interne links (bv. dakdekker → dakwerkzaamheden) */ ?>
+<?php if ( ! empty( $svc['links']['items'] ) ) : ?>
+<section id="werkzaamheden" class="vlx-section vlx-section--sm">
+	<div class="vlx-container vlx-container--wide">
+		<div class="vlx-s-head vlx-reveal" style="margin-bottom:1rem">
+			<?php voltalux_eyebrow( __( 'Specialismen', 'voltalux' ) ); ?>
+			<h2><?php echo esc_html( $svc['links']['title'] ); ?></h2>
+			<?php if ( ! empty( $svc['links']['lead'] ) ) : ?><p><?php echo esc_html( $svc['links']['lead'] ); ?></p><?php endif; ?>
+		</div>
+		<div class="vlx-linkcards">
+			<?php foreach ( $svc['links']['items'] as $ln ) : ?>
+				<a class="vlx-linkcard vlx-reveal" href="<?php echo esc_url( voltalux_page_link( $ln['slug'] ) ); ?>">
+					<span class="vlx-linkcard__ic"><?php echo voltalux_icon( isset( $ln['icon'] ) ? $ln['icon'] : 'roof' ); // phpcs:ignore ?></span>
+					<h3><?php echo esc_html( $ln['label'] ); ?></h3>
+					<?php if ( ! empty( $ln['text'] ) ) : ?><p><?php echo esc_html( $ln['text'] ); ?></p><?php endif; ?>
+				</a>
 			<?php endforeach; ?>
 		</div>
 	</div>
