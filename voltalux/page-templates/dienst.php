@@ -96,6 +96,7 @@ voltalux_page_hero(
 		<nav class="vlx-jumpnav vlx-reveal" aria-label="<?php esc_attr_e( 'Direct naar', 'voltalux' ); ?>">
 			<span class="vlx-jumpnav__lbl"><?php esc_html_e( 'Direct naar', 'voltalux' ); ?></span>
 			<?php if ( ! empty( $svc['how'] ) ) : ?><a href="#hoe-werkt-het"><?php esc_html_e( 'Hoe werkt het?', 'voltalux' ); ?></a><?php endif; ?>
+				<?php if ( ! empty( $svc['sections'] ) ) : foreach ( $svc['sections'] as $sec ) : if ( ! empty( $sec['id'] ) && ! empty( $sec['nav'] ) ) : ?><a href="#<?php echo esc_attr( $sec['id'] ); ?>"><?php echo esc_html( $sec['nav'] ); ?></a><?php endif; endforeach; endif; ?>
 				<?php if ( ! empty( $svc['links']['items'] ) ) : ?><a href="#werkzaamheden"><?php echo esc_html( ! empty( $svc['links']['title'] ) ? $svc['links']['title'] : __( 'Werkzaamheden', 'voltalux' ) ); ?></a><?php endif; ?>
 			<?php if ( ! empty( $svc['voordelen'] ) ) : ?><a href="#voordelen"><?php esc_html_e( 'Voordelen', 'voltalux' ); ?></a><?php endif; ?>
 			<?php if ( ! empty( $svc['brands'] ) ) : ?><a href="#merken"><?php esc_html_e( 'Onze merken', 'voltalux' ); ?></a><?php endif; ?>
@@ -127,6 +128,57 @@ voltalux_page_hero(
 	</div>
 </section>
 <?php endif; ?>
+
+<?php /* Flexible rich-content sections (uitleg, vergelijkingen, kosten … in huisstijl) */ ?>
+<?php if ( ! empty( $svc['sections'] ) ) : foreach ( $svc['sections'] as $sec ) :
+	$stype = isset( $sec['type'] ) ? $sec['type'] : 'text';
+	$sid   = ! empty( $sec['id'] ) ? $sec['id'] : '';
+	$alt   = ! empty( $sec['alt'] );
+	$narrow = ( 'text' === $stype && empty( $sec['wide'] ) );
+	?>
+	<section <?php if ( $sid ) : ?>id="<?php echo esc_attr( $sid ); ?>" <?php endif; ?>class="vlx-section vlx-section--sm<?php echo $alt ? ' vlx-bg-surface' : ''; ?>"<?php echo $alt ? ' style="border-block:1px solid var(--line-2)"' : ''; ?>>
+		<div class="vlx-container <?php echo $narrow ? 'vlx-container--narrow' : 'vlx-container--wide'; ?>">
+			<?php if ( ! empty( $sec['eyebrow'] ) || ! empty( $sec['title'] ) ) : ?>
+			<div class="vlx-s-head vlx-reveal" style="margin-bottom:1.4rem">
+				<?php if ( ! empty( $sec['eyebrow'] ) ) { voltalux_eyebrow( $sec['eyebrow'] ); } ?>
+				<?php if ( ! empty( $sec['title'] ) ) : ?><h2><?php echo esc_html( $sec['title'] ); ?></h2><?php endif; ?>
+				<?php if ( ! empty( $sec['lead'] ) ) : ?><p><?php echo esc_html( $sec['lead'] ); ?></p><?php endif; ?>
+			</div>
+			<?php endif; ?>
+
+			<?php if ( 'cards' === $stype && ! empty( $sec['items'] ) ) : ?>
+				<div class="vlx-values" style="margin-top:1.6rem">
+					<?php foreach ( $sec['items'] as $it ) : ?>
+						<div class="vlx-value vlx-reveal">
+							<?php if ( ! empty( $it['icon'] ) ) : ?><div class="vlx-value__icon"><?php echo voltalux_icon( $it['icon'] ); // phpcs:ignore ?></div><?php endif; ?>
+							<h3><?php echo esc_html( $it['title'] ); ?></h3>
+							<?php if ( ! empty( $it['text'] ) ) : ?><p><?php echo esc_html( $it['text'] ); ?></p><?php endif; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+			<?php elseif ( 'accordion' === $stype && ! empty( $sec['items'] ) ) : ?>
+				<div class="vlx-reveal"><?php voltalux_faq_block( $sec['items'] ); ?></div>
+			<?php else : ?>
+				<div class="vlx-rich vlx-reveal">
+					<?php if ( ! empty( $sec['paras'] ) ) : foreach ( $sec['paras'] as $para ) : ?>
+						<p><?php echo esc_html( $para ); ?></p>
+					<?php endforeach; endif; ?>
+					<?php if ( ! empty( $sec['list'] ) ) : ?>
+						<ul class="vlx-ticks">
+							<?php foreach ( $sec['list'] as $li ) : ?><li><?php echo esc_html( $li ); ?></li><?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
+					<?php if ( ! empty( $sec['cta'] ) ) : ?>
+						<div class="vlx-rich__cta">
+							<?php voltalux_button( array( 'label' => __( 'Offerte op maat aanvragen', 'voltalux' ), 'url' => voltalux_page_link( 'contact' ), 'style' => 'primary', 'attrs' => array( 'data-vlx-open' => 'offerte' ) ) ); ?>
+							<?php if ( $phone ) { voltalux_button( array( 'label' => __( 'Of bel', 'voltalux' ) . ' ' . $phone, 'url' => $tel, 'style' => 'ghost', 'arrow' => false ) ); } ?>
+						</div>
+					<?php endif; ?>
+				</div>
+			<?php endif; ?>
+		</div>
+	</section>
+<?php endforeach; endif; ?>
 
 <?php /* Subservices / interne links (bv. dakdekker → dakwerkzaamheden) */ ?>
 <?php if ( ! empty( $svc['links']['items'] ) ) : ?>

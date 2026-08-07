@@ -70,7 +70,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 						</div>
 					</li>
 					<li class="has-mega">
-						<a href="<?php echo esc_url( voltalux_page_link( 'aircos' ) ); ?>"><?php esc_html_e( 'Airco', 'voltalux' ); ?></a>
+						<a href="<?php echo esc_url( voltalux_page_link( 'aircos' ) ); ?>"><?php esc_html_e( "Airco's", 'voltalux' ); ?></a>
 						<div class="vlx-mega vlx-mega--svc">
 							<span class="vlx-mega__label"><?php esc_html_e( 'Airconditioning', 'voltalux' ); ?></span>
 							<div class="vlx-mega-grid">
@@ -109,8 +109,6 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 						<?php endif; ?>
 					</li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
-					<li><a href="<?php echo esc_url( voltalux_page_link( 'werkwijze' ) ); ?>"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a></li>
-					<li><a href="<?php echo esc_url( voltalux_page_link( 'onze-projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>
 					<?php
 					if ( $has_menu ) {
 						wp_nav_menu(
