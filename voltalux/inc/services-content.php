@@ -64,17 +64,25 @@ function voltalux_services_content() {
 				),
 				'sections' => array(
 					array(
-						'type'    => 'accordion',
+						'type'    => 'compare',
 						'id'      => 'glas',
 						'nav'     => __( 'Glas-glas of glas-folie', 'voltalux' ),
 						'eyebrow' => __( 'Soorten panelen', 'voltalux' ),
-						'title'   => __( 'Wat is het verschil tussen glas-glas en glas-folie panelen?', 'voltalux' ),
-						'lead'    => __( 'Wanneer je kiest voor zonnepanelen, kun je kiezen uit twee soorten: glas-glas of glas-folie panelen. Om de keuze makkelijker te maken, hebben we ze naast elkaar gezet.', 'voltalux' ),
-						'items'   => array(
-							array( __( 'Verschil in opbouw', 'voltalux' ), __( 'Glas-glas panelen hebben zowel aan de boven- als onderkant glas, waardoor ze aan beide zijden beschermd zijn. Glas-folie panelen hebben aan één kant glas en aan de andere kant een dunne kunststof folie waarop de zonnecellen zijn aangebracht.', 'voltalux' ) ),
-							array( __( 'Verschil in duurzaamheid en levensduur', 'voltalux' ), __( 'Glas-glas panelen staan bekend om hun hoge duurzaamheid en lange levensduur; het glas beschermt de cellen tegen weersomstandigheden en degradatie. Glas-folie panelen zijn ook duurzaam, maar hebben doorgaans een kortere levensduur doordat de folie gevoeliger is voor UV-straling en vocht.', 'voltalux' ) ),
-							array( __( 'Verschil in efficiëntie', 'voltalux' ), __( 'Glas-glas panelen hebben vaak een hogere efficiëntie en presteren beter bij hoge temperaturen. Glas-folie panelen zijn efficiënt, maar iets minder bestand tegen hoge temperaturen.', 'voltalux' ) ),
+						'title'   => __( 'Glas-glas of glas-folie panelen?', 'voltalux' ),
+						'lead'    => __( 'Twee soorten, elk met eigen sterke punten. We zetten ze naast elkaar zodat je makkelijker kiest.', 'voltalux' ),
+						'cols'    => array(
+							array( 'h' => __( 'Glas-glas', 'voltalux' ), 'rows' => array(
+								array( 'k' => __( 'Opbouw', 'voltalux' ), 'v' => __( 'Aan beide zijden glas — de zonnecellen zijn dubbel beschermd.', 'voltalux' ) ),
+								array( 'k' => __( 'Duurzaamheid', 'voltalux' ), 'v' => __( 'Hoge duurzaamheid en een lange levensduur; het glas beschermt tegen weer en degradatie.', 'voltalux' ) ),
+								array( 'k' => __( 'Efficiëntie', 'voltalux' ), 'v' => __( 'Vaak een hoger rendement en betere prestaties bij hoge temperaturen.', 'voltalux' ) ),
+							) ),
+							array( 'h' => __( 'Glas-folie', 'voltalux' ), 'rows' => array(
+								array( 'k' => __( 'Opbouw', 'voltalux' ), 'v' => __( 'Glas aan één kant, een dunne kunststof folie aan de andere.', 'voltalux' ) ),
+								array( 'k' => __( 'Duurzaamheid', 'voltalux' ), 'v' => __( 'Duurzaam, maar doorgaans een kortere levensduur — folie is gevoeliger voor UV en vocht.', 'voltalux' ) ),
+								array( 'k' => __( 'Efficiëntie', 'voltalux' ), 'v' => __( 'Efficiënt en kosteneffectief, iets minder bestand tegen hoge temperaturen.', 'voltalux' ) ),
+							) ),
 						),
+						'cta'     => true,
 					),
 					array(
 						'type'  => 'text',
@@ -262,8 +270,9 @@ function voltalux_services_content() {
 						),
 					),
 					array(
-						'type'  => 'text',
-						'alt'   => true,
+						'type'    => 'feature',
+						'icon'    => 'leaf',
+						'cta'     => true,
 						'title' => __( 'Totaaloplossingen voor verduurzaming', 'voltalux' ),
 						'paras' => array(
 							__( 'Voltalux biedt niet alleen expertise in dakrenovaties, maar levert ook complete verduurzamingspakketten voor woningen: van zonnepanelen en een thuisbatterij tot warmtepompen en airco’s. Door onze geïntegreerde aanpak heb je één aanspreekpunt voor al je verduurzamingsbehoeften — dat zorgt voor gemak en een efficiënt proces.', 'voltalux' ),
@@ -311,7 +320,8 @@ function voltalux_services_content() {
 						),
 					),
 					array(
-						'type'  => 'text',
+						'type'    => 'feature',
+						'icon'    => 'roof',
 						'title' => __( 'Bitumen dakbedekking op een plat dak', 'voltalux' ),
 						'paras' => array(
 							__( 'Bitumen is dé oplossing voor platte daken. Het materiaal sluit perfect aan op het oppervlak, waardoor we lekkages voorkomen. Bij Voltalux brengen we bitumen dakbedekking nauwkeurig aan en zorgen we voor een strakke afwerking met daktrimmen en ontluchtingspijpen.', 'voltalux' ),
@@ -435,7 +445,9 @@ function voltalux_services_content() {
 						'cta'     => true,
 					),
 					array(
-						'type'  => 'text',
+						'type'    => 'feature',
+						'icon'    => 'shield',
+						'cta'     => true,
 						'title' => __( 'Zelf repareren of laten repareren?', 'voltalux' ),
 						'paras' => array(
 							__( 'Zelf aan de slag gaan lijkt een manier om kosten te besparen, maar het brengt risico’s met zich mee. Zonder de juiste kennis leiden kleine fouten al snel tot grotere schade, lekkages of gevaarlijke situaties. Bij Voltalux ben je verzekerd van vakmanschap en kwaliteit — laat het werk aan ons over en bespaar jezelf tijd, moeite en problemen.', 'voltalux' ),
@@ -519,7 +531,9 @@ function voltalux_services_content() {
 						'cta'     => true,
 					),
 					array(
-						'type'  => 'text',
+						'type'    => 'feature',
+						'icon'    => 'euro',
+						'cta'     => true,
 						'title' => __( 'Subsidies en leningen', 'voltalux' ),
 						'paras' => array(
 							__( 'Profiteer van de ISDE-subsidie van € 15,- per m² voor het isoleren van je dak. Voer je binnen 24 maanden een tweede maatregel uit, dan stijgt dit naar € 30,- per m². Voltalux helpt je stap voor stap bij de aanvraag. Daarnaast kun je via het Nationaal Warmtefonds een lening met 0% rente afsluiten als je inkomen onder de € 60.000,- ligt.', 'voltalux' ),

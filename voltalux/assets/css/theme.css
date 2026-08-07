@@ -506,12 +506,14 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 .vlx-service__link { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
 
 /* --- Value props (waarom) --- */
-.vlx-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; }
-.vlx-value { display: flex; flex-direction: column; gap: 1rem; padding: 2rem 1.9rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); }
-.vlx-value__icon { width: 50px; height: 50px; border-radius: 14px; background: var(--ink); color: var(--green); display: grid; place-items: center; }
-.vlx-value__icon svg { width: 25px; height: 25px; }
+.vlx-values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; margin-top: 3rem; }
+.vlx-value { position: relative; display: flex; flex-direction: column; gap: .95rem; padding: 2.15rem 1.95rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); box-shadow: var(--shadow-sm); transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t) var(--ease); }
+.vlx-value:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--green-line); }
+.vlx-value__icon { width: 54px; height: 54px; border-radius: 15px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; transition: background var(--t) var(--ease), color var(--t) var(--ease); }
+.vlx-value:hover .vlx-value__icon { background: var(--green); color: var(--green-ink); }
+.vlx-value__icon svg { width: 26px; height: 26px; }
 .vlx-value h3 { font-size: 1.18rem; }
-.vlx-value p { color: var(--muted); font-size: .95rem; }
+.vlx-value p { color: var(--ink-2); font-size: .96rem; line-height: 1.6; }
 
 /* --- Welkom / intro --- */
 .vlx-welkom { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(2rem,1rem + 4vw,4.5rem); align-items: center; }
@@ -1370,6 +1372,43 @@ body.hsc-open { overflow: hidden; }
 .vlx-jumpnav__lbl { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-right: .35rem; }
 .vlx-jumpnav a { font-family: var(--font-display); font-size: .86rem; font-weight: 600; padding: .5rem 1rem; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); transition: border-color var(--t), color var(--t), background var(--t); }
 .vlx-jumpnav a:hover { border-color: var(--ink); color: var(--ink); }
+
+/* Premium numbered process/step cards (how-it-works & werkwijze) */
+.vlx-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.8rem; }
+.vlx-flow--4 { grid-template-columns: repeat(4, 1fr); }
+.vlx-flow__step { position: relative; overflow: hidden; isolation: isolate; padding: 1.9rem 1.6rem 1.7rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); box-shadow: var(--shadow-sm); transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.vlx-flow__step:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.vlx-flow__num { position: absolute; top: -1.1rem; right: .2rem; z-index: -1; font-family: var(--font-display); font-weight: 800; font-size: 5.5rem; line-height: 1; letter-spacing: -.05em; color: var(--green); opacity: .10; pointer-events: none; }
+.vlx-flow__lbl { display: inline-block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; color: var(--green-strong); background: var(--green-soft); border-radius: var(--r-pill); padding: .3rem .6rem; }
+.vlx-flow__step h3 { font-size: 1.13rem; margin: .85rem 0 .5rem; letter-spacing: -.01em; }
+.vlx-flow__step p { color: var(--ink-2); font-size: .94rem; line-height: 1.6; }
+.vlx-bg-ink .vlx-flow__step { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); box-shadow: none; }
+.vlx-bg-ink .vlx-flow__step p { color: var(--muted-inv); }
+.vlx-bg-ink .vlx-flow__num { opacity: .16; }
+@media (max-width: 960px) { .vlx-flow, .vlx-flow--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .vlx-flow, .vlx-flow--4 { grid-template-columns: 1fr; } }
+
+/* Social-proof number band (dark) */
+.vlx-statband { position: relative; overflow: hidden; isolation: isolate; background: var(--ink); border-radius: var(--r-card); padding: clamp(1.9rem, 1.3rem + 2vw, 2.9rem) clamp(1.6rem, 1rem + 2vw, 3.2rem); box-shadow: var(--shadow-lg); }
+.vlx-statband__glow { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(46% 90% at 88% -10%, rgba(5,154,65,.36), transparent 62%), radial-gradient(40% 80% at 4% 120%, rgba(5,154,65,.16), transparent 60%); }
+.vlx-statband__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6rem; }
+.vlx-statband__item { color: #fff; position: relative; padding-left: 1.3rem; }
+.vlx-statband__item::before { content: ""; position: absolute; left: 0; top: .1em; bottom: .1em; width: 3px; border-radius: 3px; background: var(--green); }
+.vlx-statband__n { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 1.4rem + 1.5vw, 2.7rem); letter-spacing: -.03em; line-height: 1; }
+.vlx-statband__l { color: rgba(255,255,255,.72); font-size: .9rem; margin-top: .55rem; line-height: 1.4; }
+@media (max-width: 720px) { .vlx-statband__grid { grid-template-columns: 1fr 1fr; gap: 1.6rem 1.2rem; } }
+
+/* Two-column comparison (bv. glas-glas vs glas-folie) */
+.vlx-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; margin-top: 1rem; }
+.vlx-compare__col { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.9rem 1.8rem; box-shadow: var(--shadow-sm); }
+.vlx-compare__col--a { border-top: 3px solid var(--green); }
+.vlx-compare__col--b { border-top: 3px solid var(--ink); }
+.vlx-compare__h { font-family: var(--font-display); font-weight: 800; font-size: 1.3rem; letter-spacing: -.02em; margin-bottom: 1.1rem; }
+.vlx-compare__row { padding: .95rem 0; border-top: 1px solid var(--line-2); }
+.vlx-compare__row:first-of-type { border-top: 0; padding-top: 0; }
+.vlx-compare__k { font-family: var(--font-mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--green-strong); }
+.vlx-compare__v { color: var(--ink-2); font-size: .94rem; margin-top: .3rem; line-height: 1.55; }
+@media (max-width: 720px) { .vlx-compare { grid-template-columns: 1fr; } }
 
 /* Rich content blocks (flexible service sections) */
 .vlx-rich { font-size: 1.05rem; }

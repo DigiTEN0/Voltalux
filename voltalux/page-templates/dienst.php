@@ -90,36 +90,48 @@ voltalux_page_hero(
 </div>
 <?php endif; ?>
 
-<?php /* Jump navigation */ ?>
-<section class="vlx-section vlx-section--sm" style="padding-bottom:0">
+<?php
+/* Social-proof cijferband — directe geloofwaardigheid, breekt het ritme. */
+$vlx_stats = apply_filters(
+	'voltalux_service_stats',
+	array(
+		array( 'n' => '650<span>+</span>', 'l' => __( 'woningen verduurzaamd', 'voltalux' ) ),
+		array( 'n' => '7<span>+</span>', 'l' => __( 'jaar branche-ervaring', 'voltalux' ) ),
+		array( 'n' => esc_html( str_replace( '.', ',', (string) voltalux_option( 'google_rating', VOLTALUX_GOOGLE_RATING ) ) ) . '<span>/5</span>', 'l' => sprintf( /* translators: %s review count */ __( 'uit %s Google-reviews', 'voltalux' ), esc_html( voltalux_option( 'google_count', VOLTALUX_GOOGLE_COUNT ) ) ) ),
+		array( 'n' => __( 'Eigen', 'voltalux' ) . '<span>&nbsp;team</span>', 'l' => __( 'erkende monteurs & gratis nazorg', 'voltalux' ) ),
+	)
+);
+?>
+<section class="vlx-section vlx-section--sm" style="padding-top:clamp(2.6rem,2rem+2vw,3.6rem);padding-bottom:0">
 	<div class="vlx-container vlx-container--wide">
-		<nav class="vlx-jumpnav vlx-reveal" aria-label="<?php esc_attr_e( 'Direct naar', 'voltalux' ); ?>">
-			<span class="vlx-jumpnav__lbl"><?php esc_html_e( 'Direct naar', 'voltalux' ); ?></span>
-			<?php if ( ! empty( $svc['how'] ) ) : ?><a href="#hoe-werkt-het"><?php esc_html_e( 'Hoe werkt het?', 'voltalux' ); ?></a><?php endif; ?>
-				<?php if ( ! empty( $svc['sections'] ) ) : foreach ( $svc['sections'] as $sec ) : if ( ! empty( $sec['id'] ) && ! empty( $sec['nav'] ) ) : ?><a href="#<?php echo esc_attr( $sec['id'] ); ?>"><?php echo esc_html( $sec['nav'] ); ?></a><?php endif; endforeach; endif; ?>
-				<?php if ( ! empty( $svc['links']['items'] ) ) : ?><a href="#werkzaamheden"><?php echo esc_html( ! empty( $svc['links']['title'] ) ? $svc['links']['title'] : __( 'Werkzaamheden', 'voltalux' ) ); ?></a><?php endif; ?>
-			<?php if ( ! empty( $svc['voordelen'] ) ) : ?><a href="#voordelen"><?php esc_html_e( 'Voordelen', 'voltalux' ); ?></a><?php endif; ?>
-			<?php if ( ! empty( $svc['brands'] ) ) : ?><a href="#merken"><?php esc_html_e( 'Onze merken', 'voltalux' ); ?></a><?php endif; ?>
-			<?php if ( ! empty( $svc['saldering'] ) ) : ?><a href="#saldering"><?php esc_html_e( 'Salderingsregeling', 'voltalux' ); ?></a><?php endif; ?>
-			<a href="#werkwijze"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a>
-			<?php if ( ! empty( $svc['faq'] ) ) : ?><a href="#faq"><?php esc_html_e( 'Veelgestelde vragen', 'voltalux' ); ?></a><?php endif; ?>
-		</nav>
+		<div class="vlx-statband vlx-reveal">
+			<span class="vlx-statband__glow" aria-hidden="true"></span>
+			<div class="vlx-statband__grid">
+				<?php foreach ( $vlx_stats as $stt ) : ?>
+					<div class="vlx-statband__item">
+						<div class="vlx-statband__n"><?php echo wp_kses_post( $stt['n'] ); ?></div>
+						<div class="vlx-statband__l"><?php echo esc_html( $stt['l'] ); ?></div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+		</div>
 	</div>
 </section>
 
-<?php /* How it works */ ?>
+<?php /* How it works — premium genummerde tijdlijn */ ?>
 <?php if ( ! empty( $svc['how']['steps'] ) ) : ?>
 <section id="hoe-werkt-het" class="vlx-section vlx-section--sm">
 	<div class="vlx-container vlx-container--wide">
-		<div class="vlx-s-head vlx-reveal" style="margin-bottom:1rem">
+		<div class="vlx-s-head vlx-s-head--center vlx-reveal">
 			<?php voltalux_eyebrow( __( 'Hoe werkt het?', 'voltalux' ) ); ?>
 			<h2><?php echo esc_html( $svc['how']['title'] ); ?></h2>
 			<?php if ( ! empty( $svc['how']['lead'] ) ) : ?><p><?php echo esc_html( $svc['how']['lead'] ); ?></p><?php endif; ?>
 		</div>
-		<div class="vlx-steps vlx-steps--4">
+		<div class="vlx-flow vlx-flow--4">
 			<?php $i = 0; foreach ( $svc['how']['steps'] as $st ) : $i++; ?>
-				<div class="vlx-step vlx-reveal">
-					<div class="vlx-step__n"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></div>
+				<div class="vlx-flow__step vlx-reveal">
+					<span class="vlx-flow__num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></span>
+					<span class="vlx-flow__lbl"><?php printf( esc_html__( 'Stap %d', 'voltalux' ), $i ); ?></span>
 					<h3><?php echo esc_html( $st['title'] ); ?></h3>
 					<p><?php echo esc_html( $st['text'] ); ?></p>
 				</div>
@@ -160,11 +172,45 @@ if ( ! function_exists( 'voltalux_section_head' ) ) {
 	$sid   = ! empty( $sec['id'] ) ? $sec['id'] : '';
 	// Wissel de achtergrond af voor ritme, tenzij expliciet gezet.
 	$alt   = array_key_exists( 'alt', $sec ) ? (bool) $sec['alt'] : ( 1 === $sec_i % 2 );
+	if ( 'feature' === $stype ) { $alt = false; } // donkere band staat op papier-achtergrond
 	?>
 	<section <?php if ( $sid ) : ?>id="<?php echo esc_attr( $sid ); ?>" <?php endif; ?>class="vlx-section vlx-section--sm<?php echo $alt ? ' vlx-bg-surface' : ''; ?>"<?php echo $alt ? ' style="border-block:1px solid var(--line-2)"' : ''; ?>>
 		<div class="vlx-container vlx-container--wide">
 
-			<?php if ( 'cards' === $stype && ! empty( $sec['items'] ) ) : ?>
+			<?php if ( 'feature' === $stype ) : /* donkere accent-band met kernboodschap */ ?>
+				<div class="vlx-featband vlx-reveal">
+					<span class="vlx-featband__glow" aria-hidden="true"></span>
+					<div class="vlx-featband__body">
+						<?php if ( ! empty( $sec['icon'] ) ) : ?><span class="vlx-featband__ic"><?php echo voltalux_icon( $sec['icon'] ); // phpcs:ignore ?></span><?php endif; ?>
+						<?php if ( ! empty( $sec['eyebrow'] ) ) { voltalux_eyebrow( $sec['eyebrow'], true ); } ?>
+						<?php if ( ! empty( $sec['title'] ) ) : ?><h2><?php echo esc_html( $sec['title'] ); ?></h2><?php endif; ?>
+						<?php if ( ! empty( $sec['lead'] ) ) : ?><p><?php echo esc_html( $sec['lead'] ); ?></p><?php endif; ?>
+						<?php if ( ! empty( $sec['paras'] ) ) : foreach ( $sec['paras'] as $para ) : ?><p><?php echo esc_html( $para ); ?></p><?php endforeach; endif; ?>
+						<?php if ( ! empty( $sec['cta'] ) ) : ?>
+							<?php voltalux_button( array( 'label' => __( 'Gratis adviesgesprek', 'voltalux' ), 'url' => voltalux_page_link( 'contact' ), 'style' => 'primary', 'attrs' => array( 'data-vlx-open' => 'offerte' ) ) ); ?>
+							<?php if ( $phone ) { voltalux_button( array( 'label' => __( 'Of bel', 'voltalux' ) . ' ' . $phone, 'url' => $tel, 'style' => 'ghost', 'arrow' => false ) ); } ?>
+						<?php endif; ?>
+					</div>
+				</div>
+
+			<?php elseif ( 'compare' === $stype && ! empty( $sec['cols'] ) ) : ?>
+				<div class="vlx-s-head vlx-s-head--center vlx-reveal">
+					<?php voltalux_section_head( $sec ); ?>
+					<?php if ( ! empty( $sec['lead'] ) ) : ?><p><?php echo esc_html( $sec['lead'] ); ?></p><?php endif; ?>
+				</div>
+				<div class="vlx-compare vlx-reveal" style="margin-top:2.2rem">
+					<?php foreach ( $sec['cols'] as $ci => $col ) : ?>
+						<div class="vlx-compare__col vlx-compare__col--<?php echo 0 === $ci ? 'a' : 'b'; ?>">
+							<div class="vlx-compare__h"><?php echo esc_html( $col['h'] ); ?></div>
+							<?php foreach ( $col['rows'] as $r ) : ?>
+								<div class="vlx-compare__row"><div class="vlx-compare__k"><?php echo esc_html( $r['k'] ); ?></div><div class="vlx-compare__v"><?php echo esc_html( $r['v'] ); ?></div></div>
+							<?php endforeach; ?>
+						</div>
+					<?php endforeach; ?>
+				</div>
+				<?php if ( ! empty( $sec['cta'] ) ) : ?><div style="text-align:center;margin-top:1.9rem"><a class="vlx-inline-cta" href="<?php echo esc_url( voltalux_page_link( 'contact' ) ); ?>" data-vlx-open="offerte"><?php esc_html_e( 'Vraag vrijblijvend advies aan', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a></div><?php endif; ?>
+
+			<?php elseif ( 'cards' === $stype && ! empty( $sec['items'] ) ) : ?>
 				<div class="vlx-s-head vlx-s-head--center vlx-reveal">
 					<?php voltalux_section_head( $sec ); ?>
 					<?php if ( ! empty( $sec['lead'] ) ) : ?><p><?php echo esc_html( $sec['lead'] ); ?></p><?php endif; ?>
@@ -265,7 +311,7 @@ if ( ! function_exists( 'voltalux_section_head' ) ) {
 		</div>
 		<div class="vlx-values" style="margin-top:2.2rem">
 			<?php
-			$vicons = array( 'leaf', 'home', 'shield' );
+			$vicons = array( 'leaf', 'euro', 'shield' );
 			foreach ( array_values( $svc['voordelen']['items'] ) as $vi => $v ) : ?>
 				<div class="vlx-value vlx-reveal">
 					<div class="vlx-value__icon"><?php echo voltalux_icon( isset( $vicons[ $vi ] ) ? $vicons[ $vi ] : 'spark' ); // phpcs:ignore ?></div>
@@ -326,14 +372,16 @@ if ( ! function_exists( 'voltalux_section_head' ) ) {
 <?php /* Werkwijze — 6 steps */ ?>
 <section id="werkwijze" class="vlx-section vlx-section--sm vlx-bg-surface" style="border-block:1px solid var(--line-2)">
 	<div class="vlx-container vlx-container--wide">
-		<div class="vlx-s-head vlx-reveal" style="margin-bottom:1rem">
+		<div class="vlx-s-head vlx-s-head--center vlx-reveal">
 			<?php voltalux_eyebrow( __( 'Werkwijze', 'voltalux' ) ); ?>
 			<h2><?php esc_html_e( 'Onze werkwijze voor een duurzaam proces', 'voltalux' ); ?></h2>
+			<p><?php esc_html_e( 'Van kennismaking tot nazorg — helder, strak gepland en zonder verrassingen.', 'voltalux' ); ?></p>
 		</div>
-		<div class="vlx-steps">
+		<div class="vlx-flow">
 			<?php $i = 0; foreach ( voltalux_proces_steps() as $st ) : $i++; ?>
-				<div class="vlx-step vlx-reveal">
-					<div class="vlx-step__n"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></div>
+				<div class="vlx-flow__step vlx-reveal">
+					<span class="vlx-flow__num" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $i ) ); ?></span>
+					<span class="vlx-flow__lbl"><?php printf( esc_html__( 'Stap %d', 'voltalux' ), $i ); ?></span>
 					<h3><?php echo esc_html( $st['title'] ); ?></h3>
 					<p><?php echo esc_html( $st['text'] ); ?></p>
 				</div>
