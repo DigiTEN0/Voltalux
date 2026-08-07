@@ -97,10 +97,11 @@
 		reveals.forEach(function (el) { el.classList.add('is-in'); });
 	}
 
-	/* ---- Hero video — robust muted autoplay (esp. iOS Safari) ---- */
+	/* ---- Hero video — bullet-proof muted autoplay (iOS Safari + Android) ---- */
 	var video = doc.querySelector('.vlx-hero__media video');
 	if (video) {
-		// Muted + inline MUST be set before play() for iOS to allow autoplay.
+		// Muted + inline MUST be set (as BOTH attribute and property) before play()
+		// or mobile browsers refuse muted autoplay.
 		video.muted = true;
 		video.defaultMuted = true;
 		video.setAttribute('muted', '');
@@ -109,46 +110,49 @@
 		video.setAttribute('webkit-playsinline', '');
 
 		if (reduce) {
+			// Respect "reduce motion": show the first frame, don't loop it.
 			video.removeAttribute('autoplay');
-			video.pause();
+			video.addEventListener('loadeddata', function () { try { video.pause(); } catch (e) {} });
 		} else {
-			var playing = false;
 			var offscreen = false;
 			var tryPlay = function () {
-				if (playing || offscreen) { return; }
+				if (offscreen || !video.paused) { return; }
+				video.muted = true; // some Android browsers silently unmute on (re)load
 				var p = video.play();
-				if (p && p.then) { p.then(function () { playing = true; }).catch(function () {}); }
+				if (p && p.catch) { p.catch(function () {}); }
 			};
-			video.addEventListener('playing', function () { playing = true; });
-			video.addEventListener('pause', function () { if (!offscreen) { playing = false; } });
-			// Attempt as soon as any readiness milestone is hit (incl. progressive buffering).
-			['loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'progress', 'suspend'].forEach(function (ev) {
+			// Retry on every readiness/buffering milestone. These listeners stay
+			// attached, so even a slow-buffering large file keeps trying as data
+			// arrives — no fixed give-up window like before.
+			['loadstart', 'loadedmetadata', 'loadeddata', 'canplay', 'canplaythrough', 'progress', 'suspend', 'stalled', 'waiting'].forEach(function (ev) {
 				video.addEventListener(ev, tryPlay);
 			});
 			tryPlay();
-			// Poll to catch late buffering where the browser deferred autoplay (~12s window).
+			// Safety-net poll (first ~40s) for browsers that defer the autoplay decision.
 			var tries = 0;
 			var poll = setInterval(function () {
 				tries++;
-				if (playing || tries > 30) { clearInterval(poll); return; }
+				if (!video.paused || tries > 80) { clearInterval(poll); return; }
 				tryPlay();
-			}, 400);
-			// Last-resort: start on the first user gesture (covers iOS Low Power Mode).
+			}, 500);
+			// Absolute last resort — the first interaction anywhere unlocks playback.
+			// This only matters when the OS blocks autoplay (iOS Low Power Mode /
+			// Android Data Saver); nothing a website does can override that.
 			var kick = function () { tryPlay(); };
 			['touchstart', 'pointerdown', 'click', 'scroll', 'keydown'].forEach(function (ev) {
 				window.addEventListener(ev, kick, { passive: true });
 			});
-			// Save power off-screen; resume when the hero is visible again.
+			// Pause fully off-screen to save battery/data; resume when the hero returns.
 			if ('IntersectionObserver' in window) {
 				new IntersectionObserver(function (entries) {
 					entries.forEach(function (en) {
 						offscreen = !en.isIntersecting;
-						if (en.isIntersecting) { playing = false; tryPlay(); } else { video.pause(); }
+						if (en.isIntersecting) { tryPlay(); } else { try { video.pause(); } catch (e) {} }
 					});
-				}, { threshold: 0.02 }).observe(video);
+				}, { threshold: 0.01 }).observe(video);
 			}
 			document.addEventListener('visibilitychange', function () {
-				if (!document.hidden && !offscreen) { playing = false; tryPlay(); }
+				if (!document.hidden) { tryPlay(); }
 			});
 		}
 	}
@@ -401,4 +405,25 @@
 			}
 		});
 	});
+
+	/* ---- Projecten filter ---- */
+	var filterbar = doc.querySelector('[data-vlx-filterbar]');
+	var filtergrid = doc.querySelector('[data-vlx-filtergrid]');
+	if (filterbar && filtergrid) {
+		var cards = filtergrid.querySelectorAll('[data-cat]');
+		filterbar.addEventListener('click', function (e) {
+			var btn = e.target.closest('[data-vlx-filter]');
+			if (!btn) { return; }
+			var f = btn.getAttribute('data-vlx-filter');
+			filterbar.querySelectorAll('[data-vlx-filter]').forEach(function (b) {
+				var on = b === btn;
+				b.classList.toggle('vlx-chip--active', on);
+				b.setAttribute('aria-pressed', on ? 'true' : 'false');
+			});
+			cards.forEach(function (c) {
+				var show = (f === '*' || c.getAttribute('data-cat') === f);
+				c.classList.toggle('is-hidden', !show);
+			});
+		});
+	}
 })();

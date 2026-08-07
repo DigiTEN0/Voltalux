@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.19.0' );
+	define( 'VOLTALUX_VERSION', '3.30.2' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -41,6 +41,7 @@ if ( ! defined( 'VOLTALUX_PHONE' ) )   { define( 'VOLTALUX_PHONE', '085-0600106'
 if ( ! defined( 'VOLTALUX_EMAIL' ) )   { define( 'VOLTALUX_EMAIL', 'info@voltalux.nl' ); }
 if ( ! defined( 'VOLTALUX_ADDRESS' ) ) { define( 'VOLTALUX_ADDRESS', "Professor Eykmanweg 29\n5144 ND Waalwijk" ); }
 if ( ! defined( 'VOLTALUX_KVK' ) )     { define( 'VOLTALUX_KVK', 'KvK 87951681' ); }
+if ( ! defined( 'VOLTALUX_BTW' ) )     { define( 'VOLTALUX_BTW', 'BTW NL[…]B01' ); }
 if ( ! defined( 'VOLTALUX_FB' ) )      { define( 'VOLTALUX_FB', 'https://www.facebook.com/p/Voltalux-NL-100087523061118/' ); }
 if ( ! defined( 'VOLTALUX_IG' ) )      { define( 'VOLTALUX_IG', 'https://www.instagram.com/voltalux.nl/' ); }
 
@@ -135,7 +136,8 @@ function voltalux_assets() {
 	if ( $accent ) {
 		$hover   = voltalux_adjust_brightness( $accent, -12 );
 		$strong  = voltalux_adjust_brightness( $accent, -38 );
-		wp_add_inline_style( 'voltalux-theme', ":root{--green:{$accent};--green-600:{$hover};--green-strong:{$strong};}" );
+		$bright  = voltalux_adjust_brightness( $accent, 78 ); // readable on dark
+		wp_add_inline_style( 'voltalux-theme', ":root{--green:{$accent};--green-600:{$hover};--green-strong:{$strong};--green-bright:{$bright};}" );
 	}
 
 	// Scripts.
@@ -213,11 +215,15 @@ add_action( 'widgets_init', 'voltalux_widgets_init' );
  * ---------------------------------------------------------------------- */
 require VOLTALUX_DIR . 'inc/template-tags.php';
 require VOLTALUX_DIR . 'inc/template-functions.php';
+require VOLTALUX_DIR . 'inc/content-data.php';
+require VOLTALUX_DIR . 'inc/services-content.php';
+require VOLTALUX_DIR . 'inc/blocks.php';
+require VOLTALUX_DIR . 'inc/schema.php';
 require VOLTALUX_DIR . 'inc/customizer.php';
 require VOLTALUX_DIR . 'inc/elementor.php';
 require VOLTALUX_DIR . 'inc/setup.php';
+require VOLTALUX_DIR . 'inc/projects-cpt.php';
 require VOLTALUX_DIR . 'inc/huisscan.php';
-require VOLTALUX_DIR . 'inc/seo.php';
 
 /* -------------------------------------------------------------------------
  *  Small quality-of-life tweaks

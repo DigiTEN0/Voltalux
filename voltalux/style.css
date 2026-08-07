@@ -3,8 +3,8 @@ Theme Name: Voltalux
 Theme URI: https://voltalux.nl
 Author: DigiTEN
 Author URI: https://digiten.nl
-Description: Voltalux — een krachtig, verfijnd WordPress-thema voor duurzame energie, thuisbatterijen en zonnepanelen. Eigen 'precision energy' designtaal, video-hero, mega-menu met producten en een strak mobiel menu. Volledig compatibel met Elementor en de blokkeneditor (theme.json): alle kleuren, typografie en knopstijlen werken automatisch door. Ingebouwde SEO met schema.org (LocalBusiness, reviews, breadcrumbs), Open Graph en Twitter cards.
-Version: 3.19.0
+Description: Voltalux — een krachtig, verfijnd WordPress-thema voor duurzame energie, thuisbatterijen en zonnepanelen. Eigen 'precision energy' designtaal, video-hero, mega-menu met producten en een strak mobiel menu. Volledig compatibel met Elementor: alle kleuren, typografie en knopstijlen werken automatisch door.
+Version: 3.30.2
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
@@ -24,6 +24,7 @@ Tags: business, portfolio, custom-colors, custom-logo, custom-menu, featured-ima
 	--green:        #059a41;   /* signature accent (rebrand here) */
 	--green-600:    #04863a;   /* hover — a touch darker */
 	--green-strong: #046a2c;   /* accessible green text on light */
+	--green-bright: #2fd873;   /* brighter green — readable on dark surfaces */
 	--green-ink:    #ffffff;   /* text/icons on green (white for contrast) */
 	--green-soft:   #e6f4ec;
 	--green-line:   rgba(5,154,65,.30);
@@ -69,7 +70,7 @@ Tags: business, portfolio, custom-colors, custom-logo, custom-menu, featured-ima
 	--container: 1200px;
 	--container-wide: 1340px;
 	--container-narrow: 760px;
-	--gutter: clamp(1.25rem, .8rem + 2vw, 2.25rem);
+	--gutter: clamp(1.5rem, 1rem + 2.2vw, 2.75rem);
 	--section: clamp(4.5rem, 3rem + 6vw, 7.75rem);
 	--section-sm: clamp(3rem, 2rem + 3.5vw, 5rem);
 

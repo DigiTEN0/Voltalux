@@ -68,16 +68,16 @@
 .vlx-btn--lg { padding: 1.02em 1.7em; font-size: 1rem; }
 .vlx-btn--block { width: 100%; justify-content: center; }
 
-.vlx-btn--primary { background: var(--green); color: var(--green-ink); }
-.vlx-btn--primary:hover { background: var(--green); color: var(--green-ink); box-shadow: var(--shadow-green); }
+.vlx-btn--primary { background: var(--green-600); color: var(--green-ink); font-weight: 600; }
+.vlx-btn--primary:hover { background: var(--green-strong); color: var(--green-ink); box-shadow: var(--shadow-green); }
 .vlx-btn--dark { background: var(--ink); color: #fff; }
 .vlx-btn--dark:hover { background: var(--ink-90); color: #fff; box-shadow: var(--shadow); }
 .vlx-btn--light { background: #fff; color: var(--ink); box-shadow: var(--shadow-sm); }
 .vlx-btn--light:hover { color: var(--ink); box-shadow: var(--shadow); }
 .vlx-btn--ghost { border: 1.5px solid var(--line); color: var(--ink); }
 .vlx-btn--ghost:hover { border-color: var(--ink); }
-.vlx-bg-ink .vlx-btn--ghost, .vlx-hero .vlx-btn--ghost, .vlx-cta .vlx-btn--ghost { color: #fff; border-color: var(--line-inv); }
-.vlx-bg-ink .vlx-btn--ghost:hover, .vlx-hero .vlx-btn--ghost:hover, .vlx-cta .vlx-btn--ghost:hover { background: #fff; color: var(--ink); border-color: #fff; }
+.vlx-bg-ink .vlx-btn--ghost, .vlx-hero .vlx-btn--ghost, .vlx-cta .vlx-btn--ghost, .vlx-phero .vlx-btn--ghost, .vlx-featband .vlx-btn--ghost { color: #fff; border-color: var(--line-inv); }
+.vlx-bg-ink .vlx-btn--ghost:hover, .vlx-hero .vlx-btn--ghost:hover, .vlx-cta .vlx-btn--ghost:hover, .vlx-phero .vlx-btn--ghost:hover, .vlx-featband .vlx-btn--ghost:hover { background: #fff; color: var(--ink); border-color: #fff; }
 
 /* Text link with arrow */
 .vlx-arrow-link { display: inline-flex; align-items: center; gap: .45em; font-family: var(--font-display); font-weight: 500; font-size: .95rem; color: var(--ink); }
@@ -1012,3 +1012,383 @@ body.hsc-open { overflow: hidden; }
 .vlx-hsc__foot .vlx-btn--ghost-dark:hover { border-color: var(--ink); background: var(--paper); }
 .vlx-hsc__foot [data-vlx-hsc-next] { margin-left: auto; }
 .vlx-hsc__foot [data-vlx-hsc-prev][style*="none"] + .vlx-hsc__err { text-align: left; }
+
+/* =========================================================================
+   18. Content pages — products, overviews, werkwijze, projecten, zakelijk
+   ========================================================================= */
+
+/* Section modifier used across content pages */
+.vlx-section--sm { padding-block: clamp(3rem, 2rem + 3vw, 5rem); }
+
+/* --- Key-points bar (product pages) --- */
+.vlx-keypoints { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.2rem 1.4rem; box-shadow: var(--shadow-sm); }
+.vlx-keypoint { display: flex; align-items: center; gap: .7rem; font-family: var(--font-display); font-weight: 600; font-size: .95rem; }
+.vlx-keypoint__ic { flex: none; width: 40px; height: 40px; border-radius: 11px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; }
+.vlx-keypoint__ic svg { width: 20px; height: 20px; }
+@media (max-width: 780px) { .vlx-keypoints { grid-template-columns: 1fr 1fr; gap: 1rem 1.4rem; padding: 1.3rem 1.5rem; } }
+@media (max-width: 520px) { .vlx-keypoints { grid-template-columns: 1fr; gap: .95rem; } .vlx-keypoint { font-size: 1rem; } }
+
+/* --- Product intro: copy + an uploadable square photo (page featured image) --- */
+.vlx-prod-intro { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2.5rem, 1.4rem + 3.4vw, 4.75rem); align-items: center; }
+.vlx-prod-intro__oneliner { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.3rem, 1.1rem + 1vw, 1.75rem); line-height: 1.24; letter-spacing: -.02em; color: var(--ink); margin: 1rem 0 1.1rem; text-wrap: balance; }
+.vlx-prod-intro__lead .vlx-lead { max-width: 46ch; }
+.vlx-prod-intro__figure { position: relative; margin: 0; }
+.vlx-prod-intro__img, .vlx-prod-intro__ph { width: 100%; aspect-ratio: 1 / 1; border-radius: var(--r-card); object-fit: cover; box-shadow: var(--shadow-lg); }
+.vlx-prod-intro__ph { display: grid; place-content: center; justify-items: center; gap: 1rem; text-align: center; color: #fff; position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(150deg, var(--ink) 0%, var(--ink-90) 100%); }
+.vlx-prod-intro__ph::before { content:""; position:absolute; inset:0; z-index:-1; background: radial-gradient(60% 55% at 82% 12%, rgba(5,154,65,.42), transparent 60%), radial-gradient(46% 40% at 8% 100%, rgba(5,154,65,.16), transparent 60%); }
+.vlx-prod-intro__ph-ic { width: 78px; height: 78px; border-radius: 20px; display: grid; place-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); color: #fff; }
+.vlx-prod-intro__ph-ic svg { width: 38px; height: 38px; }
+.vlx-prod-intro__ph-name { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; letter-spacing: -.02em; }
+.vlx-prod-intro__hint { display: block; margin-top: .75rem; font-size: .82rem; line-height: 1.45; color: var(--muted); text-align: center; }
+.vlx-prod-intro__tag { position: absolute; left: 1rem; top: 1rem; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; background: rgba(255,255,255,.94); color: var(--ink); padding: .42rem .85rem; border-radius: var(--r-pill); box-shadow: var(--shadow-sm); }
+@media (max-width: 820px) {
+	.vlx-prod-intro { grid-template-columns: 1fr; gap: clamp(1.8rem, 1.4rem + 2vw, 2.6rem); }
+	.vlx-prod-intro__lead .vlx-lead { max-width: none; }
+	.vlx-prod-intro__figure { max-width: 480px; margin-inline: auto; width: 100%; }
+}
+
+/* --- Techniek uitgelegd — feature cards (adapts to 1 or many items) --- */
+.vlx-techlist { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.15rem; }
+.vlx-techitem { display: flex; flex-direction: column; gap: .9rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: clamp(1.5rem, 1.1rem + 1.2vw, 2.1rem); }
+.vlx-techitem__ic { flex: none; width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; background: var(--green-soft); color: var(--green-strong); }
+.vlx-techitem__ic svg { width: 24px; height: 24px; }
+.vlx-techitem h3 { font-size: 1.2rem; letter-spacing: -.015em; }
+.vlx-techitem p { color: var(--ink-2); font-size: .97rem; line-height: 1.62; }
+/* One item: an editorial two-column feature so the line length stays readable (no lonely card + dead whitespace). */
+.vlx-techlist--single { display: block; }
+.vlx-techlist--single .vlx-techitem {
+	display: grid; align-items: start; max-width: 960px;
+	grid-template-columns: minmax(0, 15rem) 1fr;
+	grid-template-rows: auto 1fr;
+	grid-template-areas: "ic text" "head text";
+	gap: .85rem clamp(1.6rem, 1rem + 3vw, 3.75rem);
+	padding: clamp(1.8rem, 1.3rem + 1.6vw, 2.6rem);
+}
+.vlx-techlist--single .vlx-techitem__ic { grid-area: ic; width: 56px; height: 56px; border-radius: 15px; }
+.vlx-techlist--single .vlx-techitem__ic svg { width: 28px; height: 28px; }
+.vlx-techlist--single .vlx-techitem h3 { grid-area: head; align-self: start; font-size: clamp(1.35rem, 1.1rem + 1vw, 1.7rem); }
+.vlx-techlist--single .vlx-techitem p { grid-area: text; font-size: 1.03rem; }
+@media (max-width: 720px) {
+	.vlx-techlist--single .vlx-techitem { grid-template-columns: 1fr; grid-template-areas: "ic" "head" "text"; gap: .8rem; }
+}
+
+/* --- Voor wie wel / niet --- */
+.vlx-forwhom { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+.vlx-forwhom__col { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: clamp(1.6rem, 1.3rem + 1vw, 2.2rem); }
+.vlx-forwhom__col--yes { border-top: 3px solid var(--green); }
+.vlx-forwhom__col--no { border-top: 3px solid var(--line); }
+.vlx-forwhom h3 { display: flex; align-items: center; gap: .6rem; font-size: 1.15rem; margin-bottom: 1.1rem; }
+.vlx-forwhom__ic { flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; }
+.vlx-forwhom__ic svg { width: 17px; height: 17px; }
+.vlx-forwhom__col--yes .vlx-forwhom__ic { background: var(--green-soft); color: var(--green-strong); }
+.vlx-forwhom__col--no .vlx-forwhom__ic { background: var(--paper-2); color: var(--muted); }
+.vlx-forwhom ul { display: grid; gap: .8rem; }
+.vlx-forwhom li { display: flex; align-items: flex-start; gap: .65rem; font-size: .96rem; color: var(--ink-2); }
+.vlx-forwhom li svg { flex: none; width: 18px; height: 18px; margin-top: .15rem; }
+.vlx-forwhom__col--yes li svg { color: var(--green-strong); }
+.vlx-forwhom__col--no li svg { color: var(--muted); }
+@media (max-width: 720px) { .vlx-forwhom { grid-template-columns: 1fr; } }
+
+/* --- Content tables (models + comparison): fit on desktop, reflow to cards on mobile --- */
+.vlx-rtable-wrap { width: 100%; }
+.vlx-rtable { width: 100%; border-collapse: separate; border-spacing: 0; table-layout: auto; font-size: .95rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); overflow: hidden; }
+.vlx-rtable th, .vlx-rtable td { padding: 1rem 1.2rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--line-2); }
+.vlx-rtable thead th { font-family: var(--font-mono); font-weight: 400; font-size: .7rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); background: var(--paper); white-space: nowrap; }
+.vlx-rtable tbody th[scope="row"] { font-family: var(--font-display); font-weight: 700; color: var(--ink); width: 1%; white-space: nowrap; }
+.vlx-rtable td { color: var(--ink-2); }
+.vlx-rtable tbody tr:last-child > * { border-bottom: 0; }
+.vlx-rtable tbody tr:hover { background: var(--paper); }
+.vlx-table-note { font-size: .84rem; color: var(--muted); margin-top: .9rem; }
+/* Comparison variant: brand names as strong column headers, subtle column separators, highlighted tagline row. */
+.vlx-rtable--compare thead th:not(:first-child) { color: var(--ink); font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; text-transform: none; letter-spacing: -.01em; }
+.vlx-rtable--compare thead th:not(:first-child), .vlx-rtable--compare tbody td { border-left: 1px solid var(--line-2); }
+.vlx-rtable--compare .vlx-rtable__lead td { font-family: var(--font-display); font-weight: 600; color: var(--ink); }
+.vlx-rtable__cta td { padding-top: 1.1rem; }
+
+/* Mobile: turn each row into a self-contained card — everything visible, no horizontal scroll. */
+@media (max-width: 720px) {
+	.vlx-rtable, .vlx-rtable thead, .vlx-rtable tbody, .vlx-rtable tr, .vlx-rtable th, .vlx-rtable td { display: block; }
+	.vlx-rtable { border: 0; border-radius: 0; background: transparent; overflow: visible; }
+	.vlx-rtable thead { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+	.vlx-rtable tbody tr { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); box-shadow: var(--shadow-sm); padding: 1.2rem 1.3rem; margin-bottom: 1rem; }
+	.vlx-rtable tbody tr:last-child { margin-bottom: 0; }
+	.vlx-rtable tbody th[scope="row"] { width: auto; white-space: normal; font-size: 1.18rem; letter-spacing: -.01em; padding: 0 0 .7rem; margin-bottom: .75rem; border-bottom: 1px solid var(--line-2); }
+	.vlx-rtable td { padding: .5rem 0; border: 0; color: var(--ink); font-weight: 600; }
+	.vlx-rtable td::before { content: attr(data-label); display: block; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; font-weight: 400; color: var(--muted); margin-bottom: .12rem; }
+	.vlx-rtable td:empty { display: none; }
+	.vlx-rtable--compare .vlx-rtable__lead td { font-size: 1rem; }
+	.vlx-rtable__cta th[scope="row"] { display: none; }
+	.vlx-rtable__cta td { font-weight: 500; }
+}
+
+/* --- Specs list — two-column, fills the width (no dead whitespace) --- */
+.vlx-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(2rem, 1rem + 4vw, 5rem); }
+.vlx-specs__row { display: flex; align-items: baseline; justify-content: space-between; gap: 1.2rem; padding: 1rem .2rem; border-bottom: 1px solid var(--line); }
+.vlx-specs dt { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); flex: none; }
+.vlx-specs dd { font-weight: 600; color: var(--ink); text-align: right; }
+@media (max-width: 720px) {
+	.vlx-specs { grid-template-columns: 1fr; }
+	/* Stack label above value, both left-aligned — cleaner than a wide split on a phone. */
+	.vlx-specs__row { flex-direction: column; align-items: flex-start; gap: .3rem; padding: .95rem .1rem; }
+	.vlx-specs dd { text-align: left; }
+}
+
+/* --- Callout blocks (verbatim client copy) --- */
+.vlx-callouts { display: grid; gap: 1.1rem; }
+.vlx-callout { display: flex; gap: 1.1rem; background: var(--surface); border: 1px solid var(--line-2); border-left: 3px solid var(--green); border-radius: var(--r-md); padding: 1.6rem 1.8rem; }
+.vlx-callout__ic { flex: none; width: 42px; height: 42px; border-radius: 12px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; }
+.vlx-callout__ic svg { width: 22px; height: 22px; }
+.vlx-callout h3 { font-size: 1.12rem; margin-bottom: .45rem; }
+.vlx-callout p { color: var(--ink-2); font-size: .96rem; }
+
+/* --- Price block --- */
+.vlx-price { display: grid; grid-template-columns: 1.5fr 1fr; gap: clamp(2rem,1rem+3vw,3.5rem); align-items: center; }
+.vlx-price p { color: var(--ink-2); }
+.vlx-price__aside { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.8rem; box-shadow: var(--shadow-sm); }
+.vlx-price__label { display: inline-block; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .09em; text-transform: uppercase; color: var(--green-strong); background: var(--green-soft); border-radius: var(--r-pill); padding: .35rem .8rem; margin-bottom: .9rem; }
+.vlx-price__note { font-size: .9rem; color: var(--muted); margin-bottom: 1.2rem; }
+@media (max-width: 820px) { .vlx-price { grid-template-columns: 1fr; } }
+
+/* --- Brand cards (overview pages) --- */
+.vlx-brandcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+.vlx-brandcards--2 { grid-template-columns: repeat(2, 1fr); max-width: 820px; margin-inline: auto; }
+.vlx-brandcard { position: relative; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.8rem; transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease), border-color var(--t); }
+.vlx-brandcard:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.vlx-brandcard__badge { align-self: flex-start; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .08em; text-transform: uppercase; color: var(--green-strong); background: var(--green-soft); border-radius: var(--r-pill); padding: .35rem .8rem; margin-bottom: 1rem; }
+.vlx-brandcard h3 { font-size: 1.4rem; margin-bottom: .5rem; }
+.vlx-brandcard p { color: var(--muted); font-size: .95rem; flex: 1; }
+.vlx-brandcard .vlx-arrow-link { margin-top: 1.3rem; color: var(--green-strong); font-size: .9rem; }
+.vlx-brandcard__link { position: absolute; inset: 0; z-index: 2; border-radius: inherit; }
+@media (max-width: 900px) { .vlx-brandcards { grid-template-columns: 1fr; } .vlx-brandcards--2 { grid-template-columns: 1fr; } }
+
+/* --- Note card (explainer sidebars) --- */
+.vlx-note-card { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.9rem; box-shadow: var(--shadow-sm); }
+.vlx-note-card h3 { font-size: 1.12rem; }
+.vlx-note-card p { color: var(--muted); font-size: .94rem; margin-top: .5rem; }
+
+/* --- Checklist --- */
+.vlx-checklist { display: grid; gap: .6rem; margin-top: .6rem; }
+.vlx-checklist li { display: flex; align-items: flex-start; gap: .6rem; font-size: .93rem; color: var(--ink-2); }
+.vlx-checklist li svg { flex: none; width: 17px; height: 17px; margin-top: .1rem; color: var(--green-strong); }
+.vlx-checklist--no li svg { color: var(--muted); }
+
+/* --- Numbered list (business case) --- */
+.vlx-numlist { display: grid; gap: 1rem; margin: 1.4rem 0; counter-reset: vlx; }
+.vlx-numlist li { position: relative; padding-left: 2.6rem; color: var(--muted-inv); font-size: .96rem; }
+.vlx-numlist li strong { color: #fff; }
+.vlx-numlist li::before { counter-increment: vlx; content: counter(vlx); position: absolute; left: 0; top: -.1rem; width: 1.8rem; height: 1.8rem; border-radius: 50%; background: var(--green); color: var(--green-ink); display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: .85rem; }
+
+/* --- Business case card --- */
+.vlx-casecard { background: var(--surface); color: var(--ink); border-radius: var(--r-card); padding: clamp(1.7rem, 1.3rem + 1.4vw, 2.4rem); box-shadow: var(--shadow-lg); }
+.vlx-casecard__label { display: inline-block; font-family: var(--font-mono); font-size: .66rem; letter-spacing: .09em; text-transform: uppercase; color: var(--green-strong); background: var(--green-soft); border-radius: var(--r-pill); padding: .35rem .8rem; margin-bottom: 1.1rem; }
+.vlx-casecard dl { display: grid; gap: 0; }
+.vlx-casecard dl > div { display: grid; grid-template-columns: 1fr auto; gap: 1rem; padding: .7rem 0; border-bottom: 1px solid var(--line-2); }
+.vlx-casecard dl > div:last-child { border-bottom: 0; }
+.vlx-casecard dt { color: var(--muted); font-size: .9rem; }
+.vlx-casecard dd { font-family: var(--font-display); font-weight: 600; text-align: right; }
+
+/* --- Promises --- */
+.vlx-promises { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.1rem; }
+.vlx-promise { display: flex; flex-direction: column; gap: .9rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.6rem; }
+.vlx-promise__ic { width: 40px; height: 40px; border-radius: 11px; background: var(--ink); color: var(--green); display: grid; place-items: center; }
+.vlx-promise__ic svg { width: 20px; height: 20px; }
+.vlx-promise p { font-family: var(--font-display); font-weight: 600; font-size: 1rem; line-height: 1.3; }
+@media (max-width: 900px) { .vlx-promises { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 560px) { .vlx-promises { grid-template-columns: 1fr; } }
+
+/* --- Certifications / work-area chips --- */
+.vlx-certs { display: flex; flex-wrap: wrap; gap: .55rem; }
+.vlx-cert { display: inline-flex; align-items: center; gap: .4rem; font-family: var(--font-display); font-weight: 600; font-size: .86rem; padding: .5rem .95rem; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); }
+.vlx-cert svg { width: 15px; height: 15px; color: var(--green-strong); }
+.vlx-cert--inv { background: rgba(255,255,255,.06); border-color: var(--line-inv); color: rgba(255,255,255,.86); }
+
+/* --- Sectors --- */
+.vlx-sectors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.vlx-sector { display: flex; gap: .8rem; align-items: flex-start; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-md); padding: 1.3rem 1.4rem; }
+.vlx-sector__ic { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; }
+.vlx-sector__ic svg { width: 16px; height: 16px; }
+.vlx-sector p { font-size: .93rem; color: var(--ink-2); }
+@media (max-width: 900px) { .vlx-sectors { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .vlx-sectors { grid-template-columns: 1fr; } }
+
+/* --- FAQ (native details) --- */
+.vlx-faq__title { margin-bottom: 1.4rem; }
+.vlx-faq__list { display: grid; gap: .7rem; }
+.vlx-faq__item { background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-md); overflow: hidden; }
+.vlx-faq__item summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.4rem; font-family: var(--font-display); font-weight: 600; font-size: 1.03rem; color: var(--ink); }
+.vlx-faq__item summary::-webkit-details-marker { display: none; }
+.vlx-faq__item summary:hover { color: var(--green-strong); }
+.vlx-faq__mark { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; transition: transform var(--t) var(--ease), background var(--t), color var(--t); }
+.vlx-faq__mark svg { width: 17px; height: 17px; }
+.vlx-faq__item[open] .vlx-faq__mark { transform: rotate(45deg); background: var(--green); color: var(--green-ink); }
+.vlx-faq__a { padding: 0 1.4rem 1.3rem; }
+.vlx-faq__a p { color: var(--ink-2); font-size: .96rem; max-width: 68ch; }
+
+/* --- Projecten filter + grid --- */
+.vlx-filterbar { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 2.2rem; }
+.vlx-filterbar .vlx-chip { cursor: pointer; }
+.vlx-projectgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.3rem; }
+.vlx-projectcard { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); overflow: hidden; transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.vlx-projectcard.is-hidden { display: none; }
+.vlx-projectcard:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.vlx-projectcard__media { position: relative; aspect-ratio: 16/11; background: linear-gradient(140deg, var(--paper-2), var(--paper)); overflow: hidden; }
+.vlx-projectcard__media img { width: 100%; height: 100%; object-fit: cover; }
+.vlx-projectcard__ph { position: absolute; inset: 0; display: grid; place-items: center; color: var(--green-strong); opacity: .5; }
+.vlx-projectcard__ph svg { width: 44px; height: 44px; }
+.vlx-projectcard__cat { position: absolute; left: 1rem; top: 1rem; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; background: rgba(10,11,13,.82); color: #fff; padding: .35rem .7rem; border-radius: var(--r-pill); }
+.vlx-projectcard__body { display: flex; flex-direction: column; gap: .55rem; padding: 1.4rem; flex: 1; }
+.vlx-projectcard__loc { display: inline-flex; align-items: center; gap: .35rem; font-size: .8rem; color: var(--muted); }
+.vlx-projectcard__loc svg { width: 14px; height: 14px; color: var(--green-strong); }
+.vlx-projectcard h3 { font-size: 1.18rem; }
+.vlx-projectcard__meta { display: grid; gap: .5rem; margin: .3rem 0; }
+.vlx-projectcard__meta > div { display: grid; gap: .1rem; }
+.vlx-projectcard__meta dt { font-family: var(--font-mono); font-size: .62rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.vlx-projectcard__meta dd { font-size: .9rem; color: var(--ink-2); }
+.vlx-projectcard__quote { font-family: var(--font-display); font-weight: 500; font-style: italic; color: var(--ink); font-size: .98rem; line-height: 1.4; padding-left: .9rem; border-left: 2px solid var(--green); }
+.vlx-projectcard__result { display: inline-flex; align-items: center; gap: .45rem; align-self: flex-start; font-family: var(--font-display); font-weight: 700; font-size: .9rem; color: var(--green-strong); background: var(--green-soft); border-radius: var(--r-pill); padding: .45rem .9rem; }
+.vlx-projectcard__result svg { width: 15px; height: 15px; }
+.vlx-projectcard__link { margin-top: auto; font-size: .88rem; }
+@media (max-width: 1000px) { .vlx-projectgrid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .vlx-projectgrid { grid-template-columns: 1fr; } }
+
+/* --- Footer: certifications strip + work area --- */
+.vlx-footer-certs { display: flex; align-items: center; flex-wrap: wrap; gap: .8rem 1.4rem; padding-block: 1.6rem; border-top: 1px solid var(--line-inv); }
+.vlx-footer-certs__t { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted-inv); }
+.vlx-footer-certs__list { display: flex; flex-wrap: wrap; gap: .5rem; }
+.vlx-footer-area { display: flex; align-items: flex-start; gap: .45rem; font-size: .88rem; color: var(--muted-inv); margin-top: .3rem; }
+.vlx-footer-area svg { flex: none; width: 15px; height: 15px; color: var(--green); margin-top: .15rem; }
+
+/* --- Mobile menu: "view all" row --- */
+.vlx-m-product--all { grid-column: 1 / -1; flex-direction: row; align-items: center; justify-content: center; background: var(--ink); }
+.vlx-m-product--all .vlx-m-product__t { color: #fff; display: inline-flex; align-items: center; gap: .4rem; }
+.vlx-m-product--all svg { width: 15px; height: 15px; }
+
+/* =========================================================================
+   19. Premium page hero (content pages) + floating key-points
+   ========================================================================= */
+.vlx-phero {
+	position: relative; overflow: hidden; isolation: isolate;
+	background: var(--ink); color: #fff;
+	padding-block: clamp(2.5rem, 1.8rem + 3vw, 4rem) clamp(2.75rem, 2rem + 3.5vw, 4.75rem);
+}
+.vlx-phero__glow { position: absolute; inset: 0; pointer-events: none; z-index: 0;
+	background:
+		radial-gradient(55% 85% at 88% -10%, rgba(5,154,65,.42), transparent 60%),
+		radial-gradient(50% 70% at 0% 110%, rgba(5,154,65,.16), transparent 62%);
+}
+.vlx-phero__grid { position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .4;
+	background-image: linear-gradient(var(--line-inv) 1px, transparent 1px), linear-gradient(90deg, var(--line-inv) 1px, transparent 1px);
+	background-size: 46px 46px;
+	-webkit-mask-image: radial-gradient(120% 95% at 50% 0%, #000, transparent 72%);
+	mask-image: radial-gradient(120% 95% at 50% 0%, #000, transparent 72%);
+}
+.vlx-phero__mark { position: absolute; right: 2%; bottom: -26%; z-index: 0; color: rgba(255,255,255,.05); pointer-events: none; }
+.vlx-phero__mark svg { width: clamp(200px, 26vw, 380px); height: auto; }
+.vlx-phero__inner { position: relative; z-index: 1; }
+.vlx-phero--split .vlx-phero__inner { display: grid; grid-template-columns: 1.25fr .9fr; gap: clamp(2rem,1rem+3vw,4rem); align-items: center; }
+.vlx-phero__body { max-width: 54rem; }
+.vlx-phero .vlx-crumbs { color: var(--muted-inv); margin-bottom: 1.3rem; }
+.vlx-phero .vlx-crumbs a { color: var(--muted-inv); }
+.vlx-phero .vlx-crumbs a:hover { color: var(--green); }
+.vlx-phero .vlx-eyebrow { margin-bottom: 1.25rem; }
+.vlx-phero h1 { color: #fff; font-size: clamp(2.4rem, 1.6rem + 2.7vw, 3.7rem); font-weight: 800; letter-spacing: -.038em; line-height: 1.0; max-width: 18ch; }
+.vlx-phero__lead { color: rgba(255,255,255,.78); font-size: var(--fs-lead); line-height: 1.6; max-width: 60ch; margin-top: 1.3rem; }
+.vlx-phero--flush { padding-bottom: clamp(4.5rem, 3rem + 5vw, 7rem); }
+
+/* Floating key-points card overlapping the hero base */
+.vlx-keypoints-wrap { position: relative; z-index: 3; margin-top: clamp(-3.75rem, -2.5rem - 1.5vw, -2.25rem); }
+.vlx-keypoints-wrap .vlx-keypoints { box-shadow: var(--shadow-lg); }
+
+@media (max-width: 900px) {
+	.vlx-phero--split .vlx-phero__inner { grid-template-columns: 1fr; gap: clamp(2.25rem, 1.8rem + 2vw, 3rem); }
+	/* Clear breathing room between the hero CTA buttons and the image below on mobile. */
+	.vlx-phero--split .vlx-phero__media { margin-top: .75rem; }
+	.vlx-phero__mark { right: -8%; bottom: -18%; opacity: .8; }
+}
+@media (max-width: 640px) {
+	.vlx-phero__mark { display: none; }
+	.vlx-keypoints-wrap { margin-top: clamp(-2.75rem, -2rem, -1.75rem); }
+}
+
+/* =========================================================================
+   20. Contrast fix — brighter green on dark surfaces
+   ========================================================================= */
+/* Only the small TEXT accents brighten on dark (eyebrow label + keyword mark) —
+   never button backgrounds (bright green + white text is unreadable). */
+.vlx-eyebrow--inv { color: var(--green-bright); }
+.vlx-eyebrow--inv::before { background: var(--green-bright); box-shadow: 0 0 0 4px rgba(47,216,115,.18); }
+.vlx-bg-ink .vlx-mark, .vlx-hero .vlx-mark, .vlx-cta .vlx-mark,
+.vlx-phero .vlx-mark, .vlx-offerte .vlx-mark, .vlx-cta__box .vlx-mark { color: var(--green-bright); }
+
+/* Icons on dark surfaces / dark chips are WHITE (crisp, no neon green). */
+.vlx-value__icon, .vlx-promise__ic,
+.vlx-service:hover .vlx-service__icon { background: var(--ink); color: #fff; }
+.vlx-bg-ink .vlx-step__n, .vlx-phero .vlx-crumbs { color: var(--muted-inv); }
+
+/* Primary + dark CTA buttons: AA-readable green (#04863a, 4.7:1 on white) with
+   white text, everywhere — never the neon green that was unreadable. */
+.vlx-btn--primary,
+.vlx-bg-ink .vlx-btn--primary, .vlx-hero .vlx-btn--primary, .vlx-phero .vlx-btn--primary,
+.vlx-offerte .vlx-btn--primary, .vlx-cta__box .vlx-btn--primary,
+.vlx-prod-intro__card .vlx-btn--primary, .vlx-site-footer .vlx-btn--primary,
+.vlx-floating .vlx-btn--primary { background: var(--green-600); color: var(--green-ink); }
+.vlx-btn--primary:hover,
+.vlx-site-footer .vlx-btn--primary:hover { background: var(--green-strong); color: var(--green-ink); box-shadow: var(--shadow-green); }
+
+/* =========================================================================
+   21. Service pillar (dienst) — hero CTA, USP bar, jumpnav, brands, saldering
+   ========================================================================= */
+/* Hero CTA row */
+.vlx-phero__cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+
+/* Hero figure (uploadable featured image, square-ish) */
+.vlx-phero__media .vlx-hero-figure { margin: 0; position: relative; }
+.vlx-hero-figure__img, .vlx-hero-figure__ph { width: 100%; aspect-ratio: 4 / 3.4; object-fit: cover; border-radius: var(--r-card); box-shadow: var(--shadow-lg); }
+.vlx-hero-figure__ph { display: grid; place-content: center; justify-items: center; gap: 1rem; text-align: center; position: relative; overflow: hidden; isolation: isolate; background: linear-gradient(150deg, rgba(255,255,255,.08), rgba(255,255,255,.02)); border: 1px solid var(--line-inv); }
+.vlx-hero-figure__ph::before { content:""; position:absolute; inset:0; z-index:-1; background: radial-gradient(60% 55% at 80% 14%, rgba(5,154,65,.42), transparent 60%); }
+.vlx-hero-figure__ic { width: 74px; height: 74px; border-radius: 19px; display: grid; place-items: center; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); color: #fff; }
+.vlx-hero-figure__ic svg { width: 36px; height: 36px; }
+.vlx-hero-figure__name { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; color: #fff; letter-spacing: -.02em; }
+.vlx-hero-figure__hint { display: block; margin-top: .7rem; font-size: .8rem; line-height: 1.45; color: var(--muted-inv); text-align: center; }
+
+/* USP trust bar (overlaps hero via .vlx-keypoints-wrap) */
+.vlx-usps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem 1.4rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: clamp(1.4rem, 1rem + 1.5vw, 2.1rem); box-shadow: var(--shadow-lg); }
+.vlx-usp { display: flex; gap: .9rem; align-items: flex-start; }
+.vlx-usp__ic { flex: none; width: 46px; height: 46px; border-radius: 13px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; }
+.vlx-usp__ic svg { width: 23px; height: 23px; }
+.vlx-usp h3 { font-size: 1.04rem; letter-spacing: -.01em; margin-bottom: .2rem; }
+.vlx-usp p { font-size: .9rem; color: var(--muted); line-height: 1.5; }
+@media (max-width: 860px) { .vlx-usps { grid-template-columns: 1fr; gap: 1.2rem; } }
+
+/* Jump navigation */
+.vlx-jumpnav { display: flex; flex-wrap: wrap; align-items: center; gap: .55rem; }
+.vlx-jumpnav__lbl { font-family: var(--font-mono); font-size: .68rem; letter-spacing: .09em; text-transform: uppercase; color: var(--muted); margin-right: .35rem; }
+.vlx-jumpnav a { font-family: var(--font-display); font-size: .86rem; font-weight: 600; padding: .5rem 1rem; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); transition: border-color var(--t), color var(--t), background var(--t); }
+.vlx-jumpnav a:hover { border-color: var(--ink); color: var(--ink); }
+
+/* 4-across step row (how it works) */
+.vlx-steps--4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 1000px) { .vlx-steps--4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .vlx-steps--4 { grid-template-columns: 1fr; } }
+
+/* Brand cards */
+.vlx-brands { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+.vlx-merk { display: flex; flex-direction: column; align-items: flex-start; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: 1.7rem; transition: transform var(--t) var(--ease), box-shadow var(--t) var(--ease); }
+.vlx-merk:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.vlx-brand__name { font-family: var(--font-display); font-weight: 800; font-size: 1.4rem; letter-spacing: -.02em; color: var(--ink); }
+.vlx-brand__tag { margin: .55rem 0 .85rem; font-family: var(--font-mono); font-size: .62rem; letter-spacing: .07em; text-transform: uppercase; color: var(--green-strong); background: var(--green-soft); border-radius: var(--r-pill); padding: .32rem .75rem; }
+.vlx-merk p { color: var(--ink-2); font-size: .94rem; line-height: 1.55; }
+@media (max-width: 900px) { .vlx-brands { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .vlx-brands { grid-template-columns: 1fr; } }
+
+/* Salderingsregeling — dark feature band */
+.vlx-featband { position: relative; overflow: hidden; isolation: isolate; background: var(--ink); color: #fff; border-radius: var(--r-card); padding: clamp(2rem, 1.4rem + 3vw, 3.75rem); box-shadow: var(--shadow-lg); }
+.vlx-featband__glow { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: radial-gradient(50% 80% at 90% -10%, rgba(5,154,65,.4), transparent 60%), radial-gradient(45% 70% at 2% 110%, rgba(5,154,65,.16), transparent 62%); }
+.vlx-featband__body { max-width: 66ch; }
+.vlx-featband__ic { width: 52px; height: 52px; border-radius: 14px; display: grid; place-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: #fff; margin-bottom: 1.2rem; }
+.vlx-featband__ic svg { width: 26px; height: 26px; }
+.vlx-featband h2 { color: #fff; margin: 1rem 0; }
+.vlx-featband p { color: rgba(255,255,255,.8); font-size: 1.02rem; line-height: 1.62; margin-bottom: 1.6rem; }
+
+/* Review band */
+.vlx-reviewband { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; background: var(--surface); border: 1px solid var(--line-2); border-radius: var(--r-card); padding: clamp(1.6rem, 1.2rem + 1.5vw, 2.4rem); box-shadow: var(--shadow-sm); }

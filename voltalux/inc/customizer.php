@@ -140,6 +140,7 @@ function voltalux_customize_register( $wp_customize ) {
 	voltalux_add_textarea_setting( $wp_customize, 'voltalux_footer_address', VOLTALUX_ADDRESS, __( 'Adres / contactblok', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_text_setting( $wp_customize, 'voltalux_footer_email', VOLTALUX_EMAIL, __( 'E-mailadres', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_text_setting( $wp_customize, 'voltalux_kvk', VOLTALUX_KVK, __( 'KvK-nummer', 'voltalux' ), 'voltalux_footer' );
+	voltalux_add_text_setting( $wp_customize, 'voltalux_btw', defined( 'VOLTALUX_BTW' ) ? VOLTALUX_BTW : '', __( 'Btw-nummer', 'voltalux' ), 'voltalux_footer' );
 	voltalux_add_text_setting( $wp_customize, 'voltalux_footer_copyright', '', __( 'Copyright-regel (leeg = automatisch)', 'voltalux' ), 'voltalux_footer' );
 
 	// Google reviews badge.

@@ -18,7 +18,10 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 	$address   = voltalux_option( 'footer_address', VOLTALUX_ADDRESS );
 	$email     = voltalux_option( 'footer_email', VOLTALUX_EMAIL );
 	$kvk       = voltalux_option( 'kvk', VOLTALUX_KVK );
+	$btw       = voltalux_option( 'btw', defined( 'VOLTALUX_BTW' ) ? VOLTALUX_BTW : '' );
 	$copyright = voltalux_option( 'footer_copyright', '' );
+	$certs     = function_exists( 'voltalux_certifications' ) ? voltalux_certifications() : array();
+	$areas     = function_exists( 'voltalux_work_area' ) ? voltalux_work_area() : array();
 	$has_widgets = is_active_sidebar( 'footer-1' ) || is_active_sidebar( 'footer-2' ) || is_active_sidebar( 'footer-3' );
 
 	$col_solutions = array();
@@ -56,7 +59,9 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 						<?php if ( $address ) : ?><address style="font-style:normal;"><?php echo nl2br( esc_html( $address ) ); ?></address><?php endif; ?>
 						<?php if ( $email ) : ?><a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a><br><?php endif; ?>
 						<?php if ( $phone ) : ?><a href="<?php echo esc_attr( $phone_href ); ?>"><?php echo esc_html( $phone ); ?></a><br><?php endif; ?>
-						<?php if ( $kvk ) : ?><span style="opacity:.7;"><?php echo esc_html( $kvk ); ?></span><?php endif; ?>
+						<?php if ( $kvk ) : ?><span style="opacity:.7;"><?php echo esc_html( $kvk ); ?></span><br><?php endif; ?>
+							<?php if ( $btw ) : ?><span style="opacity:.7;"><?php echo esc_html( $btw ); ?></span><?php endif; ?>
+							<?php if ( $areas ) : ?><span class="vlx-footer-area"><?php printf( esc_html__( 'Werkgebied: %s e.o.', 'voltalux' ), esc_html( implode( ', ', $areas ) ) ); ?></span><?php endif; ?>
 					</div>
 					<?php voltalux_social_icons( 'vlx-footer-social' ); ?>
 				</div>
@@ -90,6 +95,14 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 				</div>
 			</div>
 
+			<?php if ( $certs ) : ?>
+				<div class="vlx-footer-certs">
+					<span class="vlx-footer-certs__t"><?php esc_html_e( 'Gecertificeerd installateur', 'voltalux' ); ?></span>
+					<div class="vlx-footer-certs__list">
+						<?php foreach ( $certs as $c ) : ?><span class="vlx-cert vlx-cert--inv"><?php echo esc_html( $c ); ?></span><?php endforeach; ?>
+					</div>
+				</div>
+			<?php endif; ?>
 			<div class="vlx-footer-bottom">
 				<span>
 					<?php

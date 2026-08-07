@@ -112,6 +112,36 @@ function voltalux_option( $key, $default = '' ) {
 }
 
 /**
+ * Resolve the real URL of a theme page by slug.
+ *
+ * Returns the page's actual permalink when the page exists — so the menu link
+ * always matches the page, whatever slug WordPress ended up using and whatever
+ * the permalink structure is (pretty OR plain: it then returns ?page_id=…).
+ * Falls back to a pretty /slug/ URL if the page has not been created yet.
+ *
+ * @param string $slug Page slug (e.g. 'fox-ess').
+ * @return string
+ */
+function voltalux_page_link( $slug ) {
+	static $cache = array();
+	if ( isset( $cache[ $slug ] ) ) {
+		return $cache[ $slug ];
+	}
+	$url = home_url( '/' . $slug . '/' );
+	if ( function_exists( 'get_page_by_path' ) ) {
+		$page = get_page_by_path( $slug );
+		if ( $page ) {
+			$link = get_permalink( $page );
+			if ( $link ) {
+				$url = $link;
+			}
+		}
+	}
+	$cache[ $slug ] = $url;
+	return $url;
+}
+
+/**
  * Pretty reading-time estimate for articles.
  *
  * @param int|null $post_id Post ID.
@@ -176,31 +206,56 @@ function voltalux_battery_products() {
 	return apply_filters(
 		'voltalux_battery_products',
 		array(
-			array( 'name' => 'AEG', 'spec' => __( 'Duits A-merk', 'voltalux' ), 'desc' => __( 'Betrouwbare opslag van een gerenommeerd merk.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => 'HyxiPower', 'spec' => __( 'All-in-one', 'voltalux' ), 'desc' => __( 'Batterij en omvormer in één compact systeem.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => 'AlphaESS', 'spec' => __( 'Modulair', 'voltalux' ), 'desc' => __( 'Breid eenvoudig uit met extra capaciteit.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => 'Fox ESS', 'spec' => __( 'Compact & slim', 'voltalux' ), 'desc' => __( 'Krachtige opslag in een klein formaat.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
+			array( 'name' => 'Fox ESS', 'spec' => __( 'Beste prijs per kWh', 'voltalux' ), 'desc' => __( 'Modulaire opslag met de scherpste prijs per bruikbare kilowattuur.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'fox-ess' ) ),
+			array( 'name' => 'AlphaESS', 'spec' => __( 'Groeit met je mee', 'voltalux' ), 'desc' => __( 'Bouw op met modules van 3,8 kWh, tot ruim 60 kWh.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'alphaess' ) ),
+			array( 'name' => 'Sigenergy', 'spec' => __( 'Slimste alles-in-één', 'voltalux' ), 'desc' => __( 'Batterij, omvormer, EV-lader en noodstroom in één toren.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'sigenergy' ) ),
+			array( 'name' => __( 'Meer merken', 'voltalux' ), 'spec' => __( 'Vergelijk alle opties', 'voltalux' ), 'desc' => __( 'Bekijk de volledige vergelijking van de thuisbatterijen die wij voeren.', 'voltalux' ), 'img' => VOLTALUX_PRODUCT_IMG, 'url' => voltalux_page_link( 'thuisbatterijen' ) ),
 		)
 	);
 }
 
 /**
- * Recent projects (projecten section).
+ * Recent projects (homepage strip + Projecten page).
  *
- * @return array[] each: cat, title, location, url
+ * Each project supports the rich fields from the briefing so every project reads
+ * as a small proof point: cat, title, location, url, icon, img — plus optional
+ * type, system, situation, quote, result. Leave the optional fields empty to
+ * hide them; fill them per project for the strongest effect.
+ *
+ * @return array[]
  */
 function voltalux_projects() {
+	// Prefer real, wp-admin-managed projects (the "Projecten" post type) when present.
+	$cpt = function_exists( 'voltalux_get_cpt_projects' ) ? voltalux_get_cpt_projects() : array();
+	if ( ! empty( $cpt ) ) {
+		return apply_filters( 'voltalux_projects', $cpt );
+	}
+	return apply_filters( 'voltalux_projects', voltalux_default_projects() );
+}
+
+/**
+ * Built-in sample projects — used as a fallback, and seeded into the "Projecten"
+ * post type on first run so they are directly editable in wp-admin.
+ *
+ * @return array[]
+ */
+function voltalux_default_projects() {
 	$base = 'http://voltalux.digiten.nl/wp-content/uploads/2026/07/';
-	return apply_filters(
-		'voltalux_projects',
-		array(
-			array( 'cat' => __( 'Dakrenovaties', 'voltalux' ), 'title' => __( 'Dakrenovatie incl. 2 lichtkoepels', 'voltalux' ), 'location' => 'Venlo',     'url' => 'https://www.voltalux.nl/project/dakrenovatie-incl-2-lichtkoepels-venlo/', 'icon' => 'roof', 'img' => $base . 'IMG_7086.jpeg' ),
-			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '8 Black Frame zonnepanelen', 'voltalux' ),        'location' => 'Waalwijk',  'url' => 'https://www.voltalux.nl/project/8-black-frame-zonnepanelen-waalwijk/',     'icon' => 'sun',  'img' => $base . 'IMG_7057.webp' ),
-			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( 'Uitbreiding 4 Full Black zonnepanelen', 'voltalux' ), 'location' => 'Amersfoort', 'url' => 'https://www.voltalux.nl/onze-projecten/',                                'icon' => 'sun',  'img' => $base . 'IMG_7058.jpg' ),
-			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '2× 6 Full Black zonnepanelen', 'voltalux' ),      'location' => 'Odijk',     'url' => 'https://www.voltalux.nl/project/2x-6-full-black-zonnepanelen-odijk/',       'icon' => 'sun',  'img' => $base . 'IMG_70591-1.jpg' ),
-			array( 'cat' => "Airco's",                          'title' => __( '2× 5.0 kWh airco-systemen', 'voltalux' ),        'location' => 'Den Haag',  'url' => 'https://www.voltalux.nl/project/2x-5-0-kwh-airco-systemen-den-haag/',      'icon' => 'snow', 'img' => $base . 'IMG_6366-1.webp' ),
-			array( 'cat' => "Airco's",                          'title' => __( '3.5 kWh airco-systeem', 'voltalux' ),            'location' => 'Dordrecht', 'url' => 'https://www.voltalux.nl/onze-projecten/',                                'icon' => 'snow', 'img' => $base . 'IMG_7070.webp' ),
-		)
+	return array(
+			// Example in the exact format from the briefing — duplicate this per real battery project.
+			array(
+				'cat' => __( 'Thuisbatterij', 'voltalux' ), 'title' => __( 'Sigenergy SigenStor 24 kWh', 'voltalux' ), 'location' => 'Zoetermeer', 'url' => '', 'icon' => 'battery', 'img' => '',
+				'system'    => 'Sigenergy SigenStor, 24 kWh, 10 kW controller',
+				'situation' => __( '14 panelen, warmtepomp, elektrische auto, 3-fase', 'voltalux' ),
+				'quote'     => __( '"Ik leverde 4.100 kWh per jaar terug en zag dat straks verdampen."', 'voltalux' ),
+				'result'    => __( 'Zelfverbruik van 34% naar 79%', 'voltalux' ),
+			),
+			array( 'cat' => __( 'Dakrenovaties', 'voltalux' ), 'title' => __( 'Dakrenovatie incl. 2 lichtkoepels', 'voltalux' ), 'location' => 'Venlo',     'url' => '', 'icon' => 'roof', 'img' => $base . 'IMG_7086.jpeg' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '8 Black Frame zonnepanelen', 'voltalux' ),        'location' => 'Waalwijk',  'url' => '',     'icon' => 'sun',  'img' => $base . 'IMG_7057.webp' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( 'Uitbreiding 4 Full Black zonnepanelen', 'voltalux' ), 'location' => 'Amersfoort', 'url' => '',                                'icon' => 'sun',  'img' => $base . 'IMG_7058.jpg' ),
+			array( 'cat' => __( 'Zonnepanelen', 'voltalux' ),  'title' => __( '2× 6 Full Black zonnepanelen', 'voltalux' ),      'location' => 'Odijk',     'url' => '',       'icon' => 'sun',  'img' => $base . 'IMG_70591-1.jpg' ),
+			array( 'cat' => "Airco's",                          'title' => __( '2× 5.0 kWh airco-systemen', 'voltalux' ),        'location' => 'Den Haag',  'url' => '',      'icon' => 'snow', 'img' => $base . 'IMG_6366-1.webp' ),
+			array( 'cat' => "Airco's",                          'title' => __( '3.5 kWh airco-systeem', 'voltalux' ),            'location' => 'Dordrecht', 'url' => '',                                'icon' => 'snow', 'img' => $base . 'IMG_7070.webp' ),
 	);
 }
 
@@ -213,10 +268,9 @@ function voltalux_fallback_nav() {
 	return apply_filters(
 		'voltalux_fallback_nav',
 		array(
-			array( 'label' => __( 'Projecten', 'voltalux' ), 'url' => '#projecten' ),
-			array( 'label' => __( 'Werkwijze', 'voltalux' ), 'url' => '#werkwijze' ),
-			array( 'label' => __( 'Reviews', 'voltalux' ),   'url' => '#reviews' ),
-			array( 'label' => __( 'Contact', 'voltalux' ),   'url' => '#contact' ),
+			array( 'label' => __( 'Over ons', 'voltalux' ), 'url' => voltalux_page_link( 'over-ons' ) ),
+			array( 'label' => __( 'Blog', 'voltalux' ),     'url' => voltalux_page_link( 'blog' ) ),
+			array( 'label' => __( 'Contact', 'voltalux' ),  'url' => voltalux_page_link( 'contact' ) ),
 		)
 	);
 }
