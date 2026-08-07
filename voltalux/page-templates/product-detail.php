@@ -77,9 +77,6 @@ voltalux_page_hero(
 							<span class="vlx-prod-intro__ph-ic"><?php echo voltalux_icon( $is_bat ? 'battery' : 'snow' ); // phpcs:ignore ?></span>
 							<span class="vlx-prod-intro__ph-name"><?php echo esc_html( $brand['name'] ); ?></span>
 						</div>
-						<?php if ( current_user_can( 'edit_pages' ) ) : ?>
-							<span class="vlx-prod-intro__hint"><?php esc_html_e( 'Voeg hier je eigen foto toe via Pagina’s → deze pagina → Uitgelichte afbeelding.', 'voltalux' ); ?></span>
-						<?php endif; ?>
 					<?php endif; ?>
 					<?php if ( ! empty( $brand['badge'] ) ) : ?>
 						<figcaption class="vlx-prod-intro__tag"><?php echo esc_html( $brand['badge'] ); ?></figcaption>

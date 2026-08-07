@@ -428,6 +428,11 @@ button[type=submit]:hover, input[type=submit]:hover { transform: translateY(-2px
 	.vlx-layout { grid-template-columns: 1fr; }
 	.vlx-statement { grid-template-columns: 1fr; gap: 1.5rem; }
 }
+/* Collapse the (now fuller) main nav to the mobile menu earlier, so items never crowd. */
+@media (max-width: 1100px) {
+	.vlx-nav { display: none; }
+	.vlx-burger { display: block; }
+}
 @media (max-width: 900px) {
 	.vlx-nav, .vlx-header-phone, .vlx-header-actions .vlx-btn { display: none; }
 	.vlx-burger { display: block; }

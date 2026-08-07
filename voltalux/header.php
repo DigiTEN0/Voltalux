@@ -10,6 +10,8 @@ $has_menu   = has_nav_menu( 'primary' );
 $services   = voltalux_services();
 $batteries  = function_exists( 'voltalux_batteries' ) ? voltalux_batteries() : array();
 $aircos     = function_exists( 'voltalux_aircos' ) ? voltalux_aircos() : array();
+$dak_svc    = function_exists( 'voltalux_service' ) ? voltalux_service( 'dakdekker' ) : null;
+$dak_links  = ( $dak_svc && ! empty( $dak_svc['links']['items'] ) ) ? $dak_svc['links']['items'] : array();
 $cta_label  = voltalux_option( 'header_cta_label', __( 'Offerte aanvragen', 'voltalux' ) );
 $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 $phone      = voltalux_option( 'phone', VOLTALUX_PHONE );
@@ -48,6 +50,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 
 			<nav class="vlx-nav" aria-label="<?php esc_attr_e( 'Hoofdmenu', 'voltalux' ); ?>">
 				<ul>
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'zonnepanelen' ) ); ?>"><?php esc_html_e( 'Zonnepanelen', 'voltalux' ); ?></a></li>
 					<li class="has-mega">
 						<a href="<?php echo esc_url( voltalux_page_link( 'thuisbatterij' ) ); ?>"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?></a>
 						<div class="vlx-mega vlx-mega--svc">
@@ -83,6 +86,27 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 								<a class="vlx-arrow-link" href="<?php echo esc_url( voltalux_page_link( 'aircos' ) ); ?>" style="color:var(--green-strong)"><?php esc_html_e( 'Daikin en LG vergelijken', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
 							</div>
 						</div>
+					</li>
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'warmtepompen' ) ); ?>"><?php esc_html_e( 'Warmtepompen', 'voltalux' ); ?></a></li>
+					<li class="has-mega">
+						<a href="<?php echo esc_url( voltalux_page_link( 'dakdekker' ) ); ?>"><?php esc_html_e( 'Dakrenovatie', 'voltalux' ); ?></a>
+						<?php if ( $dak_links ) : ?>
+						<div class="vlx-mega vlx-mega--svc">
+							<span class="vlx-mega__label"><?php esc_html_e( 'Dakwerkzaamheden', 'voltalux' ); ?></span>
+							<div class="vlx-mega-grid">
+								<?php foreach ( $dak_links as $dl ) : ?>
+									<a class="vlx-mega-item" href="<?php echo esc_url( voltalux_page_link( $dl['slug'] ) ); ?>">
+										<span class="vlx-mega-item__img"><?php echo voltalux_icon( isset( $dl['icon'] ) ? $dl['icon'] : 'roof' ); // phpcs:ignore ?></span>
+										<span><span class="vlx-mega-item__t"><?php echo esc_html( $dl['label'] ); ?></span><span class="vlx-mega-item__d"><?php echo esc_html( $dl['text'] ); ?></span></span>
+									</a>
+								<?php endforeach; ?>
+							</div>
+							<div class="vlx-mega-foot">
+								<span><?php esc_html_e( 'Erkende dakdekkers · gratis dakinspectie', 'voltalux' ); ?></span>
+								<a class="vlx-arrow-link" href="<?php echo esc_url( voltalux_page_link( 'dakdekker' ) ); ?>" style="color:var(--green-strong)"><?php esc_html_e( 'Alles over dakrenovatie', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></a>
+							</div>
+						</div>
+						<?php endif; ?>
 					</li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'werkwijze' ) ); ?>"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a></li>
@@ -130,6 +154,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 		</div>
 		<div class="vlx-m-nav__scroll">
 			<ul class="vlx-m-list">
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'zonnepanelen' ) ); ?>"><?php esc_html_e( 'Zonnepanelen', 'voltalux' ); ?></a></li>
 				<li class="vlx-m-acc">
 					<button class="vlx-m-acc__btn" aria-expanded="false"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?> <span class="vlx-ic"><?php echo voltalux_icon( 'plus' ); // phpcs:ignore ?></span></button>
 					<div class="vlx-m-acc__panel"><div class="vlx-m-acc__inner"><div class="vlx-m-products">
@@ -160,6 +185,24 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 								</a>
 						</div></div></div>
 					</li>
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'warmtepompen' ) ); ?>"><?php esc_html_e( 'Warmtepompen', 'voltalux' ); ?></a></li>
+					<?php if ( $dak_links ) : ?>
+					<li class="vlx-m-acc">
+						<button class="vlx-m-acc__btn" aria-expanded="false"><?php esc_html_e( 'Dakrenovatie', 'voltalux' ); ?> <span class="vlx-ic"><?php echo voltalux_icon( 'plus' ); // phpcs:ignore ?></span></button>
+						<div class="vlx-m-acc__panel"><div class="vlx-m-acc__inner"><div class="vlx-m-products">
+							<?php foreach ( $dak_links as $dl ) : ?>
+								<a class="vlx-m-product" href="<?php echo esc_url( voltalux_page_link( $dl['slug'] ) ); ?>">
+									<span class="vlx-m-product__img"><?php echo voltalux_icon( isset( $dl['icon'] ) ? $dl['icon'] : 'roof' ); // phpcs:ignore ?></span>
+									<span class="vlx-m-product__t"><?php echo esc_html( $dl['label'] ); ?></span>
+									<span class="vlx-m-product__d"><?php echo esc_html( $dl['text'] ); ?></span>
+								</a>
+							<?php endforeach; ?>
+							<a class="vlx-m-product vlx-m-product--all" href="<?php echo esc_url( voltalux_page_link( 'dakdekker' ) ); ?>">
+								<span class="vlx-m-product__t"><?php esc_html_e( 'Alles over dakrenovatie', 'voltalux' ); ?> <?php echo voltalux_arrow_svg(); // phpcs:ignore ?></span>
+							</a>
+						</div></div></div>
+					</li>
+					<?php endif; ?>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'werkwijze' ) ); ?>"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'onze-projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>

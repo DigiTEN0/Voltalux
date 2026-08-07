@@ -51,9 +51,6 @@ if ( has_post_thumbnail() ) {
 		<span class="vlx-hero-figure__name"><?php echo esc_html( $svc['kind'] ); ?></span>
 	</div>
 	<?php
-	if ( current_user_can( 'edit_pages' ) ) {
-		echo '<span class="vlx-hero-figure__hint">' . esc_html__( 'Voeg hier je eigen foto toe via Pagina’s → deze pagina → Uitgelichte afbeelding.', 'voltalux' ) . '</span>';
-	}
 }
 $hero_media = '<figure class="vlx-hero-figure">' . ob_get_clean() . '</figure>';
 
