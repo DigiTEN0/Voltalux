@@ -359,90 +359,430 @@ function voltalux_services_content() {
 			),
 			'dak-reparatie' => array(
 				'kind'    => __( 'Dakreparatie', 'voltalux' ),
-				'icon'    => 'roof',
+				'icon'    => 'shield',
 				'eyebrow' => __( 'Dakrenovatie', 'voltalux' ),
-				'h1'      => __( 'Dakreparatie door betrouwbare [mark]dakdekkers[/mark]', 'voltalux' ),
-				'lead'    => __( 'Lekkage of schade aan je dak? Laat het snel en vakkundig repareren door Voltalux. Van lekkages tot beschadigde daken en complete renovaties — vraag nu een gratis adviesgesprek aan.', 'voltalux' ),
+				'h1'      => __( 'Dakreparatie door gecertificeerde [mark]dakdekkers[/mark]', 'voltalux' ),
+				'lead'    => __( 'Heeft je dak schade door breuk of lekkage? Wacht niet langer en schakel een expert in. Onze dakdekkers lossen het snel en vakkundig op, zodat we verdere schade voorkomen. We verhelpen lekkages, repareren kapotte dakpannen en herstellen scheuren in je dakkapel. Neem direct contact op voor een gratis adviesgesprek en een snelle reparatie.', 'voltalux' ),
 				'usps'    => array(
-					array( 'icon' => 'clock', 'title' => __( 'Snel ter plaatse', 'voltalux' ), 'text' => __( 'Bij lekkage handelen we snel om vervolgschade te voorkomen.', 'voltalux' ) ),
-					array( 'icon' => 'shield', 'title' => __( 'Vakkundig hersteld', 'voltalux' ), 'text' => __( 'Erkende dakdekkers verhelpen de oorzaak, niet alleen het symptoom.', 'voltalux' ) ),
-					array( 'icon' => 'euro', 'title' => __( 'Eerlijke prijs', 'voltalux' ), 'text' => __( 'Een heldere offerte, ook voor spoedreparaties.', 'voltalux' ) ),
+					array( 'icon' => 'shield', 'title' => __( 'Professionele reparatie van je dak', 'voltalux' ), 'text' => __( 'Onze dakdekkers hebben jarenlange ervaring met het herstellen van alle soorten daken.', 'voltalux' ) ),
+					array( 'icon' => 'clock', 'title' => __( 'We werken nauwkeurig en snel', 'voltalux' ), 'text' => __( 'We reageren snel op je hulpvraag en zorgen voor een vakkundige reparatie.', 'voltalux' ) ),
+					array( 'icon' => 'check', 'title' => __( 'Hoogwaardige materialen', 'voltalux' ), 'text' => __( 'Een duurzame reparatie begint bij de juiste materialen — we gebruiken alleen A-merken.', 'voltalux' ) ),
+				),
+				'sections' => array(
+					array(
+						'type'    => 'text',
+						'id'      => 'wanneer',
+						'nav'     => __( 'Wanneer nodig?', 'voltalux' ),
+						'eyebrow' => __( 'Advies', 'voltalux' ),
+						'title'   => __( 'Wanneer is een dakreparatie nodig?', 'voltalux' ),
+						'paras'   => array(
+							__( 'Een dakreparatie is nodig wanneer je dak schade heeft door weersinvloeden, ouderdom of slijtage. Een beschadigd dak leidt al snel tot lekkages, warmteverlies en andere problemen. Let op deze signalen:', 'voltalux' ),
+						),
+						'list'    => array(
+							__( 'Lekkages: vochtplekken op plafonds of muren.', 'voltalux' ),
+							__( 'Beschadigde dakbedekking: scheuren in bitumen, loszittende of missende dakpannen.', 'voltalux' ),
+							__( 'Loslatend houtwerk of lood: houtrot of beschadigd lood rond schoorsteen of dakrand.', 'voltalux' ),
+							__( 'Energieverlies: een hoger energieverbruik kan wijzen op schade of slechte isolatie.', 'voltalux' ),
+							__( 'Veiligheidsrisico’s: losse dakpannen of scheve dakgoten.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'eyebrow' => __( 'Specialismen', 'voltalux' ),
+						'title'   => __( 'Verschillende soorten dakreparatie', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'roof', 'title' => __( 'Plat dak repareren', 'voltalux' ), 'text' => __( 'Dakbedekking vervangen, isolatie verbeteren of de dakconstructie vernieuwen — we bespreken de beste optie.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Schuin dak repareren', 'voltalux' ), 'text' => __( 'We herstellen kapotte dakpannen en de onderliggende constructie voor een stevig, waterdicht resultaat.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Dakpannen repareren', 'voltalux' ), 'text' => __( 'Verschoven of gebroken dakpannen vervangen we vakkundig; we controleren direct op onderliggende schade.', 'voltalux' ) ),
+							array( 'icon' => 'shield', 'title' => __( 'Bitumen dak repareren', 'voltalux' ), 'text' => __( 'Scheuren herstellen we of we brengen een nieuwe laag aan als de huidige te veel slijtage vertoont.', 'voltalux' ) ),
+							array( 'icon' => 'home', 'title' => __( 'Dakkapel repareren', 'voltalux' ), 'text' => __( 'Rot hout, lekkende naden of beschadigde dakbedekking rond de dakkapel lossen we op.', 'voltalux' ) ),
+							array( 'icon' => 'check', 'title' => __( 'Complete dakrenovatie', 'voltalux' ), 'text' => __( 'Bij structurele schade vervangen we de dakbedekking, vernieuwen we de constructie en isoleren we direct.', 'voltalux' ) ),
+							array( 'icon' => 'shield', 'title' => __( 'Lekkage oplossen', 'voltalux' ), 'text' => __( 'We sporen het probleem op en maken je dak weer volledig waterdicht.', 'voltalux' ) ),
+							array( 'icon' => 'clock', 'title' => __( 'Spoedreparatie', 'voltalux' ), 'text' => __( 'Bij stormschade of ernstige lekkages kun je rekenen op onze snelle service. Bel ons direct.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'    => 'text',
+						'id'      => 'kosten',
+						'nav'     => __( 'Kosten', 'voltalux' ),
+						'eyebrow' => __( 'Kosten', 'voltalux' ),
+						'title'   => __( 'Wat kost een dakreparatie?', 'voltalux' ),
+						'paras'   => array(
+							__( 'De kosten hangen af van het type dak, de schade en de benodigde materialen. Bij Voltalux starten eenvoudige reparaties, zoals het herstellen van een plat dak met bitumen, vanaf € 40,- per m². Voor grotere werkzaamheden maken we een transparante offerte op maat. Plan een gratis adviesgesprek en krijg direct duidelijkheid.', 'voltalux' ),
+						),
+						'cta'     => true,
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'Zelf repareren of laten repareren?', 'voltalux' ),
+						'paras' => array(
+							__( 'Zelf aan de slag gaan lijkt een manier om kosten te besparen, maar het brengt risico’s met zich mee. Zonder de juiste kennis leiden kleine fouten al snel tot grotere schade, lekkages of gevaarlijke situaties. Bij Voltalux ben je verzekerd van vakmanschap en kwaliteit — laat het werk aan ons over en bespaar jezelf tijd, moeite en problemen.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'  => 'text',
+						'alt'   => true,
+						'title' => __( 'Voorkom dat een dakreparatie nodig is', 'voltalux' ),
+						'paras' => array(
+							__( 'Een goed onderhouden dak gaat langer mee en voorkomt onverwachte reparaties. Met deze tips spoor je schade vroegtijdig op:', 'voltalux' ),
+						),
+						'list'  => array(
+							__( 'Plan regelmatig onderhoud en een jaarlijkse dakinspectie.', 'voltalux' ),
+							__( 'Houd de dakgoten schoon en trim overhangende takken.', 'voltalux' ),
+							__( 'Zorg voor goede ventilatie en controleer de afdichtingen.', 'voltalux' ),
+							__( 'Bescherm de dakbedekking tegen UV-straling.', 'voltalux' ),
+						),
+					),
 				),
 				'faq'     => array(
-					array( __( 'Kunnen jullie een lekkage snel verhelpen?', 'voltalux' ), __( 'Ja. We komen zo snel mogelijk langs, sporen de oorzaak op en herstellen de lekkage vakkundig om verdere schade te voorkomen.', 'voltalux' ) ),
-					array( __( 'Repareren of vervangen — wat is verstandiger?', 'voltalux' ), __( 'Dat beoordelen we tijdens de inspectie. Soms volstaat een reparatie, soms is (gedeeltelijke) vervanging voordeliger op de lange termijn. Je krijgt een eerlijk advies.', 'voltalux' ) ),
+					array( __( 'Hoe ontstaat schade aan je dak?', 'voltalux' ), __( 'Schade ontstaat vaak door weersinvloeden zoals storm, regen, hagel en UV-straling. Andere oorzaken zijn slijtage door ouderdom, slecht onderhoud, overhangende takken en verstoppingen in de dakgoten. Ook slechte ventilatie en gebrekkige afdichtingen rond dakramen en schoorstenen veroorzaken problemen.', 'voltalux' ) ),
+					array( __( 'Hoe repareer ik de dakbedekking van mijn dak?', 'voltalux' ), __( 'Begin met een grondige inspectie. Kleine beschadigingen los je op door te reinigen, scheuren te dichten met bitumenkit of reparatietape, losse dakpannen te vervangen en lekkages af te dichten met een reparatiestrook of nieuwe laag bitumen. Bij grotere schade of twijfel schakel je een professionele dakdekker in.', 'voltalux' ) ),
+					array( __( 'Wat kost een dakreparatie?', 'voltalux' ), __( 'De kosten variëren met het type dak, de omvang van de schade en het materiaal. Onze prijzen voor eenvoudige reparaties beginnen vanaf € 40,- per m². Voor een nauwkeurige indicatie maken we een vrijblijvende offerte.', 'voltalux' ) ),
+					array( __( 'Hoe is de prijs van een dakreparatie opgebouwd?', 'voltalux' ), __( 'De prijs hangt af van het type dak (plat is vaak goedkoper dan schuin), de omvang van de schade, de gebruikte materialen, de arbeidskosten en eventuele extra’s zoals voorrijkosten of spoedtoeslagen. Je ontvangt een transparante offerte waarin alle factoren zijn opgenomen.', 'voltalux' ) ),
 				),
 				'cta'     => array( 'title' => __( 'Dak laten repareren?', 'voltalux' ), 'text' => __( 'Vraag een gratis adviesgesprek aan — we inspecteren en herstellen vakkundig.', 'voltalux' ) ),
 			),
+
 			'dakisolatie' => array(
 				'kind'    => __( 'Dakisolatie', 'voltalux' ),
-				'icon'    => 'roof',
+				'icon'    => 'leaf',
 				'eyebrow' => __( 'Dakrenovatie', 'voltalux' ),
-				'h1'      => __( 'Dakisolatie voor [mark]lagere energiekosten[/mark]', 'voltalux' ),
-				'lead'    => __( 'Kies voor dakisolatie van Voltalux en geniet van lagere energiekosten en een comfortabeler huis. Erkende dakdekkers isoleren je dak vakkundig — plan een gratis adviesgesprek.', 'voltalux' ),
+				'h1'      => __( 'Dakisolatie door erkende [mark]installateurs[/mark]', 'voltalux' ),
+				'lead'    => __( 'Bij een slecht geïsoleerd dak ontsnapt al gauw 30% van de warmte uit je woning — dat zorgt voor hogere energiekosten en minder wooncomfort. Kies daarom voor dakisolatie van Voltalux. Onze erkende installateurs werken met de beste materialen en zorgen voor een nauwkeurige afwerking, zodat je snel geniet van een warm huis in de winter, een koele woning in de zomer en een lagere energierekening.', 'voltalux' ),
 				'usps'    => array(
-					array( 'icon' => 'euro', 'title' => __( 'Direct besparen', 'voltalux' ), 'text' => __( 'Minder warmteverlies betekent een lagere energierekening.', 'voltalux' ) ),
-					array( 'icon' => 'home', 'title' => __( 'Comfortabeler wonen', 'voltalux' ), 'text' => __( 'Warm in de winter, koeler in de zomer.', 'voltalux' ) ),
-					array( 'icon' => 'leaf', 'title' => __( 'Hoger energielabel', 'voltalux' ), 'text' => __( 'Goede isolatie verhoogt de waarde van je woning.', 'voltalux' ) ),
+					array( 'icon' => 'shield', 'title' => __( 'Dakisolatie door erkende installateurs', 'voltalux' ), 'text' => __( 'We werken alleen met onze eigen, gecertificeerde mensen.', 'voltalux' ) ),
+					array( 'icon' => 'clock', 'title' => __( 'Nauwkeurige isolatie van je dak', 'voltalux' ), 'text' => __( 'We gaan snel te werk, zodat je snel profiteert van een beter geïsoleerd dak.', 'voltalux' ) ),
+					array( 'icon' => 'euro', 'title' => __( 'Kwaliteit voor een voordelige prijs', 'voltalux' ), 'text' => __( 'Dakisolatie met materiaal van A-merken voor de hoogste kwaliteit.', 'voltalux' ) ),
+				),
+				'sections' => array(
+					array(
+						'type'  => 'text',
+						'title' => __( 'De voordelen van dakisolatie', 'voltalux' ),
+						'list'  => array(
+							__( 'Lagere energiekosten: je bespaart direct, zowel in de winter als in de zomer.', 'voltalux' ),
+							__( 'Aangenaam binnenklimaat: warmte blijft binnen in de winter en buiten in de zomer.', 'voltalux' ),
+							__( 'Hogere woningwaarde: een goed geïsoleerd dak maakt je huis aantrekkelijker.', 'voltalux' ),
+							__( 'Minder geluidsoverlast dankzij de verbeterde isolatie.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'eyebrow' => __( 'Soorten daken', 'voltalux' ),
+						'title'   => __( 'Verschillende soorten daken isoleren', 'voltalux' ),
+						'lead'    => __( 'Of je nu een plat of schuin dak hebt — we checken eerst de staat van je dak en geven eerlijk advies over de slimste aanpak.', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'roof', 'title' => __( 'Plat dak isoleren', 'voltalux' ), 'text' => __( 'We isoleren aan de buitenkant of brengen een extra bitumenlaag aan, met hoogwaardige PIR-isolatie. Vanaf € 60,- per m² (excl. btw).', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Schuin dak isoleren', 'voltalux' ), 'text' => __( 'Isolatie aan de binnenzijde (tussen de dakspanten) of buitenzijde (op de dakconstructie) voor betere luchtdichtheid en minder warmteverlies.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'title'   => __( 'Binnen- of buitenkant dak isoleren?', 'voltalux' ),
+						'lead'    => __( 'Welke optie het beste is, hangt af van de staat van je dak en je wensen voor comfort en energiebesparing.', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'home', 'title' => __( 'Dakisolatie binnenzijde', 'voltalux' ), 'text' => __( 'We plaatsen isolatiemateriaal tussen de dakspanten, zonder de bestaande dakbedekking te verwijderen — snel en effectief.', 'voltalux' ) ),
+							array( 'icon' => 'shield', 'title' => __( 'Dakisolatie buitenzijde', 'voltalux' ), 'text' => __( 'De beste prestaties: we verwijderen de dakbedekking, plaatsen PIR-isolatie en werken af met nieuwe dakbedekking. Ideaal bij dakrenovatie.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'    => 'text',
+						'id'      => 'kosten',
+						'nav'     => __( 'Kosten', 'voltalux' ),
+						'eyebrow' => __( 'Kosten', 'voltalux' ),
+						'title'   => __( 'Kosten dakisolatie', 'voltalux' ),
+						'paras'   => array(
+							__( 'De kosten hangen af van het type dak en de gekozen materialen. Voor een plat dak starten de prijzen vanaf € 60,- per m² (excl. btw) met hoogwaardige PIR-isolatie. Dankzij de overheidssubsidie van € 15,- per m² bespaar je direct op de investering.', 'voltalux' ),
+						),
+						'cta'     => true,
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'Subsidies en leningen', 'voltalux' ),
+						'paras' => array(
+							__( 'Profiteer van de ISDE-subsidie van € 15,- per m² voor het isoleren van je dak. Voer je binnen 24 maanden een tweede maatregel uit, dan stijgt dit naar € 30,- per m². Voltalux helpt je stap voor stap bij de aanvraag. Daarnaast kun je via het Nationaal Warmtefonds een lening met 0% rente afsluiten als je inkomen onder de € 60.000,- ligt.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'title'   => __( 'Zelf isoleren of een dakdekker inschakelen?', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'home', 'title' => __( 'Zelf dakisolatie aanbrengen', 'voltalux' ), 'text' => __( 'Zelf isoleren leidt vaak tot warmtelekken, vochtproblemen of schimmel. Bovendien heb je geen recht op subsidie: die geldt alleen als een erkend bedrijf de werkzaamheden uitvoert.', 'voltalux' ) ),
+							array( 'icon' => 'shield', 'title' => __( 'Professionele dakisolatie', 'voltalux' ), 'text' => __( 'Onze specialisten isoleren je dak nauwkeurig en volledig luchtdicht, met garantie op de afwerking. Zo voorkom je fouten en bespaar je jaar na jaar.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'  => 'text',
+						'alt'   => true,
+						'title' => __( 'Combineer dakisolatie met andere maatregelen', 'voltalux' ),
+						'paras' => array(
+							__( 'Bij Voltalux combineer je dakisolatie eenvoudig met andere energiebesparende oplossingen, zoals zonnepanelen of een warmtepomp. Zo profiteer je van:', 'voltalux' ),
+						),
+						'list'  => array(
+							__( 'Een beter energielabel — voordelig voor je energiekosten én de verkoopwaarde.', 'voltalux' ),
+							__( 'Energieneutraal wonen en minder afhankelijkheid van fossiele brandstoffen.', 'voltalux' ),
+							__( 'Een lager gasverbruik en dus een lagere energierekening.', 'voltalux' ),
+						),
+					),
 				),
 				'faq'     => array(
-					array( __( 'Levert dakisolatie echt besparing op?', 'voltalux' ), __( 'Ja. Een groot deel van het warmteverlies gaat via het dak. Goede dakisolatie verlaagt je stookkosten merkbaar en verdient zichzelf terug.', 'voltalux' ) ),
-					array( __( 'Kan dakisolatie samen met een dakrenovatie?', 'voltalux' ), __( 'Absoluut. Isolatie combineren met dakwerk of zonnepanelen is efficiënt en kostenbesparend — we stemmen alles op elkaar af.', 'voltalux' ) ),
+					array( __( 'Wat is dakisolatie?', 'voltalux' ), __( 'Dakisolatie is het aanbrengen van isolatiemateriaal op of onder het dak om warmteverlies te voorkomen. Dit houdt je huis in de winter warmer en in de zomer koeler, waardoor je minder energie verbruikt.', 'voltalux' ) ),
+					array( __( 'Waarom is dakisolatie belangrijk?', 'voltalux' ), __( 'Dakisolatie voorkomt warmteverlies en maakt je woning energiezuiniger. Zo verlaag je de energiekosten en verbeter je het comfort in huis, zowel in de winter als in de zomer.', 'voltalux' ) ),
+					array( __( 'Kan ik subsidie krijgen voor dakisolatie?', 'voltalux' ), __( 'Je kunt gebruikmaken van de ISDE-subsidie: € 15,- per m² voor één maatregel, of € 30,- per m² als je binnen 24 maanden een tweede maatregel uitvoert. Daarnaast biedt het Nationaal Warmtefonds een lening met 0% rente als je inkomen onder de € 60.000,- ligt.', 'voltalux' ) ),
+					array( __( 'Wat kost dakisolatie per m²?', 'voltalux' ), __( 'Voor een schuin dak betaal je gemiddeld € 20 tot € 50 per m² (binnenkant) en € 40 tot € 60 per m² (buitenkant). Bij een plat dak liggen de kosten voor binnenisolatie tussen € 25 en € 40 per m² en voor buitenisolatie tussen € 45 en € 100 per m².', 'voltalux' ) ),
 				),
-				'cta'     => array( 'title' => __( 'Je dak laten isoleren?', 'voltalux' ), 'text' => __( 'Vraag een gratis adviesgesprek aan met onze erkende dakdekkers.', 'voltalux' ) ),
+				'cta'     => array( 'title' => __( 'Je dak laten isoleren?', 'voltalux' ), 'text' => __( 'Vraag een gratis adviesgesprek aan met onze erkende installateurs.', 'voltalux' ) ),
 			),
+
 			'dakkapel-plaatsen' => array(
 				'kind'    => __( 'Dakkapel plaatsen', 'voltalux' ),
-				'icon'    => 'roof',
+				'icon'    => 'home',
 				'eyebrow' => __( 'Dakrenovatie', 'voltalux' ),
-				'h1'      => __( 'Dakkapel plaatsen — meer [mark]licht en ruimte[/mark]', 'voltalux' ),
-				'lead'    => __( 'Kies voor een duurzame dakkapel van Voltalux: meer licht en ruimte in huis, vakkundig geplaatst door ervaren dakdekkers. Plan een gratis adviesgesprek en ontdek de mogelijkheden en afmetingen.', 'voltalux' ),
+				'h1'      => __( 'Dakkapel plaatsen door ervaren [mark]dakdekkers[/mark]', 'voltalux' ),
+				'lead'    => __( 'Een dakkapel zorgt voor extra licht, meer ruimte én een hogere woningwaarde. De dakdekkers van Voltalux plaatsen een stijlvolle, duurzame dakkapel die precies past bij je woning. Onze specialisten werken snel en nauwkeurig, zodat jij binnen de kortste keren geniet van je nieuwe leefruimte.', 'voltalux' ),
 				'usps'    => array(
-					array( 'icon' => 'home', 'title' => __( 'Meer leefruimte', 'voltalux' ), 'text' => __( 'Maak optimaal gebruik van je zolder.', 'voltalux' ) ),
-					array( 'icon' => 'shield', 'title' => __( 'Vakkundig geplaatst', 'voltalux' ), 'text' => __( 'Netjes en waterdicht afgewerkt door erkende dakdekkers.', 'voltalux' ) ),
-					array( 'icon' => 'leaf', 'title' => __( 'Goed geïsoleerd', 'voltalux' ), 'text' => __( 'Een duurzame dakkapel houdt warmte binnen.', 'voltalux' ) ),
+					array( 'icon' => 'shield', 'title' => __( 'Professionele plaatsing', 'voltalux' ), 'text' => __( 'We werken met onze eigen, ervaren dakdekkers.', 'voltalux' ) ),
+					array( 'icon' => 'clock', 'title' => __( 'Nauwkeurig geplaatst', 'voltalux' ), 'text' => __( 'Snel en efficiënt, zodat je vlot plezier hebt van je nieuwe dakkapel.', 'voltalux' ) ),
+					array( 'icon' => 'euro', 'title' => __( 'Kwaliteit voor een scherpe prijs', 'voltalux' ), 'text' => __( 'We plaatsen dakkapellen van materiaal van de hoogste kwaliteit.', 'voltalux' ) ),
+				),
+				'sections' => array(
+					array(
+						'type'  => 'text',
+						'title' => __( 'Wat is een dakkapel?', 'voltalux' ),
+						'paras' => array(
+							__( 'Een dakkapel is dé oplossing om je zolder om te toveren tot een lichte, functionele ruimte — denk aan een extra slaapkamer of een handige thuiswerkplek. Het voegt comfort en gebruiksgemak toe en maakt de uitstraling van je huis mooier.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'De voordelen van een dakkapel', 'voltalux' ),
+						'list'  => array(
+							__( 'Meer natuurlijk licht in huis.', 'voltalux' ),
+							__( 'Extra ruimte en wooncomfort.', 'voltalux' ),
+							__( 'Een hogere woningwaarde.', 'voltalux' ),
+							__( 'Energiezuinig dankzij isolerende materialen.', 'voltalux' ),
+							__( 'Diverse stijlen en afwerkingen mogelijk.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'eyebrow' => __( 'Soorten', 'voltalux' ),
+						'title'   => __( 'We plaatsen verschillende soorten dakkapellen', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'home', 'title' => __( 'Kunststof dakkapel', 'voltalux' ), 'text' => __( 'Onderhoudsarm, duurzaam en in verschillende kleuren. Bestand tegen alle weer en met uitstekende isolatie.', 'voltalux' ) ),
+							array( 'icon' => 'home', 'title' => __( 'Houten dakkapel', 'voltalux' ), 'text' => __( 'Een warme, authentieke uitstraling — ideaal voor klassieke woningen en veel maatwerk mogelijk.', 'voltalux' ) ),
+							array( 'icon' => 'home', 'title' => __( 'Polyester dakkapel', 'voltalux' ), 'text' => __( 'Licht van gewicht en in één stuk gemaakt: snelle plaatsing en minimale kans op lekkages.', 'voltalux' ) ),
+							array( 'icon' => 'clock', 'title' => __( 'Prefab dakkapel', 'voltalux' ), 'text' => __( 'Volledig in de fabriek geproduceerd voor constante kwaliteit — en in slechts één dag geplaatst.', 'voltalux' ) ),
+							array( 'icon' => 'shield', 'title' => __( 'Traditionele dakkapel', 'voltalux' ), 'text' => __( 'Op maat gemaakt en ter plekke opgebouwd, met eindeloze mogelijkheden in materiaal, stijl en afwerking.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'Afmetingen dakkapel', 'voltalux' ),
+						'paras' => array(
+							__( 'De afmetingen bepalen de uitstraling én het gebruiksgemak. Je kunt kiezen uit prefab varianten of volledig op maat. Enkele veelvoorkomende breedtes:', 'voltalux' ),
+						),
+						'list'  => array(
+							__( '1,5 meter — ideaal voor kleine ruimtes of zolderkamers.', 'voltalux' ),
+							__( '2,5 meter — geschikt voor extra licht en een ruimtelijk effect.', 'voltalux' ),
+							__( '4 meter — perfect voor grotere slaapkamers of werkruimtes.', 'voltalux' ),
+							__( '6 meter — voor maximale ruimte over de volledige daklengte.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'text',
+						'id'      => 'kosten',
+						'nav'     => __( 'Kosten', 'voltalux' ),
+						'eyebrow' => __( 'Kosten', 'voltalux' ),
+						'title'   => __( 'Wat kost een dakkapel?', 'voltalux' ),
+						'paras'   => array(
+							__( 'De kosten hangen af van de afmetingen, het materiaal en de gewenste afwerking. Bij Voltalux starten de prijzen vanaf € 1.500,- voor een dakkapel van een meter breed. In sommige gemeenten zijn subsidies beschikbaar om je huis te verduurzamen — informeer naar de mogelijkheden of vraag ons om advies.', 'voltalux' ),
+						),
+						'cta'     => true,
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'Heb ik een vergunning nodig?', 'voltalux' ),
+						'paras' => array(
+							__( 'Vaak kun je vergunningsvrij bouwen, mits je aan specifieke regels voldoet. De voorwaarden voor vergunningsvrij bouwen zijn onder andere:', 'voltalux' ),
+						),
+						'list'  => array(
+							__( 'De dakkapel wordt geplaatst aan de achter- of zijkant van het huis.', 'voltalux' ),
+							__( 'De breedte is maximaal 5 meter.', 'voltalux' ),
+							__( 'De dakkapel blijft minimaal 0,5 meter van de dakrand.', 'voltalux' ),
+							__( 'De totale hoogte is niet meer dan 1,75 meter.', 'voltalux' ),
+							__( 'Het dak heeft een minimale helling van 30 graden.', 'voltalux' ),
+						),
+					),
 				),
 				'faq'     => array(
-					array( __( 'Heb ik een vergunning nodig voor een dakkapel?', 'voltalux' ), __( 'Vaak is een dakkapel aan de achterkant vergunningsvrij, maar dit verschilt per gemeente en situatie. We denken met je mee en adviseren over de mogelijkheden.', 'voltalux' ) ),
-					array( __( 'Wat kost een dakkapel plaatsen?', 'voltalux' ), __( 'De prijs hangt af van de afmetingen en uitvoering. Na een adviesgesprek ontvang je een offerte op maat.', 'voltalux' ) ),
+					array( __( 'Is het laten plaatsen van een dakkapel duur?', 'voltalux' ), __( 'De kosten hangen af van de grootte, het materiaal en de afwerking. Er zijn opties voor verschillende budgetten, van eenvoudig tot luxueus.', 'voltalux' ) ),
+					array( __( 'Is een dakkapel prijsvast?', 'voltalux' ), __( 'De prijs staat vast zodra je een offerte hebt geaccepteerd. Extra kosten ontstaan alleen bij wijzigingen in het ontwerp of onverwachte complicaties.', 'voltalux' ) ),
+					array( __( 'Hoelang duurt het plaatsen van een dakkapel?', 'voltalux' ), __( 'Een prefab dakkapel plaatsen we meestal in één dag. Traditionele dakkapellen kunnen enkele dagen duren, afhankelijk van de complexiteit.', 'voltalux' ) ),
+					array( __( 'Wanneer kies je voor een prefab dakkapel?', 'voltalux' ), __( 'Een prefab dakkapel is ideaal als je snel resultaat wilt zonder in te leveren op kwaliteit — een voordelige en efficiënte oplossing.', 'voltalux' ) ),
+					array( __( 'Is een prefab dakkapel geschikt voor mijn woning?', 'voltalux' ), __( 'Een prefab dakkapel is geschikt voor de meeste woningen met een hellend dak en een goede keuze als je een snelle, betaalbare oplossing zoekt.', 'voltalux' ) ),
+					array( __( 'Waar moet ik rekening mee houden op de dag van plaatsing?', 'voltalux' ), __( 'Zorg dat de ruimte rond je huis vrij is van obstakels, zodat we de dakkapel makkelijk kunnen plaatsen. Houd ook rekening met geluid en eventuele toegang voor een hijskraan.', 'voltalux' ) ),
 				),
 				'cta'     => array( 'title' => __( 'Dakkapel laten plaatsen?', 'voltalux' ), 'text' => __( 'Plan een gratis adviesgesprek — we bespreken afmetingen, uitvoering en prijs.', 'voltalux' ) ),
 			),
+
 			'dakpannen-vervangen' => array(
 				'kind'    => __( 'Dakpannen vervangen', 'voltalux' ),
 				'icon'    => 'roof',
 				'eyebrow' => __( 'Dakrenovatie', 'voltalux' ),
 				'h1'      => __( 'Dakpannen vervangen door [mark]dakdekkersbedrijf[/mark] Voltalux', 'voltalux' ),
-				'lead'    => __( 'Dakpannen laten vervangen of een pannendak vernieuwen? Ontdek de kosten, levensduur en mogelijkheden bij Voltalux. Erkende dakdekkers zorgen voor een strak en waterdicht resultaat — vraag een gratis adviesgesprek aan.', 'voltalux' ),
+				'lead'    => __( 'Zijn je dakpannen beschadigd, versleten of verschoven? Wacht niet te lang en voorkom grotere problemen. Onze ervaren dakdekkers vervangen je dakpannen snel en vakkundig, zodat je dak weer volledig beschermd is tegen weer en wind. We adviseren je over de beste opties en zorgen voor een duurzaam, strak resultaat.', 'voltalux' ),
 				'usps'    => array(
-					array( 'icon' => 'shield', 'title' => __( 'Strak en waterdicht', 'voltalux' ), 'text' => __( 'Nieuwe pannen vakkundig gelegd, jarenlang zorgeloos.', 'voltalux' ) ),
-					array( 'icon' => 'euro', 'title' => __( 'Eerlijke offerte', 'voltalux' ), 'text' => __( 'Heldere prijs voor vervangen of vernieuwen van je pannendak.', 'voltalux' ) ),
-					array( 'icon' => 'check', 'title' => __( 'Gratis inspectie', 'voltalux' ), 'text' => __( 'We beoordelen de staat van je pannen en het onderliggende dak.', 'voltalux' ) ),
+					array( 'icon' => 'shield', 'title' => __( 'Professioneel pannendak vervangen', 'voltalux' ), 'text' => __( 'Bij Voltalux vervangen we je pannendak vakkundig en snel.', 'voltalux' ) ),
+					array( 'icon' => 'check', 'title' => __( 'Nauwkeurig dakpannen leggen', 'voltalux' ), 'text' => __( 'We leggen je dakpannen zorgvuldig en waterdicht, voor jarenlange bescherming.', 'voltalux' ) ),
+					array( 'icon' => 'euro', 'title' => __( 'Dakpannen van hoge kwaliteit', 'voltalux' ), 'text' => __( 'We werken uitsluitend met dakpannen van de hoogste kwaliteit.', 'voltalux' ) ),
+				),
+				'sections' => array(
+					array(
+						'type'  => 'text',
+						'title' => __( 'Waarom je pannendak vervangen?', 'voltalux' ),
+						'paras' => array(
+							__( 'Een pannendak vervangen is meer dan schade herstellen; het is een investering in de toekomst van je woning. Nieuwe dakpannen verbeteren de isolatie — dat zorgt voor een lagere energierekening en meer comfort — en verhogen de waarde van je huis. Bovendien maak je je woning weer weerbestendig en klaar voor de toekomst.', 'voltalux' ),
+							__( 'Vervangen is nodig wanneer de dakpannen hun beschermende functie verliezen. Let op deze signalen:', 'voltalux' ),
+						),
+						'list'  => array(
+							__( 'Scheuren of breuken: beschadigde dakpannen laten vocht door.', 'voltalux' ),
+							__( 'Verschoven of missende dakpannen: je dak wordt kwetsbaar bij wind en regen.', 'voltalux' ),
+							__( 'Mos- en algengroei: dit tast de dakpannen aan en veroorzaakt waterophoping.', 'voltalux' ),
+							__( 'Leeftijd: zijn de dakpannen ouder dan 30 jaar, dan is vervanging vaak nodig.', 'voltalux' ),
+							__( 'Slechte isolatie: oude dakpannen veroorzaken warmteverlies en hogere energiekosten.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'eyebrow' => __( 'Materialen', 'voltalux' ),
+						'title'   => __( 'Verschillende soorten dakpannen', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'roof', 'title' => __( 'Keramische dakpannen', 'voltalux' ), 'text' => __( 'Traditioneel, authentiek, duurzaam en kleurvast — perfect voor klassieke woningen.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Betonnen dakpannen', 'voltalux' ), 'text' => __( 'Een lange levensduur en voordelig; vooral te zien op modernere woningen.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Kunststof dakpannen', 'voltalux' ), 'text' => __( 'Lichtgewicht en onderhoudsarm, ideaal voor minder draagkrachtige daken.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Dakpanplaten', 'voltalux' ), 'text' => __( 'Een snelle en betaalbare optie die we vooral bij dakrenovaties gebruiken.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Geglazuurde dakpannen', 'voltalux' ), 'text' => __( 'Een luxe uitstraling met extra bescherming tegen vuil en mos.', 'voltalux' ) ),
+							array( 'icon' => 'roof', 'title' => __( 'Oud-Hollandse dakpannen', 'voltalux' ), 'text' => __( 'De typische, golvende dakpannen: tijdloos en ideaal voor historische panden.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'Zelf een dakpan vervangen of laten vervangen?', 'voltalux' ),
+						'paras' => array(
+							__( 'Een enkele dakpan zelf vervangen kan, maar zonder ervaring loop je risico op meer schade of gevaarlijke situaties op hoogte. Gaat het om een compleet pannendak? Laat het werk dan altijd uitvoeren door een dakdekkersbedrijf zoals Voltalux. We zorgen voor veilige, vakkundige plaatsing en controleren de dakconstructie direct op verborgen gebreken.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'text',
+						'id'      => 'kosten',
+						'nav'     => __( 'Kosten', 'voltalux' ),
+						'eyebrow' => __( 'Kosten', 'voltalux' ),
+						'title'   => __( 'Kosten dakpannen vervangen', 'voltalux' ),
+						'paras'   => array(
+							__( 'De kosten zijn afhankelijk van je situatie. Je ontvangt altijd een transparante offerte op maat. De prijs wordt onder andere bepaald door:', 'voltalux' ),
+						),
+						'list'    => array(
+							__( 'Het type dakpannen.', 'voltalux' ),
+							__( 'De omvang van het dak.', 'voltalux' ),
+							__( 'De staat van de dakconstructie.', 'voltalux' ),
+							__( 'De bereikbaarheid van het dak.', 'voltalux' ),
+							__( 'Eventuele extra’s, zoals het aanbrengen van dakisolatie.', 'voltalux' ),
+						),
+						'cta'     => true,
+					),
+					array(
+						'type'  => 'text',
+						'alt'   => true,
+						'title' => __( 'Combineer met dakisolatie', 'voltalux' ),
+						'paras' => array(
+							__( 'Bij het vervangen van je pannendak is dit hét moment om direct te investeren in dakisolatie. Een goed geïsoleerd dak voorkomt warmteverlies in de winter, houdt je woning koel in de zomer en verlaagt je energiekosten aanzienlijk. Zo profiteer je van een duurzame oplossing die je wooncomfort verhoogt en de levensduur van je dak verlengt.', 'voltalux' ),
+						),
+					),
 				),
 				'faq'     => array(
-					array( __( 'Hoe lang gaan dakpannen mee?', 'voltalux' ), __( 'Kwaliteitspannen gaan tientallen jaren mee. Bij vervanging controleren we ook de panlatten en het onderdak, zodat het geheel weer als nieuw is.', 'voltalux' ) ),
-					array( __( 'Alle pannen vervangen of alleen de kapotte?', 'voltalux' ), __( 'Dat hangt af van de staat van het dak. Soms volstaat gedeeltelijk herstel; bij een verouderd dak is volledig vervangen verstandiger. Je krijgt een eerlijk advies.', 'voltalux' ) ),
+					array( __( 'Wat kost het vervangen van een pannendak?', 'voltalux' ), __( 'De kosten zijn afhankelijk van het type dakpan, de omvang van het dak en de staat van de dakconstructie. Extra werkzaamheden, zoals isolatie of versteviging, kunnen de prijs verhogen.', 'voltalux' ) ),
+					array( __( 'Hoe oud mogen dakpannen zijn?', 'voltalux' ), __( 'Dakpannen gaan gemiddeld 30 tot 50 jaar mee, afhankelijk van het materiaal en onderhoud. Keramische dakpannen gaan langer mee dan betonnen. Bij zichtbare slijtage of scheuren is vervanging nodig, ook binnen die periode.', 'voltalux' ) ),
+					array( __( 'Kun je zelf dakpannen vervangen?', 'voltalux' ), __( 'Een enkele dakpan vervangen kan zelf, maar vereist voorzichtigheid en de juiste techniek. Voor grotere projecten of volledige vervangingen schakel je beter een professional in om schade en onveilige situaties te voorkomen.', 'voltalux' ) ),
+					array( __( 'Hoe vervang ik een kapotte dakpan?', 'voltalux' ), __( 'Schuif de beschadigde dakpan voorzichtig omhoog en verwijder deze. Plaats de nieuwe dakpan op dezelfde plek op de panlatten, zodat deze goed aansluit. Let op dat je de dakconstructie of andere dakpannen niet beschadigt.', 'voltalux' ) ),
+					array( __( 'Hoe weet ik welke dakpannen ik heb?', 'voltalux' ), __( 'Kijk naar de vorm, het materiaal en eventuele merktekens aan de onderzijde. Veelvoorkomende soorten zijn keramische, betonnen en geglazuurde dakpannen. Bij twijfel bepaalt een dakdekker het type voor je.', 'voltalux' ) ),
+					array( __( 'Hoe vaak moeten dakpannen vervangen worden?', 'voltalux' ), __( 'Doorgaans na 30 tot 50 jaar, afhankelijk van slijtage, weersinvloeden en onderhoud.', 'voltalux' ) ),
+					array( __( 'Waarom geen zonnepanelen op oude dakpannen?', 'voltalux' ), __( 'Bij het plaatsen van zonnepanelen moeten de dakconstructie en dakpannen in goede staat zijn om de extra belasting veilig te dragen. Oude dakpannen hebben vaak onvoldoende draagkracht, wat het risico op lekkages of verzakking vergroot.', 'voltalux' ) ),
 				),
 				'cta'     => array( 'title' => __( 'Dakpannen laten vervangen?', 'voltalux' ), 'text' => __( 'Vraag een gratis adviesgesprek aan met onze dakdekkers.', 'voltalux' ) ),
 			),
+
 			'kunststof-kozijnen' => array(
 				'kind'    => __( 'Kunststof kozijnen', 'voltalux' ),
 				'icon'    => 'home',
 				'eyebrow' => __( 'Dakrenovatie', 'voltalux' ),
 				'h1'      => __( 'Kunststof kozijnen laten plaatsen — [mark]isolatie[/mark] en stijl', 'voltalux' ),
-				'lead'    => __( 'Kunststof kozijnen aanschaffen? Geniet van uitstekende isolatie, een lange levensduur en een stijlvolle uitstraling. Vraag een offerte aan en ontdek de mogelijkheden bij Voltalux.', 'voltalux' ),
+				'lead'    => __( 'Kunststof kozijnen zijn de perfecte combinatie van duurzaamheid, stijl en onderhoudsgemak. Ze passen bij elke woning en dragen bij aan een betere isolatie en lagere energiekosten. Kies voor kunststof kozijnen van Voltalux en profiteer van hoogwaardige kozijnen met een professionele plaatsing.', 'voltalux' ),
 				'usps'    => array(
-					array( 'icon' => 'leaf', 'title' => __( 'Uitstekende isolatie', 'voltalux' ), 'text' => __( 'Minder warmteverlies en lagere energiekosten.', 'voltalux' ) ),
-					array( 'icon' => 'clock', 'title' => __( 'Lange levensduur', 'voltalux' ), 'text' => __( 'Onderhoudsarm en jarenlang mooi.', 'voltalux' ) ),
-					array( 'icon' => 'home', 'title' => __( 'Stijlvolle uitstraling', 'voltalux' ), 'text' => __( 'Verkrijgbaar in diverse kleuren en stijlen.', 'voltalux' ) ),
+					array( 'icon' => 'shield', 'title' => __( 'Professionele plaatsing', 'voltalux' ), 'text' => __( 'Bij Voltalux combineren we vakmanschap met precisie.', 'voltalux' ) ),
+					array( 'icon' => 'clock', 'title' => __( 'Nauwkeurige werkwijze', 'voltalux' ), 'text' => __( 'Van de eerste meting tot de plaatsing werken we netjes en efficiënt.', 'voltalux' ) ),
+					array( 'icon' => 'check', 'title' => __( 'Hoge kwaliteit', 'voltalux' ), 'text' => __( 'Kies voor kwaliteit en geniet jarenlang van een perfect resultaat.', 'voltalux' ) ),
+				),
+				'sections' => array(
+					array(
+						'type'  => 'text',
+						'title' => __( 'Voordelen van kunststof kozijnen', 'voltalux' ),
+						'list'  => array(
+							__( 'Energiezuinig: verlaag je energierekening dankzij verbeterde isolatie.', 'voltalux' ),
+							__( 'Onderhoudsarm: nooit meer schilderen of schuren — een doekje volstaat.', 'voltalux' ),
+							__( 'Duurzaam: bestand tegen alle weersinvloeden en slijtage.', 'voltalux' ),
+							__( 'Stijlvol: keuze uit talloze kleuren en afwerkingen.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'cards',
+						'eyebrow' => __( 'Toepassingen', 'voltalux' ),
+						'title'   => __( 'Kunststof kozijnen voor ramen en deuren', 'voltalux' ),
+						'items'   => array(
+							array( 'icon' => 'home', 'title' => __( 'Kozijnen voor ramen', 'voltalux' ), 'text' => __( 'Voor licht, isolatie en comfort — vaste ramen, draai-kiepramen of schuiframen, altijd netjes afgewerkt.', 'voltalux' ) ),
+							array( 'icon' => 'shield', 'title' => __( 'Kozijnen voor deuren', 'voltalux' ), 'text' => __( 'Stevigheid met een mooi uiterlijk, geschikt voor voordeuren, achterdeuren en zelfs schuifpuien.', 'voltalux' ) ),
+						),
+					),
+					array(
+						'type'  => 'text',
+						'title' => __( 'Details en levensduur', 'voltalux' ),
+						'paras' => array(
+							__( 'We maken onze kunststof kozijnen volledig op maat. Enkele kenmerken waarmee ze zich onderscheiden:', 'voltalux' ),
+						),
+						'list'  => array(
+							__( 'Isolerend HR++ of triple glas: standaard, voor een energiezuinige woning.', 'voltalux' ),
+							__( 'Talloze kleuren en houtnerfstructuren om je kozijnen te personaliseren.', 'voltalux' ),
+							__( 'Onderhoudsvrije, UV-bestendige afwerking die jarenlang kleur en glans behoudt.', 'voltalux' ),
+							__( 'Ventilatiemogelijkheden zonder afbreuk te doen aan de isolatiewaarde.', 'voltalux' ),
+							__( 'Lange levensduur: kunststof kozijnen gaan gemiddeld 50 jaar of langer mee.', 'voltalux' ),
+						),
+					),
+					array(
+						'type'    => 'text',
+						'id'      => 'kosten',
+						'nav'     => __( 'Kosten', 'voltalux' ),
+						'eyebrow' => __( 'Kosten', 'voltalux' ),
+						'title'   => __( 'Kosten kunststof kozijnen', 'voltalux' ),
+						'paras'   => array(
+							__( 'De kosten verschillen per project en hangen af van het type kozijn (draai-kiepraam, schuifpui of vast kozijn), de glaskeuze (HR++ of triple glas) en de afmetingen. Omdat elk project uniek is, werken we met offertes op maat, zodat je een helder overzicht van de kosten krijgt.', 'voltalux' ),
+						),
+						'cta'     => true,
+					),
+					array(
+						'type'  => 'text',
+						'alt'   => true,
+						'title' => __( 'Subsidie voor kunststof kozijnen', 'voltalux' ),
+						'paras' => array(
+							__( 'Bij het vervangen van kozijnen is subsidie mogelijk, vooral wanneer je kiest voor isolerend HR++ of triple glas. Om in aanmerking te komen dien je de aanvraag binnen 24 maanden na plaatsing in. Na de installatie ontvang je een volledig opleverdocument met alle benodigde informatie, zodat de subsidieaanvraag eenvoudig verloopt — en waar nodig helpen wij je daarbij.', 'voltalux' ),
+						),
+					),
 				),
 				'faq'     => array(
-					array( __( 'Waarom kunststof kozijnen?', 'voltalux' ), __( 'Kunststof kozijnen isoleren uitstekend, zijn onderhoudsarm en gaan lang mee. Ze verlagen je energiekosten en geven je woning een frisse uitstraling.', 'voltalux' ) ),
-					array( __( 'Kan ik kozijnen combineren met isolatie of dakwerk?', 'voltalux' ), __( 'Ja. We stemmen kozijnen, isolatie en dakwerk graag op elkaar af voor het beste resultaat en de meeste besparing.', 'voltalux' ) ),
+					array( __( 'Wat kost een kunststof kozijn inclusief montage?', 'voltalux' ), __( 'De exacte kosten hangen af van de afmetingen, glaskeuze en afwerking. Je ontvangt van ons een offerte op maat.', 'voltalux' ) ),
+					array( __( 'Is een huis meer waard met kunststof kozijnen?', 'voltalux' ), __( 'Ja. Kunststof kozijnen verhogen de waarde van je woning door betere isolatie, lagere energiekosten en een moderne uitstraling. Kopers waarderen de duurzaamheid en het onderhoudsgemak.', 'voltalux' ) ),
+					array( __( 'Kan ik subsidie krijgen voor kunststof kozijnen?', 'voltalux' ), __( 'In sommige gevallen is subsidie mogelijk, bijvoorbeeld bij HR++ of triple glas. Onze experts helpen je graag bij het aanvragen van de beschikbare subsidies.', 'voltalux' ) ),
 				),
 				'cta'     => array( 'title' => __( 'Kunststof kozijnen laten plaatsen?', 'voltalux' ), 'text' => __( 'Vraag vrijblijvend een offerte aan en ontdek de mogelijkheden.', 'voltalux' ) ),
 			),
-
 		)
 	);
 }
