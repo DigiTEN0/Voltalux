@@ -108,23 +108,6 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 						</div>
 						<?php endif; ?>
 					</li>
-					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
-					<?php
-					if ( $has_menu ) {
-						wp_nav_menu(
-							array(
-								'theme_location' => 'primary',
-								'container'      => false,
-								'items_wrap'     => '%3$s',
-								'depth'          => 2,
-							)
-						);
-					} else {
-						foreach ( voltalux_fallback_nav() as $item ) {
-							printf( '<li><a href="%1$s">%2$s</a></li>', esc_url( $item['url'] ), esc_html( $item['label'] ) );
-						}
-					}
-					?>
 				</ul>
 			</nav>
 
