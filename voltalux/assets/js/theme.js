@@ -24,6 +24,7 @@
 	var burger = doc.querySelector('.vlx-burger');
 	var mnav = doc.querySelector('.vlx-m-nav');
 	var mclose = doc.querySelector('.vlx-m-close');
+	var mbackdrop = doc.querySelector('.vlx-m-backdrop');
 
 	function openMenu() { body.classList.add('menu-open'); if (burger) { burger.setAttribute('aria-expanded', 'true'); } }
 	function closeMenu() { body.classList.remove('menu-open'); if (burger) { burger.setAttribute('aria-expanded', 'false'); } }
@@ -31,6 +32,7 @@
 
 	if (burger) { burger.addEventListener('click', toggleMenu); }
 	if (mclose) { mclose.addEventListener('click', closeMenu); }
+	if (mbackdrop) { mbackdrop.addEventListener('click', closeMenu); }
 	doc.addEventListener('keyup', function (e) { if (e.key === 'Escape') { closeMenu(); } });
 
 	/* ---- Mobile accordions ---- */

@@ -128,8 +128,9 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 		</div>
 	</header>
 
-	<?php /* Mobile menu */ ?>
-	<div class="vlx-m-nav" id="vlx-m-nav" aria-label="<?php esc_attr_e( 'Mobiel menu', 'voltalux' ); ?>">
+	<?php /* Navigatiemenu — volledig scherm op mobiel, zijbalk (drawer) op desktop */ ?>
+	<div class="vlx-m-backdrop" aria-hidden="true"></div>
+	<div class="vlx-m-nav" id="vlx-m-nav" aria-label="<?php esc_attr_e( 'Menu', 'voltalux' ); ?>">
 		<div class="vlx-m-nav__top">
 			<?php voltalux_branding( 'header' ); ?>
 			<button class="vlx-m-close" aria-label="<?php esc_attr_e( 'Menu sluiten', 'voltalux' ); ?>"><?php echo voltalux_icon( 'close' ); // phpcs:ignore ?></button>
