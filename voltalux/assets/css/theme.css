@@ -227,6 +227,10 @@ body.menu-open .vlx-m-nav__foot > * { animation: mEnter .55s var(--ease-out) bot
 .vlx-hero .vlx-eyebrow { color: var(--green); margin-bottom: 1.5rem; }
 .vlx-hero h1 { color: #fff; font-size: var(--fs-display); font-weight: 800; letter-spacing: -.04em; line-height: .96; max-width: 15ch; margin-bottom: 1.5rem; }
 .vlx-hero__text { max-width: 46rem; font-size: var(--fs-lead); color: rgba(255,255,255,.82); }
+.vlx-hero__usps { list-style: none; padding: 0; margin: 1.5rem 0 0; display: grid; gap: .65rem; }
+.vlx-hero__usps li { display: flex; align-items: center; gap: .7rem; color: rgba(255,255,255,.92); font-size: 1.05rem; font-weight: 500; }
+.vlx-hero__usps .vlx-hero__ck { flex: none; width: 1.6rem; height: 1.6rem; border-radius: 8px; background: rgba(51,216,115,.18); color: var(--green-bright); display: grid; place-items: center; }
+.vlx-hero__usps .vlx-hero__ck svg { width: 14px; height: 14px; }
 .vlx-hero__cta { display: flex; flex-wrap: wrap; gap: .7rem; margin-top: 2.1rem; padding-bottom: 1rem; }
 
 /* Spec bar under hero */

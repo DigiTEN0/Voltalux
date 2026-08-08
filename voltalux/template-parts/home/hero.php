@@ -10,9 +10,17 @@ $poster  = voltalux_option( 'hero_poster', '' );
 // Match the page scheme so an http:// asset is not blocked as mixed content on an https site (iOS Safari).
 if ( $video )  { $video  = set_url_scheme( $video ); }
 if ( $poster ) { $poster = set_url_scheme( $poster ); }
-$eyebrow = voltalux_option( 'hero_eyebrow', __( 'Zonnepanelen · Thuisbatterij · Airco', 'voltalux' ) );
+$eyebrow = voltalux_option( 'hero_eyebrow', '' );
 $title   = voltalux_option( 'hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark]', 'voltalux' ) );
 $text    = voltalux_option( 'hero_text', '' );
+$usps    = apply_filters(
+	'voltalux_hero_usps',
+	array(
+		__( 'A-merken, all-in geïnstalleerd', 'voltalux' ),
+		__( 'Advies op maat, gratis en op locatie', 'voltalux' ),
+		__( 'Eén aanspreekpunt van advies tot nazorg', 'voltalux' ),
+	)
+);
 
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );
 $b1_label = voltalux_option( 'hero_btn1_label', __( 'Offerte aanvragen', 'voltalux' ) );
@@ -41,6 +49,14 @@ $b1_url   = voltalux_option( 'hero_btn1_url', '#contact' );
 					<?php endif; ?>
 					<?php if ( $text ) : ?>
 						<p class="vlx-hero__text"><?php echo wp_kses_post( $text ); ?></p>
+					<?php endif; ?>
+
+					<?php if ( ! empty( $usps ) ) : ?>
+						<ul class="vlx-hero__usps">
+							<?php foreach ( $usps as $usp ) : ?>
+								<li><span class="vlx-hero__ck"><?php echo voltalux_icon( 'check' ); // phpcs:ignore ?></span><?php echo esc_html( $usp ); ?></li>
+							<?php endforeach; ?>
+						</ul>
 					<?php endif; ?>
 
 					<div class="vlx-hero__cta">
