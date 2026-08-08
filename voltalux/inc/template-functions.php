@@ -189,10 +189,10 @@ function voltalux_services() {
 	return apply_filters(
 		'voltalux_services',
 		array(
-			array( 'name' => __( 'Zonnepanelen', 'voltalux' ),  'desc' => __( 'Wek je eigen stroom op met A-merk panelen.', 'voltalux' ),      'icon' => 'sun',     'url' => 'https://www.voltalux.nl/zonnepanelen/' ),
-			array( 'name' => __( 'Thuisbatterij', 'voltalux' ), 'desc' => __( "Sla je stroom op en gebruik 'm wanneer je wilt.", 'voltalux' ),  'icon' => 'battery', 'url' => 'https://www.voltalux.nl/thuisbatterij/' ),
-			array( 'name' => "Airco's",                          'desc' => __( 'Koelen én verwarmen — stil en energiezuinig.', 'voltalux' ),     'icon' => 'snow',    'url' => 'https://www.voltalux.nl/aircos/' ),
-			array( 'name' => __( 'Dakrenovaties', 'voltalux' ),  'desc' => __( 'Een nieuw, goed geïsoleerd dak dat jaren meegaat.', 'voltalux' ),'icon' => 'roof',    'url' => 'https://www.voltalux.nl/dakdekker/' ),
+			array( 'name' => __( 'Zonnepanelen', 'voltalux' ),  'desc' => __( 'Wek je eigen stroom op met A-merk panelen.', 'voltalux' ),      'icon' => 'sun',     'url' => voltalux_page_link( 'zonnepanelen' ) ),
+			array( 'name' => __( 'Thuisbatterij', 'voltalux' ), 'desc' => __( "Sla je stroom op en gebruik 'm wanneer je wilt.", 'voltalux' ),  'icon' => 'battery', 'url' => voltalux_page_link( 'thuisbatterij' ) ),
+			array( 'name' => "Airco's",                          'desc' => __( 'Koelen én verwarmen — stil en energiezuinig.', 'voltalux' ),     'icon' => 'snow',    'url' => voltalux_page_link( 'aircos' ) ),
+			array( 'name' => __( 'Dakrenovaties', 'voltalux' ),  'desc' => __( 'Een nieuw, goed geïsoleerd dak dat jaren meegaat.', 'voltalux' ),'icon' => 'roof',    'url' => voltalux_page_link( 'dakdekker' ) ),
 		)
 	);
 }

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.37.0' );
+	define( 'VOLTALUX_VERSION', '3.38.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -44,6 +44,7 @@ if ( ! defined( 'VOLTALUX_KVK' ) )     { define( 'VOLTALUX_KVK', 'KvK 87951681' 
 if ( ! defined( 'VOLTALUX_BTW' ) )     { define( 'VOLTALUX_BTW', 'BTW NL[…]B01' ); }
 if ( ! defined( 'VOLTALUX_FB' ) )      { define( 'VOLTALUX_FB', 'https://www.facebook.com/p/Voltalux-NL-100087523061118/' ); }
 if ( ! defined( 'VOLTALUX_IG' ) )      { define( 'VOLTALUX_IG', 'https://www.instagram.com/voltalux.nl/' ); }
+if ( ! defined( 'VOLTALUX_TERMS_URL' ) ) { define( 'VOLTALUX_TERMS_URL', 'http://voltalux.digiten.nl/wp-content/uploads/2026/08/Algemene-Leveringsvoorwaarden-Zonnepanelen-Voltalux-1-1-1-1.pdf' ); }
 
 /* Google reviews badge (footer). Editable in the Customizer → Footer. */
 if ( ! defined( 'VOLTALUX_GOOGLE_URL' ) )    { define( 'VOLTALUX_GOOGLE_URL', 'https://share.google/hMebBVh8pLYfXjEdE' ); }
@@ -217,6 +218,7 @@ require VOLTALUX_DIR . 'inc/template-tags.php';
 require VOLTALUX_DIR . 'inc/template-functions.php';
 require VOLTALUX_DIR . 'inc/content-data.php';
 require VOLTALUX_DIR . 'inc/services-content.php';
+require VOLTALUX_DIR . 'inc/pages-content.php';
 require VOLTALUX_DIR . 'inc/blocks.php';
 require VOLTALUX_DIR . 'inc/schema.php';
 require VOLTALUX_DIR . 'inc/customizer.php';

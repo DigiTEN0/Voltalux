@@ -1373,6 +1373,19 @@ body.hsc-open { overflow: hidden; }
 .vlx-jumpnav a { font-family: var(--font-display); font-size: .86rem; font-weight: 600; padding: .5rem 1rem; border-radius: var(--r-pill); background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); transition: border-color var(--t), color var(--t), background var(--t); }
 .vlx-jumpnav a:hover { border-color: var(--ink); color: var(--ink); }
 
+/* Contact page: info + form */
+.vlx-contactgrid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(1.6rem, 1rem + 3vw, 3.5rem); align-items: start; }
+.vlx-contactgrid__info h2 { margin-top: .55rem; }
+.vlx-contactlist { list-style: none; margin: 1.8rem 0 0; padding: 0; display: grid; gap: 1.15rem; }
+.vlx-contactlist li { display: flex; align-items: flex-start; gap: .9rem; }
+.vlx-contactlist__ic { flex: none; width: 44px; height: 44px; border-radius: 13px; background: var(--green-soft); color: var(--green-strong); display: grid; place-items: center; }
+.vlx-contactlist__ic svg { width: 21px; height: 21px; }
+.vlx-contactlist__k { display: block; font-family: var(--font-mono); font-size: .64rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: .1rem; }
+.vlx-contactlist li a, .vlx-contactlist li > span > :not(.vlx-contactlist__k) { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--ink); }
+.vlx-contactlist li a:hover { color: var(--green-strong); }
+.vlx-contactgrid__form { align-self: start; }
+@media (max-width: 860px) { .vlx-contactgrid { grid-template-columns: 1fr; gap: 2rem; } }
+
 /* Premium numbered process/step cards (how-it-works & werkwijze) */
 .vlx-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; margin-top: 2.8rem; }
 .vlx-flow--4 { grid-template-columns: repeat(4, 1fr); }

@@ -210,6 +210,10 @@ function voltalux_seo_overrides() {
 			'zakelijk'        => array( __( 'Zakelijke batterijopslag en containerbatterijen', 'voltalux' ), __( 'Groeien ondanks netcongestie. Peak shaving en batterijopslag van 30 kWh tot meerdere MWh, met doorgerekende businesscase.', 'voltalux' ) ),
 			'werkwijze'       => array( __( 'Zo werken wij', 'voltalux' ), __( 'Van vrijblijvend adviesgesprek tot oplevering — en de nazorg daarna.', 'voltalux' ) ),
 			'onze-projecten'  => array( __( 'Uitgevoerde projecten', 'voltalux' ), __( 'Onze recent uitgevoerde installaties door heel Nederland: thuisbatterijen, zonnepanelen en airco.', 'voltalux' ) ),
+				'over-ons'        => array( __( 'Over Voltalux — jouw partner in verduurzaming', 'voltalux' ), __( 'Maak kennis met Voltalux: eigen erkende installateurs, A-merken en één aanspreekpunt voor zonnepanelen, thuisbatterijen, airco, warmtepompen en dakrenovatie.', 'voltalux' ) ),
+				'contact'         => array( __( 'Contact opnemen met Voltalux', 'voltalux' ), __( 'Vragen of een gratis adviesgesprek? Bel 085-0600106 of laat je gegevens achter — we nemen zo snel mogelijk contact met je op.', 'voltalux' ) ),
+				'veelgestelde-vragen' => array( __( 'Veelgestelde vragen over zonnepanelen - Voltalux', 'voltalux' ), __( 'Antwoord op de meestgestelde vragen over zonnepanelen, salderen, onderhoud en rendement. Staat je vraag er niet bij? Neem contact op met Voltalux.', 'voltalux' ) ),
+				'privacybeleid'   => array( __( 'Privacybeleid - Voltalux', 'voltalux' ), __( 'Lees hoe Voltalux omgaat met je persoonsgegevens en privacy op deze website.', 'voltalux' ) ),
 
 				// Lokale landingspagina's — stads-specifieke titels/meta (fallback als er geen SEO-plugin actief is).
 				// Let op: de eigen tekst van deze pagina's blijft staan; alleen de <title>/meta wordt hier ingevuld.

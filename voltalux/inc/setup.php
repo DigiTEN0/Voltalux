@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Bump this when the page list changes so setup re-runs and re-flushes URLs. */
 if ( ! defined( 'VOLTALUX_PAGES_VERSION' ) ) {
-	define( 'VOLTALUX_PAGES_VERSION', 8 );
+	define( 'VOLTALUX_PAGES_VERSION', 9 );
 }
 
 /**
@@ -71,9 +71,10 @@ function voltalux_setup_pages() {
 		'zakelijk'        => array( __( 'Zakelijk', 'voltalux' ), 'page-templates/zakelijk.php', '' ),
 		'werkwijze'       => array( __( 'Werkwijze', 'voltalux' ), 'page-templates/werkwijze.php', '' ),
 		'onze-projecten'  => array( __( 'Projecten', 'voltalux' ), 'page-templates/projecten.php', '' ),
-		'over-ons'        => array( __( 'Over ons', 'voltalux' ), '', '' ),
-		'contact'         => array( __( 'Contact', 'voltalux' ), '', '' ),
-		'veelgestelde-vragen' => array( __( 'Veelgestelde vragen', 'voltalux' ), '', '' ),
+		'over-ons'        => array( __( 'Over ons', 'voltalux' ), 'page-templates/over-ons.php', '' ),
+		'contact'         => array( __( 'Contact', 'voltalux' ), 'page-templates/contact.php', '' ),
+		'veelgestelde-vragen' => array( __( 'Veelgestelde vragen', 'voltalux' ), 'page-templates/faq.php', '' ),
+		'privacybeleid'   => array( __( 'Privacybeleid', 'voltalux' ), 'page-templates/inhoud.php', '' ),
 		'blog'            => array( __( 'Blog', 'voltalux' ), '', '' ),
 	);
 }

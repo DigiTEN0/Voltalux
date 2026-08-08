@@ -20,7 +20,7 @@ if ( empty( $projects ) ) {
 				<?php if ( $eyebrow ) { voltalux_eyebrow( $eyebrow ); } ?>
 				<h2><?php echo esc_html( $title ); ?></h2>
 			</div>
-			<?php voltalux_button( array( 'label' => __( 'Alle projecten', 'voltalux' ), 'url' => 'https://www.voltalux.nl/onze-projecten/', 'style' => 'ghost' ) ); ?>
+			<?php voltalux_button( array( 'label' => __( 'Alle projecten', 'voltalux' ), 'url' => voltalux_page_link( 'onze-projecten' ), 'style' => 'ghost' ) ); ?>
 		</div>
 
 		<div class="vlx-projects">

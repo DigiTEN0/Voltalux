@@ -31,10 +31,10 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 	$default_cols = array(
 		__( 'Onze oplossingen', 'voltalux' ) => $col_solutions,
 		__( 'Bekijk ook', 'voltalux' ) => array(
-			array( __( 'Over ons', 'voltalux' ), 'https://www.voltalux.nl/over-ons/' ),
-			array( __( 'Onze projecten', 'voltalux' ), 'https://www.voltalux.nl/onze-projecten/' ),
-			array( __( 'Veelgestelde vragen', 'voltalux' ), 'https://www.voltalux.nl/veelgestelde-vragen/' ),
-			array( __( 'Blog', 'voltalux' ), 'https://www.voltalux.nl/blog/' ),
+			array( __( 'Over ons', 'voltalux' ), voltalux_page_link( 'over-ons' ) ),
+			array( __( 'Onze projecten', 'voltalux' ), voltalux_page_link( 'onze-projecten' ) ),
+			array( __( 'Veelgestelde vragen', 'voltalux' ), voltalux_page_link( 'veelgestelde-vragen' ) ),
+			array( __( 'Blog', 'voltalux' ), voltalux_page_link( 'blog' ) ),
 		),
 	);
 	?>
@@ -118,7 +118,7 @@ $cta_url    = voltalux_option( 'header_cta_url', '#contact' );
 				if ( has_nav_menu( 'legal' ) ) {
 					wp_nav_menu( array( 'theme_location' => 'legal', 'container' => 'nav', 'depth' => 1, 'menu_class' => 'vlx-legal-menu' ) );
 				} else {
-					echo '<nav><ul><li><a href="https://www.voltalux.nl/privacybeleid/">' . esc_html__( 'Privacybeleid', 'voltalux' ) . '</a></li><li><a href="#">' . esc_html__( 'Algemene voorwaarden', 'voltalux' ) . '</a></li></ul></nav>';
+					echo '<nav><ul><li><a href="' . esc_url( voltalux_page_link( 'privacybeleid' ) ) . '">' . esc_html__( 'Privacybeleid', 'voltalux' ) . '</a></li><li><a href="' . esc_url( voltalux_option( 'terms_url', VOLTALUX_TERMS_URL ) ) . '" target="_blank" rel="noopener">' . esc_html__( 'Algemene voorwaarden', 'voltalux' ) . '</a></li></ul></nav>';
 				}
 				?>
 			</div>
