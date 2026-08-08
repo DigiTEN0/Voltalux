@@ -11,7 +11,7 @@ $poster  = voltalux_option( 'hero_poster', '' );
 if ( $video )  { $video  = set_url_scheme( $video ); }
 if ( $poster ) { $poster = set_url_scheme( $poster ); }
 $eyebrow = voltalux_option( 'hero_eyebrow', __( 'Zonnepanelen · Thuisbatterij · Airco', 'voltalux' ) );
-$title   = voltalux_option( 'hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark].', 'voltalux' ) );
+$title   = voltalux_option( 'hero_title', __( 'Jouw partner in [mark]verduurzaming[/mark]', 'voltalux' ) );
 $text    = voltalux_option( 'hero_text', '' );
 
 $phone   = voltalux_option( 'phone', VOLTALUX_PHONE );

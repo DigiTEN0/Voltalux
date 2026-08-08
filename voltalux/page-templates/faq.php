@@ -24,7 +24,6 @@ voltalux_page_hero(
 		'eyebrow' => __( 'Veelgestelde vragen', 'voltalux' ),
 		'title'   => __( 'Antwoord op je [mark]vragen[/mark]', 'voltalux' ),
 		'lead'    => __( 'De meestgestelde vragen over zonnepanelen, salderen, onderhoud en meer — helder op een rij. Staat je vraag er niet bij? Neem gerust contact op.', 'voltalux' ),
-		'icon'    => 'spark',
 		'cta'     => $hero_cta,
 		'flush'   => true,
 	)

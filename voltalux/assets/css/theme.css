@@ -138,14 +138,19 @@ body.has-hero .vlx-site-header:not(.is-stuck) { background: transparent; }
 .vlx-header-phone { display: inline-flex; align-items: center; gap: .45em; font-family: var(--font-display); font-weight: 500; font-size: .9rem; color: #fff; white-space: nowrap; flex: none; }
 .vlx-header-phone svg { width: 16px; height: 16px; color: var(--green); flex: none; }
 /* When the nav gets tight, collapse the phone to just its icon instead of wrapping the number. */
-@media (max-width: 1250px) {
+@media (max-width: 1440px) {
 	.vlx-header-phone span { display: none; }
 	.vlx-header-phone { width: 42px; height: 42px; justify-content: center; border-radius: 50%; background: rgba(255,255,255,.08); gap: 0; }
 	.vlx-header-phone svg { width: 18px; height: 18px; }
 }
+/* Full nav + burger both show >=1101px — hide the standalone phone icon there
+   to keep room (phone stays in the side-menu + footer). */
+@media (min-width: 1101px) {
+	.vlx-header-phone { display: none; }
+}
 
 /* Burger — always top-right */
-.vlx-burger { display: none; width: 46px; height: 46px; border-radius: 13px; border: 1px solid rgba(255,255,255,.2); position: relative; transition: border-color var(--t), background-color var(--t); }
+.vlx-burger { display: block; width: 46px; height: 46px; border-radius: 13px; border: 1px solid rgba(255,255,255,.2); position: relative; transition: border-color var(--t), background-color var(--t); }
 .vlx-burger:hover { background: rgba(255,255,255,.08); }
 .vlx-burger span { position: absolute; left: 13px; right: 13px; height: 1.8px; background: #fff; border-radius: 2px; transition: transform .35s var(--ease), opacity .2s; }
 .vlx-burger span:nth-child(1){ top: 17px; } .vlx-burger span:nth-child(2){ top: 22.5px; } .vlx-burger span:nth-child(3){ top: 28px; }

@@ -268,9 +268,11 @@ function voltalux_fallback_nav() {
 	return apply_filters(
 		'voltalux_fallback_nav',
 		array(
-			array( 'label' => __( 'Over ons', 'voltalux' ), 'url' => voltalux_page_link( 'over-ons' ) ),
-			array( 'label' => __( 'Blog', 'voltalux' ),     'url' => voltalux_page_link( 'blog' ) ),
-			array( 'label' => __( 'Contact', 'voltalux' ),  'url' => voltalux_page_link( 'contact' ) ),
+			array( 'label' => __( 'Over ons', 'voltalux' ),            'url' => voltalux_page_link( 'over-ons' ) ),
+			array( 'label' => __( 'Onze projecten', 'voltalux' ),      'url' => voltalux_page_link( 'onze-projecten' ) ),
+			array( 'label' => __( 'Veelgestelde vragen', 'voltalux' ), 'url' => voltalux_page_link( 'veelgestelde-vragen' ) ),
+			array( 'label' => __( 'Blog', 'voltalux' ),                'url' => voltalux_page_link( 'blog' ) ),
+			array( 'label' => __( 'Contact', 'voltalux' ),             'url' => voltalux_page_link( 'contact' ) ),
 		)
 	);
 }

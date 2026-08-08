@@ -19,7 +19,6 @@ voltalux_page_hero(
 		'eyebrow' => __( 'Contact', 'voltalux' ),
 		'title'   => __( 'Wij helpen je graag [mark]vrijblijvend[/mark] verder', 'voltalux' ),
 		'lead'    => __( 'Vragen over onze diensten of een gratis adviesgesprek met één van onze experts? Laat je gegevens achter, dan nemen we zo snel mogelijk contact met je op.', 'voltalux' ),
-		'icon'    => 'headset',
 		'flush'   => true,
 	)
 );

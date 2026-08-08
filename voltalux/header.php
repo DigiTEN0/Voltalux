@@ -108,6 +108,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 						</div>
 						<?php endif; ?>
 					</li>
+					<li><a href="<?php echo esc_url( voltalux_page_link( 'contact' ) ); ?>"><?php esc_html_e( 'Contact', 'voltalux' ); ?></a></li>
 				</ul>
 			</nav>
 
@@ -135,6 +136,7 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 		</div>
 		<div class="vlx-m-nav__scroll">
 			<ul class="vlx-m-list">
+					<li><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Home', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zonnepanelen' ) ); ?>"><?php esc_html_e( 'Zonnepanelen', 'voltalux' ); ?></a></li>
 				<li class="vlx-m-acc">
 					<button class="vlx-m-acc__btn" aria-expanded="false"><?php esc_html_e( 'Thuisbatterijen', 'voltalux' ); ?> <span class="vlx-ic"><?php echo voltalux_icon( 'plus' ); // phpcs:ignore ?></span></button>
@@ -186,7 +188,6 @@ $open_attrs = array( 'data-vlx-open' => 'offerte' );
 					<?php endif; ?>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'zakelijk' ) ); ?>"><?php esc_html_e( 'Zakelijk', 'voltalux' ); ?></a></li>
 					<li><a href="<?php echo esc_url( voltalux_page_link( 'werkwijze' ) ); ?>"><?php esc_html_e( 'Werkwijze', 'voltalux' ); ?></a></li>
-					<li><a href="<?php echo esc_url( voltalux_page_link( 'onze-projecten' ) ); ?>"><?php esc_html_e( 'Projecten', 'voltalux' ); ?></a></li>
 				<?php
 				if ( $has_menu ) {
 					wp_nav_menu(
