@@ -218,6 +218,7 @@ require VOLTALUX_DIR . 'inc/template-tags.php';
 require VOLTALUX_DIR . 'inc/template-functions.php';
 require VOLTALUX_DIR . 'inc/content-data.php';
 require VOLTALUX_DIR . 'inc/services-content.php';
+require VOLTALUX_DIR . 'inc/service-sections.php';
 require VOLTALUX_DIR . 'inc/pages-content.php';
 require VOLTALUX_DIR . 'inc/blocks.php';
 require VOLTALUX_DIR . 'inc/schema.php';
