@@ -29,25 +29,39 @@ function voltalux_admin_logo_url() {
 add_action(
 	'login_enqueue_scripts',
 	function () {
-		$logo  = esc_url( voltalux_admin_logo_url() );
+		// Prefer the Customizer custom logo, then the theme option, then default.
+		$logo = '';
+		if ( function_exists( 'get_custom_logo' ) && has_custom_logo() ) {
+			$cl = get_theme_mod( 'custom_logo' );
+			if ( $cl ) {
+				$img  = wp_get_attachment_image_src( $cl, 'full' );
+				$logo = $img ? $img[0] : '';
+			}
+		}
+		if ( ! $logo ) {
+			$logo = voltalux_admin_logo_url();
+		}
+		// Match the page scheme so an http:// asset is not blocked on an https login page.
+		$logo  = esc_url( set_url_scheme( $logo ) );
 		$green = '#059a41';
-		?>
-		<style id="voltalux-login">
+
+		$css = "
 			body.login {
 				background: #0A0B0D;
 				background-image:
 					radial-gradient( 120% 120% at 78% -10%, rgba(5,154,65,.18) 0%, rgba(5,154,65,0) 46% ),
 					radial-gradient( 90% 90% at 0% 100%, rgba(5,154,65,.10) 0%, rgba(5,154,65,0) 50% );
 				color: #E9EAEC;
-				font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 			}
 			.login h1 a {
-				background-image: url('<?php echo $logo; // phpcs:ignore ?>');
-				background-size: contain;
-				background-position: center;
-				width: 220px;
-				height: 68px;
-				margin-bottom: 8px;
+				background-image: url('{$logo}') !important;
+				background-size: contain !important;
+				background-position: center !important;
+				width: 240px !important;
+				height: 72px !important;
+				margin: 0 auto 18px !important;
+				text-indent: -9999px;
+				overflow: hidden;
 			}
 			.login form {
 				background: #17191C;
@@ -58,45 +72,53 @@ add_action(
 			}
 			.login form label { color: #B9BDC2; font-size: 14px; }
 			.login input[type=text],
-			.login input[type=password] {
-				background: #0f1114;
-				border: 1px solid rgba(255,255,255,.14);
-				border-radius: 10px;
-				color: #fff;
-				padding: 10px 12px;
+			.login input[type=password],
+			.login input.input,
+			.login .input {
+				background: #0f1114 !important;
+				border: 1px solid rgba(255,255,255,.14) !important;
+				border-radius: 10px !important;
+				color: #fff !important;
+				padding: 10px 12px !important;
 			}
 			.login input[type=text]:focus,
-			.login input[type=password]:focus {
-				border-color: <?php echo $green; ?>;
-				box-shadow: 0 0 0 2px rgba(5,154,65,.35);
+			.login input[type=password]:focus,
+			.login .input:focus {
+				border-color: {$green} !important;
+				box-shadow: 0 0 0 2px rgba(5,154,65,.35) !important;
 				outline: 0;
 			}
 			.wp-core-ui .button-primary {
-				background: <?php echo $green; ?>;
-				border-color: <?php echo $green; ?>;
-				border-radius: 999px;
-				text-shadow: none;
-				box-shadow: none;
+				background: {$green} !important;
+				border-color: {$green} !important;
+				border-radius: 999px !important;
+				text-shadow: none !important;
+				box-shadow: none !important;
 				font-weight: 600;
-				padding: 4px 20px;
+				padding: 4px 22px !important;
 			}
-			.wp-core-ui .button-primary:hover { background: #04863a; border-color: #04863a; }
+			.wp-core-ui .button-primary:hover { background: #04863a !important; border-color: #04863a !important; }
 			.login #nav a, .login #backtoblog a { color: #9AA0A6 !important; }
 			.login #nav a:hover, .login #backtoblog a:hover { color: #fff !important; }
-			.login .message, .login .success { border-left-color: <?php echo $green; ?>; }
-			.login form .input, .login input.password-input { font-size: 16px; }
+			.login .message, .login .success { border-left-color: {$green}; }
 			.login #login_error { border-left-color: #e2483d; }
 			.login .privacy-policy-page-link { display: none; }
 			.login .wp-pwd .wp-hide-pw {
-				background: #0f1114;
-				border-color: rgba(255,255,255,.14);
-				color: #9AA0A6;
+				background: #0f1114 !important;
+				border-color: rgba(255,255,255,.14) !important;
+				color: #9AA0A6 !important;
 			}
-			.login .wp-pwd .wp-hide-pw:hover { color: #fff; }
+			.login .wp-pwd .wp-hide-pw:hover { color: #fff !important; }
 			.login .wp-pwd .wp-hide-pw .dashicons { color: inherit; }
 			.login .dashicons { color: #9AA0A6; }
-		</style>
-		<?php
+		";
+
+		// Attach AFTER the core 'login' stylesheet so our rules win regardless of specificity.
+		if ( wp_style_is( 'login', 'enqueued' ) || wp_style_is( 'login', 'registered' ) ) {
+			wp_add_inline_style( 'login', $css );
+		} else {
+			echo '<style id="voltalux-login">' . $css . '</style>'; // phpcs:ignore WordPress.Security.EscapeOutput
+		}
 	}
 );
 
