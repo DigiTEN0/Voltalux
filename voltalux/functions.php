@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.42.0' );
+	define( 'VOLTALUX_VERSION', '3.43.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -226,6 +226,8 @@ require VOLTALUX_DIR . 'inc/elementor.php';
 require VOLTALUX_DIR . 'inc/setup.php';
 require VOLTALUX_DIR . 'inc/projects-cpt.php';
 require VOLTALUX_DIR . 'inc/huisscan.php';
+require VOLTALUX_DIR . 'inc/admin-branding.php';
+require VOLTALUX_DIR . 'inc/page-content-meta.php';
 
 /* -------------------------------------------------------------------------
  *  Small quality-of-life tweaks

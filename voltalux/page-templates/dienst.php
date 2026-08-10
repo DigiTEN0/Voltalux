@@ -66,8 +66,8 @@ voltalux_page_hero(
 	array(
 		'crumbs' => $vlx_crumbs,
 		'eyebrow' => $svc['eyebrow'],
-		'title'   => $svc['h1'],
-		'lead'    => $svc['lead'],
+		'title'   => voltalux_editable( 'h1', $svc['h1'] ),
+		'lead'    => voltalux_editable( 'lead', $svc['lead'] ),
 		'icon'    => isset( $svc['icon'] ) ? $svc['icon'] : '',
 		'media'   => $hero_media,
 		'cta'     => $hero_cta,
@@ -278,6 +278,17 @@ if ( ! function_exists( 'voltalux_section_head' ) ) {
 		</div>
 	</section>
 <?php endforeach; endif; ?>
+
+<?php
+/* Eigen tekst uit de editor — de site-eigenaar kan hier vrij inhoud toevoegen. */
+$vlx_extra = get_post_field( 'post_content', get_queried_object_id() );
+if ( $vlx_extra && '' !== trim( wp_strip_all_tags( $vlx_extra ) ) ) : ?>
+<section class="vlx-section vlx-section--sm">
+	<div class="vlx-container vlx-container--narrow">
+		<div class="vlx-prose vlx-reveal"><?php echo apply_filters( 'the_content', $vlx_extra ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+	</div>
+</section>
+<?php endif; ?>
 
 <?php /* Subservices / interne links (bv. dakdekker → dakwerkzaamheden) */ ?>
 <?php if ( ! empty( $svc['links']['items'] ) ) : ?>
