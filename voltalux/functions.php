@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.43.1' );
+	define( 'VOLTALUX_VERSION', '3.44.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -85,7 +85,16 @@ if ( ! function_exists( 'voltalux_setup' ) ) {
 
 		// Editor styling so Gutenberg matches the front-end brand.
 		add_theme_support( 'editor-styles' );
-		add_editor_style( 'assets/css/editor.css' );
+		// Load the front-end brand CSS into the editor too, so the dynamic
+		// "Voltalux" block previews look exactly like the live page.
+		add_editor_style(
+			array(
+				'assets/fonts/fonts.css',
+				'style.css',
+				'assets/css/theme.css',
+				'assets/css/editor.css',
+			)
+		);
 
 		// Curated brand palette for the block editor.
 		add_theme_support(
@@ -219,6 +228,7 @@ require VOLTALUX_DIR . 'inc/template-functions.php';
 require VOLTALUX_DIR . 'inc/content-data.php';
 require VOLTALUX_DIR . 'inc/services-content.php';
 require VOLTALUX_DIR . 'inc/service-sections.php';
+require VOLTALUX_DIR . 'inc/blocks-editable.php';
 require VOLTALUX_DIR . 'inc/pages-content.php';
 require VOLTALUX_DIR . 'inc/blocks.php';
 require VOLTALUX_DIR . 'inc/schema.php';

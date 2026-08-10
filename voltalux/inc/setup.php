@@ -17,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 /** Bump this when the page list changes so setup re-runs and re-flushes URLs. */
 if ( ! defined( 'VOLTALUX_PAGES_VERSION' ) ) {
-	define( 'VOLTALUX_PAGES_VERSION', 9 );
+	define( 'VOLTALUX_PAGES_VERSION', 10 );
 }
 
 /**
@@ -146,6 +146,34 @@ function voltalux_first_run_setup() {
 	}
 	if ( ! empty( $ids['blog'] ) && (int) get_option( 'page_for_posts' ) < 1 ) {
 		update_option( 'page_for_posts', $ids['blog'] );
+	}
+
+	// Seed editable Voltalux blocks into the service page(s) so they open as
+	// editable Gutenberg blocks with the real content already in place. Only when
+	// the page has no content yet — client edits are never overwritten. Starts
+	// with Zonnepanelen (proof); extend via the filter to roll out the rest.
+	if ( function_exists( 'voltalux_service_sections_block_content' ) ) {
+		$vlx_seed_slugs = apply_filters( 'voltalux_block_seed_slugs', array( 'zonnepanelen' ) );
+		foreach ( (array) $vlx_seed_slugs as $seed_slug ) {
+			if ( empty( $ids[ $seed_slug ] ) ) {
+				continue;
+			}
+			$seed_id = (int) $ids[ $seed_slug ];
+			$current = get_post_field( 'post_content', $seed_id );
+			if ( '' === trim( (string) $current ) ) {
+				$blocks = voltalux_service_sections_block_content( $seed_slug );
+				if ( $blocks ) {
+					// wp_slash: wp_update_post unslashes internally, so pre-slash to
+					// preserve the JSON escaping in the block markup.
+					wp_update_post(
+						array(
+							'ID'           => $seed_id,
+							'post_content' => wp_slash( $blocks ),
+						)
+					);
+				}
+			}
+		}
 	}
 
 	// SEO-friendly URLs: if the site is still on "Plain" permalinks (?page_id=…),

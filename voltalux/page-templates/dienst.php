@@ -142,28 +142,32 @@ $vlx_stats = apply_filters(
 <?php endif; ?>
 
 <?php
-/* Flexibele rich-content secties — via de gedeelde renderer (inc/service-sections.php),
- * zodat de front-end markup identiek blijft en het bewerkbare Gutenberg-blok exact
- * dezelfde output geeft. */
-if ( ! empty( $svc['sections'] ) ) :
-	$sec_i = 0;
-	foreach ( $svc['sections'] as $sec ) :
-		$sec_i++;
-		voltalux_render_service_section( $sec, array( 'index' => $sec_i, 'phone' => $phone, 'tel' => $tel ) );
-	endforeach;
+/* Flexibele rich-content secties.
+ * Als de pagina bewerkbare Voltalux-blokken bevat, renderen we die (de klant kan
+ * ze in Gutenberg aanpassen). Zo niet, dan vallen we terug op de servicedata —
+ * exact dezelfde renderer, dus identieke weergave. Beide paden gebruiken
+ * voltalux_render_service_section(), zodat look en SEO gelijk blijven. */
+$vlx_content = get_post_field( 'post_content', get_queried_object_id() );
+if ( false !== strpos( (string) $vlx_content, 'wp:voltalux/' ) ) :
+	echo apply_filters( 'the_content', $vlx_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+else :
+	if ( ! empty( $svc['sections'] ) ) :
+		$sec_i = 0;
+		foreach ( $svc['sections'] as $sec ) :
+			$sec_i++;
+			voltalux_render_service_section( $sec, array( 'index' => $sec_i, 'phone' => $phone, 'tel' => $tel ) );
+		endforeach;
+	endif;
+	/* Vrije tekst uit de editor (zonder blokken). */
+	if ( $vlx_content && '' !== trim( wp_strip_all_tags( $vlx_content ) ) ) : ?>
+		<section class="vlx-section vlx-section--sm">
+			<div class="vlx-container vlx-container--narrow">
+				<div class="vlx-prose vlx-reveal"><?php echo apply_filters( 'the_content', $vlx_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+			</div>
+		</section>
+	<?php endif;
 endif;
 ?>
-
-<?php
-/* Eigen tekst uit de editor — de site-eigenaar kan hier vrij inhoud toevoegen. */
-$vlx_extra = get_post_field( 'post_content', get_queried_object_id() );
-if ( $vlx_extra && '' !== trim( wp_strip_all_tags( $vlx_extra ) ) ) : ?>
-<section class="vlx-section vlx-section--sm">
-	<div class="vlx-container vlx-container--narrow">
-		<div class="vlx-prose vlx-reveal"><?php echo apply_filters( 'the_content', $vlx_extra ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
-	</div>
-</section>
-<?php endif; ?>
 
 <?php /* Subservices / interne links (bv. dakdekker → dakwerkzaamheden) */ ?>
 <?php if ( ! empty( $svc['links']['items'] ) ) : ?>
