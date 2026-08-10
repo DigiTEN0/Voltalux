@@ -16,7 +16,10 @@
 get_header();
 
 $vlx_slug = get_post_field( 'post_name', get_queried_object_id() );
-$svc      = function_exists( 'voltalux_service' ) ? voltalux_service( $vlx_slug ) : null;
+// Service data with the owner's per-page text edits merged in (identical markup).
+$svc      = function_exists( 'voltalux_service_merged' )
+	? voltalux_service_merged( $vlx_slug, get_queried_object_id() )
+	: ( function_exists( 'voltalux_service' ) ? voltalux_service( $vlx_slug ) : null );
 $phone    = voltalux_option( 'phone', VOLTALUX_PHONE );
 $tel      = 'tel:' . preg_replace( '/[^0-9+]/', '', $phone );
 
@@ -66,8 +69,8 @@ voltalux_page_hero(
 	array(
 		'crumbs' => $vlx_crumbs,
 		'eyebrow' => $svc['eyebrow'],
-		'title'   => voltalux_editable( 'h1', $svc['h1'] ),
-		'lead'    => voltalux_editable( 'lead', $svc['lead'] ),
+		'title'   => $svc['h1'],
+		'lead'    => $svc['lead'],
 		'icon'    => isset( $svc['icon'] ) ? $svc['icon'] : '',
 		'media'   => $hero_media,
 		'cta'     => $hero_cta,
@@ -142,32 +145,26 @@ $vlx_stats = apply_filters(
 <?php endif; ?>
 
 <?php
-/* Flexibele rich-content secties.
- * Als de pagina bewerkbare Voltalux-blokken bevat, renderen we die (de klant kan
- * ze in Gutenberg aanpassen). Zo niet, dan vallen we terug op de servicedata —
- * exact dezelfde renderer, dus identieke weergave. Beide paden gebruiken
- * voltalux_render_service_section(), zodat look en SEO gelijk blijven. */
-$vlx_content = get_post_field( 'post_content', get_queried_object_id() );
-if ( false !== strpos( (string) $vlx_content, 'wp:voltalux/' ) ) :
-	echo apply_filters( 'the_content', $vlx_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-else :
-	if ( ! empty( $svc['sections'] ) ) :
-		$sec_i = 0;
-		foreach ( $svc['sections'] as $sec ) :
-			$sec_i++;
-			voltalux_render_service_section( $sec, array( 'index' => $sec_i, 'phone' => $phone, 'tel' => $tel ) );
-		endforeach;
-	endif;
-	/* Vrije tekst uit de editor (zonder blokken). */
-	if ( $vlx_content && '' !== trim( wp_strip_all_tags( $vlx_content ) ) ) : ?>
-		<section class="vlx-section vlx-section--sm">
-			<div class="vlx-container vlx-container--narrow">
-				<div class="vlx-prose vlx-reveal"><?php echo apply_filters( 'the_content', $vlx_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
-			</div>
-		</section>
-	<?php endif;
+/* Flexibele rich-content secties — uit de (bewerkte) servicedata. De teksten
+ * komen uit voltalux_service_merged(), dus de klant-bewerkingen zitten er al in;
+ * de markup is identiek, dus look en SEO blijven gelijk. */
+if ( ! empty( $svc['sections'] ) ) :
+	$sec_i = 0;
+	foreach ( $svc['sections'] as $sec ) :
+		$sec_i++;
+		voltalux_render_service_section( $sec, array( 'index' => $sec_i, 'phone' => $phone, 'tel' => $tel ) );
+	endforeach;
 endif;
-?>
+
+/* Optionele vrije tekst uit de editor (geen Voltalux-blokken, om dubbel renderen te voorkomen). */
+$vlx_content = get_post_field( 'post_content', get_queried_object_id() );
+if ( $vlx_content && false === strpos( (string) $vlx_content, 'wp:voltalux/' ) && '' !== trim( wp_strip_all_tags( $vlx_content ) ) ) : ?>
+	<section class="vlx-section vlx-section--sm">
+		<div class="vlx-container vlx-container--narrow">
+			<div class="vlx-prose vlx-reveal"><?php echo apply_filters( 'the_content', $vlx_content ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></div>
+		</div>
+	</section>
+<?php endif; ?>
 
 <?php /* Subservices / interne links (bv. dakdekker → dakwerkzaamheden) */ ?>
 <?php if ( ! empty( $svc['links']['items'] ) ) : ?>

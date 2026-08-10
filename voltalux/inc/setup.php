@@ -148,12 +148,11 @@ function voltalux_first_run_setup() {
 		update_option( 'page_for_posts', $ids['blog'] );
 	}
 
-	// Seed editable Voltalux blocks into the service page(s) so they open as
-	// editable Gutenberg blocks with the real content already in place. Only when
-	// the page has no content yet — client edits are never overwritten. Starts
-	// with Zonnepanelen (proof); extend via the filter to roll out the rest.
+	// Optional: seed pages with editable Gutenberg blocks. Off by default — the
+	// full-page edit panel (inc/page-content-meta.php) is the primary editor now.
+	// Set the filter to a list of slugs to opt in to block-based editing instead.
 	if ( function_exists( 'voltalux_service_sections_block_content' ) ) {
-		$vlx_seed_slugs = apply_filters( 'voltalux_block_seed_slugs', array( 'zonnepanelen' ) );
+		$vlx_seed_slugs = apply_filters( 'voltalux_block_seed_slugs', array() );
 		foreach ( (array) $vlx_seed_slugs as $seed_slug ) {
 			if ( empty( $ids[ $seed_slug ] ) ) {
 				continue;
