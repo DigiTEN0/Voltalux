@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'VOLTALUX_VERSION' ) ) {
-	define( 'VOLTALUX_VERSION', '3.48.0' );
+	define( 'VOLTALUX_VERSION', '3.49.0' );
 }
 define( 'VOLTALUX_DIR', trailingslashit( get_template_directory() ) );
 define( 'VOLTALUX_URI', trailingslashit( get_template_directory_uri() ) );
@@ -227,6 +227,29 @@ require VOLTALUX_DIR . 'inc/setup.php';
 require VOLTALUX_DIR . 'inc/projects-cpt.php';
 require VOLTALUX_DIR . 'inc/huisscan.php';
 require VOLTALUX_DIR . 'inc/admin-branding.php';
+
+/**
+ * Neutralise non-breaking spaces in post/page content.
+ *
+ * Content pasted from some editors/word processors arrives with every space as
+ * a non-breaking space (U+00A0 / &nbsp;). Because those never wrap, a paragraph
+ * becomes one unbreakable line that overflows its column — on the blog it slides
+ * right under the sidebar, on mobile it runs off-screen. We convert them back to
+ * normal, breakable spaces at render time so existing content is fixed instantly
+ * (no need to re-paste), while a genuine single &nbsp; a user typed is harmless.
+ */
+function voltalux_normalize_nbsp( $html ) {
+	if ( ! is_string( $html ) || '' === $html ) {
+		return $html;
+	}
+	return str_replace(
+		array( "\xC2\xA0", '&nbsp;', '&#160;', '&#xA0;', '&#xa0;' ),
+		' ',
+		$html
+	);
+}
+add_filter( 'the_content', 'voltalux_normalize_nbsp', 20 );
+add_filter( 'the_excerpt', 'voltalux_normalize_nbsp', 20 );
 
 /* -------------------------------------------------------------------------
  *  Small quality-of-life tweaks
