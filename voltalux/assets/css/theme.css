@@ -827,6 +827,9 @@ select::-ms-expand { display: none; }
 @media (max-width: 900px) {
 	.vlx-blog-layout { grid-template-columns: 1fr; }
 	.vlx-sidebar { position: static; }
+	/* Zijbalk stapelt onder het artikel; de artikel-CTA en de zijbalk-CTA zijn
+	   dan vrijwel identiek en staan dubbel. Verberg de artikel-CTA op mobiel. */
+	.vlx-article-cta { display: none; }
 }
 
 /* Article tags + entry footer */
