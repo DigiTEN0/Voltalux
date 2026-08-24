@@ -30,7 +30,7 @@ if ( empty( $products ) ) {
 				<article class="vlx-batt vlx-reveal">
 					<?php if ( ! empty( $p['img'] ) ) : ?>
 						<div class="vlx-batt__media">
-							<img src="<?php echo esc_url( $p['img'] ); ?>" alt="<?php echo esc_attr( sprintf( '%s thuisbatterij', $p['name'] ) ); ?>" loading="lazy">
+							<img src="<?php echo esc_url( set_url_scheme( $p['img'] ) ); ?>" alt="<?php echo esc_attr( sprintf( '%s thuisbatterij', $p['name'] ) ); ?>" loading="lazy">
 						</div>
 					<?php endif; ?>
 					<div class="vlx-batt__body">
